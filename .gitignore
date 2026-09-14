@@ -20,6 +20,7 @@ dist-ssr
 # (see scripts/bundle-media.mjs). Images and captions are committed.
 public/media/*.mp4
 public/media/*.mp4.h264.mp4
+public/media/.fetch-log.md
 
 # Wrangler / Cloudflare
 .wrangler/

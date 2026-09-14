@@ -26,6 +26,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const ASSETS_DIR = path.join(ROOT, "src/assets");
 const OUT_DIR = path.join(ROOT, "public/media");
 const STATUS_FILE = path.join(OUT_DIR, "FETCH-STATUS.md");
+const LOG_FILE = path.join(OUT_DIR, ".fetch-log.md");
 const HOST =
   process.env.LOVABLE_ASSET_HOST ||
   "https://id-preview--6165df68-9e99-4dc4-ae1d-105cd6d6a8c8.lovable.app";
@@ -254,7 +255,10 @@ async function main() {
     status.push("All referenced Lovable assets resolved to local `public/media/` files.");
     status.push("");
   }
-  fs.writeFileSync(STATUS_FILE, status.join("\n"));
+  fs.writeFileSync(LOG_FILE, status.join("\n"));
+  if (failed.length) {
+    fs.writeFileSync(STATUS_FILE, status.join("\n"));
+  }
   console.log(status.join("\n"));
 
   if (missingOther.length) {

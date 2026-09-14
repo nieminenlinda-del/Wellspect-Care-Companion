@@ -30,7 +30,10 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
     // Capacitor needs a client-side shell with index.html (no Cloudflare worker in the APK).
-    spa: { enabled: true },
+    spa: {
+      enabled: true,
+      prerender: { outputPath: "/index" },
+    },
   },
   vite: {
     plugins: [localL5eMediaPlugin()],
