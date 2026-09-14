@@ -37,7 +37,7 @@ export function MarketSelector({ variant = "light" }: { variant?: "light" | "onD
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-label={t.chooseMarket}
-        className={`flex min-h-11 items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
+        className={`flex min-h-11 max-w-[min(100%,20rem)] shrink-0 items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-colors clinic-landscape:min-h-12 ${
           variant === "onDark"
             ? "glass-dark text-primary-foreground hover:bg-primary-foreground/15"
             : "glass text-foreground hover:bg-muted shadow-soft"
@@ -57,7 +57,7 @@ export function MarketSelector({ variant = "light" }: { variant?: "light" | "onD
         <ul
           role="listbox"
           aria-label={t.marketLabel}
-          className="glass absolute right-0 z-30 mt-2 w-64 overflow-hidden rounded-3xl border shadow-lift"
+          className="glass absolute right-0 z-30 mt-2 max-h-[min(70dvh,24rem)] w-[min(18rem,calc(100vw-2rem))] overflow-y-auto rounded-3xl border shadow-lift"
         >
           {locales.map((l) => {
             const active = l.code === locale;

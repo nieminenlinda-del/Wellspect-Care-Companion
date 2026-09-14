@@ -5,6 +5,24 @@
 //     React/TanStack dedupe, error logger plugins, and sandbox detection (port/host/strictPort).
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import type { Plugin } from "vite";
+
+/**
+ * Safety net: Lovable `*.asset.json` files originally used hostless `/__l5e/...`
+ * URLs. Those work on the preview origin but 404 inside a Capacitor WebView.
+ * Source files are rewritten to `/media/<file>`; this transform catches leftovers.
+ */
+function localL5eMediaPlugin(): Plugin {
+  const pattern = /\/__l5e\/assets-v1\/[0-9a-f-]+\/([^"'`?\s]+)/g;
+  return {
+    name: "local-l5e-media",
+    enforce: "pre",
+    transform(code, id) {
+      if (id.includes("node_modules") || !code.includes("/__l5e/")) return;
+      return { code: code.replace(pattern, "/media/$1"), map: null };
+    },
+  };
+}
 
 export default defineConfig({
   tanstackStart: {
@@ -13,5 +31,8 @@ export default defineConfig({
     server: { entry: "server" },
     // Capacitor needs a client-side shell with index.html (no Cloudflare worker in the APK).
     spa: { enabled: true },
+  },
+  vite: {
+    plugins: [localL5eMediaPlugin()],
   },
 });

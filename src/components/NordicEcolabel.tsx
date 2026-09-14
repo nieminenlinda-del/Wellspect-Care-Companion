@@ -29,7 +29,7 @@ export function EcolabelDialog({ trigger }: { trigger: ReactNode }) {
   return (
     <Dialog>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogContent className="max-h-[85vh] overflow-y-auto rounded-3xl sm:max-w-xl">
+      <DialogContent className="max-h-[min(88dvh,52rem)] overflow-y-auto rounded-3xl sm:max-w-xl">
         <DialogHeader>
           <div className="flex items-center gap-3">
             <SwanMark className="size-12 shrink-0" />

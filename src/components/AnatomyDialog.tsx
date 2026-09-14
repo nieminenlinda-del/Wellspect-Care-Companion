@@ -25,7 +25,7 @@ export function AnatomyDialog({ sex, trigger }: { sex: AnatomySex; trigger: Reac
   return (
     <Dialog>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogContent className="max-h-[85vh] overflow-y-auto rounded-3xl sm:max-w-2xl">
+      <DialogContent className="max-h-[min(88dvh,52rem)] overflow-y-auto rounded-3xl sm:max-w-2xl clinic-landscape:max-w-4xl">
         <DialogHeader>
           <DialogTitle className="text-left text-xl tracking-tight">{a.titles[sex]}</DialogTitle>
           <p className="text-muted-foreground text-left text-xs">{a.subtitles[sex]}</p>

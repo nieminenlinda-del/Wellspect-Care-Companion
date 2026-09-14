@@ -82,7 +82,7 @@ function Index() {
   const showContact = !searching && active === "contact";
 
   return (
-    <div className="bg-background min-h-screen pb-24">
+    <div className="clinic-page bg-background">
       <DisclaimerBar />
 
       <header className="relative isolate overflow-hidden">
@@ -100,80 +100,80 @@ function Index() {
           aria-hidden="true"
         />
 
-        <div className="text-primary-foreground mx-auto max-w-6xl px-5 pt-6 pb-14 sm:px-8 sm:pt-8 sm:pb-20">
+        <div className="clinic-shell text-primary-foreground pt-4 pb-8 sm:pb-10 clinic-landscape:pb-7">
           <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3">
             <div className="min-w-0">
               <img
                 src={wellspectLogo.url}
                 alt="Wellspect — a real difference"
-                className="h-9 w-auto object-contain sm:h-11"
+                className="h-10 w-auto object-contain sm:h-12 clinic-landscape:h-11"
               />
             </div>
             <MarketSelector variant="onDark" />
           </div>
 
-          <div className="mt-14 max-w-2xl sm:mt-20">
-            <h1 className="text-[2.1rem] leading-[1.08] font-semibold tracking-tight text-balance sm:text-5xl">
-              {t.headline}
-            </h1>
-            <p className="text-primary-foreground/85 mt-4 text-sm leading-relaxed text-pretty sm:text-lg">
-              {t.intro}
-            </p>
+          <div className="mt-6 grid gap-6 clinic-landscape:mt-5 clinic-landscape:grid-cols-[minmax(0,1.25fr)_auto] clinic-landscape:items-end sm:mt-8">
+            <div className="max-w-2xl">
+              <h1 className="text-[clamp(1.7rem,3.4vw,2.75rem)] leading-[1.08] font-semibold tracking-tight text-balance">
+                {t.headline}
+              </h1>
+              <p className="text-primary-foreground/85 mt-3 text-[clamp(0.9rem,1.35vw,1.125rem)] leading-relaxed text-pretty">
+                {t.intro}
+              </p>
+              <div className="relative mt-5 max-w-xl">
+                <Search
+                  className="text-muted-foreground pointer-events-none absolute top-1/2 left-5 size-5 -translate-y-1/2"
+                  aria-hidden="true"
+                />
+                <input
+                  type="search"
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  placeholder={t.searchPlaceholder}
+                  aria-label={t.searchLabel}
+                  className="bg-card/95 text-foreground placeholder:text-muted-foreground focus:ring-primary-foreground/50 min-h-14 w-full rounded-full py-3 pr-12 pl-13 text-base shadow-lift backdrop-blur focus:ring-2 focus:outline-none"
+                />
+                {query !== "" && (
+                  <button
+                    type="button"
+                    onClick={() => setQuery("")}
+                    aria-label={t.clearSearch}
+                    className="text-muted-foreground hover:text-foreground absolute top-1/2 right-3 grid size-11 -translate-y-1/2 place-items-center rounded-full"
+                  >
+                    <X className="size-4" />
+                  </button>
+                )}
+              </div>
+            </div>
+            <ul className="flex flex-wrap items-center gap-x-10 gap-y-4 opacity-85 clinic-landscape:justify-end">
+              <li>
+                <img
+                  src={lofricLogo.url}
+                  alt="LoFric"
+                  className="h-8 w-auto object-contain sm:h-9"
+                  loading="lazy"
+                />
+              </li>
+              <li>
+                <img
+                  src={navinaLogo.url}
+                  alt="Navina"
+                  className="h-8 w-auto object-contain sm:h-9"
+                  loading="lazy"
+                />
+              </li>
+            </ul>
           </div>
-
-          <div className="relative mt-8 max-w-xl">
-            <Search
-              className="text-muted-foreground pointer-events-none absolute top-1/2 left-5 size-5 -translate-y-1/2"
-              aria-hidden="true"
-            />
-            <input
-              type="search"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder={t.searchPlaceholder}
-              aria-label={t.searchLabel}
-              className="bg-card/95 text-foreground placeholder:text-muted-foreground focus:ring-primary-foreground/50 min-h-14 w-full rounded-full py-3 pr-12 pl-13 text-base shadow-lift backdrop-blur focus:ring-2 focus:outline-none"
-            />
-            {query !== "" && (
-              <button
-                type="button"
-                onClick={() => setQuery("")}
-                aria-label={t.clearSearch}
-                className="text-muted-foreground hover:text-foreground absolute top-1/2 right-3 grid size-9 -translate-y-1/2 place-items-center rounded-full"
-              >
-                <X className="size-4" />
-              </button>
-            )}
-          </div>
-
-          <ul className="mt-10 flex flex-wrap items-center gap-x-10 gap-y-5 opacity-85">
-            <li>
-              <img
-                src={lofricLogo.url}
-                alt="LoFric"
-                className="h-7 w-auto object-contain sm:h-8"
-                loading="lazy"
-              />
-            </li>
-            <li>
-              <img
-                src={navinaLogo.url}
-                alt="Navina"
-                className="h-7 w-auto object-contain sm:h-8"
-                loading="lazy"
-              />
-            </li>
-          </ul>
         </div>
       </header>
 
-      <main className="mx-auto max-w-6xl px-5 pt-10 sm:px-8">
+      <main className="clinic-shell pt-8 clinic-landscape:pt-6">
         {showCategories ? (
           <section aria-label={t.categoriesLabel}>
             <h2 className="text-foreground text-xl font-semibold tracking-tight sm:text-2xl">
               {t.browseTitle}
             </h2>
-            <ul className="mt-6 grid gap-4 sm:grid-cols-2">
+            <ul className="mt-5 grid gap-4 sm:grid-cols-2 clinic-landscape:grid-cols-3">
               {categoryOrder
                 .filter((c) => c !== "contact")
                 .map((c) => (
@@ -181,7 +181,7 @@ function Index() {
                     <button
                       type="button"
                       onClick={() => setActive(c)}
-                      className="group border-border bg-card hover:border-primary/40 focus-visible:ring-primary flex min-h-32 w-full flex-col justify-between rounded-3xl border p-7 text-left shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lift focus-visible:ring-2 focus-visible:outline-none active:translate-y-0 active:scale-[0.99]"
+                      className="group border-border bg-card hover:border-primary/40 focus-visible:ring-primary flex min-h-28 w-full flex-col justify-between rounded-3xl border p-6 text-left shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lift focus-visible:ring-2 focus-visible:outline-none active:translate-y-0 active:scale-[0.99] clinic-landscape:min-h-32 clinic-landscape:p-7 sm:p-7"
                     >
                       <span className="text-card-foreground text-xl font-semibold tracking-tight text-balance sm:text-2xl">
                         {categoryLabels[c][locale]}
@@ -197,7 +197,7 @@ function Index() {
                   trigger={
                     <button
                       type="button"
-                      className="group border-border bg-card hover:border-primary/40 focus-visible:ring-primary flex min-h-32 w-full flex-col justify-between rounded-3xl border p-7 text-left shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lift focus-visible:ring-2 focus-visible:outline-none active:translate-y-0 active:scale-[0.99]"
+                      className="group border-border bg-card hover:border-primary/40 focus-visible:ring-primary flex min-h-28 w-full flex-col justify-between rounded-3xl border p-6 text-left shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lift focus-visible:ring-2 focus-visible:outline-none active:translate-y-0 active:scale-[0.99] clinic-landscape:min-h-32 clinic-landscape:p-7 sm:p-7"
                     >
                       <span className="text-card-foreground text-xl font-semibold tracking-tight text-balance sm:text-2xl">
                         {av.cardTitle}
@@ -214,7 +214,7 @@ function Index() {
                   trigger={
                     <button
                       type="button"
-                      className="group border-border bg-card hover:border-success/50 focus-visible:ring-primary flex min-h-32 w-full flex-col justify-between rounded-3xl border p-7 text-left shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lift focus-visible:ring-2 focus-visible:outline-none active:translate-y-0 active:scale-[0.99]"
+                      className="group border-border bg-card hover:border-success/50 focus-visible:ring-primary flex min-h-28 w-full flex-col justify-between rounded-3xl border p-6 text-left shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lift focus-visible:ring-2 focus-visible:outline-none active:translate-y-0 active:scale-[0.99] clinic-landscape:min-h-32 clinic-landscape:p-7 sm:p-7"
                     >
                       <span className="flex items-start gap-4">
                         <SwanMark className="size-11 shrink-0" />
@@ -231,7 +231,7 @@ function Index() {
                 <button
                   type="button"
                   onClick={() => setActive("contact")}
-                  className="group border-border bg-card hover:border-primary/40 focus-visible:ring-primary flex min-h-32 w-full flex-col justify-between rounded-3xl border p-7 text-left shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lift focus-visible:ring-2 focus-visible:outline-none active:translate-y-0 active:scale-[0.99]"
+                  className="group border-border bg-card hover:border-primary/40 focus-visible:ring-primary flex min-h-28 w-full flex-col justify-between rounded-3xl border p-6 text-left shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lift focus-visible:ring-2 focus-visible:outline-none active:translate-y-0 active:scale-[0.99] clinic-landscape:min-h-32 clinic-landscape:p-7 sm:p-7"
                 >
                   <span className="text-card-foreground text-xl font-semibold tracking-tight text-balance sm:text-2xl">
                     {categoryLabels.contact[locale]}
@@ -337,7 +337,7 @@ function Index() {
               </div>
             ) : (
               <>
-                <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                <ul className="mt-6 grid gap-4 sm:grid-cols-2 clinic-landscape:grid-cols-3 lg:grid-cols-3">
                   {results.map((p) => (
                     <li key={p.id}>
                       <Link
@@ -359,7 +359,7 @@ function Index() {
                             <img
                               src={p.logo}
                               alt={p.name}
-                              className="h-7 w-auto object-contain object-left sm:h-8"
+                              className="h-8 w-auto object-contain object-left sm:h-9"
                               loading="lazy"
                             />
                           ) : (

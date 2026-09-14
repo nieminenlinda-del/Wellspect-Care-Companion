@@ -16,6 +16,11 @@ dist-ssr
 .nitro
 *.local
 
+# Instructional MP4s are fetched at build from the Lovable preview host
+# (see scripts/bundle-media.mjs). Images and captions are committed.
+public/media/*.mp4
+public/media/*.mp4.h264.mp4
+
 # Wrangler / Cloudflare
 .wrangler/
 .dev.vars
