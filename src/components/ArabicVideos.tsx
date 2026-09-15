@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/dialog";
 import { arabicVideos, arabicVideosStrings } from "@/data/arabic-videos";
 import { useLocale } from "@/lib/locale";
+import { publicUrl } from "@/lib/public-url";
 
 export function ArabicVideosDialog({ trigger }: { trigger: ReactNode }) {
   const { locale } = useLocale();
@@ -37,8 +38,8 @@ export function ArabicVideosDialog({ trigger }: { trigger: ReactNode }) {
               <div className="bg-card border-border overflow-hidden rounded-xl border">
                 {v.src ? (
                   <video
-                    src={v.src}
-                    poster={v.poster}
+                    src={publicUrl(v.src)}
+                    poster={v.poster ? publicUrl(v.poster) : undefined}
                     controls
                     playsInline
                     preload="metadata"

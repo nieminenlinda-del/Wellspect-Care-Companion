@@ -8,6 +8,7 @@
     "bundle:media": "node scripts/bundle-media.mjs",
     "prebuild": "node scripts/bundle-media.mjs",
     "build": "vite build && node scripts/package-capacitor-web.mjs",
+    "build:pages": "VITE_BASE=/Wellspect-Care-Companion/ npm run build",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",

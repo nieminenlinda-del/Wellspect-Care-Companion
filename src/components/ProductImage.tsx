@@ -1,4 +1,5 @@
 import { Package } from "lucide-react";
+import { publicUrl } from "@/lib/public-url";
 
 /**
  * Product visual area with a clean neutral surface and a subtle placeholder
@@ -19,7 +20,7 @@ export function ProductImage({
     >
       {src ? (
         <img
-          src={src}
+          src={publicUrl(src)}
           alt={name}
           loading="lazy"
           className="size-full object-contain p-3 mix-blend-multiply"
