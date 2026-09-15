@@ -32,6 +32,7 @@ import { ProductImage } from "@/components/ProductImage";
 import { AnatomyDialog } from "@/components/AnatomyDialog";
 import { anatomyStrings } from "@/data/anatomy";
 import { ecolabelContent } from "@/data/ecolabel";
+import { publicUrl } from "@/lib/public-url";
 
 export const Route = createFileRoute("/product/$id")({
   loader: ({ params }) => {
@@ -213,7 +214,7 @@ function ProductDetail() {
               >
                 {product.logo ? (
                   <img
-                    src={product.logo}
+                    src={publicUrl(product.logo)}
                     alt={product.name}
                     className="h-9 w-auto object-contain object-left sm:h-11"
                   />
@@ -327,7 +328,7 @@ function ProductDetail() {
                     <video
                       key={activeVideoUrl}
                       ref={videoRef}
-                      src={activeVideoUrl}
+                      src={activeVideoUrl ? publicUrl(activeVideoUrl) : undefined}
                       controls
                       playsInline
                       preload="metadata"
@@ -337,7 +338,7 @@ function ProductDetail() {
                         <track
                           key={code}
                           kind="subtitles"
-                          src={url}
+                          src={publicUrl(url)}
                           srcLang={code}
                           label={localeLabel(code)}
                           default={code === captionLang}
@@ -417,7 +418,7 @@ function ProductDetail() {
                         >
                           {image ? (
                             <img
-                              src={image}
+                              src={publicUrl(image)}
                               alt=""
                               loading="lazy"
                               width={461}
@@ -490,7 +491,7 @@ function ProductDetail() {
                           <span className="bg-secondary relative grid aspect-[16/9] w-28 shrink-0 place-items-center overflow-hidden rounded-xl sm:w-40">
                             {image ? (
                               <img
-                                src={image}
+                                src={publicUrl(image)}
                                 alt=""
                                 loading="lazy"
                                 className="size-full object-contain"

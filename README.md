@@ -21,6 +21,18 @@ npm i
 npm run dev
 ```
 
+## GitHub Pages
+
+The live app is published from `main` to:
+
+**https://nieminenlinda-del.github.io/Wellspect-Care-Companion/**
+
+`npm run build` (and Capacitor APK packaging) uses base `/`. The Pages workflow sets `VITE_BASE=/Wellspect-Care-Companion/` so assets, the router, and `/media/...` files load under that subdirectory. Deep links are served via `404.html` (a copy of the SPA shell).
+
+```sh
+npm run build:pages
+```
+
 ## Built with
 
 - TanStack Start

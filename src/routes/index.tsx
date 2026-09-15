@@ -20,6 +20,7 @@ import { anatomyStrings } from "@/data/anatomy";
 import { arabicVideosStrings } from "@/data/arabic-videos";
 import { ProductImage } from "@/components/ProductImage";
 import { ecolabelContent } from "@/data/ecolabel";
+import { publicUrl } from "@/lib/public-url";
 import coast from "@/assets/nordic-coast.webp.asset.json";
 import wellspectLogo from "@/assets/wellspect-logo-white.png.asset.json";
 import lofricLogo from "@/assets/lofric-logo.png.asset.json";
@@ -87,7 +88,7 @@ function Index() {
 
       <header className="relative isolate overflow-hidden">
         <img
-          src={coast.url}
+          src={publicUrl(coast.url)}
           alt="Calm Swedish archipelago at twilight"
           className="absolute inset-0 -z-20 size-full object-cover"
         />
@@ -104,7 +105,7 @@ function Index() {
           <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3">
             <div className="min-w-0">
               <img
-                src={wellspectLogo.url}
+                src={publicUrl(wellspectLogo.url)}
                 alt="Wellspect — a real difference"
                 className="h-10 w-auto object-contain sm:h-12 clinic-landscape:h-11"
               />
@@ -148,7 +149,7 @@ function Index() {
             <ul className="flex flex-wrap items-center gap-x-10 gap-y-4 opacity-85 clinic-landscape:justify-end">
               <li>
                 <img
-                  src={lofricLogo.url}
+                  src={publicUrl(lofricLogo.url)}
                   alt="LoFric"
                   className="h-8 w-auto object-contain sm:h-9"
                   loading="lazy"
@@ -156,7 +157,7 @@ function Index() {
               </li>
               <li>
                 <img
-                  src={navinaLogo.url}
+                  src={publicUrl(navinaLogo.url)}
                   alt="Navina"
                   className="h-8 w-auto object-contain sm:h-9"
                   loading="lazy"
@@ -357,7 +358,7 @@ function Index() {
                         >
                           {p.logo ? (
                             <img
-                              src={p.logo}
+                              src={publicUrl(p.logo)}
                               alt={p.name}
                               className="h-8 w-auto object-contain object-left sm:h-9"
                               loading="lazy"

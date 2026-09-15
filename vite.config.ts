@@ -8,21 +8,58 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 import type { Plugin } from "vite";
 
 /**
- * Safety net: Lovable `*.asset.json` files originally used hostless `/__l5e/...`
- * URLs. Those work on the preview origin but 404 inside a Capacitor WebView.
- * Source files are rewritten to `/media/<file>`; this transform catches leftovers.
+ * GitHub Pages project site vs Capacitor/local:
+ *   VITE_BASE=/Wellspect-Care-Companion/  → Pages
+ *   unset or `/`                          → Capacitor file:// and local/Lovable
  */
-function localL5eMediaPlugin(): Plugin {
-  const pattern = /\/__l5e\/assets-v1\/[0-9a-f-]+\/([^"'`?\s]+)/g;
+export function resolveViteBase(raw = process.env.VITE_BASE): string {
+  if (!raw || raw === "/") return "/";
+  return raw.endsWith("/") ? raw : `${raw}/`;
+}
+
+function rewritePublicBase(code: string, base: string): string {
+  const prefix = base === "/" ? "" : base.replace(/\/$/, "");
+  let next = code.replace(
+    /\/__l5e\/assets-v1\/[0-9a-f-]+\/([^"'`?\s]+)/g,
+    `${prefix}/media/$1`,
+  );
+  if (prefix) {
+    next = next.replace(/(["'`])\/(media|images)\//g, `$1${prefix}/$2/`);
+    next = next.replace(/(["'`])\/favicon\.png/g, `$1${prefix}/favicon.png`);
+  }
+  return next;
+}
+
+/**
+ * Safety net: Lovable `*.asset.json` files originally used hostless `/__l5e/...`
+ * URLs. Those work on the preview origin but 404 inside a Capacitor WebView
+ * and on GitHub Pages (project site is not `/`).
+ * Source files are rewritten to `/media/<file>` (or `${base}media/<file>`).
+ */
+function localL5eMediaPlugin(base: string): Plugin {
   return {
     name: "local-l5e-media",
     enforce: "pre",
     transform(code, id) {
-      if (id.includes("node_modules") || !code.includes("/__l5e/")) return;
-      return { code: code.replace(pattern, "/media/$1"), map: null };
+      if (id.includes("node_modules")) return;
+      const file = id.split("?")[0] ?? id;
+      if (!/\.(json|[cm]?[jt]sx?|css)$/.test(file)) return;
+      if (
+        !code.includes("/__l5e/") &&
+        !code.includes("/media/") &&
+        !code.includes("/images/") &&
+        !code.includes("/favicon.png")
+      ) {
+        return;
+      }
+      const next = rewritePublicBase(code, base);
+      if (next === code) return;
+      return { code: next, map: null };
     },
   };
 }
+
+const base = resolveViteBase();
 
 export default defineConfig({
   tanstackStart: {
@@ -36,6 +73,7 @@ export default defineConfig({
     },
   },
   vite: {
-    plugins: [localL5eMediaPlugin()],
+    base,
+    plugins: [localL5eMediaPlugin(base)],
   },
 });

@@ -16,6 +16,7 @@ import {
   type AnatomySex,
 } from "@/data/anatomy";
 import { useLocale } from "@/lib/locale";
+import { publicUrl } from "@/lib/public-url";
 
 export function AnatomyDialog({ sex, trigger }: { sex: AnatomySex; trigger: ReactNode }) {
   const { locale } = useLocale();
@@ -44,7 +45,7 @@ export function AnatomyDialog({ sex, trigger }: { sex: AnatomySex; trigger: Reac
                 }`}
               >
                 <img
-                  src={image.url}
+                  src={publicUrl(image.url)}
                   alt={image.alt}
                   loading="lazy"
                   className="aspect-[4/3] w-full object-contain"
@@ -69,7 +70,7 @@ export function AnatomyDialog({ sex, trigger }: { sex: AnatomySex; trigger: Reac
         {sex === "female" && (
           <figure className="border-border mt-3 overflow-hidden rounded-2xl border bg-white">
             <img
-              src={femaleProfileImage.url}
+              src={publicUrl(femaleProfileImage.url)}
               alt={femaleProfileImage.alt}
               loading="lazy"
               className="aspect-[4/3] w-full object-contain"
@@ -138,7 +139,7 @@ export function AnatomyDialog({ sex, trigger }: { sex: AnatomySex; trigger: Reac
                   className="border-border overflow-hidden rounded-2xl border bg-white"
                 >
                   <img
-                    src={image.url}
+                    src={publicUrl(image.url)}
                     alt={image.alt}
                     loading="lazy"
                     className="aspect-square w-full object-contain"

@@ -1,8 +1,10 @@
 # Bundled clinic media
 
 Logos, packshots, anatomy illustrations, WebVTT captions and instructional
-videos are served from this folder as `/media/<filename>` so the Capacitor
-Android WebView can load them offline.
+videos are served from this folder as `/media/<filename>` (prefixed with
+Vite’s `base` on GitHub Pages) so the Capacitor Android WebView can load
+them offline and the Pages project site can load them under
+`/Wellspect-Care-Companion/media/<filename>`.
 
 ## Why this folder exists
 

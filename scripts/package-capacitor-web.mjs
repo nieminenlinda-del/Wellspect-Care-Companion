@@ -41,6 +41,14 @@ if (!fs.existsSync(indexHtml)) {
   process.exit(1);
 }
 
+// GitHub Pages has no SPA rewrite: unknown paths (deep links) serve 404.html.
+fs.copyFileSync(indexHtml, path.join(DEST, "404.html"));
+
+const nojekyll = path.join(DEST, ".nojekyll");
+if (!fs.existsSync(nojekyll)) {
+  fs.writeFileSync(nojekyll, "");
+}
+
 const media = path.join(DEST, "media");
 const mediaCount = fs.existsSync(media) ? fs.readdirSync(media).length : 0;
 console.log(`Packaged Capacitor webDir ${DEST} (${mediaCount} media files)`);
