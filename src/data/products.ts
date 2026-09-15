@@ -497,7 +497,7 @@ export const products: Product[] = [
     spec: "CH 8–14 · 18 cm · female",
     category: "women",
     nordicEcolabel: true,
-    image: "/__l5e/assets-v1/1637cf43-5ff2-40b4-a5c2-a5dade6df093/lofric-sense.png",
+    image: "/media/lofric-sense.png",
     summary: {
       en: "Discreet ready-to-use hydrophilic catheter for women, shaped to look like a cosmetic item.",
       sv: "Diskret, färdig att använda hydrofil kateter för kvinnor, formad som ett kosmetikaföremål.",
@@ -565,7 +565,7 @@ export const products: Product[] = [
     spec: "CH 8–14 · 15 cm · female",
     category: "women",
     nordicEcolabel: true,
-    image: "/__l5e/assets-v1/b95175ae-a16d-4526-b433-fea46be48750/lofric-elle.png",
+    image: "/media/lofric-elle.png",
     summary: {
       en: "Short hydrophilic catheter for women with an easy-grip handle and a wide opening loop.",
       sv: "Kort hydrofil kateter för kvinnor med greppvänligt handtag och bred öppningsögla.",
@@ -620,7 +620,7 @@ export const products: Product[] = [
     spec: "CH 8–14 · 15 cm · female · integrated water sachet",
     category: "women",
     nordicEcolabel: true,
-    image: "/__l5e/assets-v1/b5b692b7-de15-4b45-9fc6-d5d303b55d6f/lofric-elle-pro.png",
+    image: "/media/lofric-elle-pro.png",
     summary: {
       en: "Ready-to-use female catheter with an integrated water sachet and a firm, angled handle for a secure grip.",
       sv: "Färdig att använda kateter för kvinnor med inbyggd vattenpåse och stadigt, vinklat handtag för säkert grepp.",
@@ -674,7 +674,7 @@ export const products: Product[] = [
     spec: "CH 8–14 · 20 cm · female · integrated water sachet",
     category: "women",
     nordicEcolabel: true,
-    image: "/__l5e/assets-v1/6b21839a-95a1-47c5-be40-4d1ffd270b13/lofric-primo.webp",
+    image: "/media/lofric-primo.webp",
     summary: {
       en: "Catheter with an integrated water sachet, ready to use in seconds wherever you are.",
       sv: "Kateter med inbyggd vattenpåse, klar att använda på några sekunder var du än är.",
@@ -740,7 +740,7 @@ export const products: Product[] = [
     spec: "CH 8–14 · 20 cm · female · catheter with 700 ml urine bag",
     category: "women",
     nordicEcolabel: true,
-    image: "/__l5e/assets-v1/6460580c-f77c-454f-b117-a408baff58f5/lofric-hydro-kit.png",
+    image: "/media/lofric-hydro-kit.png",
     summary: {
       en: "All-in-one set with catheter, water sachet and an attached urine bag for catheterisation anywhere.",
       sv: "Komplett set med kateter, vattenpåse och fastsatt urinpåse för kateterisering var som helst.",
@@ -784,7 +784,7 @@ export const products: Product[] = [
     spec: "CH 6–18 · 20 cm · female · straight tip",
     category: "women",
     nordicEcolabel: false,
-    image: "/__l5e/assets-v1/574e4b4f-77fc-4765-8ab1-9b0c29bc93f9/lofric-classic.png",
+    image: "/media/lofric-classic.png",
     summary: {
       en: "The original hydrophilic catheter, wetted with water before use and available in the widest size range.",
       sv: "Den ursprungliga hydrofila katetern som fuktas med vatten före användning och finns i flest storlekar.",
@@ -828,7 +828,7 @@ export const products: Product[] = [
     spec: "CH 8–16 · 40 cm · male",
     category: "men",
     nordicEcolabel: true,
-    image: "/__l5e/assets-v1/74bc469b-5f38-4cc2-bf74-150c4b618be4/lofric-origo.png",
+    image: "/media/lofric-origo.png",
     summary: {
       en: "Pocket-sized ready-to-use catheter for men with a protective sleeve for touch-free insertion.",
       sv: "Fickvänlig, färdig att använda kateter för män med skyddshölje för beröringsfri införing.",
@@ -858,7 +858,7 @@ export const products: Product[] = [
     spec: "CH 8–16 · 40 cm · male · protective sleeve and integrated saline sachet",
     category: "men",
     nordicEcolabel: true,
-    image: "/__l5e/assets-v1/adc96bd6-0adc-49df-b806-7112cc0edc30/lofric-origo-pro.png",
+    image: "/media/lofric-origo-pro.png",
     summary: {
       en: "Ready-to-use male catheter with a firm grip and protective sleeve for a fully touch-free, one-handed routine.",
       sv: "Färdig att använda kateter för män med stadigt grepp och skyddshölje för en helt beröringsfri rutin med en hand.",
@@ -887,7 +887,7 @@ export const products: Product[] = [
     spec: "CH 8–16 · 20/30/40 cm · unisex",
     category: "men",
     nordicEcolabel: true,
-    image: "/__l5e/assets-v1/6b21839a-95a1-47c5-be40-4d1ffd270b13/lofric-primo.webp",
+    image: "/media/lofric-primo.webp",
     summary: {
       en: "Catheter with an integrated water sachet, ready to use in seconds wherever you are.",
       sv: "Kateter med inbyggd vattenpåse, klar att använda på några sekunder var du än är.",
@@ -967,7 +967,7 @@ export const products: Product[] = [
     spec: "CH 8–16 · integrated 1500 ml bag",
     category: "men",
     nordicEcolabel: true,
-    image: "/__l5e/assets-v1/6460580c-f77c-454f-b117-a408baff58f5/lofric-hydro-kit.png",
+    image: "/media/lofric-hydro-kit.png",
     summary: {
       en: "Closed system with catheter and collection bag in one, for use without a toilet nearby.",
       sv: "Slutet system med kateter och uppsamlingspåse i ett, för användning utan toalett i närheten.",
@@ -1028,7 +1028,7 @@ export const products: Product[] = [
     spec: "CH 6–18 · 20/30/40 cm · unisex",
     category: "men",
     nordicEcolabel: false,
-    image: "/__l5e/assets-v1/574e4b4f-77fc-4765-8ab1-9b0c29bc93f9/lofric-classic.png",
+    image: "/media/lofric-classic.png",
     summary: {
       en: "The original hydrophilic catheter, activated with clean water before use.",
       sv: "Den ursprungliga hydrofila katetern, aktiveras med rent vatten före användning.",
@@ -1109,7 +1109,7 @@ export const products: Product[] = [
     spec: "Compact irrigation kit · travel case",
     category: "bowel",
     nordicEcolabel: false,
-    image: "/__l5e/assets-v1/61ae42d1-cd6f-4ad5-add9-868814c71b75/navina-mini.png",
+    image: "/media/navina-mini.png",
     summary: {
       en: "Compact irrigation set for smaller water volumes and easy travel.",
       sv: "Kompakt irrigationsset för mindre vattenvolymer och enkel resa.",
@@ -1274,7 +1274,7 @@ export const products: Product[] = [
     spec: "Manual pump · 1000 ml container",
     category: "bowel",
     nordicEcolabel: false,
-    image: "/__l5e/assets-v1/738fbc10-7885-4aca-a1d0-4c2835b67941/navina-classic.png",
+    image: "/media/navina-classic.png",
     summary: {
       en: "Manual transanal irrigation system with a hand pump for full control over each step.",
       sv: "Manuellt system för transanal irrigation med handpump för full kontroll i varje steg.",
@@ -1342,7 +1342,7 @@ export const products: Product[] = [
     spec: "Electronic control unit · rechargeable",
     category: "bowel",
     nordicEcolabel: false,
-    image: "/__l5e/assets-v1/c00e647d-a871-4170-a3ea-69b84e72fef7/navina-smart.png",
+    image: "/media/navina-smart.png",
     summary: {
       en: "Electronic transanal irrigation system that controls water flow and balloon inflation for you.",
       sv: "Elektroniskt system för transanal irrigation som styr vattenflöde och ballongfyllning åt dig.",
@@ -1415,50 +1415,50 @@ export const products: Product[] = [
       {
         title: "Insertion",
         text: "Wash your hands.",
-        image: "/__l5e/assets-v1/80ea1166-5a83-4669-822d-d3f0c647da84/navina-insert-wash.png",
+        image: "/media/navina-insert-wash.png",
       },
       {
         title: "Insertion",
         text: "Open the packaging and remove the device.",
-        image: "/__l5e/assets-v1/8d577bf1-4829-4b56-b2ce-72ccf0349b49/navina-insert-35.png",
+        image: "/media/navina-insert-35.png",
       },
       {
         title: "Insertion",
         text: "Place yourself in a relaxed, comfortable position, such as lying on a bed. Hold the pre-lubricated insert by the white plastic applicator and align the tip of the bulb with the anus.",
-        image: "/__l5e/assets-v1/d8cf7e77-6365-4814-b45f-812f6909504d/navina-insert-34.png",
+        image: "/media/navina-insert-34.png",
       },
       {
         title: "Insertion",
         text: "Relax your muscles and gently insert the Navina insert until the retainer rests on the anus.",
-        image: "/__l5e/assets-v1/a10da924-9cd2-454c-96d4-3038117dccfe/navina-insert-32.png",
+        image: "/media/navina-insert-32.png",
       },
       {
         title: "Insertion",
         text: "Withdraw the applicator and discard the applicator and packaging with the normal trash.",
-        image: "/__l5e/assets-v1/f3f60f08-ee91-40ec-b78d-48f6f8aba6f4/navina-insert-31.png",
+        image: "/media/navina-insert-31.png",
       },
       {
         title: "Insertion",
         text: "Wash your hands.",
-        image: "/__l5e/assets-v1/80ea1166-5a83-4669-822d-d3f0c647da84/navina-insert-wash.png",
+        image: "/media/navina-insert-wash.png",
       },
       {
         title: "Removal",
         text: "Grasp the external retainer and gently pull to remove the device.",
-        image: "/__l5e/assets-v1/28f15532-86ad-417e-bbae-fbf0ce70e199/navina-insert-30.png",
+        image: "/media/navina-insert-30.png",
       },
       {
         title: "Removal",
         text: "Discard the device with the normal waste. Flushing of the device or the device applicator is not recommended.",
-        image: "/__l5e/assets-v1/6681e49b-26cf-447b-92f5-87af01657804/navina-insert-33.png",
+        image: "/media/navina-insert-33.png",
       },
       {
         title: "Removal",
         text: "Wash your hands.",
-        image: "/__l5e/assets-v1/80ea1166-5a83-4669-822d-d3f0c647da84/navina-insert-wash.png",
+        image: "/media/navina-insert-wash.png",
       },
     ],
-    image: "/__l5e/assets-v1/ce206b7d-e0f4-4af2-8406-cb2d6e733c9d/navina-insert-device.png",
+    image: "/media/navina-insert-device.png",
     safety: [
       "Only start using rectal inserts after assessment and training by your healthcare professional.",
       "Single use only — never wash, reuse or share an insert.",

@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build",
+    "bundle:media": "node scripts/bundle-media.mjs",
+    "prebuild": "node scripts/bundle-media.mjs",
+    "build": "vite build && node scripts/package-capacitor-web.mjs",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",

@@ -157,11 +157,11 @@ function ProductDetail() {
   const progress = Math.round((done.length / product.instructions.length) * 100);
 
   return (
-    <div className="bg-background min-h-screen pb-24">
+    <div className="clinic-page bg-background">
       <DisclaimerBar />
 
       <div className="border-border/70 glass sticky top-0 z-20 border-b">
-        <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-5 py-2.5 sm:px-8">
+        <div className="clinic-shell grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 py-2 clinic-landscape:py-1.5">
           <nav className="flex min-w-0 flex-wrap items-center gap-x-4 gap-y-1">
             <Link
               to="/"
@@ -185,8 +185,8 @@ function ProductDetail() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <header className="mt-8">
+      <div className="clinic-shell">
+        <header className="mt-6 clinic-landscape:mt-4">
           <div className="flex flex-wrap items-center gap-2">
             <span className="bg-secondary text-secondary-foreground rounded-full px-3 py-1 text-[11px] font-medium">
               {categoryLabels[product.category][locale]}
@@ -208,14 +208,14 @@ function ProductDetail() {
             <ProductImage src={product.image} name={product.name} className="aspect-square" />
             <div>
               <h1
-                className="text-foreground text-[2rem] leading-[1.1] font-semibold tracking-tight text-balance sm:text-5xl"
+                className="text-foreground text-[clamp(1.6rem,3vw,2.75rem)] leading-[1.1] font-semibold tracking-tight text-balance"
                 aria-label={product.name}
               >
                 {product.logo ? (
                   <img
                     src={product.logo}
                     alt={product.name}
-                    className="h-7 w-auto object-contain object-left sm:h-8"
+                    className="h-9 w-auto object-contain object-left sm:h-11"
                   />
                 ) : (
                   product.name
@@ -235,7 +235,7 @@ function ProductDetail() {
         <div
           role="tablist"
           aria-label={product.name}
-          className="glass scrollbar-none mt-8 flex gap-1.5 overflow-x-auto rounded-full border p-1.5 shadow-soft"
+          className="glass scrollbar-none mt-6 flex gap-1.5 overflow-x-auto rounded-full border p-1.5 shadow-soft clinic-landscape:mt-4"
         >
           {tabs.map((tb) => (
             <button
@@ -331,8 +331,7 @@ function ProductDetail() {
                       controls
                       playsInline
                       preload="metadata"
-                      crossOrigin="anonymous"
-                      className="aspect-video w-full bg-black object-contain"
+                      className="clinic-video"
                     >
                       {captionTracks.map(([code, url]) => (
                         <track
@@ -412,7 +411,7 @@ function ProductDetail() {
                         }`}
                       >
                         <span
-                          className={`bg-secondary relative grid aspect-[16/9] w-24 shrink-0 place-items-center overflow-hidden rounded-xl sm:w-36 ${
+                          className={`bg-secondary relative grid aspect-[16/9] w-28 shrink-0 place-items-center overflow-hidden rounded-xl sm:w-40 ${
                             isDone ? "opacity-70" : ""
                           }`}
                         >
@@ -488,7 +487,7 @@ function ProductDetail() {
                           key={text}
                           className="border-border bg-background flex items-center gap-4 rounded-2xl border p-3 sm:p-4"
                         >
-                          <span className="bg-secondary relative grid aspect-[16/9] w-24 shrink-0 place-items-center overflow-hidden rounded-xl sm:w-36">
+                          <span className="bg-secondary relative grid aspect-[16/9] w-28 shrink-0 place-items-center overflow-hidden rounded-xl sm:w-40">
                             {image ? (
                               <img
                                 src={image}
@@ -583,7 +582,6 @@ function ProductDetail() {
                 </div>
               )}
             </div>
-
           )}
 
           <DisclaimerCard />

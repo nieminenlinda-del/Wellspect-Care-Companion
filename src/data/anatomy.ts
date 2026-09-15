@@ -44,19 +44,19 @@ export type AnatomyImage = { url: string; alt: string; view?: AnatomyView };
 export const anatomyImages: Record<AnatomySex, AnatomyImage[]> = {
   female: [
     {
-      url: "/__l5e/assets-v1/8e66fa7a-502f-4eb2-bc99-e43710122eda/female-anatomy-tract.png",
+      url: "/media/female-anatomy-tract.png",
       alt: "Female urinary tract: kidneys, ureters, bladder and urethra",
       view: "tract",
     },
     {
-      url: "/__l5e/assets-v1/f4721b08-88bb-4114-95be-c38ed4c529e0/female-anatomy-external.png",
+      url: "/media/female-anatomy-external.png",
       alt: "External female anatomy showing the urethral opening",
       view: "external",
     },
   ],
   male: [
     {
-      url: "/__l5e/assets-v1/7fcda494-6737-4b71-b0a7-84326bdda869/male-anatomy-overview.png",
+      url: "/media/male-anatomy-overview.png",
       alt: "Side view of the male urinary tract with numbered structures 1 to 7",
       view: "overview",
     },
@@ -65,7 +65,7 @@ export const anatomyImages: Record<AnatomySex, AnatomyImage[]> = {
 
 /** Female side profile with numbered structures 1-5. */
 export const femaleProfileImage: AnatomyImage = {
-  url: "/__l5e/assets-v1/daec855e-5f37-4e9a-a608-d859c5eae7c7/female-anatomy-profile.png",
+  url: "/media/female-anatomy-profile.png",
   alt: "Side profile of the female pelvis with numbered structures 1 to 5",
   view: "profile",
 };
@@ -73,12 +73,12 @@ export const femaleProfileImage: AnatomyImage = {
 /** Normal versus enlarged prostate, shown side by side (male only). */
 export const prostateComparison: AnatomyImage[] = [
   {
-    url: "/__l5e/assets-v1/abe1beb3-232a-4965-9704-c44d2cc8467c/male-prostate-normal.png",
+    url: "/media/male-prostate-normal.png",
     alt: "Male pelvis with a normal prostate and a straight urethra",
     view: "prostateNormal",
   },
   {
-    url: "/__l5e/assets-v1/0abe3d13-34f6-4ae2-a741-ed17cbd2a0c4/male-prostate-enlarged.png",
+    url: "/media/male-prostate-enlarged.png",
     alt: "Male pelvis with an enlarged prostate narrowing the urethra",
     view: "prostateEnlarged",
   },

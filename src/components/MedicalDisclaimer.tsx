@@ -6,8 +6,8 @@ export function DisclaimerBar() {
   const { locale } = useLocale();
   const t = uiStrings[locale];
   return (
-    <div className="bg-primary text-primary-foreground/85 px-5 py-2.5 sm:px-8">
-      <p className="mx-auto flex max-w-6xl items-start gap-2 text-[11px] leading-snug tracking-wide sm:text-xs">
+    <div className="bg-primary text-primary-foreground/85 pt-[max(0.5rem,env(safe-area-inset-top))] pb-2">
+      <p className="clinic-shell flex items-start gap-2 text-[11px] leading-snug tracking-wide sm:text-xs">
         <Info className="mt-0.5 size-3.5 shrink-0" aria-hidden="true" />
         <span>{t.disclaimerShort}</span>
       </p>

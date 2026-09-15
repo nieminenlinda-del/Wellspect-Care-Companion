@@ -18,7 +18,7 @@ export function ArabicVideosDialog({ trigger }: { trigger: ReactNode }) {
   return (
     <Dialog>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogContent className="max-h-[85vh] overflow-y-auto rounded-3xl sm:max-w-2xl">
+      <DialogContent className="max-h-[min(88dvh,52rem)] overflow-y-auto rounded-3xl sm:max-w-2xl clinic-landscape:max-w-3xl">
         <DialogHeader>
           <div className="min-w-0 text-left">
             <DialogTitle className="text-xl tracking-tight">{t.cardTitle}</DialogTitle>
@@ -42,7 +42,7 @@ export function ArabicVideosDialog({ trigger }: { trigger: ReactNode }) {
                     controls
                     playsInline
                     preload="metadata"
-                    className="aspect-video w-full bg-black object-contain"
+                    className="clinic-video"
                   />
                 ) : (
                   <div className="text-muted-foreground grid aspect-video w-full place-items-center gap-2">
