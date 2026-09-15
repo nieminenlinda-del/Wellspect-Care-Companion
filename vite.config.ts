@@ -19,10 +19,7 @@ export function resolveViteBase(raw = process.env.VITE_BASE): string {
 
 function rewritePublicBase(code: string, base: string): string {
   const prefix = base === "/" ? "" : base.replace(/\/$/, "");
-  let next = code.replace(
-    /\/__l5e\/assets-v1\/[0-9a-f-]+\/([^"'`?\s]+)/g,
-    `${prefix}/media/$1`,
-  );
+  let next = code.replace(/\/__l5e\/assets-v1\/[0-9a-f-]+\/([^"'`?\s]+)/g, `${prefix}/media/$1`);
   if (prefix) {
     next = next.replace(/(["'`])\/(media|images)\//g, `$1${prefix}/$2/`);
     next = next.replace(/(["'`])\/favicon\.png/g, `$1${prefix}/favicon.png`);
