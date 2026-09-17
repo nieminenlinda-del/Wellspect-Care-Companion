@@ -35,7 +35,7 @@ function StepIllustration({
 }) {
   const tile = (
     <span
-      className={`bg-black relative grid min-h-32 w-36 shrink-0 place-items-center overflow-hidden rounded-xl sm:min-h-40 sm:w-48 ${
+      className={`bg-muted ring-border/70 relative grid min-h-32 w-36 shrink-0 place-items-center overflow-hidden rounded-xl ring-1 sm:min-h-40 sm:w-48 ${
         done ? "opacity-70" : ""
       }`}
     >
@@ -60,7 +60,7 @@ function StepIllustration({
       </span>
       {image && onEnlarge && (
         <span
-          className="absolute right-1 bottom-1 grid size-6 place-items-center rounded-full bg-black/60 text-white"
+          className="bg-foreground/70 text-background absolute right-1 bottom-1 grid size-6 place-items-center rounded-full"
           aria-hidden="true"
         >
           <Maximize2 className="size-3" />
@@ -187,7 +187,7 @@ function InstructionSteps({
             <DialogDescription className="sr-only">{t.enlargeIllustration}</DialogDescription>
           </DialogHeader>
           {enlarged && (
-            <div className="bg-black flex justify-center rounded-2xl p-3">
+            <div className="bg-muted ring-border/60 flex justify-center rounded-2xl p-3 ring-1">
               <img
                 src={publicUrl(enlarged)}
                 alt=""
