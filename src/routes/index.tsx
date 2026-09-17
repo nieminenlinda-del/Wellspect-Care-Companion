@@ -11,7 +11,7 @@ import {
 import { contactInfo } from "@/data/contact";
 import { uiStrings } from "@/data/ui-strings";
 import { useLocale } from "@/lib/locale";
-import { DisclaimerBar, DisclaimerCard } from "@/components/MedicalDisclaimer";
+import { DisclaimerCard } from "@/components/MedicalDisclaimer";
 import { MarketSelector } from "@/components/MarketSelector";
 import { EcolabelDialog, SwanMark } from "@/components/NordicEcolabel";
 import { ArabicVideosDialog } from "@/components/ArabicVideos";
@@ -84,8 +84,6 @@ function Index() {
 
   return (
     <div className="clinic-page bg-background">
-      <DisclaimerBar />
-
       <header className="relative isolate overflow-hidden">
         <img
           src={publicUrl(coast.url)}
