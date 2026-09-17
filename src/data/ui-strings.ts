@@ -34,6 +34,8 @@ export type UIStrings = {
   videoPending: string;
   captions: string;
   captionsOff: string;
+  viewImageGuide: string;
+  imageGuide: string;
 };
 
 const en: UIStrings = {
@@ -73,6 +75,8 @@ const en: UIStrings = {
   videoPending: "Video coming soon.",
   captions: "Subtitles",
   captionsOff: "Off",
+  viewImageGuide: "View image guide",
+  imageGuide: "Step-by-step image guide",
 };
 
 const sv: UIStrings = {
@@ -112,6 +116,8 @@ const sv: UIStrings = {
   videoPending: "Filmen kommer snart.",
   captions: "Undertexter",
   captionsOff: "Av",
+  viewImageGuide: "Visa bildguide",
+  imageGuide: "Steg-för-steg-bildguide",
 };
 
 const fi: UIStrings = {
@@ -151,6 +157,8 @@ const fi: UIStrings = {
   videoPending: "Video tulossa pian.",
   captions: "Tekstitys",
   captionsOff: "Pois",
+  viewImageGuide: "Näytä kuvaopas",
+  imageGuide: "Vaiheittainen kuvaopas",
 };
 
 const da: UIStrings = {
@@ -190,6 +198,8 @@ const da: UIStrings = {
   videoPending: "Videoen kommer snart.",
   captions: "Undertekster",
   captionsOff: "Fra",
+  viewImageGuide: "Se billedguide",
+  imageGuide: "Trin-for-trin billedguide",
 };
 
 const no: UIStrings = {
@@ -229,6 +239,8 @@ const no: UIStrings = {
   videoPending: "Videoen kommer snart.",
   captions: "Undertekster",
   captionsOff: "Av",
+  viewImageGuide: "Se bildeguide",
+  imageGuide: "Trinnvis bildeguide",
 };
 
 export const uiStrings: Record<LocaleCode, UIStrings> = { en, sv, fi, da, no };

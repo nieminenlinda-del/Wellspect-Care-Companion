@@ -5,9 +5,8 @@ import {
   ArrowLeft,
   Ban,
   BookOpen,
-  Check,
   CheckCircle2,
-  Image as ImageIcon,
+  Images,
   Leaf,
   ListChecks,
   Package,
@@ -15,14 +14,7 @@ import {
   PlayCircle,
   ShieldAlert,
 } from "lucide-react";
-import {
-  categoryLabels,
-  getProduct,
-  localizedText,
-  stepImage,
-  stepText,
-  stepTitle,
-} from "@/data/products";
+import { categoryLabels, getProduct, hasImageGuide, localizedText } from "@/data/products";
 import { uiStrings } from "@/data/ui-strings";
 import { locales, useLocale, type LocaleCode } from "@/lib/locale";
 import { DisclaimerBar, DisclaimerCard } from "@/components/MedicalDisclaimer";
@@ -30,6 +22,7 @@ import { MarketSelector } from "@/components/MarketSelector";
 import { EcolabelDialog } from "@/components/NordicEcolabel";
 import { ProductImage } from "@/components/ProductImage";
 import { AnatomyDialog } from "@/components/AnatomyDialog";
+import { ImageGuideDialog, InlineInstructionGuide } from "@/components/ImageGuideDialog";
 import { anatomyStrings } from "@/data/anatomy";
 import { ecolabelContent } from "@/data/ecolabel";
 import { publicUrl } from "@/lib/public-url";
@@ -155,7 +148,9 @@ function ProductDetail() {
     { id: "safety", label: t.safety, icon: <ShieldAlert className="size-4" /> },
   ];
 
-  const progress = Math.round((done.length / product.instructions.length) * 100);
+  const showImageGuide = hasImageGuide(product);
+  const showHowToActions =
+    product.category === "women" || product.category === "men" || hasVideoSection || showImageGuide;
 
   return (
     <div className="clinic-page bg-background">
@@ -260,7 +255,7 @@ function ProductDetail() {
         <div className="mt-6 grid gap-4">
           {tab === "usage" && (
             <Panel title={t.howToUse} icon={<ListChecks className="text-primary size-4" />}>
-              {(product.category === "women" || product.category === "men" || hasVideoSection) && (
+              {showHowToActions && (
                 <div className="mb-5 flex flex-wrap gap-3">
                   {(product.category === "women" || product.category === "men") && (
                     <AnatomyDialog
@@ -272,6 +267,22 @@ function ProductDetail() {
                         >
                           <BookOpen className="size-4" aria-hidden="true" />
                           {anatomyStrings[locale].reference}
+                        </button>
+                      }
+                    />
+                  )}
+                  {showImageGuide && (
+                    <ImageGuideDialog
+                      product={product}
+                      done={done}
+                      onToggleStep={toggleStep}
+                      trigger={
+                        <button
+                          type="button"
+                          className="border-border bg-background text-foreground hover:bg-muted focus-visible:ring-primary inline-flex min-h-11 items-center gap-2 rounded-full border px-5 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:outline-none"
+                        >
+                          <Images className="size-4" aria-hidden="true" />
+                          {t.viewImageGuide}
                         </button>
                       }
                     />
@@ -293,7 +304,11 @@ function ProductDetail() {
               )}
 
               {hasVideoSection && (
-                <div className="border-border bg-muted/40 mb-6 rounded-2xl border p-4">
+                <div
+                  className={`border-border bg-muted/40 rounded-2xl border p-4 ${
+                    showImageGuide ? "" : "mb-6"
+                  }`}
+                >
                   <p className="text-foreground flex items-center gap-2 text-sm font-semibold">
                     <PlayCircle className="text-primary size-4" aria-hidden="true" />
                     {product.videoTitle ?? t.videoGuide}
@@ -382,138 +397,8 @@ function ProductDetail() {
                   )}
                 </div>
               )}
-              <div className="mb-5">
-                <div className="bg-muted h-1.5 w-full overflow-hidden rounded-full">
-                  <div
-                    className="bg-primary h-full rounded-full transition-all duration-500"
-                    style={{ width: `${progress}%` }}
-                  />
-                </div>
-                <p className="text-muted-foreground mt-2 text-xs" aria-live="polite">
-                  {done.length}/{product.instructions.length} · {progress}%
-                </p>
-              </div>
-              <ol className="grid gap-3">
-                {product.instructions.map((step, idx) => {
-                  const isDone = done.includes(idx);
-                  const text = stepText(step, locale);
-                  const title = stepTitle(step, locale);
-                  const image = stepImage(step);
-                  return (
-                    <li key={`${idx}-${text}`}>
-                      <button
-                        type="button"
-                        onClick={() => toggleStep(idx)}
-                        aria-pressed={isDone}
-                        className={`flex w-full items-center gap-4 rounded-2xl border p-3 text-left transition-all active:scale-[0.995] sm:p-4 ${
-                          isDone
-                            ? "border-primary/40 bg-primary/5"
-                            : "border-border bg-background hover:border-primary/30 hover:bg-muted/50"
-                        }`}
-                      >
-                        <span
-                          className={`bg-secondary relative grid aspect-[16/9] w-28 shrink-0 place-items-center overflow-hidden rounded-xl sm:w-40 ${
-                            isDone ? "opacity-70" : ""
-                          }`}
-                        >
-                          {image ? (
-                            <img
-                              src={publicUrl(image)}
-                              alt=""
-                              loading="lazy"
-                              width={461}
-                              height={254}
-                              className="size-full object-contain"
-                            />
-                          ) : (
-                            <ImageIcon
-                              className="text-muted-foreground/50 size-6"
-                              aria-hidden="true"
-                            />
-                          )}
-                          <span
-                            className={`absolute top-1 left-1 grid size-6 place-items-center rounded-full text-[11px] font-semibold ${
-                              isDone
-                                ? "bg-primary text-primary-foreground"
-                                : "bg-card text-secondary-foreground shadow-soft"
-                            }`}
-                          >
-                            {isDone ? <Check className="size-3.5" aria-hidden="true" /> : idx + 1}
-                          </span>
-                        </span>
-                        <span className="min-w-0 flex-1">
-                          {title && (
-                            <span
-                              className={`block text-sm font-semibold ${
-                                isDone ? "text-muted-foreground" : "text-foreground"
-                              }`}
-                            >
-                              {title}
-                            </span>
-                          )}
-                          <span
-                            className={`block text-sm leading-relaxed ${
-                              isDone
-                                ? "text-muted-foreground line-through"
-                                : title
-                                  ? "text-muted-foreground"
-                                  : "text-foreground"
-                            }`}
-                          >
-                            {text}
-                          </span>
-                        </span>
-                      </button>
-                    </li>
-                  );
-                })}
-              </ol>
-
-              {product.extraGuide && (
-                <section className="border-border bg-muted/40 mt-6 rounded-2xl border p-5">
-                  <h3 className="text-foreground text-sm font-semibold">
-                    {localizedText(product.extraGuide.title, locale)}
-                  </h3>
-                  {product.extraGuide.intro && (
-                    <p className="text-muted-foreground mt-2 text-sm leading-relaxed">
-                      {localizedText(product.extraGuide.intro, locale)}
-                    </p>
-                  )}
-                  <ol className="mt-4 grid gap-3">
-                    {product.extraGuide.steps.map((step, idx) => {
-                      const text = stepText(step, locale);
-                      const image = stepImage(step);
-                      return (
-                        <li
-                          key={text}
-                          className="border-border bg-background flex items-center gap-4 rounded-2xl border p-3 sm:p-4"
-                        >
-                          <span className="bg-secondary relative grid aspect-[16/9] w-28 shrink-0 place-items-center overflow-hidden rounded-xl sm:w-40">
-                            {image ? (
-                              <img
-                                src={publicUrl(image)}
-                                alt=""
-                                loading="lazy"
-                                className="size-full object-contain"
-                              />
-                            ) : (
-                              <ImageIcon
-                                className="text-muted-foreground/50 size-6"
-                                aria-hidden="true"
-                              />
-                            )}
-                            <span className="bg-card text-secondary-foreground shadow-soft absolute top-1 left-1 grid size-6 place-items-center rounded-full text-[11px] font-semibold">
-                              {idx + 1}
-                            </span>
-                          </span>
-                          <span className="text-foreground min-w-0 flex-1 text-sm leading-relaxed">
-                            {text}
-                          </span>
-                        </li>
-                      );
-                    })}
-                  </ol>
-                </section>
+              {!showImageGuide && (
+                <InlineInstructionGuide product={product} done={done} onToggleStep={toggleStep} />
               )}
             </Panel>
           )}
