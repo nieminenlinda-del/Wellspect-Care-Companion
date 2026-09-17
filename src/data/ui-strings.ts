@@ -36,6 +36,7 @@ export type UIStrings = {
   captionsOff: string;
   viewImageGuide: string;
   imageGuide: string;
+  enlargeIllustration: string;
 };
 
 const en: UIStrings = {
@@ -77,6 +78,7 @@ const en: UIStrings = {
   captionsOff: "Off",
   viewImageGuide: "View step-by-step guide",
   imageGuide: "Step-by-step guide",
+  enlargeIllustration: "Enlarge illustration",
 };
 
 const sv: UIStrings = {
@@ -118,6 +120,7 @@ const sv: UIStrings = {
   captionsOff: "Av",
   viewImageGuide: "Visa steg-för-steg-guide",
   imageGuide: "Steg-för-steg-guide",
+  enlargeIllustration: "Förstora illustrationen",
 };
 
 const fi: UIStrings = {
@@ -159,6 +162,7 @@ const fi: UIStrings = {
   captionsOff: "Pois",
   viewImageGuide: "Näytä vaiheittainen opas",
   imageGuide: "Vaiheittainen opas",
+  enlargeIllustration: "Suurenna kuva",
 };
 
 const da: UIStrings = {
@@ -200,6 +204,7 @@ const da: UIStrings = {
   captionsOff: "Fra",
   viewImageGuide: "Se trin-for-trin-guide",
   imageGuide: "Trin-for-trin-guide",
+  enlargeIllustration: "Forstør illustrationen",
 };
 
 const no: UIStrings = {
@@ -241,6 +246,7 @@ const no: UIStrings = {
   captionsOff: "Av",
   viewImageGuide: "Se trinnvis guide",
   imageGuide: "Trinnvis guide",
+  enlargeIllustration: "Forstørr illustrasjonen",
 };
 
 export const uiStrings: Record<LocaleCode, UIStrings> = { en, sv, fi, da, no };
