@@ -1,5 +1,5 @@
-import type { ReactNode } from "react";
-import { Check, Image as ImageIcon } from "lucide-react";
+import { useState, type ReactNode } from "react";
+import { Check, Image as ImageIcon, Maximize2 } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -24,14 +24,18 @@ function StepIllustration({
   image,
   index,
   done = false,
+  enlargeLabel,
+  onEnlarge,
 }: {
   image: string | undefined;
   index: number;
   done?: boolean;
+  enlargeLabel?: string;
+  onEnlarge?: () => void;
 }) {
-  return (
+  const tile = (
     <span
-      className={`bg-secondary relative grid aspect-[16/9] w-28 shrink-0 place-items-center overflow-hidden rounded-xl sm:w-40 ${
+      className={`bg-black relative grid min-h-32 w-36 shrink-0 place-items-center overflow-hidden rounded-xl sm:min-h-40 sm:w-48 ${
         done ? "opacity-70" : ""
       }`}
     >
@@ -40,9 +44,7 @@ function StepIllustration({
           src={publicUrl(image)}
           alt=""
           loading="lazy"
-          width={461}
-          height={254}
-          className="size-full object-contain"
+          className="max-h-44 w-full object-contain p-1 sm:max-h-52"
         />
       ) : (
         <ImageIcon className="text-muted-foreground/50 size-6" aria-hidden="true" />
@@ -56,8 +58,34 @@ function StepIllustration({
       >
         {done ? <Check className="size-3.5" aria-hidden="true" /> : index + 1}
       </span>
+      {image && onEnlarge && (
+        <span
+          className="absolute right-1 bottom-1 grid size-6 place-items-center rounded-full bg-black/60 text-white"
+          aria-hidden="true"
+        >
+          <Maximize2 className="size-3" />
+        </span>
+      )}
     </span>
   );
+
+  if (image && onEnlarge) {
+    return (
+      <button
+        type="button"
+        onClick={(event) => {
+          event.stopPropagation();
+          onEnlarge();
+        }}
+        aria-label={enlargeLabel}
+        className="focus-visible:ring-primary shrink-0 rounded-xl focus-visible:ring-2 focus-visible:outline-none"
+      >
+        {tile}
+      </button>
+    );
+  }
+
+  return tile;
 }
 
 function InstructionSteps({
@@ -71,16 +99,18 @@ function InstructionSteps({
   done?: number[];
   onToggle?: (idx: number) => void;
 }) {
+  const t = uiStrings[locale];
+  const [enlarged, setEnlarged] = useState<string | undefined>();
+
   return (
-    <ol className="grid gap-3">
-      {steps.map((step, idx) => {
-        const isDone = done?.includes(idx) ?? false;
-        const text = stepText(step, locale);
-        const title = stepTitle(step, locale);
-        const image = stepImage(step);
-        const body = (
-          <>
-            <StepIllustration image={image} index={idx} done={Boolean(onToggle && isDone)} />
+    <>
+      <ol className="grid gap-3">
+        {steps.map((step, idx) => {
+          const isDone = done?.includes(idx) ?? false;
+          const text = stepText(step, locale);
+          const title = stepTitle(step, locale);
+          const image = stepImage(step);
+          const copy = (
             <span className="min-w-0 flex-1">
               {title && (
                 <span
@@ -103,33 +133,71 @@ function InstructionSteps({
                 {text}
               </span>
             </span>
-          </>
-        );
+          );
+          const illustration = (
+            <StepIllustration
+              image={image}
+              index={idx}
+              done={Boolean(onToggle && isDone)}
+              enlargeLabel={t.enlargeIllustration}
+              onEnlarge={image ? () => setEnlarged(image) : undefined}
+            />
+          );
+          const rowClass = `flex min-h-11 w-full items-start gap-4 rounded-2xl border p-3 sm:p-4 ${
+            isDone
+              ? "border-primary/40 bg-primary/5"
+              : "border-border bg-background hover:border-primary/30 hover:bg-muted/50"
+          }`;
 
-        return (
-          <li key={`${idx}-${text}`}>
-            {onToggle ? (
-              <button
-                type="button"
-                onClick={() => onToggle(idx)}
-                aria-pressed={isDone}
-                className={`flex min-h-11 w-full items-center gap-4 rounded-2xl border p-3 text-left transition-all active:scale-[0.995] sm:p-4 ${
-                  isDone
-                    ? "border-primary/40 bg-primary/5"
-                    : "border-border bg-background hover:border-primary/30 hover:bg-muted/50"
-                }`}
-              >
-                {body}
-              </button>
-            ) : (
-              <div className="border-border bg-background flex items-center gap-4 rounded-2xl border p-3 sm:p-4">
-                {body}
-              </div>
-            )}
-          </li>
-        );
-      })}
-    </ol>
+          return (
+            <li key={`${idx}-${text}`}>
+              {onToggle ? (
+                <div className={rowClass}>
+                  {illustration}
+                  <button
+                    type="button"
+                    onClick={() => onToggle(idx)}
+                    aria-pressed={isDone}
+                    className="min-h-11 min-w-0 flex-1 text-left transition-all active:scale-[0.995]"
+                  >
+                    {copy}
+                  </button>
+                </div>
+              ) : (
+                <div className="border-border bg-background flex items-start gap-4 rounded-2xl border p-3 sm:p-4">
+                  {illustration}
+                  {copy}
+                </div>
+              )}
+            </li>
+          );
+        })}
+      </ol>
+
+      <Dialog open={Boolean(enlarged)} onOpenChange={(open) => !open && setEnlarged(undefined)}>
+        <DialogContent
+          className="max-h-[min(96dvh,60rem)] overflow-y-auto rounded-3xl sm:max-w-4xl clinic-landscape:max-w-5xl"
+          onPointerDownOutside={(event) => event.stopPropagation()}
+          onInteractOutside={(event) => event.stopPropagation()}
+        >
+          <DialogHeader>
+            <DialogTitle className="pr-10 text-left text-xl tracking-tight">
+              {t.enlargeIllustration}
+            </DialogTitle>
+            <DialogDescription className="sr-only">{t.enlargeIllustration}</DialogDescription>
+          </DialogHeader>
+          {enlarged && (
+            <div className="bg-black flex justify-center rounded-2xl p-3">
+              <img
+                src={publicUrl(enlarged)}
+                alt=""
+                className="block h-auto max-h-[min(78dvh,48rem)] w-auto max-w-full object-contain"
+              />
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
+    </>
   );
 }
 
