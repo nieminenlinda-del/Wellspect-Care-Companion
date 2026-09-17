@@ -176,7 +176,7 @@ function InstructionSteps({
 
       <Dialog open={Boolean(enlarged)} onOpenChange={(open) => !open && setEnlarged(undefined)}>
         <DialogContent
-          className="max-h-[min(92dvh,56rem)] overflow-y-auto rounded-3xl sm:max-w-3xl clinic-landscape:max-w-5xl"
+          className="max-h-[min(96dvh,60rem)] overflow-y-auto rounded-3xl sm:max-w-4xl clinic-landscape:max-w-5xl"
           onPointerDownOutside={(event) => event.stopPropagation()}
           onInteractOutside={(event) => event.stopPropagation()}
         >
@@ -187,11 +187,11 @@ function InstructionSteps({
             <DialogDescription className="sr-only">{t.enlargeIllustration}</DialogDescription>
           </DialogHeader>
           {enlarged && (
-            <div className="overflow-hidden rounded-2xl bg-black">
+            <div className="bg-black flex justify-center rounded-2xl p-3">
               <img
                 src={publicUrl(enlarged)}
                 alt=""
-                className="mx-auto max-h-[min(75dvh,44rem)] w-full object-contain"
+                className="block h-auto max-h-[min(78dvh,48rem)] w-auto max-w-full object-contain"
               />
             </div>
           )}
