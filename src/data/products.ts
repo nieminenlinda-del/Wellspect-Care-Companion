@@ -396,7 +396,7 @@ export type Product = {
   captions?: Captions;
   /** Optional selectable video variants (shown as pills above the player). */
   videos?: { label: LocalizedText; url?: string }[];
-  /** Optional extra guidance card shown below the step checklist. */
+  /** Optional extra guidance card shown with the illustrated step checklist. */
   extraGuide?: {
     title: LocalizedText;
     intro?: LocalizedText;
@@ -412,6 +412,11 @@ export type Product = {
   emergencyWarning?: LocalizedText;
   storage: string;
 };
+
+/** True when a product has illustrated quick-guide steps (or an extra illustrated guide). */
+export const hasImageGuide = (product: Product) =>
+  product.instructions.some((step) => Boolean(stepImage(step))) ||
+  Boolean(product.extraGuide?.steps.some((step) => Boolean(stepImage(step))));
 
 const cathSafety = [
   "Wash your hands thoroughly with soap and water before and after every catheterisation.",
