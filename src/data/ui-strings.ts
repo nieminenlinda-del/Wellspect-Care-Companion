@@ -75,8 +75,8 @@ const en: UIStrings = {
   videoPending: "Video coming soon.",
   captions: "Subtitles",
   captionsOff: "Off",
-  viewImageGuide: "View image guide",
-  imageGuide: "Step-by-step image guide",
+  viewImageGuide: "View step-by-step guide",
+  imageGuide: "Step-by-step guide",
 };
 
 const sv: UIStrings = {
@@ -116,8 +116,8 @@ const sv: UIStrings = {
   videoPending: "Filmen kommer snart.",
   captions: "Undertexter",
   captionsOff: "Av",
-  viewImageGuide: "Visa bildguide",
-  imageGuide: "Steg-för-steg-bildguide",
+  viewImageGuide: "Visa steg-för-steg-guide",
+  imageGuide: "Steg-för-steg-guide",
 };
 
 const fi: UIStrings = {
@@ -157,8 +157,8 @@ const fi: UIStrings = {
   videoPending: "Video tulossa pian.",
   captions: "Tekstitys",
   captionsOff: "Pois",
-  viewImageGuide: "Näytä kuvaopas",
-  imageGuide: "Vaiheittainen kuvaopas",
+  viewImageGuide: "Näytä vaiheittainen opas",
+  imageGuide: "Vaiheittainen opas",
 };
 
 const da: UIStrings = {
@@ -198,8 +198,8 @@ const da: UIStrings = {
   videoPending: "Videoen kommer snart.",
   captions: "Undertekster",
   captionsOff: "Fra",
-  viewImageGuide: "Se billedguide",
-  imageGuide: "Trin-for-trin billedguide",
+  viewImageGuide: "Se trin-for-trin-guide",
+  imageGuide: "Trin-for-trin-guide",
 };
 
 const no: UIStrings = {
@@ -239,8 +239,8 @@ const no: UIStrings = {
   videoPending: "Videoen kommer snart.",
   captions: "Undertekster",
   captionsOff: "Av",
-  viewImageGuide: "Se bildeguide",
-  imageGuide: "Trinnvis bildeguide",
+  viewImageGuide: "Se trinnvis guide",
+  imageGuide: "Trinnvis guide",
 };
 
 export const uiStrings: Record<LocaleCode, UIStrings> = { en, sv, fi, da, no };
