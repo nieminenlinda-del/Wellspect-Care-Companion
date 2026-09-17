@@ -494,7 +494,7 @@ export const products: Product[] = [
     videoUrl: senseVideo.url,
     brand: "LoFric",
     name: "LoFric Sense",
-    spec: "CH 8–14 · 18 cm · female",
+    spec: "CH 8–14 · 15 cm · female",
     category: "women",
     nordicEcolabel: true,
     image: "/media/lofric-sense.png",
