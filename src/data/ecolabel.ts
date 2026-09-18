@@ -73,7 +73,7 @@ export const ecolabelContent: Record<LocaleCode, EcolabelContent> = {
   fi: {
     name: "Joutsenmerkki",
     cardTitle: "Kestävyys ja Joutsenmerkki",
-    cardSubtitle: "Miksi Joutsenmerkillä on merkitystä hoidossa",
+    cardSubtitle: "Miksi Joutsenmerkki on tärkeä terveydenhuollolle",
     badge: "Joutsenmerkitty tuote",
     intro:
       "Joutsenmerkki on Pohjoismaiden virallinen ympäristömerkki ja yksi maailman tiukimmista ympäristösertifikaateista. Vain vaativat kriteerit täyttävät tuotteet saavat merkin.",
@@ -91,7 +91,7 @@ export const ecolabelContent: Record<LocaleCode, EcolabelContent> = {
         text: "Ympäristöystävälliset materiaalit ja kierrätettävät pakkaukset ovat etusijalla, ja materiaalia käytetään mahdollisimman vähän.",
       },
       {
-        title: "Kliininen turvallisuus ensin",
+        title: "Kliininen turvallisuus on etusijalla",
         text: "Ympäristöparannuksia ei koskaan tehdä toimivuuden, hygienian tai potilasturvallisuuden kustannuksella.",
       },
     ],

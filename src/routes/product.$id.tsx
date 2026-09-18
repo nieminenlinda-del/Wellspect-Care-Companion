@@ -21,6 +21,7 @@ import { DisclaimerBar, DisclaimerCard } from "@/components/MedicalDisclaimer";
 import { MarketSelector } from "@/components/MarketSelector";
 import { EcolabelDialog } from "@/components/NordicEcolabel";
 import { ProductImage } from "@/components/ProductImage";
+import { ProductWebsiteQr } from "@/components/ProductWebsiteQr";
 import { AnatomyDialog } from "@/components/AnatomyDialog";
 import { ImageGuideDialog, InlineInstructionGuide } from "@/components/ImageGuideDialog";
 import { anatomyStrings } from "@/data/anatomy";
@@ -224,6 +225,7 @@ function ProductDetail() {
               {locale !== "en" && (
                 <p className="text-muted-foreground mt-3 text-xs italic">{t.englishNote}</p>
               )}
+              <ProductWebsiteQr productId={product.id} productName={product.name} />
             </div>
           </div>
         </header>

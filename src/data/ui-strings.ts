@@ -37,6 +37,8 @@ export type UIStrings = {
   viewImageGuide: string;
   imageGuide: string;
   enlargeIllustration: string;
+  qrLearnMore: string;
+  qrMoreOnSite: string;
 };
 
 const en: UIStrings = {
@@ -79,6 +81,8 @@ const en: UIStrings = {
   viewImageGuide: "View step-by-step guide",
   imageGuide: "Step-by-step guide",
   enlargeIllustration: "Enlarge illustration",
+  qrLearnMore: "Learn more on the website",
+  qrMoreOnSite: "More on wellspect.com",
 };
 
 const sv: UIStrings = {
@@ -121,6 +125,8 @@ const sv: UIStrings = {
   viewImageGuide: "Visa steg-för-steg-guide",
   imageGuide: "Steg-för-steg-guide",
   enlargeIllustration: "Förstora illustrationen",
+  qrLearnMore: "Läs mer på webbplatsen",
+  qrMoreOnSite: "More on wellspect.se",
 };
 
 const fi: UIStrings = {
@@ -163,6 +169,8 @@ const fi: UIStrings = {
   viewImageGuide: "Näytä vaiheittainen opas",
   imageGuide: "Vaiheittainen opas",
   enlargeIllustration: "Suurenna kuva",
+  qrLearnMore: "Lue lisää verkkosivuilta",
+  qrMoreOnSite: "More on wellspect.fi",
 };
 
 const da: UIStrings = {
@@ -205,6 +213,8 @@ const da: UIStrings = {
   viewImageGuide: "Se trin-for-trin-guide",
   imageGuide: "Trin-for-trin-guide",
   enlargeIllustration: "Forstør illustrationen",
+  qrLearnMore: "Læs mere på hjemmesiden",
+  qrMoreOnSite: "More on wellspect.dk",
 };
 
 const no: UIStrings = {
@@ -247,6 +257,8 @@ const no: UIStrings = {
   viewImageGuide: "Se trinnvis guide",
   imageGuide: "Trinnvis guide",
   enlargeIllustration: "Forstørr illustrasjonen",
+  qrLearnMore: "Les mer på nettstedet",
+  qrMoreOnSite: "More on wellspect.no",
 };
 
 export const uiStrings: Record<LocaleCode, UIStrings> = { en, sv, fi, da, no };
