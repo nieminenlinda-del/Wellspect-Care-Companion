@@ -368,7 +368,7 @@ function Index() {
 
                         {p.nordicEcolabel && (
                           <span className="text-success-foreground bg-success/12 mt-5 inline-flex w-fit items-center rounded-full px-2.5 py-1 text-[11px] font-medium">
-                            Nordic Swan
+                            {eco.name}
                           </span>
                         )}
                       </Link>

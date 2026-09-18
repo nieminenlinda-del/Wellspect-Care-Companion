@@ -506,7 +506,7 @@ export const products: Product[] = [
     summary: {
       en: "Discreet ready-to-use hydrophilic catheter for women, shaped to look like a cosmetic item.",
       sv: "Diskret, färdig att använda hydrofil kateter för kvinnor, formad som ett kosmetikaföremål.",
-      fi: "Huomaamaton, käyttövalmis hydrofiilinen katetri naisille, muotoiltu kuin kosmetiikkatuote.",
+      fi: "Huomaamaton, käyttövalmis hydrofiilinen katetri naisille.",
       da: "Diskret klar-til-brug hydrofilt kateter til kvinder, formet som en kosmetikartikel.",
       no: "Diskret, klar-til-bruk hydrofilt kateter for kvinner, formet som en kosmetikkartikkel.",
     },

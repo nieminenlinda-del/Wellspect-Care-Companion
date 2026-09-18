@@ -38,7 +38,6 @@ export type UIStrings = {
   imageGuide: string;
   enlargeIllustration: string;
   qrLearnMore: string;
-  qrMoreOnSite: string;
 };
 
 const en: UIStrings = {
@@ -82,7 +81,6 @@ const en: UIStrings = {
   imageGuide: "Step-by-step guide",
   enlargeIllustration: "Enlarge illustration",
   qrLearnMore: "Learn more on the website",
-  qrMoreOnSite: "More on wellspect.com",
 };
 
 const sv: UIStrings = {
@@ -126,7 +124,6 @@ const sv: UIStrings = {
   imageGuide: "Steg-för-steg-guide",
   enlargeIllustration: "Förstora illustrationen",
   qrLearnMore: "Läs mer på webbplatsen",
-  qrMoreOnSite: "More on wellspect.se",
 };
 
 const fi: UIStrings = {
@@ -156,7 +153,7 @@ const fi: UIStrings = {
   disclaimerTitle: "Lääketieteellinen vastuuvapauslauseke",
   disclaimerBody:
     "Tämä kioski antaa yleistä tietoa Wellspectin lääkinnällisistä laitteista. Se ei korvaa pakkauksen käyttöohjetta, henkilökohtaista opastusta tai hoitohenkilökunnan neuvoja. Katetroinnin ja transanaalisen huuhtelun tulee olla lääkärin määräämiä ja ammattilaisen opastamia.",
-  englishNote: "Yksityiskohtaiset ohjeet näytetään englanniksi.",
+  englishNote: "",
   browseTitle: "Valitse kategoria",
   allCategories: "Kaikki kategoriat",
   backToCategory: (label) => `Takaisin: ${label}`,
@@ -170,7 +167,6 @@ const fi: UIStrings = {
   imageGuide: "Vaiheittainen opas",
   enlargeIllustration: "Suurenna kuva",
   qrLearnMore: "Lue lisää verkkosivuilta",
-  qrMoreOnSite: "More on wellspect.fi",
 };
 
 const da: UIStrings = {
@@ -214,7 +210,6 @@ const da: UIStrings = {
   imageGuide: "Trin-for-trin-guide",
   enlargeIllustration: "Forstør illustrationen",
   qrLearnMore: "Læs mere på hjemmesiden",
-  qrMoreOnSite: "More on wellspect.dk",
 };
 
 const no: UIStrings = {
@@ -258,7 +253,6 @@ const no: UIStrings = {
   imageGuide: "Trinnvis guide",
   enlargeIllustration: "Forstørr illustrasjonen",
   qrLearnMore: "Les mer på nettstedet",
-  qrMoreOnSite: "More on wellspect.no",
 };
 
 export const uiStrings: Record<LocaleCode, UIStrings> = { en, sv, fi, da, no };

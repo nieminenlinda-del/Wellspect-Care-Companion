@@ -10,7 +10,7 @@ import type { LocaleCode } from "@/lib/locale";
 export type ProductQrCode = {
   /** Public path, e.g. `/images/qr/fi/fi-lofric-sense.png`. */
   image: string;
-  /** Full short URL opened when the code or link is tapped. */
+  /** Destination encoded in the QR image (not shown as a text link). */
   url: string;
 };
 
@@ -53,8 +53,4 @@ const qrByLocaleAndProduct: Partial<Record<LocaleCode, Record<string, ProductQrC
 
 export function getProductQr(productId: string, locale: LocaleCode): ProductQrCode | undefined {
   return qrByLocaleAndProduct[locale]?.[productId];
-}
-
-export function displayQrUrl(url: string): string {
-  return url.replace(/^https?:\/\//i, "");
 }
