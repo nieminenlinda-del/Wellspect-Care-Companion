@@ -13,10 +13,11 @@ import swanAsset from "@/assets/nordic-swan-ecolabel.png.asset.json";
 import { publicUrl } from "@/lib/public-url";
 
 export function SwanMark({ className = "size-10" }: { className?: string }) {
+  const { locale } = useLocale();
   return (
     <img
       src={publicUrl(swanAsset.url)}
-      alt="Nordic Swan Ecolabel"
+      alt={ecolabelContent[locale].name}
       loading="lazy"
       className={`${className} object-contain`}
     />

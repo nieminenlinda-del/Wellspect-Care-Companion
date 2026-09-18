@@ -222,7 +222,7 @@ function ProductDetail() {
               <p className="text-foreground mt-5 max-w-2xl text-base leading-relaxed text-pretty sm:text-lg">
                 {product.summary[locale]}
               </p>
-              {locale !== "en" && (
+              {locale !== "en" && t.englishNote && (
                 <p className="text-muted-foreground mt-3 text-xs italic">{t.englishNote}</p>
               )}
               <ProductWebsiteQr productId={product.id} productName={product.name} />
