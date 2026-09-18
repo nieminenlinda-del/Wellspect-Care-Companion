@@ -88,14 +88,14 @@ export const categoryLabels: Record<CategoryId, Localized> = {
   women: {
     en: "CIC – women",
     sv: "CIC – kvinnor",
-    fi: "CIC – naiset",
+    fi: "Toistokatetrointi – naiset",
     da: "CIC – kvinder",
     no: "CIC – kvinner",
   },
   men: {
     en: "CIC – men",
     sv: "CIC – män",
-    fi: "CIC – miehet",
+    fi: "Toistokatetrointi – miehet",
     da: "CIC – mænd",
     no: "CIC – menn",
   },
