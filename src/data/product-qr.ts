@@ -36,6 +36,36 @@ const qrCatalog: Partial<Record<LocaleCode, ProductQrEntry[]>> = {
       image: "/images/qr/fi/fi-lofric-elle-pro.png",
       url: "https://wellspect.qrd.by/ivulqj",
     },
+    {
+      productIds: ["lofric-classic", "lofric-classic-female"],
+      image: "/images/qr/fi/fi-lofric-classic.png",
+      url: "https://wellspect.qrd.by/fl8qjv",
+    },
+    {
+      productIds: ["lofric-hydro-kit", "lofric-hydro-kit-female"],
+      image: "/images/qr/fi/fi-lofric-hydro-kit.png",
+      url: "https://wellspect.qrd.by/pmxrs6",
+    },
+    {
+      productIds: ["navina-classic"],
+      image: "/images/qr/fi/fi-navina-classic.png",
+      url: "https://wellspect.qrd.by/5rv1ai",
+    },
+    {
+      productIds: ["navina-insert"],
+      image: "/images/qr/fi/fi-navina-insert.png",
+      url: "https://wellspect.qrd.by/ew5bh7",
+    },
+    {
+      productIds: ["navina-mini"],
+      image: "/images/qr/fi/fi-navina-mini.png",
+      url: "https://wellspect.qrd.by/9znb1i",
+    },
+    {
+      productIds: ["navina-smart"],
+      image: "/images/qr/fi/fi-navina-smart.png",
+      url: "https://wellspect.qrd.by/kbx9si",
+    },
   ],
 };
 
