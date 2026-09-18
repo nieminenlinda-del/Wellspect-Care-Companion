@@ -23,7 +23,7 @@ export function ProductWebsiteQr({
         width={144}
         height={144}
         loading="lazy"
-        className="size-32 shrink-0 rounded-xl bg-white object-contain sm:size-36"
+        className="size-32 shrink-0 rounded-xl bg-black object-contain sm:size-36"
       />
       <p className="text-foreground min-w-0 text-sm font-semibold text-balance">
         {t.qrLearnMore}
