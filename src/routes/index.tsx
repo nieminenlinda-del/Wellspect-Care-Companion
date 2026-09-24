@@ -4,6 +4,7 @@ import { Search, X } from "lucide-react";
 import {
   categoryLabels,
   categoryOrder,
+  isProductAvailable,
   localizedText,
   products,
   type CategoryId,
@@ -66,9 +67,14 @@ function Index() {
 
   const searching = query.trim() !== "";
 
+  const availableProducts = useMemo(
+    () => products.filter((product) => isProductAvailable(product, locale)),
+    [locale],
+  );
+
   const results = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return products.filter((p) => {
+    return availableProducts.filter((p) => {
       const inCategory = searching ? true : p.category === active;
       const inQuery =
         q === "" ||
@@ -77,7 +83,7 @@ function Index() {
         p.indications.some((i) => localizedText(i, locale).toLowerCase().includes(q));
       return inCategory && inQuery;
     });
-  }, [query, active, locale, searching]);
+  }, [query, active, locale, searching, availableProducts]);
 
   const showCategories = !searching && active === null;
   const showContact = !searching && active === "contact";
@@ -186,7 +192,7 @@ function Index() {
                         {categoryLabels[c][locale]}
                       </span>
                       <span className="text-muted-foreground mt-4 text-sm">
-                        {t.productCount(products.filter((p) => p.category === c).length)}
+                        {t.productCount(availableProducts.filter((p) => p.category === c).length)}
                       </span>
                     </button>
                   </li>

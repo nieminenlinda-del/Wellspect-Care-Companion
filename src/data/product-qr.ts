@@ -124,6 +124,58 @@ const qrCatalog: Partial<Record<LocaleCode, ProductQrEntry[]>> = {
       url: "https://wellspect.qrd.by/u195xp",
     },
   ],
+  no: [
+    {
+      productIds: ["lofric-elle", "lofric-elle-pro"],
+      image: "/images/qr/no/no-lofric-elle.png",
+      url: "https://wellspect.qrd.by/ueh94q",
+    },
+    {
+      productIds: ["lofric-classic", "lofric-classic-female"],
+      image: "/images/qr/no/no-lofric-classic.png",
+      url: "https://wellspect.qrd.by/bngzsf",
+    },
+    {
+      productIds: ["lofric-primo", "lofric-primo-female"],
+      image: "/images/qr/no/no-lofric-primo.png",
+      url: "https://wellspect.qrd.by/h41jzn",
+    },
+    {
+      productIds: ["navina-classic"],
+      image: "/images/qr/no/no-navina-classic.png",
+      url: "https://wellspect.qrd.by/r3c6bv",
+    },
+    {
+      productIds: ["navina-insert"],
+      image: "/images/qr/no/no-navina-insert.png",
+      url: "https://wellspect.qrd.by/ypkg3j",
+    },
+    {
+      productIds: ["navina-mini"],
+      image: "/images/qr/no/no-navina-mini.png",
+      url: "https://wellspect.qrd.by/kfmwq9",
+    },
+    {
+      productIds: ["lofric-origo"],
+      image: "/images/qr/no/no-lofric-origo.png",
+      url: "https://wellspect.qrd.by/zwkdio",
+    },
+    {
+      productIds: ["lofric-sense"],
+      image: "/images/qr/no/no-lofric-sense.png",
+      url: "https://wellspect.qrd.by/3xkoyt",
+    },
+    {
+      productIds: ["lofric-origo-pro"],
+      image: "/images/qr/no/no-lofric-origo-pro.png",
+      url: "https://wellspect.qrd.by/94q1yx",
+    },
+    {
+      productIds: ["lofric-hydro-kit", "lofric-hydro-kit-female"],
+      image: "/images/qr/no/no-lofric-hydro-kit.png",
+      url: "https://wellspect.qrd.by/xgmas1",
+    },
+  ],
 };
 
 const qrByLocaleAndProduct: Partial<Record<LocaleCode, Record<string, ProductQrCode>>> =
