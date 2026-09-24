@@ -72,6 +72,38 @@ const qrCatalog: Partial<Record<LocaleCode, ProductQrEntry[]>> = {
       url: "https://wellspect.qrd.by/kbx9si",
     },
   ],
+  sv: [
+    {
+      productIds: ["lofric-classic", "lofric-classic-female"],
+      image: "/images/qr/sv/sv-lofric-classic.png",
+      url: "https://wellspect.qrd.by/ni8m49",
+    },
+    {
+      productIds: ["lofric-elle", "lofric-elle-pro"],
+      image: "/images/qr/sv/sv-lofric-elle.png",
+      url: "https://wellspect.qrd.by/ib3wad",
+    },
+    {
+      productIds: ["lofric-hydro-kit", "lofric-hydro-kit-female"],
+      image: "/images/qr/sv/sv-lofric-hydro-kit.png",
+      url: "https://wellspect.qrd.by/91tb5x",
+    },
+    {
+      productIds: ["lofric-origo", "lofric-origo-pro"],
+      image: "/images/qr/sv/sv-lofric-origo.png",
+      url: "https://wellspect.qrd.by/ag4cl9",
+    },
+    {
+      productIds: ["lofric-sense"],
+      image: "/images/qr/sv/sv-lofric-sense.png",
+      url: "https://wellspect.qrd.by/bc7og6",
+    },
+    {
+      productIds: ["navina-classic"],
+      image: "/images/qr/sv/sv-navina-classic.png",
+      url: "https://wellspect.qrd.by/luavwf",
+    },
+  ],
 };
 
 const qrByLocaleAndProduct: Partial<Record<LocaleCode, Record<string, ProductQrCode>>> =
