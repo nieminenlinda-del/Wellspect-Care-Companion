@@ -511,11 +511,11 @@ export const products: Product[] = [
     nordicEcolabel: true,
     image: "/media/lofric-elle-pro.png",
     summary: {
-      en: "Ready-to-use female catheter with an integrated water sachet and a firm, angled handle for a secure grip.",
-      sv: "Färdig att använda kateter för kvinnor med inbyggd vattenpåse och stadigt, vinklat handtag för säkert grepp.",
-      fi: "Käyttövalmis naisten katetri, jossa integroitu vesipussi ja tukeva, kulmikas kahva varmaan otteeseen.",
-      da: "Klar-til-brug kateter til kvinder med indbygget vandpose og fast, vinklet håndtag til sikkert greb.",
-      no: "Klar-til-bruk kateter for kvinner med innebygd vannpose og fast, vinklet håndtak for sikkert grep.",
+      en: "LoFric® Elle™ Pro, designed for women by women, is a hydrophilic intermittent catheter. Introducing twelve smooth Pro eyelets developed to further simplify catheterisation, LoFric® Elle™ Pro is designed to allow for bladder emptying in one free flow, without the need for repositioning.",
+      sv: "LoFric® Elle™ Pro, designad för kvinnor av kvinnor, är en hydrofil intermittent kateter. Med tolv släta Pro-ögon utvecklade för att ytterligare förenkla kateteriseringen är LoFric® Elle™ Pro utformad så att blåsan kan tömmas i ett fritt flöde, utan behov av ompositionering.",
+      fi: "LoFric® Elle™ Pro on naisten suunnittelema hydrofiilinen toistokatetri naisille. Kahdentoista sileän Pro-silmän ansiosta, jotka on kehitetty helpottamaan katetrointia entisestään, LoFric® Elle™ Pro on suunniteltu mahdollistamaan rakon tyhjentäminen yhdellä vapaalla virtauksella ilman uudelleenasettelua.",
+      da: "LoFric® Elle™ Pro, designet til kvinder af kvinder, er et hydrofilt intermittent kateter. Med tolv glatte Pro-øjne udviklet til yderligere at forenkle kateteriseringen er LoFric® Elle™ Pro designet til at tømme blæren i ét frit flow, uden behov for omplacering.",
+      no: "LoFric® Elle™ Pro, designet for kvinner av kvinner, er et hydrofilt intermittent kateter. Med tolv glatte Pro-øyne utviklet for å forenkle kateteriseringen ytterligere er LoFric® Elle™ Pro designet for å tømme blæren i én fri strøm, uten behov for omplassering.",
     },
     indications: [
       "Intermittent catheterisation for women who want a fully self-contained, ready-to-use catheter",
