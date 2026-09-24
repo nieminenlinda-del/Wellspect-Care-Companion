@@ -383,6 +383,12 @@ export type Product = {
   name: string;
   spec: string;
   category: CategoryId;
+  /**
+   * Markets where this product is not sold. Omitted means it is available
+   * in every locale. Listing, search, counts, and the product page all
+   * honor this through `isProductAvailable`.
+   */
+  unavailableLocales?: LocaleCode[];
   nordicEcolabel: boolean;
   /** Official product photo URL (CDN asset). Optional. */
   image?: string;
@@ -1339,6 +1345,7 @@ export const products: Product[] = [
   },
   {
     id: "navina-smart",
+    unavailableLocales: ["no"],
     emergencyWarning: navinaEmergencyWarning,
     logo: navinaSmartLogo.url,
     videoUrl: smartVideo.url,
@@ -1489,3 +1496,8 @@ export const products: Product[] = [
 ];
 
 export const getProduct = (id: string) => products.find((p) => p.id === id);
+
+/** True when the product is offered in this market. */
+export function isProductAvailable(product: Product, locale: LocaleCode): boolean {
+  return !product.unavailableLocales?.includes(locale);
+}

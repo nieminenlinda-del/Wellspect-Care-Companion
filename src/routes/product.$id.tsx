@@ -1,4 +1,4 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createFileRoute, Link, Navigate, notFound } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   AlertTriangle,
@@ -14,7 +14,13 @@ import {
   PlayCircle,
   ShieldAlert,
 } from "lucide-react";
-import { categoryLabels, getProduct, hasImageGuide, localizedText } from "@/data/products";
+import {
+  categoryLabels,
+  getProduct,
+  hasImageGuide,
+  isProductAvailable,
+  localizedText,
+} from "@/data/products";
 import { uiStrings } from "@/data/ui-strings";
 import { locales, useLocale, type LocaleCode } from "@/lib/locale";
 import { DisclaimerBar, DisclaimerCard } from "@/components/MedicalDisclaimer";
@@ -152,6 +158,10 @@ function ProductDetail() {
   const showImageGuide = hasImageGuide(product);
   const showHowToActions =
     product.category === "women" || product.category === "men" || hasVideoSection || showImageGuide;
+
+  if (!isProductAvailable(product, locale)) {
+    return <Navigate to="/" replace />;
+  }
 
   return (
     <div className="clinic-page bg-background">
