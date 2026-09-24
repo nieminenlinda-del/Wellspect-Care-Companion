@@ -103,6 +103,26 @@ const qrCatalog: Partial<Record<LocaleCode, ProductQrEntry[]>> = {
       image: "/images/qr/sv/sv-navina-classic.png",
       url: "https://wellspect.qrd.by/luavwf",
     },
+    {
+      productIds: ["navina-insert"],
+      image: "/images/qr/sv/sv-navina-insert.png",
+      url: "https://wellspect.qrd.by/lt160g",
+    },
+    {
+      productIds: ["navina-mini"],
+      image: "/images/qr/sv/sv-navina-mini.png",
+      url: "https://wellspect.qrd.by/u1ey2l",
+    },
+    {
+      productIds: ["navina-smart"],
+      image: "/images/qr/sv/sv-navina-smart.png",
+      url: "https://wellspect.qrd.by/2mf9nx",
+    },
+    {
+      productIds: ["lofric-primo", "lofric-primo-female"],
+      image: "/images/qr/sv/sv-lofric-primo.png",
+      url: "https://wellspect.qrd.by/u195xp",
+    },
   ],
 };
 
