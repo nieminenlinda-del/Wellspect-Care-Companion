@@ -87,17 +87,17 @@ const elleProCaptions: Captions = {
 export const categoryLabels: Record<CategoryId, Localized> = {
   women: {
     en: "CIC – women",
-    sv: "CIC – kvinnor",
+    sv: "RIK – kvinnor",
     fi: "Toistokatetrointi – naiset",
-    da: "CIC – kvinder",
-    no: "CIC – kvinner",
+    da: "RIK – kvinder",
+    no: "RIK – kvinner",
   },
   men: {
     en: "CIC – men",
-    sv: "CIC – män",
+    sv: "RIK – män",
     fi: "Toistokatetrointi – miehet",
-    da: "CIC – mænd",
-    no: "CIC – menn",
+    da: "RIK – mænd",
+    no: "RIK – menn",
   },
   bowel: {
     en: "Bowel care",
@@ -500,6 +500,116 @@ const origoSteps: InstructionStep[] = [
 
 export const products: Product[] = [
   {
+    id: "lofric-elle-pro",
+    logo: elleProLogo.url,
+    videoUrl: elleProVideo.url,
+    captions: elleProCaptions,
+    brand: "LoFric",
+    name: "LoFric Elle Pro",
+    spec: "CH 8–14 · 15 cm",
+    category: "women",
+    nordicEcolabel: true,
+    image: "/media/lofric-elle-pro.png",
+    summary: {
+      en: "Ready-to-use female catheter with an integrated water sachet and a firm, angled handle for a secure grip.",
+      sv: "Färdig att använda kateter för kvinnor med inbyggd vattenpåse och stadigt, vinklat handtag för säkert grepp.",
+      fi: "Käyttövalmis naisten katetri, jossa integroitu vesipussi ja tukeva, kulmikas kahva varmaan otteeseen.",
+      da: "Klar-til-brug kateter til kvinder med indbygget vandpose og fast, vinklet håndtag til sikkert greb.",
+      no: "Klar-til-bruk kateter for kvinner med innebygd vannpose og fast, vinklet håndtak for sikkert grep.",
+    },
+    indications: [
+      "Intermittent catheterisation for women who want a fully self-contained, ready-to-use catheter",
+      "Reduced hand function or limited dexterity where a firm handle helps control",
+      "Bladder emptying away from home where no water source is available",
+    ],
+    instructions: [
+      {
+        text: "Wash your hands thoroughly with soap and water.",
+        image: "/images/instructions/lofric-elle-pro/step-1.png",
+      },
+      {
+        text: "Open the upper lid.",
+        image: "/images/instructions/lofric-elle-pro/step-2.png",
+      },
+      {
+        text: "Hold the catheter in your hand and gently bend the upper part to open. Pull the catheter out.",
+        image: "/images/instructions/lofric-elle-pro/step-3.png",
+      },
+      {
+        text: "Connect the container to the catheter with a gentle twist, make sure the arrow on the container points down.",
+        image: "/images/instructions/lofric-elle-pro/step-4.png",
+      },
+      {
+        text: "Tilt your pelvis upwards, spread the labia, lift slightly to locate the urethra. The urethra is located just above the vaginal opening. With the other hand, insert the catheter slowly into your urethral opening until urine starts to flow, insert slightly more to ensure a steady stream. Wait until urine flow stops, then slowly withdraw the catheter.",
+        image: "/images/instructions/lofric-elle-pro/step-5.png",
+      },
+      {
+        text: "Put the catheter back inside the container. Dispose, or carry it in your bag until disposal. Please note! The container is recyclable.",
+        image: "/images/instructions/lofric-elle-pro/step-6.png",
+      },
+    ],
+    safety: cathSafety,
+    contraindications: cathContra,
+    warningSigns: cathWarnings,
+    storage:
+      "Store below 40 °C, away from direct sunlight. Activate the water sachet only just before use.",
+  },
+  {
+    id: "lofric-elle",
+    videoUrl: elleVideo.url,
+    captions: elleCaptions,
+    brand: "LoFric",
+    name: "LoFric Elle",
+    logo: elleLogo.url,
+    spec: "CH 8–14 · 15 cm",
+    category: "women",
+    nordicEcolabel: true,
+    image: "/media/lofric-elle.png",
+    summary: {
+      en: "LoFric® Elle™, designed for women by women, is a hydrophilic intermittent catheter. Its unique ergonomic design allows the container to become an angulated handle when connected to the catheter.",
+      sv: "LoFric® Elle™, designad för kvinnor av kvinnor, är en hydrofil intermittent kateter. Den unika ergonomiska designen gör att behållaren blir ett vinklat handtag när den kopplas till katetern.",
+      fi: "LoFric® Elle™ on naisten suunnittelema hydrofiilinen toistokatetri naisille. Ainutlaatuisen ergonomisen muotoilun ansiosta pakkaus muuttuu kulmakahvaksi, kun se liitetään katetriin.",
+      da: "LoFric® Elle™, designet til kvinder af kvinder, er et hydrofilt intermittent kateter. Det unikke ergonomiske design gør, at beholderen bliver et vinklet håndtag, når den tilsluttes kateteret.",
+      no: "LoFric® Elle™, designet for kvinner av kvinner, er et hydrofilt intermittent kateter. Den unike ergonomiske designen gjør at beholderen blir et vinklet håndtak når den kobles til kateteret.",
+    },
+    indications: [
+      "Intermittent catheterisation for women",
+      "Useful when hand function or dexterity is reduced",
+      "Everyday bladder emptying at home or away",
+    ],
+    instructions: [
+      {
+        text: "Wash your hands thoroughly with soap and water.",
+        image: "/images/instructions/lofric-elle/step-1.png",
+      },
+      {
+        text: "Open the upper lid.",
+        image: "/images/instructions/lofric-elle/step-2.png",
+      },
+      {
+        text: "Hold the catheter in your hand and gently bend the upper part to open. Pull the catheter out.",
+        image: "/images/instructions/lofric-elle/step-3.png",
+      },
+      {
+        text: "Connect the container to the catheter with a gentle twist, make sure the arrow on the container points down.",
+        image: "/images/instructions/lofric-elle/step-4.png",
+      },
+      {
+        text: "Tilt your pelvis upwards, spread the labia, lift slightly to locate the urethra. The urethra is located just above the vaginal opening. With the other hand, insert the catheter slowly into your urethral opening, until urine starts to flow, insert slightly more to ensure both eyelets are inside the bladder. When the urine flow slows to a drip, withdraw the catheter slowly. If urine starts to flow again, stop the withdrawal process and wait until the urine flow stops, to ensure complete bladder emptying.",
+        image: "/images/instructions/lofric-elle/step-5.png",
+      },
+      {
+        text: "Put the catheter back inside the container. Dispose, or carry it in your bag until disposal. Please note! The container is recyclable.",
+        image: "/images/instructions/lofric-elle/step-6.png",
+      },
+    ],
+
+    safety: cathSafety,
+    contraindications: cathContra,
+    warningSigns: cathWarnings,
+    storage: "Keep dry at room temperature in the original package.",
+  },
+  {
     id: "lofric-sense",
     logo: senseLogo.url,
     videoUrl: senseVideo.url,
@@ -565,116 +675,6 @@ export const products: Product[] = [
     contraindications: cathContra,
     warningSigns: cathWarnings,
     storage: "Store below 40 °C, away from direct sunlight. Do not use if the package is damaged.",
-  },
-  {
-    id: "lofric-elle",
-    videoUrl: elleVideo.url,
-    captions: elleCaptions,
-    brand: "LoFric",
-    name: "LoFric Elle",
-    logo: elleLogo.url,
-    spec: "CH 8–14 · 15 cm",
-    category: "women",
-    nordicEcolabel: true,
-    image: "/media/lofric-elle.png",
-    summary: {
-      en: "LoFric® Elle™, designed for women by women, is a hydrophilic intermittent catheter. Its unique ergonomic design allows the container to become an angulated handle when connected to the catheter.",
-      sv: "LoFric® Elle™, designad för kvinnor av kvinnor, är en hydrofil intermittent kateter. Den unika ergonomiska designen gör att behållaren blir ett vinklat handtag när den kopplas till katetern.",
-      fi: "LoFric® Elle™ on naisten suunnittelema hydrofiilinen toistokatetri naisille. Ainutlaatuisen ergonomisen muotoilun ansiosta pakkaus muuttuu kulmakahvaksi, kun se liitetään katetriin.",
-      da: "LoFric® Elle™, designet til kvinder af kvinder, er et hydrofilt intermittent kateter. Det unikke ergonomiske design gør, at beholderen bliver et vinklet håndtag, når den tilsluttes kateteret.",
-      no: "LoFric® Elle™, designet for kvinner av kvinner, er et hydrofilt intermittent kateter. Den unike ergonomiske designen gjør at beholderen blir et vinklet håndtak når den kobles til kateteret.",
-    },
-    indications: [
-      "Intermittent catheterisation for women",
-      "Useful when hand function or dexterity is reduced",
-      "Everyday bladder emptying at home or away",
-    ],
-    instructions: [
-      {
-        text: "Wash your hands thoroughly with soap and water.",
-        image: "/images/instructions/lofric-elle/step-1.png",
-      },
-      {
-        text: "Open the upper lid.",
-        image: "/images/instructions/lofric-elle/step-2.png",
-      },
-      {
-        text: "Hold the catheter in your hand and gently bend the upper part to open. Pull the catheter out.",
-        image: "/images/instructions/lofric-elle/step-3.png",
-      },
-      {
-        text: "Connect the container to the catheter with a gentle twist, make sure the arrow on the container points down.",
-        image: "/images/instructions/lofric-elle/step-4.png",
-      },
-      {
-        text: "Tilt your pelvis upwards, spread the labia, lift slightly to locate the urethra. The urethra is located just above the vaginal opening. With the other hand, insert the catheter slowly into your urethral opening, until urine starts to flow, insert slightly more to ensure both eyelets are inside the bladder. When the urine flow slows to a drip, withdraw the catheter slowly. If urine starts to flow again, stop the withdrawal process and wait until the urine flow stops, to ensure complete bladder emptying.",
-        image: "/images/instructions/lofric-elle/step-5.png",
-      },
-      {
-        text: "Put the catheter back inside the container. Dispose, or carry it in your bag until disposal. Please note! The container is recyclable.",
-        image: "/images/instructions/lofric-elle/step-6.png",
-      },
-    ],
-
-    safety: cathSafety,
-    contraindications: cathContra,
-    warningSigns: cathWarnings,
-    storage: "Keep dry at room temperature in the original package.",
-  },
-  {
-    id: "lofric-elle-pro",
-    logo: elleProLogo.url,
-    videoUrl: elleProVideo.url,
-    captions: elleProCaptions,
-    brand: "LoFric",
-    name: "LoFric Elle Pro",
-    spec: "CH 8–14 · 15 cm",
-    category: "women",
-    nordicEcolabel: true,
-    image: "/media/lofric-elle-pro.png",
-    summary: {
-      en: "Ready-to-use female catheter with an integrated water sachet and a firm, angled handle for a secure grip.",
-      sv: "Färdig att använda kateter för kvinnor med inbyggd vattenpåse och stadigt, vinklat handtag för säkert grepp.",
-      fi: "Käyttövalmis naisten katetri, jossa integroitu vesipussi ja tukeva, kulmikas kahva varmaan otteeseen.",
-      da: "Klar-til-brug kateter til kvinder med indbygget vandpose og fast, vinklet håndtag til sikkert greb.",
-      no: "Klar-til-bruk kateter for kvinner med innebygd vannpose og fast, vinklet håndtak for sikkert grep.",
-    },
-    indications: [
-      "Intermittent catheterisation for women who want a fully self-contained, ready-to-use catheter",
-      "Reduced hand function or limited dexterity where a firm handle helps control",
-      "Bladder emptying away from home where no water source is available",
-    ],
-    instructions: [
-      {
-        text: "Wash your hands thoroughly with soap and water.",
-        image: "/images/instructions/lofric-elle-pro/step-1.png",
-      },
-      {
-        text: "Open the upper lid.",
-        image: "/images/instructions/lofric-elle-pro/step-2.png",
-      },
-      {
-        text: "Hold the catheter in your hand and gently bend the upper part to open. Pull the catheter out.",
-        image: "/images/instructions/lofric-elle-pro/step-3.png",
-      },
-      {
-        text: "Connect the container to the catheter with a gentle twist, make sure the arrow on the container points down.",
-        image: "/images/instructions/lofric-elle-pro/step-4.png",
-      },
-      {
-        text: "Tilt your pelvis upwards, spread the labia, lift slightly to locate the urethra. The urethra is located just above the vaginal opening. With the other hand, insert the catheter slowly into your urethral opening until urine starts to flow, insert slightly more to ensure a steady stream. Wait until urine flow stops, then slowly withdraw the catheter.",
-        image: "/images/instructions/lofric-elle-pro/step-5.png",
-      },
-      {
-        text: "Put the catheter back inside the container. Dispose, or carry it in your bag until disposal. Please note! The container is recyclable.",
-        image: "/images/instructions/lofric-elle-pro/step-6.png",
-      },
-    ],
-    safety: cathSafety,
-    contraindications: cathContra,
-    warningSigns: cathWarnings,
-    storage:
-      "Store below 40 °C, away from direct sunlight. Activate the water sachet only just before use.",
   },
   {
     id: "lofric-primo-female",
@@ -798,10 +798,10 @@ export const products: Product[] = [
     image: "/media/lofric-classic.png",
     summary: {
       en: "LoFric® is the first hydrophilic catheter developed for intermittent catheterisation. It requires clean water to activate the unique Urotonic™ Surface Technology coating on the catheter tube.",
-      sv: "LoFric® är den första hydrofila katetern utvecklad för CIC. Den kräver rent vatten för att aktivera den unika Urotonic™ Surface Technology-beläggningen på kateterslangen.",
+      sv: "LoFric® är den första hydrofila katetern utvecklad för RIK. Den kräver rent vatten för att aktivera den unika Urotonic™ Surface Technology-beläggningen på kateterslangen.",
       fi: "LoFric® on ensimmäinen hydrofiilinen katetri, joka on kehitetty toistokatetrointiin. Se tarvitsee puhdasta vettä aktivoidakseen ainutlaatuisen Urotonic™ Surface Technology -pinnoitteen katetriputkessa.",
-      da: "LoFric® er det første hydrofile kateter udviklet til CIC. Det kræver rent vand for at aktivere den unikke Urotonic™ Surface Technology-coating på kateterslangen.",
-      no: "LoFric® er det første hydrofile kateteret utviklet for CIC. Det krever rent vann for å aktivere det unike Urotonic™ Surface Technology-belegget på kateterslangen.",
+      da: "LoFric® er det første hydrofile kateter udviklet til RIK. Det kræver rent vand for at aktivere den unikke Urotonic™ Surface Technology-coating på kateterslangen.",
+      no: "LoFric® er det første hydrofile kateteret utviklet for RIK. Det krever rent vann for å aktivere det unike Urotonic™ Surface Technology-belegget på kateterslangen.",
     },
     indications: [
       "Everyday intermittent catheterisation for women at home",
@@ -828,36 +828,6 @@ export const products: Product[] = [
     contraindications: cathContra,
     warningSigns: cathWarnings,
     storage: "Store dry at room temperature. Use immediately once water has been added.",
-  },
-  {
-    id: "lofric-origo",
-    logo: origoLogo.url,
-    videoUrl: origoVideo.url,
-    captions: origoCaptions,
-    brand: "LoFric",
-    name: "LoFric Origo",
-    spec: "CH 8–16 · 40 cm",
-    category: "men",
-    nordicEcolabel: true,
-    image: "/media/lofric-origo.png",
-    summary: {
-      en: "Pocket-sized ready-to-use catheter for men with a protective sleeve for touch-free insertion.",
-      sv: "Fickvänlig, färdig att använda kateter för män med skyddshölje för beröringsfri införing.",
-      fi: "Taskukokoinen käyttövalmis katetri miehille, suojaholkki mahdollistaa koskematta asettamisen.",
-      da: "Lommevenligt klar-til-brug kateter til mænd med beskyttelseshylster til berøringsfri indføring.",
-      no: "Lommevennlig klar-til-bruk kateter for menn med beskyttelseshylse for berøringsfri innføring.",
-    },
-    indications: [
-      "Intermittent catheterisation for men",
-      "Bladder emptying away from home, at work or when travelling",
-      "Users who want to avoid touching the catheter tube",
-    ],
-    instructions: origoSteps,
-
-    safety: cathSafety,
-    contraindications: cathContra,
-    warningSigns: cathWarnings,
-    storage: "Store below 40 °C. Activate only immediately before use.",
   },
   {
     id: "lofric-origo-pro",
@@ -888,6 +858,36 @@ export const products: Product[] = [
     contraindications: cathContra,
     warningSigns: cathWarnings,
     storage: "Store below 40 °C, away from direct sunlight. Activate only immediately before use.",
+  },
+  {
+    id: "lofric-origo",
+    logo: origoLogo.url,
+    videoUrl: origoVideo.url,
+    captions: origoCaptions,
+    brand: "LoFric",
+    name: "LoFric Origo",
+    spec: "CH 8–16 · 40 cm",
+    category: "men",
+    nordicEcolabel: true,
+    image: "/media/lofric-origo.png",
+    summary: {
+      en: "Pocket-sized ready-to-use catheter for men with a protective sleeve for touch-free insertion.",
+      sv: "Fickvänlig, färdig att använda kateter för män med skyddshölje för beröringsfri införing.",
+      fi: "Taskukokoinen käyttövalmis katetri miehille, suojaholkki mahdollistaa koskematta asettamisen.",
+      da: "Lommevenligt klar-til-brug kateter til mænd med beskyttelseshylster til berøringsfri indføring.",
+      no: "Lommevennlig klar-til-bruk kateter for menn med beskyttelseshylse for berøringsfri innføring.",
+    },
+    indications: [
+      "Intermittent catheterisation for men",
+      "Bladder emptying away from home, at work or when travelling",
+      "Users who want to avoid touching the catheter tube",
+    ],
+    instructions: origoSteps,
+
+    safety: cathSafety,
+    contraindications: cathContra,
+    warningSigns: cathWarnings,
+    storage: "Store below 40 °C. Activate only immediately before use.",
   },
   {
     id: "lofric-primo",
@@ -1042,10 +1042,10 @@ export const products: Product[] = [
     image: "/media/lofric-classic.png",
     summary: {
       en: "LoFric® is the first hydrophilic catheter developed for intermittent catheterisation. It requires clean water to activate the unique Urotonic™ Surface Technology coating on the catheter tube.",
-      sv: "LoFric® är den första hydrofila katetern utvecklad för CIC. Den kräver rent vatten för att aktivera den unika Urotonic™ Surface Technology-beläggningen på kateterslangen.",
+      sv: "LoFric® är den första hydrofila katetern utvecklad för RIK. Den kräver rent vatten för att aktivera den unika Urotonic™ Surface Technology-beläggningen på kateterslangen.",
       fi: "LoFric® on ensimmäinen hydrofiilinen katetri, joka on kehitetty toistokatetrointiin. Se tarvitsee puhdasta vettä aktivoidakseen ainutlaatuisen Urotonic™ Surface Technology -pinnoitteen katetriputkessa.",
-      da: "LoFric® er det første hydrofile kateter udviklet til CIC. Det kræver rent vand for at aktivere den unikke Urotonic™ Surface Technology-coating på kateterslangen.",
-      no: "LoFric® er det første hydrofile kateteret utviklet for CIC. Det krever rent vann for å aktivere det unike Urotonic™ Surface Technology-belegget på kateterslangen.",
+      da: "LoFric® er det første hydrofile kateter udviklet til RIK. Det kræver rent vand for at aktivere den unikke Urotonic™ Surface Technology-coating på kateterslangen.",
+      no: "LoFric® er det første hydrofile kateteret utviklet for RIK. Det krever rent vann for å aktivere det unike Urotonic™ Surface Technology-belegget på kateterslangen.",
     },
     indications: [
       "Intermittent catheterisation for adults and children",
