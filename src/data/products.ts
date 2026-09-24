@@ -87,17 +87,17 @@ const elleProCaptions: Captions = {
 export const categoryLabels: Record<CategoryId, Localized> = {
   women: {
     en: "CIC – women",
-    sv: "CIC – kvinnor",
+    sv: "RIK – kvinnor",
     fi: "Toistokatetrointi – naiset",
-    da: "CIC – kvinder",
-    no: "CIC – kvinner",
+    da: "RIK – kvinder",
+    no: "RIK – kvinner",
   },
   men: {
     en: "CIC – men",
-    sv: "CIC – män",
+    sv: "RIK – män",
     fi: "Toistokatetrointi – miehet",
-    da: "CIC – mænd",
-    no: "CIC – menn",
+    da: "RIK – mænd",
+    no: "RIK – menn",
   },
   bowel: {
     en: "Bowel care",
