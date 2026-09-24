@@ -578,11 +578,11 @@ export const products: Product[] = [
     nordicEcolabel: true,
     image: "/media/lofric-elle.png",
     summary: {
-      en: "Short hydrophilic catheter for women with an easy-grip handle and a wide opening loop.",
-      sv: "Kort hydrofil kateter för kvinnor med greppvänligt handtag och bred öppningsögla.",
-      fi: "Lyhyt hydrofiilinen katetri naisille, jossa tukeva kahva ja leveä avaussilmukka.",
-      da: "Kort hydrofilt kateter til kvinder med greb-venligt håndtag og bred åbningsløkke.",
-      no: "Kort hydrofilt kateter for kvinner med gripevennlig håndtak og bred åpningsløkke.",
+      en: "LoFric® Elle™, designed for women by women, is a hydrophilic intermittent catheter. Its unique ergonomic design allows the container to become an angulated handle when connected to the catheter.",
+      sv: "LoFric® Elle™, designad för kvinnor av kvinnor, är en hydrofil intermittent kateter. Den unika ergonomiska designen gör att behållaren blir ett vinklat handtag när den kopplas till katetern.",
+      fi: "LoFric® Elle™ on naisten suunnittelema hydrofiilinen toistokatetri naisille. Ainutlaatuisen ergonomisen muotoilun ansiosta pakkaus muuttuu kulmakahvaksi, kun se liitetään katetriin.",
+      da: "LoFric® Elle™, designet til kvinder af kvinder, er et hydrofilt intermittent kateter. Det unikke ergonomiske design gør, at beholderen bliver et vinklet håndtag, når den tilsluttes kateteret.",
+      no: "LoFric® Elle™, designet for kvinner av kvinner, er et hydrofilt intermittent kateter. Den unike ergonomiske designen gjør at beholderen blir et vinklet håndtak når den kobles til kateteret.",
     },
     indications: [
       "Intermittent catheterisation for women",
