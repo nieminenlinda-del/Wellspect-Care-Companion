@@ -128,9 +128,9 @@ const sv: UIStrings = {
 
 const fi: UIStrings = {
   brandTagline: "A real difference",
-  headline: "Rakon ja suolen hoito",
+  headline: "Virtsarakon ja suolen hallinta",
   intro:
-    "Tutustu Wellspectin LoFric-katetreihin ja Navina-suolihuuhtelutuotteisiin sekä turvallisen päivittäisen käytön ohjeisiin.",
+    "Tutustu Wellspectin LoFric-katetreihin ja Navina-suolihuuhtelutuotteisiin sekä käyttöohjeisiin.",
   searchPlaceholder: "Hae tuotteita tai tarpeita",
   searchLabel: "Hae tuotteita",
   clearSearch: "Tyhjennä haku",

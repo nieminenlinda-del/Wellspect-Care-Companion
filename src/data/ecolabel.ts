@@ -72,7 +72,7 @@ export const ecolabelContent: Record<LocaleCode, EcolabelContent> = {
   },
   fi: {
     name: "Joutsenmerkki",
-    cardTitle: "Kestävyys ja Joutsenmerkki",
+    cardTitle: "Joutsenmerkki",
     cardSubtitle: "Miksi Joutsenmerkki on tärkeä terveydenhuollolle",
     badge: "Joutsenmerkitty tuote",
     intro:
