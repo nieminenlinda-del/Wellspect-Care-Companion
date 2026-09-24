@@ -797,11 +797,11 @@ export const products: Product[] = [
     nordicEcolabel: false,
     image: "/media/lofric-classic.png",
     summary: {
-      en: "The original hydrophilic catheter, wetted with water before use and available in the widest size range.",
-      sv: "Den ursprungliga hydrofila katetern som fuktas med vatten före användning och finns i flest storlekar.",
-      fi: "Alkuperäinen hydrofiilinen katetri, joka kostutetaan vedellä ennen käyttöä ja on saatavana laajimpana kokovalikoimana.",
-      da: "Det originale hydrofile kateter, der fugtes med vand før brug og fås i det bredeste størrelsesudvalg.",
-      no: "Det originale hydrofile kateteret, som fuktes med vann før bruk og finnes i det bredeste størrelsesutvalget.",
+      en: "LoFric® is the first hydrophilic catheter developed for intermittent catheterisation. It requires clean water to activate the unique Urotonic™ Surface Technology coating on the catheter tube.",
+      sv: "LoFric® är den första hydrofila katetern utvecklad för CIC. Den kräver rent vatten för att aktivera den unika Urotonic™ Surface Technology-beläggningen på kateterslangen.",
+      fi: "LoFric® on ensimmäinen hydrofiilinen katetri, joka on kehitetty toistokatetrointiin. Se tarvitsee puhdasta vettä aktivoidakseen ainutlaatuisen Urotonic™ Surface Technology -pinnoitteen katetriputkessa.",
+      da: "LoFric® er det første hydrofile kateter udviklet til CIC. Det kræver rent vand for at aktivere den unikke Urotonic™ Surface Technology-coating på kateterslangen.",
+      no: "LoFric® er det første hydrofile kateteret utviklet for CIC. Det krever rent vann for å aktivere det unike Urotonic™ Surface Technology-belegget på kateterslangen.",
     },
     indications: [
       "Everyday intermittent catheterisation for women at home",
@@ -1041,11 +1041,11 @@ export const products: Product[] = [
     nordicEcolabel: false,
     image: "/media/lofric-classic.png",
     summary: {
-      en: "The original hydrophilic catheter, activated with clean water before use.",
-      sv: "Den ursprungliga hydrofila katetern, aktiveras med rent vatten före användning.",
-      fi: "Alkuperäinen hydrofiilinen katetri, aktivoidaan puhtaalla vedellä ennen käyttöä.",
-      da: "Det oprindelige hydrofile kateter, aktiveres med rent vand før brug.",
-      no: "Det opprinnelige hydrofile kateteret, aktiveres med rent vann før bruk.",
+      en: "LoFric® is the first hydrophilic catheter developed for intermittent catheterisation. It requires clean water to activate the unique Urotonic™ Surface Technology coating on the catheter tube.",
+      sv: "LoFric® är den första hydrofila katetern utvecklad för CIC. Den kräver rent vatten för att aktivera den unika Urotonic™ Surface Technology-beläggningen på kateterslangen.",
+      fi: "LoFric® on ensimmäinen hydrofiilinen katetri, joka on kehitetty toistokatetrointiin. Se tarvitsee puhdasta vettä aktivoidakseen ainutlaatuisen Urotonic™ Surface Technology -pinnoitteen katetriputkessa.",
+      da: "LoFric® er det første hydrofile kateter udviklet til CIC. Det kræver rent vand for at aktivere den unikke Urotonic™ Surface Technology-coating på kateterslangen.",
+      no: "LoFric® er det første hydrofile kateteret utviklet for CIC. Det krever rent vann for å aktivere det unike Urotonic™ Surface Technology-belegget på kateterslangen.",
     },
     indications: [
       "Intermittent catheterisation for adults and children",
