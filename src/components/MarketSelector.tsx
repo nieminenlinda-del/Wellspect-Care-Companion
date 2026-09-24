@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Check, ChevronDown, Globe } from "lucide-react";
 import { locales, useLocale, type LocaleCode } from "@/lib/locale";
 import { uiStrings } from "@/data/ui-strings";
@@ -7,8 +7,44 @@ export function MarketSelector({ variant = "light" }: { variant?: "light" | "onD
   const { locale, setLocale } = useLocale();
   const t = uiStrings[locale];
   const [open, setOpen] = useState(false);
+  const [moreBelow, setMoreBelow] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLUListElement>(null);
   const current = locales.find((l) => l.code === locale)!;
+
+  useLayoutEffect(() => {
+    if (!open) {
+      setMoreBelow(false);
+      return;
+    }
+    const menu = menuRef.current;
+    if (!menu) return;
+    let cancelled = false;
+
+    const fit = () => {
+      if (cancelled) return;
+      const rootPx = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+      const cap = 24 * rootPx;
+      const available = Math.floor(window.innerHeight - menu.getBoundingClientRect().top - 8);
+      menu.style.maxHeight = `${Math.max(0, Math.min(cap, available))}px`;
+      const more = menu.scrollHeight - menu.scrollTop - menu.clientHeight > 2;
+      setMoreBelow((prev) => (prev === more ? prev : more));
+    };
+
+    fit();
+    menu.addEventListener("scroll", fit, { passive: true });
+    window.addEventListener("resize", fit);
+    const viewport = window.visualViewport;
+    viewport?.addEventListener("resize", fit);
+    void document.fonts?.ready.then(fit);
+
+    return () => {
+      cancelled = true;
+      menu.removeEventListener("scroll", fit);
+      window.removeEventListener("resize", fit);
+      viewport?.removeEventListener("resize", fit);
+    };
+  }, [open]);
 
   useEffect(() => {
     if (!open) return;
@@ -55,9 +91,14 @@ export function MarketSelector({ variant = "light" }: { variant?: "light" | "onD
 
       {open && (
         <ul
+          ref={menuRef}
           role="listbox"
           aria-label={t.marketLabel}
-          className="glass absolute right-0 z-30 mt-2 max-h-[min(70dvh,24rem)] w-[min(18rem,calc(100vw-2rem))] overflow-y-auto rounded-3xl border shadow-lift"
+          className={`glass absolute right-0 z-30 mt-2 max-h-[min(calc(100dvh-100%-0.75rem),24rem)] w-[min(18rem,calc(100vw-2rem))] overflow-y-auto overscroll-contain rounded-3xl border ${
+            moreBelow
+              ? "shadow-[var(--shadow-lift),inset_0_-0.9rem_0.55rem_-0.45rem_oklch(0.22_0.04_258/0.45)]"
+              : "shadow-lift"
+          }`}
         >
           {locales.map((l) => {
             const active = l.code === locale;
@@ -68,7 +109,7 @@ export function MarketSelector({ variant = "light" }: { variant?: "light" | "onD
                   role="option"
                   aria-selected={active}
                   onClick={() => select(l.code)}
-                  className={`flex min-h-12 w-full items-center gap-3 px-4 py-3 text-left text-sm transition-colors ${
+                  className={`flex min-h-12 w-full items-center gap-3 px-4 py-2 text-left text-sm transition-colors ${
                     active ? "bg-accent text-accent-foreground" : "text-foreground hover:bg-muted"
                   }`}
                 >

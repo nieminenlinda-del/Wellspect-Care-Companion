@@ -90,20 +90,22 @@ function Index() {
 
   return (
     <div className="clinic-page bg-background">
-      <header className="relative isolate overflow-hidden">
-        <img
-          src={publicUrl(coast.url)}
-          alt="Calm Swedish archipelago at twilight"
-          className="absolute inset-0 -z-20 size-full object-cover"
-        />
-        <div
-          className="absolute inset-0 -z-10"
-          style={{
-            background:
-              "linear-gradient(165deg, oklch(0.22 0.06 258 / 0.92) 0%, oklch(0.3 0.09 254 / 0.82) 42%, oklch(0.42 0.09 285 / 0.62) 72%, oklch(0.62 0.09 40 / 0.42) 100%)",
-          }}
-          aria-hidden="true"
-        />
+      <header className="relative isolate z-20">
+        <div className="absolute inset-0 -z-10 overflow-hidden">
+          <img
+            src={publicUrl(coast.url)}
+            alt="Calm Swedish archipelago at twilight"
+            className="absolute inset-0 size-full object-cover"
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(165deg, oklch(0.22 0.06 258 / 0.92) 0%, oklch(0.3 0.09 254 / 0.82) 42%, oklch(0.42 0.09 285 / 0.62) 72%, oklch(0.62 0.09 40 / 0.42) 100%)",
+            }}
+            aria-hidden="true"
+          />
+        </div>
 
         <div className="clinic-shell text-primary-foreground pt-4 pb-8 sm:pb-10 clinic-landscape:pb-7">
           <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3">
