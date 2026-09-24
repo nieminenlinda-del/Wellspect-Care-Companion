@@ -48,7 +48,7 @@ export const arabicVideosStrings: Record<LocaleCode, ArabicVideosStrings> = {
     comingSoon: "Film kommer snart",
   },
   fi: {
-    cardTitle: "Ohjevideot arabiaksi",
+    cardTitle: "Opastusvideot arabiaksi",
     cardSubtitle: "فيديوهات إرشادية بالعربية",
     intro:
       "Vaiheittaiset videot arabiankielisellä selostuksella. Ne täydentävät, mutta eivät korvaa käyttöohjetta tai hoitohenkilökunnan neuvoja.",

@@ -102,7 +102,7 @@ export const categoryLabels: Record<CategoryId, Localized> = {
   bowel: {
     en: "Bowel care",
     sv: "Tarmskötsel",
-    fi: "Suolen hoito",
+    fi: "Suolen hallinta",
     da: "Tarmpleje",
     no: "Tarmomsorg",
   },
