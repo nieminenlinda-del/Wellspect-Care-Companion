@@ -7,9 +7,10 @@
  * Do not import this into products.ts until da and fi are filled from the IFUs.
  * Empty da/fi would blank those markets.
  *
- * No Norwegian IFU was supplied. `no` mirrors the Swedish manual text.
- * That is not a Norwegian translation. Navina Smart is already unavailable
- * on the Norwegian market.
+ * No Norwegian IFU was supplied. Navina Smart is already unavailable on
+ * the Norwegian market. `no` keeps the existing Norwegian contraindication
+ * lines and perforation warning. Every other `no` string mirrors Swedish.
+ * That mirror is not a Norwegian translation.
  *
  * Clinical sections only. Numbered quick-guide steps, tube-connection, and
  * grip-ring instructions are not included. EMC test tables are not included.
@@ -19,13 +20,16 @@ type Localized = { en: string; sv: string; fi: string; da: string; no: string };
 
 const pending = "";
 
-/** Swedish text is copied into `no` until a Norwegian IFU exists. */
-const L = (en: string, sv: string): Localized => ({
+/**
+ * `no` mirrors Swedish when this product has no Norwegian string for that line.
+ * Pass `no` to keep an existing Norwegian string. There is no Norwegian Smart IFU.
+ */
+const L = (en: string, sv: string, no: string = sv): Localized => ({
   en,
   sv,
   fi: pending,
   da: pending,
-  no: sv,
+  no,
 });
 
 export const navinaSmartIfuReady = false;
@@ -48,22 +52,33 @@ export const navinaSmartIfu = {
   contraindicationsIntro: L(
     "Do NOT use Navina Systems if you have one or more of the following:",
     "Använd INTE Navina Systems om något eller några av följande tillstånd gäller för dig:",
+    "IKKE bruk Navina-systemer hvis du har en eller flere av følgende:",
   ),
   contraindications: [
-    L("Known anal or colorectal stenosis", "Känd anal eller kolorektal stenos."),
-    L("Active inflammatory bowel disease", "Aktiv inflammatorisk tarmsjukdom."),
-    L("Acute diverticulitis", "Akut divertikulit."),
-    L("Colorectal cancer", "Kolorektal cancer."),
-    L("Ischemic colitis", "Ischemisk kolit."),
+    L(
+      "Known anal or colorectal stenosis",
+      "Känd anal eller kolorektal stenos.",
+      "Kjent anal eller kolorektal stenose",
+    ),
+    L(
+      "Active inflammatory bowel disease",
+      "Aktiv inflammatorisk tarmsjukdom.",
+      "Aktiv inflammatorisk tarmsykdom",
+    ),
+    L("Acute diverticulitis", "Akut divertikulit.", "Akutt divertikulitt"),
+    L("Colorectal cancer", "Kolorektal cancer.", "Kolorektal kreft"),
+    L("Ischemic colitis", "Ischemisk kolit.", "Iskemisk kolitt"),
     L(
       "You are within three months of anal or colorectal surgery",
       "Du har genomgått anal eller kolorektal operation för mindre än tre månader sedan.",
+      "Det har gått mindre enn tre måneder siden anal eller kolorektal kirurgi",
     ),
     L(
       "You are within 4 weeks of previous endoscopic polypectomy",
       "Du har genomgått endoskopisk polypektomi för mindre än 4 veckor sedan.",
+      "Det har gått mindre enn 4 uker siden endoskopisk polypektomi",
     ),
-    L("You are pregnant", "Du är gravid."),
+    L("You are pregnant", "Du är gravid.", "Du er gravid"),
     L(
       "As the list may not be exhaustive, healthcare professionals will always consider individual user factors as well.",
       "Den här listan är inte nödvändigtvis fullständig, och därför tar sjukvårdspersonalen även ställning till användarens individuella omständigheter.",
@@ -239,6 +254,7 @@ export const navinaSmartIfu = {
   emergencyWarning: L(
     "Seek medical care immediately if you experience severe or sustained abdominal pain, back pain or rectal bleeding during or after anal irrigation. Bowel perforation is a very rare (1 out of 500,000 irrigations or 0.0002%) yet extremely serious complication of TAI. It is a medical emergency and requires immediate medical attention. Symptoms of bowel perforation include severe or sustained abdominal or back pain or significant rectal bleeding (not just smearing of blood on the rectal catheter/cone which is very common and is not a concern).",
     "Sök omedelbart vård om du upplever svår eller ihållande smärta i magen eller ryggen eller rektalblödning under eller efter analirrigering. Tarmperforation är en mycket sällsynt (1 av 500 000 irrigeringar eller 0,0002 %) men oerhört allvarlig komplikation till TAI. Det är ett akut sjukdomstillstånd som kräver omedelbar läkarvård. Symtom på tarmperforation är bland annat svår eller ihållande smärta i magen eller ryggen, alternativt betydande rektal blödning (inte bara spår av blod på rektalkatetern/konan vilket är mycket vanligt och inte en anledning till oro).",
+    "Oppsøk lege umiddelbart hvis du får sterke eller vedvarende magesmerter, ryggsmerter eller blødning fra endetarmen under eller etter anal irrigasjon. Tarmperforasjon er en svært sjelden (1 av 500 000 irrigasjoner eller 0,0002 %), men ekstremt alvorlig komplikasjon ved TAI. Det er en medisinsk nødsituasjon og krever umiddelbar legehjelp. Symptomer på tarmperforasjon er sterke eller vedvarende mage- eller ryggsmerter eller betydelig blødning fra endetarmen (ikke bare litt blod på rektalkateteret/konusen, som er svært vanlig og ikke gir grunn til bekymring).",
   ),
   warningSigns: [
     L(
