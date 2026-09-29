@@ -353,43 +353,81 @@ export const hasImageGuide = (product: Product) =>
   product.instructions.some((step) => Boolean(stepImage(step))) ||
   Boolean(product.extraGuide?.steps.some((step) => Boolean(stepImage(step))));
 
+/** Keep the existing English line for every locale except Finnish. */
+const withFi = (en: string, fi: string): Localized => ({
+  en,
+  sv: en,
+  da: en,
+  no: en,
+  fi,
+});
+
+/**
+ * Official Finnish 9-step male guide (image sheet). Steps 1–5 match the previous
+ * guide. The old combined “lift and insert” step is split to match the sheet,
+ * and the sheet has no disposal step, so that English line is no longer in this
+ * list. LoFric Origo and LoFric Origo Pro share this guide.
+ */
 const origoSteps: InstructionStep[] = [
   {
-    text: "Wash your hands thoroughly with soap and water.",
+    text: withFi(
+      "Wash your hands thoroughly with soap and water.",
+      "Pese kätesi huolellisesti vedellä ja saippualla.",
+    ),
     image: "/images/instructions/lofric-origo/step-1.png",
   },
   {
-    text: "Press to release the salt solution and the catheter is ready to use.",
+    text: withFi(
+      "Press to release the salt solution and the catheter is ready to use.",
+      "Aktivoi katetri puristamalla suolaliuosta sisältävää nestetyynyä. Tämän jälkeen katetri on käyttövalmis.",
+    ),
     image: "/images/instructions/lofric-origo/step-2.png",
   },
   {
-    text: "Pull the tab down to open.",
+    text: withFi("Pull the tab down to open.", "Vedä avausliuskasta avataksesi pakkauksen."),
     image: "/images/instructions/lofric-origo/step-3.png",
   },
   {
-    title: "OPTIONAL",
-    text: "Use the adhesive tab on the reverse side to attach the product to a dry, clean surface.",
+    title: withFi("OPTIONAL", "VALINNAINEN:"),
+    text: withFi(
+      "Use the adhesive tab on the reverse side to attach the product to a dry, clean surface.",
+      "Kiinnitä pakkaus kuivalle ja puhtaalle pinnalle pakkauksen takaosassa olevalla tarralapulla.",
+    ),
     image: "/images/instructions/lofric-origo/step-4.png",
   },
   {
-    text: "Take out the catheter. OPTIONAL: Pull and adjust the Insertion Grip located on the funnel, to control insertion without having to touch the catheter tube.",
+    text: withFi(
+      "Take out the catheter. OPTIONAL: Pull and adjust the Insertion Grip located on the funnel, to control insertion without having to touch the catheter tube.",
+      "Ota katetri pakkauksesta. VALINNAINEN: Käytä liikuteltavaa asetinta, joka takaa paremman otteen ilman, että katetrin letkuosaan tarvitsee koskea paljain käsin.",
+    ),
     image: "/images/instructions/lofric-origo/step-5.png",
   },
   {
-    text: "Lift the penis towards the stomach to straighten the urethra. Slowly insert the catheter into the urethra. When urine begins to flow, insert the catheter slightly more to ensure both eyelets are inside the bladder.",
+    text: withFi(
+      "Lift the penis towards the stomach to straighten the urethra.",
+      "Nosta penistä ylöspäin vatsaa kohti. Tässä asennossa virtsaputki pitenee ja muuttuu U-muotoiseksi. Tämä helpottaa katetrin ohjaamista virtsarakkoon.",
+    ),
     image: "/images/instructions/lofric-origo/step-6.png",
   },
   {
-    text: "Angle the penis down as urine begins to flow through the catheter.",
+    text: withFi(
+      "Slowly insert the catheter into the urethra. When urine begins to flow, insert the catheter slightly more to ensure both eyelets are inside the bladder.",
+      "Vie katetri hitaasti virtsaputkeen. Kun virtsaa alkaa valua, työnnä katetria vielä hiukan pidemmälle varmistaaksesi, että katetrin molemmat silmäaukot ovat sisällä virtsarakossa.",
+    ),
+  },
+  {
+    text: withFi(
+      "Angle the penis down as urine begins to flow through the catheter.",
+      "Laske penis normaaliasentoon, kun virtsaa alkaa valua katetrin kautta.",
+    ),
     image: "/images/instructions/lofric-origo/step-7.png",
   },
   {
-    text: "When the urine flow stops, slowly withdraw the catheter a little bit. If urine starts to flow again, wait until it has stopped to ensure complete bladder emptying. Then remove the catheter completely.",
+    text: withFi(
+      "When the urine flow stops, slowly withdraw the catheter a little bit. If urine starts to flow again, wait until it has stopped to ensure complete bladder emptying. Then remove the catheter completely.",
+      "Kun virtsaa ei enää valu katetrista, vedä katetria hitaasti ulos. Jos virtsa alkaa valua uudelleen, odota kunnes virtsan tulo lakkaa varmistaaksesi, että virtsarakko on täysin tyhjä. Vedä sitten katetri kokonaan ulos.",
+    ),
     image: "/images/instructions/lofric-origo/step-8.png",
-  },
-  {
-    text: "Put the catheter back in the package and dispose appropriately (local regulations may vary).",
-    image: "/images/instructions/lofric-origo/step-9.png",
   },
 ];
 
@@ -415,27 +453,42 @@ export const products: Product[] = [
     indications: elleProIfu.indications,
     instructions: [
       {
-        text: "Wash your hands thoroughly with soap and water.",
+        text: withFi(
+          "Wash your hands thoroughly with soap and water.",
+          "Pese kätesi huolellisesti vedellä ja saippualla.",
+        ),
         image: "/images/instructions/lofric-elle-pro/step-1.png",
       },
       {
-        text: "Open the upper lid.",
+        text: withFi("Open the upper lid.", "Avaa korkki."),
         image: "/images/instructions/lofric-elle-pro/step-2.png",
       },
       {
-        text: "Hold the catheter in your hand and gently bend the upper part to open. Pull the catheter out.",
+        text: withFi(
+          "Hold the catheter in your hand and gently bend the upper part to open. Pull the catheter out.",
+          "Käytä molempia käsiä ja taivuta avataksesi. Vedä katetri ulos.",
+        ),
         image: "/images/instructions/lofric-elle-pro/step-3.png",
       },
       {
-        text: "Connect the container to the catheter with a gentle twist, make sure the arrow on the container points down.",
+        text: withFi(
+          "Connect the container to the catheter with a gentle twist, make sure the arrow on the container points down.",
+          "Kierrä nestesäiliö kiinni katetriin umpinainen pohja alaspäin - varmista, että nuoli osoittaa alaspäin.",
+        ),
         image: "/images/instructions/lofric-elle-pro/step-4.png",
       },
       {
-        text: "Tilt your pelvis upwards, spread the labia, lift slightly to locate the urethra. The urethra is located just above the vaginal opening. With the other hand, insert the catheter slowly into your urethral opening until urine starts to flow, insert slightly more to ensure a steady stream. Wait until urine flow stops, then slowly withdraw the catheter.",
+        text: withFi(
+          "Tilt your pelvis upwards, spread the labia, lift slightly to locate the urethra. The urethra is located just above the vaginal opening. With the other hand, insert the catheter slowly into your urethral opening until urine starts to flow, insert slightly more to ensure a steady stream. Wait until urine flow stops, then slowly withdraw the catheter.",
+          "Kallista lantiota hieman ylöspäin ja levitä häpyhuulet. Virtsaputken suuaukko sijaitsee aivan emättimen suuaukon yläpuolella. Pidä kahvasta kiinni dominoivalla kädelläsi. Ohjaa katetri virtsaputkeen. Kun virtsa alkaa virrata, työnnä hieman lisää varmistaaksesi tasaisen virtauksen. Odota, kunnes virtsan virtaus loppuu ja vedä sitten katetri hitaasti ulos.",
+        ),
         image: "/images/instructions/lofric-elle-pro/step-5.png",
       },
       {
-        text: "Put the catheter back inside the container. Dispose, or carry it in your bag until disposal. Please note! The container is recyclable.",
+        text: withFi(
+          "Put the catheter back inside the container. Dispose, or carry it in your bag until disposal. Please note! The container is recyclable.",
+          "Laita katetri takaisin säiliöön. Hävitä se asianmukaisesti tai kuljeta mukanasi, kunnes voit hävittää sen. Säiliö on kierrätettävissä muovijätteenä.",
+        ),
         image: "/images/instructions/lofric-elle-pro/step-6.png",
       },
     ],
@@ -515,40 +568,64 @@ export const products: Product[] = [
     indications: senseIfu.indications,
     instructions: [
       {
-        text: "Wash your hands thoroughly with soap and water.",
+        text: withFi(
+          "Wash your hands thoroughly with soap and water.",
+          "Pese kätesi huolellisesti vedellä ja saippualla.",
+        ),
         image: "/images/instructions/lofric-sense/step-1.png",
       },
       {
-        text: "Press to release the salt solution and the catheter is ready to use.",
+        text: withFi(
+          "Press to release the salt solution and the catheter is ready to use.",
+          "Aktivoi katetri puristamalla suolaliuosta sisältävää nestetyynyä. Katetri on tämän jälkeen käyttövalmis.",
+        ),
         image: "/images/instructions/lofric-sense/step-2.png",
       },
       {
-        text: "Pull the tab up to open.",
+        text: withFi("Pull the tab up to open.", "Vedä avausliuskasta avataksesi pakkauksen."),
         image: "/images/instructions/lofric-sense/step-3.png",
       },
       {
-        title: "OPTIONAL",
-        text: "Use the adhesive tab on the reverse side to attach the product to a dry, clean surface.",
+        title: withFi("OPTIONAL", "VALINNAINEN"),
+        text: withFi(
+          "Use the adhesive tab on the reverse side to attach the product to a dry, clean surface.",
+          "Käytä takana olevaa tarralappua tuotteen kiinnittämiseen kuivalle ja puhtaalle pinnalle.",
+        ),
         image: "/images/instructions/lofric-sense/step-4.png",
       },
       {
-        text: "Hold flap in place and take out the catheter.",
+        text: withFi(
+          "Hold flap in place and take out the catheter.",
+          "Pidä avausliuskaa paikallaan ja ota katetri pakkauksesta.",
+        ),
         image: "/images/instructions/lofric-sense/step-5.png",
       },
       {
-        text: "Spread the labia and locate the urethra just above the vaginal opening. With the other hand, insert the catheter slowly into the urethra.",
+        text: withFi(
+          "Spread the labia and locate the urethra just above the vaginal opening. With the other hand, insert the catheter slowly into the urethra.",
+          "Levitä häpyhuulia ja paikallista emättimen aukon yläpuolelle oleva virtsaputken suu. Työnnä katetri hitaasti toisella kädellä virtsaputkeen.",
+        ),
         image: "/images/instructions/lofric-sense/step-6.png",
       },
       {
-        text: "When urine begins to flow, insert the catheter slightly more to ensure both eyelets are inside the bladder.",
+        text: withFi(
+          "When urine begins to flow, insert the catheter slightly more to ensure both eyelets are inside the bladder.",
+          "Kun virtsaa alkaa virrata, työnnä katetria hieman pidemmälle varmistaaksesi, että katetrin molemmat silmäaukot ovat virtsarakon sisällä.",
+        ),
         image: "/images/instructions/lofric-sense/step-7.png",
       },
       {
-        text: "When the urine flow stops, slowly withdraw the catheter a little bit. If urine starts to flow again, wait until it has stopped to ensure complete bladder emptying. Then remove the catheter completely.",
+        text: withFi(
+          "When the urine flow stops, slowly withdraw the catheter a little bit. If urine starts to flow again, wait until it has stopped to ensure complete bladder emptying. Then remove the catheter completely.",
+          "Kun virtsaa ei enää valu katetrista, vedä katetria hitaasti ulos. Jos virtsa alkaa valua uudelleen, odota kunnes virtsan tulo lakkaa varmistaaksesi, että virtsarakko on täysin tyhjä. Vedä sitten katetri kokonaan ulos.",
+        ),
         image: "/images/instructions/lofric-sense/step-8.png",
       },
       {
-        text: "Put the catheter back in the package, the outer packaging doubles as a hygienic and discreet disposal pouch. Dispose appropriately (local regulations may vary).",
+        text: withFi(
+          "Put the catheter back in the package, the outer packaging doubles as a hygienic and discreet disposal pouch. Dispose appropriately (local regulations may vary).",
+          "Laita katetri takaisin pakkaukseen. Pakkaus toimii hygieenisenä ja huomaamattomana jätepussina. Hävitä poltettavan kotitalousjätteen mukana.",
+        ),
         image: "/images/instructions/lofric-sense/step-9.png",
       },
     ],
