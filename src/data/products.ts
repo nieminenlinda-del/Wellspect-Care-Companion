@@ -369,11 +369,28 @@ const withFi = (en: string, fi: string): Localized => ({
   fi,
 });
 
+/** Swedish from the Origo Pro sheet. Danish and Norwegian keep the English line. */
+const withSv = (en: string, sv: string, fi: string): Localized => ({
+  en,
+  sv,
+  da: en,
+  no: en,
+  fi,
+});
+
+const optionalTitle: Localized = {
+  en: "OPTIONAL",
+  sv: "Valfritt:",
+  da: "OPTIONAL",
+  no: "OPTIONAL",
+  fi: "VALINNAINEN:",
+};
+
 /**
  * Official Finnish 9-step male guide (image sheet). Steps 1–5 match the previous
  * guide. The old combined “lift and insert” step is split to match the sheet,
  * and the sheet has no disposal step, so that English line is no longer in this
- * list. LoFric Origo and LoFric Origo Pro share this guide.
+ * list. LoFric Origo uses this guide. LoFric Origo Pro has its own steps and art.
  */
 const origoSteps: InstructionStep[] = [
   {
@@ -435,6 +452,97 @@ const origoSteps: InstructionStep[] = [
       "Kun virtsaa ei enää valu katetrista, vedä katetria hitaasti ulos. Jos virtsa alkaa valua uudelleen, odota kunnes virtsan tulo lakkaa varmistaaksesi, että virtsarakko on täysin tyhjä. Vedä sitten katetri kokonaan ulos.",
     ),
     image: "/images/instructions/lofric-origo/step-8.png",
+  },
+];
+
+/**
+ * LoFric Origo Pro male guide. Illustrations are shared across languages.
+ * Swedish follows the sheet. English, Danish, Norwegian, and Finnish keep
+ * existing wording, split or joined so each picture has a matching step.
+ * The sheet’s storage tip (A) is not a numbered step, so it is omitted.
+ */
+const origoProSteps: InstructionStep[] = [
+  {
+    text: withSv(
+      "Wash your hands thoroughly with soap and water.",
+      "Tvätta händerna ordentligt med tvål och vatten.",
+      "Pese kätesi huolellisesti vedellä ja saippualla.",
+    ),
+    image: "/images/instructions/lofric-origo-pro/step-1.png",
+  },
+  {
+    text: withSv(
+      "Press to release the salt solution and the catheter is ready to use.",
+      "Kläm på påsen med saltlösningen så att vattnet rinner ut. Sedan är katetern färdig att användas.",
+      "Aktivoi katetri puristamalla suolaliuosta sisältävää nestetyynyä. Tämän jälkeen katetri on käyttövalmis.",
+    ),
+    image: "/images/instructions/lofric-origo-pro/step-2.png",
+  },
+  {
+    text: withSv(
+      "Pull the tab down to open.",
+      "Använd öglan för att dra ner och öppna.",
+      "Vedä avausliuskasta avataksesi pakkauksen.",
+    ),
+    image: "/images/instructions/lofric-origo-pro/step-3.png",
+  },
+  {
+    title: optionalTitle,
+    text: withSv(
+      "Use the adhesive tab on the reverse side to attach the product to a dry, clean surface.",
+      "Använd klisterfliken på baksidan för att fästa produkten på en torr och ren yta.",
+      "Kiinnitä pakkaus kuivalle ja puhtaalle pinnalle pakkauksen takaosassa olevalla tarralapulla.",
+    ),
+    image: "/images/instructions/lofric-origo-pro/step-4.png",
+  },
+  {
+    text: withSv(
+      "Take out the catheter.",
+      "Efter öppning, nyp försiktigt och håll i hylsgreppet för att automatiskt dra ner skyddshylsan när katetern tas ut. Använd skyddshylsan för att kontrollera införandet utan att behöva röra katetern.",
+      "Ota katetri pakkauksesta.",
+    ),
+    image: "/images/instructions/lofric-origo-pro/step-5a.png",
+  },
+  {
+    title: optionalTitle,
+    text: withSv(
+      "Pull and adjust the Insertion Grip located on the funnel, to control insertion without having to touch the catheter tube.",
+      "Ta ut katetern. Dra ner hylsgreppet för att täcka katetern. Använd skyddshylsan för att kontrollera införandet utan att behöva röra katetern.",
+      "Käytä liikuteltavaa asetinta, joka takaa paremman otteen ilman, että katetrin letkuosaan tarvitsee koskea paljain käsin.",
+    ),
+    image: "/images/instructions/lofric-origo-pro/step-5b.png",
+  },
+  {
+    text: withSv(
+      "Lift the penis towards the stomach to straighten the urethra. Slowly insert the catheter into the urethra. When urine begins to flow, insert the catheter slightly more to ensure both eyelets are inside the bladder.",
+      "Lyft penis mot magen för att räta ut urinröret. För långsamt in katetern i urinröret. När urinen börjar rinna ska du föra in katetern något längre för att säkerställa att bra flöde.",
+      "Nosta penistä ylöspäin vatsaa kohti. Tässä asennossa virtsaputki pitenee ja muuttuu U-muotoiseksi. Tämä helpottaa katetrin ohjaamista virtsarakkoon. Vie katetri hitaasti virtsaputkeen. Kun virtsaa alkaa valua, työnnä katetria vielä hiukan pidemmälle varmistaaksesi, että katetrin molemmat silmäaukot ovat sisällä virtsarakossa.",
+    ),
+    image: "/images/instructions/lofric-origo-pro/step-6.png",
+  },
+  {
+    text: withSv(
+      "Angle the penis down as urine begins to flow through the catheter.",
+      "Vinkla penis nedåt när urinen börjar rinna genom katetern.",
+      "Laske penis normaaliasentoon, kun virtsaa alkaa valua katetrin kautta.",
+    ),
+    image: "/images/instructions/lofric-origo-pro/step-7.png",
+  },
+  {
+    text: withSv(
+      "When the urine flow stops, slowly withdraw the catheter a little bit. If urine starts to flow again, wait until it has stopped to ensure complete bladder emptying. Then remove the catheter completely.",
+      "Vänta tills urinflödet upphör för att säkerställa fullständig tömning av blåsan. Dra långsamt ut katetern. Ta sedan bort katetern helt.",
+      "Kun virtsaa ei enää valu katetrista, vedä katetria hitaasti ulos. Jos virtsa alkaa valua uudelleen, odota kunnes virtsan tulo lakkaa varmistaaksesi, että virtsarakko on täysin tyhjä. Vedä sitten katetri kokonaan ulos.",
+    ),
+    image: "/images/instructions/lofric-origo-pro/step-8.png",
+  },
+  {
+    text: withSv(
+      "Put the catheter back in the package and dispose appropriately (local regulations may vary).",
+      "Lägg tillbaka katetern i förpackningen och kassera på lämpligt sätt (lokala bestämmelser kan variera).",
+      "Aseta katetri takaisin pakkaukseen ja hävitä se asianmukaisesti (paikalliset määräykset voivat vaihdella).",
+    ),
+    image: "/images/instructions/lofric-origo-pro/step-9.png",
   },
 ];
 
@@ -825,7 +933,7 @@ export const products: Product[] = [
       no: "LoFric Origo Pro er et hydrofilt kateter for RIK. Det har 12 glatte Pro-øyne, utviklet for å forenkle kateteriseringen ytterligere. LoFric® Origo™ Pro-øynene er designet for å muliggjøre fullstendig blæretømming uten omplassering av kateteret.",
     },
     indications: origoIfu.indications,
-    instructions: origoSteps,
+    instructions: origoProSteps,
 
     safety: origoIfu.safety,
     contraindicationsIntro: origoIfu.contraindicationsIntro,
