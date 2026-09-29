@@ -456,7 +456,7 @@ function ProductDetail() {
                   dot="bg-danger"
                 />
               </Panel>
-              {product.emergencyWarning ? (
+              {product.emergencyWarning && (
                 <div
                   role="alert"
                   className="border-danger bg-danger/10 rounded-2xl border-2 p-5 lg:col-span-2"
@@ -471,7 +471,8 @@ function ProductDetail() {
                     {localizedText(product.emergencyWarning, locale)}
                   </p>
                 </div>
-              ) : (
+              )}
+              {product.warningSigns.length > 0 && (
                 <div className="lg:col-span-2">
                   <Panel
                     title={t.warningSigns}

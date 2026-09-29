@@ -46,6 +46,7 @@ import origoVideo from "@/assets/lofric-origo-step-by-step.mp4.asset.json";
 import type { LocaleCode } from "@/lib/locale";
 import { classicIfu, elleProIfu, hydroKitIfu, origoIfu, senseIfu } from "@/data/ifu-copy";
 import { navinaInsertIfu, navinaMiniIfu } from "@/data/ifu-navina";
+import { navinaClassicIfu } from "@/data/ifu-navina-classic";
 
 export type CategoryId = "women" | "men" | "bowel" | "contact";
 
@@ -1244,7 +1245,7 @@ export const products: Product[] = [
   },
   {
     id: "navina-classic",
-    emergencyWarning: navinaEmergencyWarning,
+    emergencyWarning: navinaClassicIfu.emergencyWarning,
     logo: navinaClassicLogo.url,
     videoUrl: navinaClassicVideo.url,
     brand: "Navina",
@@ -1260,22 +1261,7 @@ export const products: Product[] = [
       da: "Manuelt transanalt irrigationssystem med håndpumpe for fuld kontrol i hvert trin.",
       no: "Manuelt transanalt irrigasjonssystem med håndpumpe for full kontroll i hvert trinn.",
     },
-    indications: [
-      {
-        en: "Intended use: The Navina Systems is intended for Transanal Irrigation by instilling water up into the lower part of the colon through a rectal catheter.",
-        sv: "Avsedd användning: Navina-systemen är avsedda för transanal irrigation genom att vatten förs in i den nedre delen av tjocktarmen via en rektalkateter.",
-        fi: "Käyttötarkoitus: Navina-järjestelmät on tarkoitettu transanaaliseen huuhteluun, jossa vettä johdetaan peräsuolikatetrin kautta paksusuolen alaosaan.",
-        da: "Tilsigtet anvendelse: Navina-systemerne er beregnet til transanal irrigation ved at føre vand op i den nederste del af tyktarmen gennem et rektalkateter.",
-        no: "Tiltenkt bruk: Navina-systemene er beregnet for transanal irrigasjon ved at vann føres opp i den nedre delen av tykktarmen gjennom et rektalkateter.",
-      },
-      {
-        en: "Indications: The Navina Systems is indicated to help adults and children from 3 years who suffer from fecal incontinence, chronic constipation and/or time-consuming bowel management. By instilling water up into the lower part of the colon, the peristaltic muscles in the bowel can be triggered and start to evacuate the lower colon and rectum.",
-        sv: "Indikationer: Navina-systemen är indicerade för att hjälpa vuxna och barn från 3 år som lider av analinkontinens, kronisk förstoppning och/eller tidskrävande tarmskötsel. När vatten förs in i den nedre delen av tjocktarmen kan tarmens peristaltiska muskler aktiveras och börja tömma nedre tjocktarmen och ändtarmen.",
-        fi: "Käyttöaiheet: Navina-järjestelmät on tarkoitettu aikuisille ja yli 3-vuotiaille lapsille, joilla on ulosteinkontinenssi, krooninen ummetus ja/tai aikaa vievä suolen hoito. Kun vettä johdetaan paksusuolen alaosaan, suolen peristalttiset lihakset voivat aktivoitua ja alkaa tyhjentää paksusuolen alaosaa ja peräsuolta.",
-        da: "Indikationer: Navina-systemerne er indiceret til at hjælpe voksne og børn fra 3 år, der lider af fækal inkontinens, kronisk forstoppelse og/eller tidskrævende tarmhåndtering. Ved at føre vand op i den nederste del af tyktarmen kan tarmens peristaltiske muskler aktiveres og begynde at tømme den nedre tyktarm og endetarmen.",
-        no: "Indikasjoner: Navina-systemene er indisert for å hjelpe voksne og barn fra 3 år som har fekal inkontinens, kronisk forstoppelse og/eller tidkrevende tarmhåndtering. Ved å føre vann opp i den nedre delen av tykktarmen kan tarmens peristaltiske muskler aktiveres og begynne å tømme nedre tykktarm og endetarm.",
-      },
-    ],
+    indications: navinaClassicIfu.indications,
     instructions: [
       {
         title: "Preparation",
@@ -1303,10 +1289,10 @@ export const products: Product[] = [
         image: "/images/instructions/navina-classic/5-disassembly.png",
       },
     ],
-    safety: irrigationSafety,
-    contraindicationsIntro: navinaContraIntro,
-    contraindications: navinaSystemContra,
-    warningSigns: irrigationWarnings,
+    safety: navinaClassicIfu.safety,
+    contraindicationsIntro: navinaClassicIfu.contraindicationsIntro,
+    contraindications: navinaClassicIfu.contraindications,
+    warningSigns: navinaClassicIfu.warningSigns,
     storage:
       "Store clean and dry; replace the catheter and tubing at the interval stated in the manual.",
   },
