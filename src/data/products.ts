@@ -47,6 +47,7 @@ import type { LocaleCode } from "@/lib/locale";
 import { classicIfu, elleProIfu, hydroKitIfu, origoIfu, senseIfu } from "@/data/ifu-copy";
 import { navinaInsertIfu, navinaMiniIfu } from "@/data/ifu-navina";
 import { navinaClassicIfu } from "@/data/ifu-navina-classic";
+import { navinaSmartIfu } from "@/data/ifu-navina-smart";
 
 export type CategoryId = "women" | "men" | "bowel" | "contact";
 
@@ -305,81 +306,6 @@ const classicSteps = (dir: string, mid: Localized[]): InstructionStep[] =>
     image: `/images/instructions/${dir}/step-${i + 1}.png`,
   }));
 
-const navinaContraIntro: LocalizedText = {
-  en: "Do NOT use Navina Systems if you have one or more of the following:",
-  sv: "Använd INTE Navina-system om du har ett eller flera av följande:",
-  fi: "ÄLÄ käytä Navina-järjestelmiä, jos sinulla on yksi tai useampi seuraavista:",
-  da: "Brug IKKE Navina-systemer, hvis du har en eller flere af følgende:",
-  no: "IKKE bruk Navina-systemer hvis du har en eller flere av følgende:",
-};
-
-const navinaSystemContra: LocalizedText[] = [
-  {
-    en: "Known anal or colorectal stenosis",
-    sv: "Känd anal eller kolorektal stenos",
-    fi: "Tunnettu anaali- tai kolorektaalinen ahtauma",
-    da: "Kendt anal eller kolorektal stenose",
-    no: "Kjent anal eller kolorektal stenose",
-  },
-  {
-    en: "Active inflammatory bowel disease",
-    sv: "Aktiv inflammatorisk tarmsjukdom",
-    fi: "Aktiivinen tulehduksellinen suolistosairaus",
-    da: "Aktiv inflammatorisk tarmsygdom",
-    no: "Aktiv inflammatorisk tarmsykdom",
-  },
-  {
-    en: "Acute diverticulitis",
-    sv: "Akut divertikulit",
-    fi: "Akuutti divertikuliitti",
-    da: "Akut diverticulitis",
-    no: "Akutt divertikulitt",
-  },
-  {
-    en: "Colorectal cancer",
-    sv: "Kolorektal cancer",
-    fi: "Kolorektaalisyöpä",
-    da: "Kolorektal kræft",
-    no: "Kolorektal kreft",
-  },
-  {
-    en: "Ischemic colitis",
-    sv: "Ischemisk kolit",
-    fi: "Iskeeminen koliitti",
-    da: "Iskæmisk colitis",
-    no: "Iskemisk kolitt",
-  },
-  {
-    en: "You are within three months of anal or colorectal surgery",
-    sv: "Det har gått mindre än tre månader sedan anal eller kolorektal kirurgi",
-    fi: "Anaali- tai kolorektaalileikkauksesta on alle kolme kuukautta",
-    da: "Der er gået mindre end tre måneder siden anal eller kolorektal kirurgi",
-    no: "Det har gått mindre enn tre måneder siden anal eller kolorektal kirurgi",
-  },
-  {
-    en: "You are within 4 weeks of previous endoscopic polypectomy",
-    sv: "Det har gått mindre än 4 veckor sedan endoskopisk polypektomi",
-    fi: "Endoskooppisesta polypektomiasta on alle 4 viikkoa",
-    da: "Der er gået mindre end 4 uger siden endoskopisk polypektomi",
-    no: "Det har gått mindre enn 4 uker siden endoskopisk polypektomi",
-  },
-  {
-    en: "You are pregnant",
-    sv: "Du är gravid",
-    fi: "Olet raskaana",
-    da: "Du er gravid",
-    no: "Du er gravid",
-  },
-];
-
-const navinaEmergencyWarning: LocalizedText = {
-  en: "Seek medical care immediately if you experience severe or sustained abdominal pain, back pain or rectal bleeding during or after anal irrigation. Bowel perforation is a very rare (1 out of 500,000 irrigations or 0.0002 %) yet extremely serious complication of TAI. It is a medical emergency and requires immediate medical attention. Symptoms of bowel perforation include severe or sustained abdominal or back pain or significant rectal bleeding (not just smearing of blood on the rectal catheter/cone which is very common and is not a concern).",
-  sv: "Sök vård omedelbart om du får svår eller ihållande buksmärta, ryggsmärta eller blödning från ändtarmen under eller efter analirrigation. Tarmperforation är en mycket sällsynt (1 av 500 000 irrigationer eller 0,0002 %) men extremt allvarlig komplikation vid TAI. Det är ett medicinskt nödläge som kräver omedelbar vård. Symtom på tarmperforation är svår eller ihållande buk- eller ryggsmärta eller betydande blödning från ändtarmen (inte bara lite blod på rektalkatetern/konen, vilket är mycket vanligt och inte oroande).",
-  fi: "Hakeudu heti hoitoon, jos sinulla on voimakasta tai jatkuvaa vatsakipua, selkäkipua tai peräsuolen verenvuotoa anaalihuuhtelun aikana tai sen jälkeen. Suolen puhkeaminen on erittäin harvinainen (1 / 500 000 huuhtelua eli 0,0002 %) mutta äärimmäisen vakava TAI:n komplikaatio. Se on hätätilanne ja vaatii välitöntä hoitoa. Suolen puhkeamisen oireita ovat voimakas tai jatkuva vatsa- tai selkäkipu tai runsas peräsuolen verenvuoto (ei pelkkä verinen tahra peräsuolikatetrissa/kartiossa, mikä on hyvin tavallista eikä aiheuta huolta).",
-  da: "Søg læge omgående, hvis du oplever kraftige eller vedvarende mavesmerter, rygsmerter eller blødning fra endetarmen under eller efter anal irrigation. Tarmperforation er en meget sjælden (1 ud af 500.000 irrigationer eller 0,0002 %), men yderst alvorlig komplikation ved TAI. Det er en medicinsk nødsituation og kræver omgående lægehjælp. Symptomer på tarmperforation er kraftige eller vedvarende mave- eller rygsmerter eller betydelig blødning fra endetarmen (ikke blot lidt blod på rektalkateteret/konussen, hvilket er meget almindeligt og ikke bekymrende).",
-  no: "Oppsøk lege umiddelbart hvis du får sterke eller vedvarende magesmerter, ryggsmerter eller blødning fra endetarmen under eller etter anal irrigasjon. Tarmperforasjon er en svært sjelden (1 av 500 000 irrigasjoner eller 0,0002 %), men ekstremt alvorlig komplikasjon ved TAI. Det er en medisinsk nødsituasjon og krever umiddelbar legehjelp. Symptomer på tarmperforasjon er sterke eller vedvarende mage- eller ryggsmerter eller betydelig blødning fra endetarmen (ikke bare litt blod på rektalkateteret/konusen, som er svært vanlig og ikke gir grunn til bekymring).",
-};
-
 export type Product = {
   id: string;
   brand: "LoFric" | "Navina" | "Wellspect";
@@ -445,20 +371,6 @@ const cathWarnings = [
   "More than a few drops of blood in the urine, or bleeding that does not stop",
   "Pain, burning or difficulty passing the catheter that is new for you",
   "Little or no urine drained despite a full bladder feeling",
-];
-
-const irrigationSafety = [
-  "Only start transanal irrigation after training from your healthcare professional.",
-  "Use lukewarm tap water at body temperature — never hot water.",
-  "Inflate the balloon slowly and stop immediately if it feels painful.",
-  "Keep to the water volume and frequency agreed in your care plan.",
-];
-
-const irrigationWarnings = [
-  "Severe or persistent abdominal pain during or after irrigation",
-  "Bleeding from the rectum",
-  "Fever, chills or feeling generally unwell after irrigation",
-  "Dizziness, sweating or fainting during the procedure",
 ];
 
 const origoSteps: InstructionStep[] = [
@@ -1299,7 +1211,7 @@ export const products: Product[] = [
   {
     id: "navina-smart",
     unavailableLocales: ["no"],
-    emergencyWarning: navinaEmergencyWarning,
+    emergencyWarning: navinaSmartIfu.emergencyWarning,
     logo: navinaSmartLogo.url,
     videoUrl: smartVideo.url,
     brand: "Navina",
@@ -1315,11 +1227,7 @@ export const products: Product[] = [
       da: "Elektronisk transanalt irrigationssystem, der styrer vandflow og ballonfyldning for dig.",
       no: "Elektronisk transanalt irrigasjonssystem som styrer vannmengde og ballongfylling for deg.",
     },
-    indications: [
-      "Neurogenic bowel dysfunction, for example after spinal cord injury or with spina bifida",
-      "Chronic constipation not resolved by diet and medication",
-      "Faecal incontinence where a planned emptying routine helps",
-    ],
+    indications: navinaSmartIfu.indications,
     instructions: [
       {
         title: "Preparation",
@@ -1347,12 +1255,11 @@ export const products: Product[] = [
         image: "/images/instructions/navina-smart/5-disassembly.png",
       },
     ],
-    safety: irrigationSafety,
-    contraindicationsIntro: navinaContraIntro,
-    contraindications: navinaSystemContra,
-    warningSigns: irrigationWarnings,
-    storage:
-      "Charge and store the control unit dry at room temperature; replace catheters as instructed.",
+    safety: navinaSmartIfu.safety,
+    contraindicationsIntro: navinaSmartIfu.contraindicationsIntro,
+    contraindications: navinaSmartIfu.contraindications,
+    warningSigns: navinaSmartIfu.warningSigns,
+    storage: navinaSmartIfu.storage,
   },
   {
     id: "navina-insert",
