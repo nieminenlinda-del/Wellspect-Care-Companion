@@ -44,7 +44,7 @@ import elleVideo from "@/assets/lofric-elle-step-by-step.mp4.asset.json";
 import navinaClassicVideo from "@/assets/navina-classic-animation.mp4.asset.json";
 import origoVideo from "@/assets/lofric-origo-step-by-step.mp4.asset.json";
 import type { LocaleCode } from "@/lib/locale";
-import { classicIfu, elleProIfu, hydroKitIfu, origoIfu, senseIfu } from "@/data/ifu-copy";
+import { classicIfu, elleProIfu, hydroKitIfu, origoIfu, primoIfu, senseIfu } from "@/data/ifu-copy";
 import { navinaInsertIfu, navinaMiniIfu } from "@/data/ifu-navina";
 import { navinaClassicIfu } from "@/data/ifu-navina-classic";
 import { navinaSmartIfu } from "@/data/ifu-navina-smart";
@@ -599,11 +599,7 @@ export const products: Product[] = [
       da: "LoFric® Primo™ er et hydrofilt, intermittent kateter. Det er pakket med sit eget sterile vand og kan bruges hvor som helst.",
       no: "LoFric® Primo™ er et hydrofilt, intermittent kateter. Det er pakket med sitt eget sterile vann og kan brukes hvor som helst.",
     },
-    indications: [
-      "Intermittent catheterisation for women in the shorter 20 cm length",
-      "Travel, work and other situations without access to clean water",
-      "Users who prefer a slim, discreet package that can be carried in a bag",
-    ],
+    indications: primoIfu.indications,
     instructions: [
       {
         text: "Wash your hands thoroughly with soap and water.",
@@ -642,11 +638,10 @@ export const products: Product[] = [
         image: "/images/instructions/lofric-primo-female/9.png",
       },
     ],
-    safety: cathSafety,
-    contraindications: cathContra,
-    warningSigns: cathWarnings,
-    storage:
-      "Store below 40 °C in the unopened package. Do not use if the sachet has already burst.",
+    safety: primoIfu.safety,
+    contraindications: primoIfu.contraindications,
+    warningSigns: primoIfu.warningSigns,
+    storage: primoIfu.storage,
   },
   {
     id: "lofric-hydro-kit-female",
@@ -801,11 +796,7 @@ export const products: Product[] = [
       da: "LoFric® Primo™ er et hydrofilt, intermittent kateter. Det er pakket med sit eget sterile vand og kan bruges hvor som helst.",
       no: "LoFric® Primo™ er et hydrofilt, intermittent kateter. Det er pakket med sitt eget sterile vann og kan brukes hvor som helst.",
     },
-    indications: [
-      "Intermittent catheterisation for men and women",
-      "Situations without access to clean water",
-      "Everyday use where a longer catheter length is needed",
-    ],
+    indications: primoIfu.indications,
     extraGuide: {
       title: "Special instruction for Tiemann/Coudé catheter, with slightly curved tip.",
       intro:
@@ -859,10 +850,10 @@ export const products: Product[] = [
         image: "/images/instructions/lofric-primo-male/9.png",
       },
     ],
-    safety: cathSafety,
-    contraindications: cathContra,
-    warningSigns: cathWarnings,
-    storage: "Store flat below 40 °C. Do not use if the water sachet has already burst.",
+    safety: primoIfu.safety,
+    contraindications: primoIfu.contraindications,
+    warningSigns: primoIfu.warningSigns,
+    storage: primoIfu.storage,
   },
   {
     id: "lofric-hydro-kit",
