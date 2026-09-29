@@ -353,26 +353,6 @@ export const hasImageGuide = (product: Product) =>
   product.instructions.some((step) => Boolean(stepImage(step))) ||
   Boolean(product.extraGuide?.steps.some((step) => Boolean(stepImage(step))));
 
-const cathSafety = [
-  "Wash your hands thoroughly with soap and water before and after every catheterisation.",
-  "Use a new, sterile catheter every time — single use only.",
-  "Never force the catheter; if you meet resistance, pause, breathe out and try again gently.",
-  "Follow the catheterisation frequency agreed with your healthcare professional, usually 4–6 times a day.",
-];
-
-const cathContra = [
-  "The sterile packaging is opened, damaged or the expiry date has passed",
-  "You have not yet been trained in intermittent catheterisation by a healthcare professional",
-  "Your clinician has advised against intermittent catheterisation for your condition",
-];
-
-const cathWarnings = [
-  "Cloudy, strongly smelling urine, fever or chills — possible urinary tract infection",
-  "More than a few drops of blood in the urine, or bleeding that does not stop",
-  "Pain, burning or difficulty passing the catheter that is new for you",
-  "Little or no urine drained despite a full bladder feeling",
-];
-
 const origoSteps: InstructionStep[] = [
   {
     text: "Wash your hands thoroughly with soap and water.",
@@ -482,11 +462,7 @@ export const products: Product[] = [
       da: "LoFric® Elle™, designet til kvinder af kvinder, er et hydrofilt intermittent kateter. Det unikke ergonomiske design gør, at beholderen bliver et vinklet håndtag, når den tilsluttes kateteret.",
       no: "LoFric® Elle™, designet for kvinner av kvinner, er et hydrofilt intermittent kateter. Den unike ergonomiske designen gjør at beholderen blir et vinklet håndtak når den kobles til kateteret.",
     },
-    indications: [
-      "Intermittent catheterisation for women",
-      "Useful when hand function or dexterity is reduced",
-      "Everyday bladder emptying at home or away",
-    ],
+    indications: elleProIfu.indications,
     instructions: [
       {
         text: "Wash your hands thoroughly with soap and water.",
@@ -514,10 +490,10 @@ export const products: Product[] = [
       },
     ],
 
-    safety: cathSafety,
-    contraindications: cathContra,
-    warningSigns: cathWarnings,
-    storage: "Keep dry at room temperature in the original package.",
+    safety: elleProIfu.safety,
+    contraindications: elleProIfu.contraindications,
+    warningSigns: elleProIfu.warningSigns,
+    storage: elleProIfu.storage,
   },
   {
     id: "lofric-sense",
@@ -740,17 +716,14 @@ export const products: Product[] = [
       da: "LoFric Origo Pro er et hydrofilt kateter til RIK. Det har 12 glatte Pro-øjne, udviklet til yderligere at forenkle kateteriseringen. LoFric® Origo™ Pro-øjnene er designet til at muliggøre fuldstændig blæretømning uden omplacering af kateteret.",
       no: "LoFric Origo Pro er et hydrofilt kateter for RIK. Det har 12 glatte Pro-øyne, utviklet for å forenkle kateteriseringen ytterligere. LoFric® Origo™ Pro-øynene er designet for å muliggjøre fullstendig blæretømming uten omplassering av kateteret.",
     },
-    indications: [
-      "Intermittent catheterisation for men with incomplete bladder emptying or urinary retention",
-      "Neurogenic bladder, for example after spinal cord injury or with multiple sclerosis",
-      "Reduced hand function where a firm grip and one-handed handling make catheterisation easier",
-    ],
+    indications: origoIfu.indications,
     instructions: origoSteps,
 
-    safety: cathSafety,
-    contraindications: cathContra,
-    warningSigns: cathWarnings,
-    storage: "Store below 40 °C, away from direct sunlight. Activate only immediately before use.",
+    safety: origoIfu.safety,
+    contraindicationsIntro: origoIfu.contraindicationsIntro,
+    contraindications: origoIfu.contraindications,
+    warningSigns: origoIfu.warningSigns,
+    storage: origoIfu.storage,
   },
   {
     id: "lofric-origo",
