@@ -871,11 +871,11 @@ export const products: Product[] = [
     nordicEcolabel: true,
     image: "/media/lofric-origo.png",
     summary: {
-      en: "Pocket-sized ready-to-use catheter for men with a protective sleeve for touch-free insertion.",
-      sv: "Fickvänlig, färdig att använda kateter för män med skyddshölje för beröringsfri införing.",
-      fi: "Taskukokoinen käyttövalmis katetri miehille, suojaholkki mahdollistaa koskematta asettamisen.",
-      da: "Lommevenligt klar-til-brug kateter til mænd med beskyttelseshylster til berøringsfri indføring.",
-      no: "Lommevennlig klar-til-bruk kateter for menn med beskyttelseshylse for berøringsfri innføring.",
+      en: "LoFric® Origo™ is a hydrophilic intermittent catheter. It’s foldable to pocket size, discreet and easy to carry and use anywhere. Choose between the insertion grip or the extendable protective sleeve* to achieve a hygienic insertion.",
+      sv: "LoFric® Origo™ är en hydrofil kateter för RIK. Den är vikbar till fickformat, diskret och enkel att bära med sig och använda var som helst. Välj mellan införingsgreppet eller det förlängbara skyddshöljet* för att uppnå en hygienisk införing.",
+      fi: "LoFric® Origo™ on hydrofiilinen katetri toistokatetrointiin. Se on taitettavissa taskukokoon, huomaamaton ja helppo kuljettaa mukana ja käyttää missä tahansa. Valitse joko asetusote tai jatkettava suojaholkki* hygieenisen asettamisen varmistamiseksi.",
+      da: "LoFric® Origo™ er et hydrofilt kateter til RIK. Det er foldbart til lommestørrelse, diskret og let at have med og bruge hvor som helst. Vælg mellem indføringsgrebet eller det forlængelige beskyttelseshylster* for at opnå en hygiejnisk indføring.",
+      no: "LoFric® Origo™ er et hydrofilt kateter for RIK. Det er brettbart til lommestørrelse, diskret og lett å ha med og bruke hvor som helst. Velg mellom innføringsgrepet eller den forlengbare beskyttelseshylsen* for å oppnå en hygienisk innføring.",
     },
     indications: [
       "Intermittent catheterisation for men",
