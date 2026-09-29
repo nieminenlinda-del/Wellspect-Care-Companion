@@ -23,7 +23,7 @@ import {
 } from "@/data/products";
 import { uiStrings } from "@/data/ui-strings";
 import { locales, useLocale, type LocaleCode } from "@/lib/locale";
-import { DisclaimerBar, DisclaimerCard } from "@/components/MedicalDisclaimer";
+import { DisclaimerCard } from "@/components/MedicalDisclaimer";
 import { MarketSelector } from "@/components/MarketSelector";
 import { EcolabelDialog } from "@/components/NordicEcolabel";
 import { ProductImage } from "@/components/ProductImage";
@@ -165,9 +165,7 @@ function ProductDetail() {
 
   return (
     <div className="clinic-page bg-background">
-      <DisclaimerBar />
-
-      <div className="border-border/70 glass sticky top-0 z-20 border-b">
+      <div className="border-border/70 glass sticky top-0 z-20 border-b pt-[env(safe-area-inset-top)]">
         <div className="clinic-shell grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 py-2 clinic-landscape:py-1.5">
           <nav className="flex min-w-0 flex-wrap items-center gap-x-4 gap-y-1">
             <Link
