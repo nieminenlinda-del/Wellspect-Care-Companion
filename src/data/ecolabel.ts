@@ -14,7 +14,7 @@ export type EcolabelContent = {
 export const ecolabelContent: Record<LocaleCode, EcolabelContent> = {
   en: {
     name: "Nordic Swan Ecolabel",
-    cardTitle: "Sustainability & Nordic Ecolabel",
+    cardTitle: "Nordic Ecolabel",
     cardSubtitle: "Why the Swan matters in healthcare",
     badge: "Nordic Swan Ecolabel certified",
     intro:
@@ -43,7 +43,7 @@ export const ecolabelContent: Record<LocaleCode, EcolabelContent> = {
   },
   sv: {
     name: "Svanenmärkt",
-    cardTitle: "Hållbarhet och Svanenmärkning",
+    cardTitle: "Svanenmärkning",
     cardSubtitle: "Därför spelar Svanen roll inom vården",
     badge: "Svanenmärkt produkt",
     intro:
@@ -101,7 +101,7 @@ export const ecolabelContent: Record<LocaleCode, EcolabelContent> = {
   },
   da: {
     name: "Svanemærket",
-    cardTitle: "Bæredygtighed og Svanemærket",
+    cardTitle: "Svanemærket",
     cardSubtitle: "Derfor betyder Svanen noget i sundhedsplejen",
     badge: "Svanemærket produkt",
     intro:
@@ -130,7 +130,7 @@ export const ecolabelContent: Record<LocaleCode, EcolabelContent> = {
   },
   no: {
     name: "Svanemerket",
-    cardTitle: "Bærekraft og Svanemerket",
+    cardTitle: "Svanemerket",
     cardSubtitle: "Derfor betyr Svanen noe i helsetjenesten",
     badge: "Svanemerket produkt",
     intro:
