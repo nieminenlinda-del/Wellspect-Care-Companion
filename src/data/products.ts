@@ -1276,28 +1276,43 @@ export const products: Product[] = [
     indications: navinaClassicIfu.indications,
     instructions: [
       {
-        title: "Preparation",
-        text: "Fill water to the 0-mark of the container with lukewarm (36–38 °C) clean tap water and close the lid. Connect the water container tube between the water container and the control unit (dark blue). Connect the catheter tube between the control unit and the catheter (light blue/white). Follow the colour coding and symbols, and make sure the safety valve on the lid is not blocked.",
+        title: withFi("Preparation", "Valmistelu"),
+        text: withFi(
+          "Fill water to the 0-mark of the container with lukewarm (36–38 °C) clean tap water and close the lid. Connect the water container tube between the water container and the control unit (dark blue). Connect the catheter tube between the control unit and the catheter (light blue/white). Follow the colour coding and symbols, and make sure the safety valve on the lid is not blocked.",
+          "1. Täytä säiliö vedellä 0-merkkiin asti ja sulje kansi. 2. Liitä vesisäiliöletku vesisäiliön ja ohjausyksikön välille (tummansininen). 3. Liitä katetriletku ohjausyksikön ja katetrin välille (harmaa/valkoinen). Huomaa: Seuraa värikoodeja ja symboleja. Käytä vain kädenlämpöistä, puhdasta vettä (36-38 °C). Varmista, että kannen turvaventtiili ei ole tukossa suolihuuhtelutoimenpiteen aikana.",
+        ),
         image: "/images/instructions/navina-classic/1-preparation.png",
       },
       {
-        title: "Activation",
-        text: "Make sure the water flow is opened. Pump water with the dark blue pump until it covers 3/4 of the catheter tube, making it slippery. Do not add additional lubricant. Then close the water flow.",
+        title: withFi("Activation", "Aktivointi"),
+        text: withFi(
+          "Make sure the water flow is opened. Pump water with the dark blue pump until it covers 3/4 of the catheter tube, making it slippery. Do not add additional lubricant. Then close the water flow.",
+          "1. Varmista, että vesivirta on auki. 2. Täytä katetripussi pumppaamalla vettä tummansinisellä pumpulla kunnes vettä on noin 3/4 katetrin pituudelta. Katetri saa näin liukkaan pinnan. 3. Sulje vesivirta. Huomaa: Älä käytä mitään lisäliukasteita.",
+        ),
         image: "/images/instructions/navina-classic/2-activation.png",
       },
       {
-        title: "Instillation",
-        text: "Carefully insert the rectal catheter according to your healthcare professional's instruction. Inflate the balloon with the light blue pump — never more than 5 pumps with the regular catheter or 2 pumps with the small catheter, and do not inflate more than 2 times. Gently pull the catheter slightly down to seal the rectum. Open the water flow and instill the prescribed water volume with the dark blue pump, then close the water flow. Never insert the catheter with force.",
+        title: withFi("Instillation", "Veden johtaminen"),
+        text: withFi(
+          "Carefully insert the rectal catheter according to your healthcare professional's instruction. Inflate the balloon with the light blue pump — never more than 5 pumps with the regular catheter or 2 pumps with the small catheter, and do not inflate more than 2 times. Gently pull the catheter slightly down to seal the rectum. Open the water flow and instill the prescribed water volume with the dark blue pump, then close the water flow. Never insert the catheter with force.",
+          "1. Vie rektaalikatetri varovaisesti sisään katetrin kädensijaan asti. 2. Täytä ballonki ilmalla harmaan pumpun avulla: – Älä koskaan käytä yli viittä pumppausta, kun käytät regular-katetria. – Älä koskaan käytä yli kahta pumppausta, kun käytät small-katetria. Huomaa: Jos sinun on säädettävä katetrin asentoa, tyhjennä ballonki ensin kokonaan. 3. Sulje peräsuolesi vetämällä katetria varovaisesti alaspäin. 4. Avaa vesivirta. 5. Johda vettä terveydenhuollon ammattilaisen sinulle neuvoma määrä, käyttäen tummansinistä pumppua. Voit milloin tahansa lopettaa veden johtamisen tai pitää siitä taukoa vapauttamalla pumpun ja sulkemalla vesivirran. 6. Sulje vesivirta. Huomaa: Älä milloinkaan vie katetria peräsuoleen voimaa käyttäen. Jos tunnet vastusta, poista katetri, ja seuraa annettuja käyttöohjeita. Jos vastus jatkuu, lopeta huuhtelu ja kysy neuvoa terveydenhuollon ammattilaiselta.",
+        ),
         image: "/images/instructions/navina-classic/3-instillation.png",
       },
       {
-        title: "Evacuation",
-        text: "Deflate the balloon by pressing the black button and remove the catheter gently. Allow the bowel to empty — if needed, relax for 10–15 minutes, lean forward, cough or massage the abdomen.",
+        title: withFi("Evacuation", "Tyhjennys"),
+        text: withFi(
+          "Deflate the balloon by pressing the black button and remove the catheter gently. Allow the bowel to empty — if needed, relax for 10–15 minutes, lean forward, cough or massage the abdomen.",
+          "1. Tyhjennä ballonki painamalla mustaa painiketta pitkään. 2. Poista katetri varovaisesti. 3. Anna suolen tyhjentyä. Jos suoli ei ala tyhjentyä itsestään, rentoudu 10–15 minuuttia ja yritä sitten nojata eteenpäin, hiero vatsaa tai liikuta ylävartaloa, jotta tyhjenemisprosessi alkaisi.",
+        ),
         image: "/images/instructions/navina-classic/4-evacuation.png",
       },
       {
-        title: "Disassembly",
-        text: "Open the water container lid, disconnect the tubes from the control unit and empty the water from the tubes and control unit. Disconnect the single use catheter and dispose of it as household waste — it must not be reused or flushed down the toilet. Disconnect the tube from the water container, empty the water, then clean and dry the tubing, water container and control unit with a cloth and mild soapy water.",
+        title: withFi("Disassembly", "Purkaminen"),
+        text: withFi(
+          "Open the water container lid, disconnect the tubes from the control unit and empty the water from the tubes and control unit. Disconnect the single use catheter and dispose of it as household waste — it must not be reused or flushed down the toilet. Disconnect the tube from the water container, empty the water, then clean and dry the tubing, water container and control unit with a cloth and mild soapy water.",
+          "1. Avaa vesisäiliön kansi. 2. Irrota letkut ohjausyksiköstä. 3. Poista vesi letkuista. 4. Avaa vesivirta ja tyhjennä vesi ohjausyksiköstä. 5. Irrota kertakäyttöinen katetri ja hävitä kotitalousjätteen mukana. Katetria ei saa käyttää uudelleen eikä sitä saa huuhdella alas wc-pöntöstä. 6. Irrota letku vesisäiliöstä ja poista vesi. 7. Tarvittaessa puhdista ja kuivaa letkusto, vesisäiliö ja ohjausyksikkö laimealla saippuavedellä ja liinalla. Huomaa: Merkitse jokainen huuhtelu käyttökalenteriin (katso käyttöohjeet) voidaksesi seurata, milloin vesisäiliö ja letkusto tulee vaihtaa uuteen.",
+        ),
         image: "/images/instructions/navina-classic/5-disassembly.png",
       },
     ],
@@ -1330,28 +1345,43 @@ export const products: Product[] = [
     indications: navinaSmartIfu.indications,
     instructions: [
       {
-        title: "Preparation",
-        text: "Note: make sure the control unit is charged and the parameters are set before you start. Fill with lukewarm (36–38 °C) clean water to the upper mark of the container and close the lid. Connect the water container tube between the water container and the control unit (dark blue). Connect the catheter tube between the control unit and the catheter (light blue/white). Follow the colour coding and symbols.",
+        title: withFi("Preparation", "Valmistelu"),
+        text: withFi(
+          "Note: make sure the control unit is charged and the parameters are set before you start. Fill with lukewarm (36–38 °C) clean water to the upper mark of the container and close the lid. Connect the water container tube between the water container and the control unit (dark blue). Connect the catheter tube between the control unit and the catheter (light blue/white). Follow the colour coding and symbols.",
+          "Huomaa: Varmista, että ohjausyksikkö on ladattu ja parametrit on asetettu ennen kuin aloitat tällä sivulla esitettyjä valmisteluja. 1. Täytä säiliö vedellä säiliössä olevaan 0-merkkiin asti ja sulje kansi. 2. Liitä vesisäiliöletku vesisäiliön ja ohjausyksikön (tummansininen) välille. 3. Liitä katetriletku ohjausyksikön ja katetrin välille (harmaa/valkoinen). Huomaa: Seuraa värikoodeja ja symboleja. Käytä vain kädenlämpöistä, puhdasta vettä (36-38 °C).",
+        ),
         image: "/images/instructions/navina-smart/1-preparation.png",
       },
       {
-        title: "Activation",
-        text: "Turn on the Navina Smart control unit by pressing the power button. Press any button to go to activation mode. Press and hold the water button to pump water until the catheter is covered with water (making it slippery) and the advance icon appears on the screen. Press advance when you are ready to continue to instillation mode. Do not add additional lubricant.",
+        title: withFi("Activation", "Aktivointi"),
+        text: withFi(
+          "Turn on the Navina Smart control unit by pressing the power button. Press any button to go to activation mode. Press and hold the water button to pump water until the catheter is covered with water (making it slippery) and the advance icon appears on the screen. Press advance when you are ready to continue to instillation mode. Do not add additional lubricant.",
+          "1. Käynnistä Navina Smart -ohjausyksikkö painamalla virtapainiketta. 2. Siirry aktivointivaiheeseen painamalla mitä tahansa painiketta. 3. Paina ja pidä vesipainiketta pumpataksesi vettä, kunnes katetri peittyy veteen (katetri saa näin liukkaan pinnan) ja etenemiskuvake ilmestyy näytölle. 4. Paina etenemispainiketta, kun olet valmis asettamaan katetrin ja jatkamaan vedenjohtamistilaan. Huomaa: Älä käytä mitään lisäliukasteita.",
+        ),
         image: "/images/instructions/navina-smart/2-activation.png",
       },
       {
-        title: "Instillation",
-        text: "Insert the rectal catheter according to your healthcare professional's instruction. Press and hold the balloon button to inflate the catheter balloon until the desired balloon size is reached — if repositioning is needed, deflate the balloon completely first. Gently pull the catheter slightly down to seal the rectum, then instill water by pressing the water button. Never insert the catheter with force, and do not turn off the control unit.",
+        title: withFi("Instillation", "Veden johtaminen"),
+        text: withFi(
+          "Insert the rectal catheter according to your healthcare professional's instruction. Press and hold the balloon button to inflate the catheter balloon until the desired balloon size is reached — if repositioning is needed, deflate the balloon completely first. Gently pull the catheter slightly down to seal the rectum, then instill water by pressing the water button. Never insert the catheter with force, and do not turn off the control unit.",
+          "1. Aseta katetri terveydenhuoltoammattilaisen ohjeistuksen mukaisesti. 2. Paina ja pidä pallopainiketta katetrin ballongin täyttämiseksi, kunnes haluttu ballongin koko on saavutettu. Jos katetrin asentoa on tarpeen säätää, ballonki on ensin tyhjennettävä kokonaan. 3. Vedä katetria varovasti hieman alaspäin peräsuolen sulkemiseksi. 4. Johda vettä painamalla vesipainiketta. Huomaa: Älä koskaan aseta katetria väkisin. Jos tunnet vastusta, poista katetri ja katso käyttöohjeiden vianmääritysosio. Jos vastus jatkuu, lopeta huuhtelun käyttö ja pyydä apua terveydenhuollon ammattilaiselta. Älä sammuta ohjausyksikköä.",
+        ),
         image: "/images/instructions/navina-smart/3-instillation.png",
       },
       {
-        title: "Evacuation",
-        text: "Press and hold the deflate button to deflate the balloon completely, then remove the catheter gently. Allow the bowels to empty — if needed, relax for 10–15 minutes, lean forward, cough or massage the abdomen. Do not turn off the control unit yet.",
+        title: withFi("Evacuation", "Tyhjennys"),
+        text: withFi(
+          "Press and hold the deflate button to deflate the balloon completely, then remove the catheter gently. Allow the bowels to empty — if needed, relax for 10–15 minutes, lean forward, cough or massage the abdomen. Do not turn off the control unit yet.",
+          "1. Paina ja pidä tyhjennyspainiketta tyhjentääksesi ballongin kokonaan. 2. Poista katetri varovasti. 3. Anna suolen tyhjentyä. Jos suoli ei ala tyhjentyä itsestään, rentoudu 10-15 minuuttia ja yritä sitten nojata eteenpäin, yskäise tai hiero vatsaa tai liikuta ylävartaloa, jotta tyhjeneminen alkaisi. Älä sammuta ohjausyksikköä.",
+        ),
         image: "/images/instructions/navina-smart/4-evacuation.png",
       },
       {
-        title: "Disassembly and data transfer",
-        text: "Open the water container lid, disconnect the tubes from the control unit and empty the water from the tubes by raising the disconnected ends. Turn off the Navina Smart control unit and empty water from the control unit. Disconnect the tube from the water container and empty the container. Disconnect the single use catheter and dispose of it as household waste — it must not be reused or flushed down the toilet. Clean and dry the tubing and water container with a cloth and mild soapy water; the control unit must only be wiped clean. Finally, transfer data to the app or system if applicable.",
+        title: withFi("Disassembly and data transfer", "Purkaminen"),
+        text: withFi(
+          "Open the water container lid, disconnect the tubes from the control unit and empty the water from the tubes by raising the disconnected ends. Turn off the Navina Smart control unit and empty water from the control unit. Disconnect the tube from the water container and empty the container. Disconnect the single use catheter and dispose of it as household waste — it must not be reused or flushed down the toilet. Clean and dry the tubing and water container with a cloth and mild soapy water; the control unit must only be wiped clean. Finally, transfer data to the app or system if applicable.",
+          "1. Avaa vesisäiliön kansi. 2. Irrota letkut ohjausyksiköstä. 3. Poista vesi letkuista nostamalla irrotetut päät ylös. 4. Sammuta Navina Smart -ohjausyksikkö ja tyhjennä vesi ohjausyksiköstä. 5. Irrota letku vesisäiliöstä ja poista vesi. 6. Irrota kertakäyttöinen katetri ja hävitä kotitalousjätteen mukana. Katetria ei saa käyttää uudelleen eikä sitä saa huuhdella alas wc-pöntöstä. 7. Tarvittaessa puhdista ja kuivaa letkusto, vesisäiliö ja ohjausyksikkö laimealla saippuavedellä ja liinalla. Ohjausyksikön saa vain pyyhkiä puhtaaksi. Huomaa: Merkitse jokainen huuhtelu käyttökalenteriin (katso käyttöohjeet) voidaksesi seurata, milloin vesisäiliö ja letkusto tulee vaihtaa uuteen. Tietojen siirtäminen: katso ohjeet kääntöpuolelta.",
+        ),
         image: "/images/instructions/navina-smart/5-disassembly.png",
       },
     ],
