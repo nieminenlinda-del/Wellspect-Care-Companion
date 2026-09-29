@@ -44,6 +44,7 @@ import elleVideo from "@/assets/lofric-elle-step-by-step.mp4.asset.json";
 import navinaClassicVideo from "@/assets/navina-classic-animation.mp4.asset.json";
 import origoVideo from "@/assets/lofric-origo-step-by-step.mp4.asset.json";
 import type { LocaleCode } from "@/lib/locale";
+import { classicIfu, elleProIfu, hydroKitIfu, origoIfu, senseIfu } from "@/data/ifu-copy";
 
 export type CategoryId = "women" | "men" | "bowel" | "contact";
 
@@ -411,12 +412,12 @@ export type Product = {
   summary: Localized;
   indications: LocalizedText[];
   instructions: InstructionStep[];
-  safety: string[];
+  safety: LocalizedText[];
   contraindicationsIntro?: LocalizedText;
   contraindications: LocalizedText[];
-  warningSigns: string[];
+  warningSigns: LocalizedText[];
   emergencyWarning?: LocalizedText;
-  storage: string;
+  storage: LocalizedText;
 };
 
 /** True when a product has illustrated quick-guide steps (or an extra illustrated guide). */
@@ -517,11 +518,7 @@ export const products: Product[] = [
       da: "LoFric® Elle™ Pro, designet til kvinder af kvinder, er et hydrofilt intermittent kateter. Med tolv glatte Pro-øjne udviklet til yderligere at forenkle kateteriseringen er LoFric® Elle™ Pro designet til at tømme blæren i ét frit flow, uden behov for omplacering.",
       no: "LoFric® Elle™ Pro, designet for kvinner av kvinner, er et hydrofilt intermittent kateter. Med tolv glatte Pro-øyne utviklet for å forenkle kateteriseringen ytterligere er LoFric® Elle™ Pro designet for å tømme blæren i én fri strøm, uten behov for omplassering.",
     },
-    indications: [
-      "Intermittent catheterisation for women who want a fully self-contained, ready-to-use catheter",
-      "Reduced hand function or limited dexterity where a firm handle helps control",
-      "Bladder emptying away from home where no water source is available",
-    ],
+    indications: elleProIfu.indications,
     instructions: [
       {
         text: "Wash your hands thoroughly with soap and water.",
@@ -548,11 +545,10 @@ export const products: Product[] = [
         image: "/images/instructions/lofric-elle-pro/step-6.png",
       },
     ],
-    safety: cathSafety,
-    contraindications: cathContra,
-    warningSigns: cathWarnings,
-    storage:
-      "Store below 40 °C, away from direct sunlight. Activate the water sachet only just before use.",
+    safety: elleProIfu.safety,
+    contraindications: elleProIfu.contraindications,
+    warningSigns: elleProIfu.warningSigns,
+    storage: elleProIfu.storage,
   },
   {
     id: "lofric-elle",
@@ -626,11 +622,7 @@ export const products: Product[] = [
       da: "LoFric® Sense™ er et hydrofilt intermittent kateter, skræddersyet til kvinder og deres behov.",
       no: "LoFric® Sense™ er et hydrofilt intermittent kateter, skreddersydd for kvinner og deres behov.",
     },
-    indications: [
-      "Intermittent catheterisation for women with incomplete bladder emptying",
-      "Neurogenic bladder, for example after spinal cord injury or with multiple sclerosis",
-      "Urinary retention where a discreet, pocket-sized catheter is preferred",
-    ],
+    indications: senseIfu.indications,
     instructions: [
       {
         text: "Wash your hands thoroughly with soap and water.",
@@ -671,10 +663,10 @@ export const products: Product[] = [
       },
     ],
 
-    safety: cathSafety,
-    contraindications: cathContra,
-    warningSigns: cathWarnings,
-    storage: "Store below 40 °C, away from direct sunlight. Do not use if the package is damaged.",
+    safety: senseIfu.safety,
+    contraindications: senseIfu.contraindications,
+    warningSigns: senseIfu.warningSigns,
+    storage: senseIfu.storage,
   },
   {
     id: "lofric-primo-female",
@@ -759,11 +751,7 @@ export const products: Product[] = [
       da: "LoFric® Hydro-Kit™ er et alt-i-ét hydrofilt katetersæt til RIK. Det har en integreret opsamlingspose og er klart til brug hvor som helst.",
       no: "LoFric® Hydro-Kit™ er et hydrofilt alt-i-ett-katetersett for RIK. Det har en integrert oppsamlingspose og er klart til bruk hvor som helst.",
     },
-    indications: [
-      "Intermittent catheterisation for women without access to a toilet",
-      "Catheterisation while seated in a wheelchair, in bed or when travelling",
-      "Situations where the drained urine volume needs to be measured",
-    ],
+    indications: hydroKitIfu.indications,
     instructions: hydroKitSteps("lofric-hydro-kit-female", [
       {
         en: "Spread the labia and locate the urethra just above the vaginal opening. With the other hand, insert the catheter slowly into the urethra.",
@@ -781,10 +769,10 @@ export const products: Product[] = [
       },
       hydroKitShared.s9,
     ]),
-    safety: cathSafety,
-    contraindications: cathContra,
-    warningSigns: cathWarnings,
-    storage: "Store below 40 °C, flat and dry. Single use — never rinse or reuse the bag.",
+    safety: hydroKitIfu.safety,
+    contraindications: hydroKitIfu.contraindications,
+    warningSigns: hydroKitIfu.warningSigns,
+    storage: hydroKitIfu.storage,
   },
   {
     id: "lofric-classic-female",
@@ -803,11 +791,7 @@ export const products: Product[] = [
       da: "LoFric® er det første hydrofile kateter udviklet til RIK. Det kræver rent vand for at aktivere den unikke Urotonic™ Surface Technology-coating på kateterslangen.",
       no: "LoFric® er det første hydrofile kateteret utviklet for RIK. Det krever rent vann for å aktivere det unike Urotonic™ Surface Technology-belegget på kateterslangen.",
     },
-    indications: [
-      "Everyday intermittent catheterisation for women at home",
-      "Users who need a size outside the standard ready-to-use range",
-      "Long-term catheterisation where a simple, familiar routine is preferred",
-    ],
+    indications: classicIfu.indications,
     instructions: classicSteps("lofric-classic-female", [
       {
         en: "Spread the labia and locate the urethra just above the vaginal opening. With the other hand, insert the catheter slowly into the urethra.",
@@ -824,10 +808,10 @@ export const products: Product[] = [
         no: "Når urinen begynner å renne, før kateteret litt lenger inn slik at begge øynene er inne i blæren.",
       },
     ]),
-    safety: cathSafety,
-    contraindications: cathContra,
-    warningSigns: cathWarnings,
-    storage: "Store dry at room temperature. Use immediately once water has been added.",
+    safety: classicIfu.safety,
+    contraindications: classicIfu.contraindications,
+    warningSigns: classicIfu.warningSigns,
+    storage: classicIfu.storage,
   },
   {
     id: "lofric-origo-pro",
@@ -877,17 +861,14 @@ export const products: Product[] = [
       da: "LoFric® Origo™ er et hydrofilt kateter til RIK. Det er foldbart til lommestørrelse, diskret og let at have med og bruge hvor som helst. Vælg mellem indføringsgrebet eller det forlængelige beskyttelseshylster* for at opnå en hygiejnisk indføring.",
       no: "LoFric® Origo™ er et hydrofilt kateter for RIK. Det er brettbart til lommestørrelse, diskret og lett å ha med og bruke hvor som helst. Velg mellom innføringsgrepet eller den forlengbare beskyttelseshylsen* for å oppnå en hygienisk innføring.",
     },
-    indications: [
-      "Intermittent catheterisation for men",
-      "Bladder emptying away from home, at work or when travelling",
-      "Users who want to avoid touching the catheter tube",
-    ],
+    indications: origoIfu.indications,
     instructions: origoSteps,
 
-    safety: cathSafety,
-    contraindications: cathContra,
-    warningSigns: cathWarnings,
-    storage: "Store below 40 °C. Activate only immediately before use.",
+    safety: origoIfu.safety,
+    contraindicationsIntro: origoIfu.contraindicationsIntro,
+    contraindications: origoIfu.contraindications,
+    warningSigns: origoIfu.warningSigns,
+    storage: origoIfu.storage,
   },
   {
     id: "lofric-primo",
@@ -986,11 +967,7 @@ export const products: Product[] = [
       da: "LoFric® Hydro-Kit™ er et alt-i-ét hydrofilt katetersæt til RIK. Det har en integreret opsamlingspose og er klart til brug hvor som helst.",
       no: "LoFric® Hydro-Kit™ er et hydrofilt alt-i-ett-katetersett for RIK. Det har en integrert oppsamlingspose og er klart til bruk hvor som helst.",
     },
-    indications: [
-      "Catheterisation in a wheelchair, in bed or while travelling",
-      "Users who need a closed, hygienic system",
-      "Situations where no toilet is available",
-    ],
+    indications: hydroKitIfu.indications,
     instructions: hydroKitSteps("lofric-hydro-kit", [
       {
         en: "Lift the penis towards the stomach to straighten the urethra. Slowly insert the catheter into the urethra. When urine begins to flow, insert the catheter slightly more to ensure both eyelets are inside the bladder.",
@@ -1025,10 +1002,10 @@ export const products: Product[] = [
       },
       steps: tiemannSteps("lofric-hydro-kit"),
     },
-    safety: cathSafety,
-    contraindications: cathContra,
-    warningSigns: cathWarnings,
-    storage: "Store below 40 °C, flat and away from sharp objects.",
+    safety: hydroKitIfu.safety,
+    contraindications: hydroKitIfu.contraindications,
+    warningSigns: hydroKitIfu.warningSigns,
+    storage: hydroKitIfu.storage,
   },
   {
     id: "lofric-classic",
@@ -1047,11 +1024,7 @@ export const products: Product[] = [
       da: "LoFric® er det første hydrofile kateter udviklet til RIK. Det kræver rent vand for at aktivere den unikke Urotonic™ Surface Technology-coating på kateterslangen.",
       no: "LoFric® er det første hydrofile kateteret utviklet for RIK. Det krever rent vann for å aktivere det unike Urotonic™ Surface Technology-belegget på kateterslangen.",
     },
-    indications: [
-      "Intermittent catheterisation for adults and children",
-      "Home use where clean water is available",
-      "A wide range of sizes for individual fitting",
-    ],
+    indications: classicIfu.indications,
     instructions: classicSteps("lofric-classic", [
       {
         en: "Lift the penis towards the stomach to straighten the urethra. Slowly insert the catheter into the urethra without touching the tube. When urine begins to flow, insert the catheter slightly more to ensure both eyelets are inside the bladder.",
@@ -1085,10 +1058,10 @@ export const products: Product[] = [
       },
       steps: tiemannSteps("lofric-classic"),
     },
-    safety: cathSafety,
-    contraindications: cathContra,
-    warningSigns: cathWarnings,
-    storage: "Store dry below 40 °C in the unopened package.",
+    safety: classicIfu.safety,
+    contraindications: classicIfu.contraindications,
+    warningSigns: classicIfu.warningSigns,
+    storage: classicIfu.storage,
   },
   {
     id: "navina-mini",
