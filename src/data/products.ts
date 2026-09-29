@@ -144,63 +144,63 @@ export const stepImage = (step: InstructionStep) =>
 const hydroKitShared = {
   s1: {
     en: "Wash your hands thoroughly with soap and water.",
-    sv: "Tvätta händerna noggrant med tvål och vatten.",
+    sv: "Tvätta händerna ordentligt med tvål och vatten.",
     fi: "Pese kätesi huolellisesti vedellä ja saippualla.",
     da: "Vask hænderne grundigt med sæbe og vand.",
     no: "Vask hendene grundig med såpe og vann.",
   },
   s2: {
     en: "Hold the product upright. Fold the sachet and squeeze. Let the salt solution run down to the catheter.",
-    sv: "Håll produkten upprätt. Vik saltlösningspåsen och tryck till. Låt saltlösningen rinna ner till katetern.",
+    sv: "Håll katetern upprätt. Vik påsen med saltlösningen och tryck ihop. Låt saltlösningen rinna ned till katetern.",
     fi: "Pidä tuote pystyasennossa. Taita nestetyynyä ja purista. Anna suolaliuoksen valua alas katetriin.",
     da: "Hold produktet opret. Fold posen med saltvand, og klem. Lad saltvandet løbe ned til kateteret.",
     no: "Hold produktet oppreist. Brett saltvannsposen og klem. La saltvannet renne ned til kateteret.",
   },
   s3: {
     en: "Turn the product upside down to allow the salt solution to drain into the collection bag.",
-    sv: "Vänd produkten upp och ner så att saltlösningen rinner ner i uppsamlingspåsen.",
+    sv: "Vänd katetern upp och ned så att saltlösningen rinner ned i urinuppsamlingspåsen.",
     fi: "Käännä tuote ylösalaisin ja anna suolaliuoksen valua keräyspussiin.",
     da: "Vend produktet på hovedet, så saltvandet løber ned i opsamlingsposen.",
     no: "Snu produktet opp ned slik at saltvannet renner ned i oppsamlingsposen.",
   },
   s4: {
     en: 'Use loops at indentation "A" to open and uncover the tip of the catheter.',
-    sv: "Använd flikarna vid markeringen ”A” för att öppna och frilägga kateterns spets.",
+    sv: "Använd öglorna vid fliken ”A” för att öppna och frigöra kateterspetsen.",
     fi: "Repäise lenkkien avulla kohdasta ”A” paljastaaksesi katetrin kärkiosan.",
     da: "Brug løkkerne ved indhakket ”A” til at åbne og blotlægge kateterets spids.",
     no: "Bruk løkkene ved hakket «A» for å åpne og frilegge kateterspissen.",
   },
   s5: {
     en: 'Use loops at indentation "B/C" to open. Use section "B" as insertion grip.',
-    sv: "Använd flikarna vid markeringen ”B/C” för att öppna. Använd del ”B” som införingsgrepp.",
+    sv: "Använd öglorna vid fliken ”B/C” för att öppna. Använd del ”B” som införingshjälpmedel.",
     fi: "Käytä avaamiseen lenkkejä kohdassa “B/C”. Käytä pakkauksen osaa “B” asettimena.",
     da: "Brug løkkerne ved indhakket ”B/C” til at åbne. Brug del ”B” som indføringsgreb.",
     no: "Bruk løkkene ved hakket «B/C» for å åpne. Bruk del «B» som innføringsgrep.",
   },
   s6: {
     en: "Gently pull the catheter out of the package until the funnel comes to a stop, to seal between catheter and collection bag.",
-    sv: "Dra försiktigt ut katetern ur förpackningen tills tratten tar stopp, så att det tätar mellan katetern och uppsamlingspåsen.",
+    sv: "För att försluta mellan katetern och urinuppsamlingspåsen, dra försiktigt ut katetern ur förpackningen tills konnektorn kommer till ett stopp.",
     fi: "Vedä katetria varovasti ulos pakkauksesta, kunnes liitinkartio lukkiutuu paikoilleen varmistaen pitävän liitoksen katetrin ja keräyspussin välillä.",
     da: "Træk forsigtigt kateteret ud af emballagen, indtil tragten stopper, så der tætnes mellem kateter og opsamlingspose.",
     no: "Trekk kateteret forsiktig ut av pakningen til trakten stopper, slik at det tetter mellom kateter og oppsamlingspose.",
   },
   s9: {
     en: "When the urine flow stops, slowly withdraw the catheter a little bit. If urine starts to flow again, wait until it has stopped to ensure complete bladder emptying. Then remove the catheter completely.",
-    sv: "När urinflödet upphör, dra ut katetern långsamt en liten bit. Om urinen börjar rinna igen, vänta tills den har slutat så att blåsan töms helt. Ta sedan bort katetern helt.",
+    sv: "När urinflödet avtar, drar du långsamt ut katetern. Om urinen börjar rinna igen ska du vänta tills den har slutat för att säkerställa fullständig tömning av blåsan. Dra sedan ut katetern helt.",
     fi: "Kun virtsaa ei enää valu katetrista, vedä katetria hitaasti ulos. Jos virtsa alkaa valua uudelleen, odota kunnes virtsan tulo lakkaa varmistaaksesi, että virtsarakko on täysin tyhjä. Vedä sitten katetri kokonaan ulos.",
     da: "Når urinstrømmen stopper, trækkes kateteret langsomt lidt ud. Hvis urinen begynder at løbe igen, vent til den er stoppet, så blæren tømmes helt. Fjern derefter kateteret helt.",
     no: "Når urinstrømmen stopper, trekk kateteret sakte litt ut. Hvis urinen begynner å renne igjen, vent til den har stoppet slik at blæren tømmes helt. Fjern deretter kateteret helt.",
   },
   s10: {
     en: "Push the catheter back into the collection bag.",
-    sv: "Skjut tillbaka katetern i uppsamlingspåsen.",
+    sv: "För tillbaka katetern ned i urinuppsamlingspåsen.",
     fi: "Työnnä katetri takaisin keräyspussiin.",
     da: "Skub kateteret tilbage i opsamlingsposen.",
     no: "Skyv kateteret tilbake i oppsamlingsposen.",
   },
   s11: {
     en: "Before disposal, empty the bag through the neck, or tie a knot to seal the bag and tear at the indentation. Dispose appropriately (local regulations may vary).",
-    sv: "Töm påsen genom halsen före kassering, eller knyt en knut för att försluta påsen och riv vid markeringen. Kassera på lämpligt sätt (lokala regler kan variera).",
+    sv: "Innan du tömmer urinuppsamlingspåsen så knyt en knut på påsen. Riv sedan av vid fliken för att tömma påsen på urin. Släng som brännbart hushållsavfall.",
     fi: "Ennen kuin heität tuotteen roskiin, tyhjennä pussi sen kaulan kautta tai solmi pussin suu ja tyhjennä pussi repäisykohdan kautta. Voit myös solmia pussin ja hävittää sen sellaisenaan.",
     da: "Tøm posen gennem halsen før bortskaffelse, eller bind en knude for at lukke posen, og riv ved indhakket. Bortskaf korrekt (lokale regler kan variere).",
     no: "Tøm posen gjennom halsen før kassering, eller knyt en knute for å lukke posen og riv ved hakket. Kasser på egnet måte (lokale regler kan variere).",
@@ -223,8 +223,11 @@ const hydroKitSteps = (dir: string, mid: Localized[]): InstructionStep[] =>
     image: `/images/instructions/${dir}/step-${i + 1}.png`,
   }));
 
-/** Shared Tiemann/Coudé curved-tip guidance steps. */
-const tiemannSteps = (dir: string): InstructionStep[] =>
+/**
+ * Shared Tiemann/Coudé curved-tip guidance steps.
+ * Optional Swedish overrides apply only to the caller (Hydro-Kit), not LoFric Classic.
+ */
+const tiemannSteps = (dir: string, sv?: [string, string]): InstructionStep[] =>
   [
     {
       en: "Note where the marker on the funnel is in relation to the curved catheter tip before inserting the catheter. It will guide you keeping the curved tip in the right direction during use.",
@@ -241,7 +244,7 @@ const tiemannSteps = (dir: string): InstructionStep[] =>
       no: "Hold den buede spissen oppover mot magen under innføring og gjennom hele kateteriseringen, også ved uttrekking. Eller følg spesifikke instruksjoner fra helsepersonell.",
     },
   ].map((text, i) => ({
-    text,
+    text: sv?.[i] ? { ...text, sv: sv[i] ?? text.sv } : text,
     image: `/images/instructions/${dir}/tiemann-${i + 1}.png`,
   }));
 
@@ -360,26 +363,56 @@ export const hasImageGuide = (product: Product) =>
   product.instructions.some((step) => Boolean(stepImage(step))) ||
   Boolean(product.extraGuide?.steps.some((step) => Boolean(stepImage(step))));
 
-/** Keep the existing English line for every locale except Finnish. */
-const withFi = (en: string, fi: string): Localized => ({
+/**
+ * Keep the existing English line for Danish and Norwegian.
+ * Swedish stays English unless a sheet translation is passed.
+ */
+const withFi = (en: string, fi: string, sv: string = en): Localized => ({
   en,
-  sv: en,
+  sv,
   da: en,
   no: en,
   fi,
 });
 
+/** Danish from the Navina Insert sheet. Other locales keep the English line. */
+const withDa = (en: string, da: string): Localized => ({
+  en,
+  sv: en,
+  fi: en,
+  no: en,
+  da,
+});
+
+/** Swedish from the Origo Pro sheet. Danish and Norwegian keep the English line. */
+const withSv = (en: string, sv: string, fi: string): Localized => ({
+  en,
+  sv,
+  da: en,
+  no: en,
+  fi,
+});
+
+const optionalTitle: Localized = {
+  en: "OPTIONAL",
+  sv: "Valfritt:",
+  da: "OPTIONAL",
+  no: "OPTIONAL",
+  fi: "VALINNAINEN:",
+};
+
 /**
- * Official Finnish 9-step male guide (image sheet). Steps 1–5 match the previous
- * guide. The old combined “lift and insert” step is split to match the sheet,
- * and the sheet has no disposal step, so that English line is no longer in this
- * list. LoFric Origo and LoFric Origo Pro share this guide.
+ * LoFric Origo male guide. Illustrations are shared across languages.
+ * Swedish follows the sheet. The sheet’s lift and insert drawing is one card,
+ * so those two existing lines are joined. Disposal is step 9 on the sheet.
+ * Danish and Norwegian keep the English line. Finnish keeps existing wording.
  */
 const origoSteps: InstructionStep[] = [
   {
     text: withFi(
       "Wash your hands thoroughly with soap and water.",
       "Pese kätesi huolellisesti vedellä ja saippualla.",
+      "Tvätta händerna ordentligt med tvål och vatten.",
     ),
     image: "/images/instructions/lofric-origo/step-1.png",
   },
@@ -387,18 +420,24 @@ const origoSteps: InstructionStep[] = [
     text: withFi(
       "Press to release the salt solution and the catheter is ready to use.",
       "Aktivoi katetri puristamalla suolaliuosta sisältävää nestetyynyä. Tämän jälkeen katetri on käyttövalmis.",
+      "Kläm sönder behållaren med saltlösning för att aktivera katetern. Sedan är katetern klar att användas.",
     ),
     image: "/images/instructions/lofric-origo/step-2.png",
   },
   {
-    text: withFi("Pull the tab down to open.", "Vedä avausliuskasta avataksesi pakkauksen."),
+    text: withFi(
+      "Pull the tab down to open.",
+      "Vedä avausliuskasta avataksesi pakkauksen.",
+      "Dra ner remsan för att öppna.",
+    ),
     image: "/images/instructions/lofric-origo/step-3.png",
   },
   {
-    title: withFi("OPTIONAL", "VALINNAINEN:"),
+    title: withFi("OPTIONAL", "VALINNAINEN:", "VALFRITT:"),
     text: withFi(
       "Use the adhesive tab on the reverse side to attach the product to a dry, clean surface.",
       "Kiinnitä pakkaus kuivalle ja puhtaalle pinnalle pakkauksen takaosassa olevalla tarralapulla.",
+      "Använd klisterfliken på baksidan för att fästa förpackningen på en torr och ren yta.",
     ),
     image: "/images/instructions/lofric-origo/step-4.png",
   },
@@ -406,26 +445,23 @@ const origoSteps: InstructionStep[] = [
     text: withFi(
       "Take out the catheter. OPTIONAL: Pull and adjust the Insertion Grip located on the funnel, to control insertion without having to touch the catheter tube.",
       "Ota katetri pakkauksesta. VALINNAINEN: Käytä liikuteltavaa asetinta, joka takaa paremman otteen ilman, että katetrin letkuosaan tarvitsee koskea paljain käsin.",
+      "Ta ut katetern. VALFRITT: Greppa det rörliga handtaget intill konnektorn och justera för att kontrollera införandet utan att behöva ta på katetern.",
     ),
     image: "/images/instructions/lofric-origo/step-5.png",
   },
   {
     text: withFi(
-      "Lift the penis towards the stomach to straighten the urethra.",
-      "Nosta penistä ylöspäin vatsaa kohti. Tässä asennossa virtsaputki pitenee ja muuttuu U-muotoiseksi. Tämä helpottaa katetrin ohjaamista virtsarakkoon.",
+      "Lift the penis towards the stomach to straighten the urethra. Slowly insert the catheter into the urethra. When urine begins to flow, insert the catheter slightly more to ensure both eyelets are inside the bladder.",
+      "Nosta penistä ylöspäin vatsaa kohti. Tässä asennossa virtsaputki pitenee ja muuttuu U-muotoiseksi. Tämä helpottaa katetrin ohjaamista virtsarakkoon. Vie katetri hitaasti virtsaputkeen. Kun virtsaa alkaa valua, työnnä katetria vielä hiukan pidemmälle varmistaaksesi, että katetrin molemmat silmäaukot ovat sisällä virtsarakossa.",
+      "Lyft penis upp mot magen. I denna position förlängs urinröret och blir U-format. Detta gör det lättare att styra katetern in i urinblåsan. För långsamt in katetern i urinröret. När urinen börjar rinna för in katetern något längre för att säkerställa att båda kateterögonen är inne i urinblåsan.",
     ),
     image: "/images/instructions/lofric-origo/step-6.png",
   },
   {
     text: withFi(
-      "Slowly insert the catheter into the urethra. When urine begins to flow, insert the catheter slightly more to ensure both eyelets are inside the bladder.",
-      "Vie katetri hitaasti virtsaputkeen. Kun virtsaa alkaa valua, työnnä katetria vielä hiukan pidemmälle varmistaaksesi, että katetrin molemmat silmäaukot ovat sisällä virtsarakossa.",
-    ),
-  },
-  {
-    text: withFi(
       "Angle the penis down as urine begins to flow through the catheter.",
       "Laske penis normaaliasentoon, kun virtsaa alkaa valua katetrin kautta.",
+      "För ner penis i normalt läge igen, när urinen börjar rinna genom katetern.",
     ),
     image: "/images/instructions/lofric-origo/step-7.png",
   },
@@ -433,8 +469,108 @@ const origoSteps: InstructionStep[] = [
     text: withFi(
       "When the urine flow stops, slowly withdraw the catheter a little bit. If urine starts to flow again, wait until it has stopped to ensure complete bladder emptying. Then remove the catheter completely.",
       "Kun virtsaa ei enää valu katetrista, vedä katetria hitaasti ulos. Jos virtsa alkaa valua uudelleen, odota kunnes virtsan tulo lakkaa varmistaaksesi, että virtsarakko on täysin tyhjä. Vedä sitten katetri kokonaan ulos.",
+      "När urinflödet avtar drar du långsamt tillbaka katetern en liten bit. Om urinen börjar rinna igen, vänta tills det har slutat för att säkerställa fullständig tömning av urinblåsan. Dra sedan ut katetern helt.",
     ),
     image: "/images/instructions/lofric-origo/step-8.png",
+  },
+  {
+    text: withFi(
+      "Put the catheter back in the package and dispose appropriately (local regulations may vary).",
+      "Aseta katetri takaisin pakkaukseen ja hävitä se asianmukaisesti (paikalliset määräykset voivat vaihdella).",
+      "Lägg tillbaka katetern i förpackningen och släng som brännbart hushållsavfall.",
+    ),
+    image: "/images/instructions/lofric-origo/step-9.png",
+  },
+];
+
+/**
+ * LoFric Origo Pro male guide. Illustrations are shared across languages.
+ * Swedish follows the sheet. English, Danish, Norwegian, and Finnish keep
+ * existing wording, split or joined so each picture has a matching step.
+ * The sheet’s storage tip (A) is not a numbered step, so it is omitted.
+ */
+const origoProSteps: InstructionStep[] = [
+  {
+    text: withSv(
+      "Wash your hands thoroughly with soap and water.",
+      "Tvätta händerna ordentligt med tvål och vatten.",
+      "Pese kätesi huolellisesti vedellä ja saippualla.",
+    ),
+    image: "/images/instructions/lofric-origo-pro/step-1.png",
+  },
+  {
+    text: withSv(
+      "Press to release the salt solution and the catheter is ready to use.",
+      "Kläm på påsen med saltlösningen så att vattnet rinner ut. Sedan är katetern färdig att användas.",
+      "Aktivoi katetri puristamalla suolaliuosta sisältävää nestetyynyä. Tämän jälkeen katetri on käyttövalmis.",
+    ),
+    image: "/images/instructions/lofric-origo-pro/step-2.png",
+  },
+  {
+    text: withSv(
+      "Pull the tab down to open.",
+      "Använd öglan för att dra ner och öppna.",
+      "Vedä avausliuskasta avataksesi pakkauksen.",
+    ),
+    image: "/images/instructions/lofric-origo-pro/step-3.png",
+  },
+  {
+    title: optionalTitle,
+    text: withSv(
+      "Use the adhesive tab on the reverse side to attach the product to a dry, clean surface.",
+      "Använd klisterfliken på baksidan för att fästa produkten på en torr och ren yta.",
+      "Kiinnitä pakkaus kuivalle ja puhtaalle pinnalle pakkauksen takaosassa olevalla tarralapulla.",
+    ),
+    image: "/images/instructions/lofric-origo-pro/step-4.png",
+  },
+  {
+    text: withSv(
+      "Take out the catheter.",
+      "Efter öppning, nyp försiktigt och håll i hylsgreppet för att automatiskt dra ner skyddshylsan när katetern tas ut. Använd skyddshylsan för att kontrollera införandet utan att behöva röra katetern.",
+      "Ota katetri pakkauksesta.",
+    ),
+    image: "/images/instructions/lofric-origo-pro/step-5a.png",
+  },
+  {
+    title: optionalTitle,
+    text: withSv(
+      "Pull and adjust the Insertion Grip located on the funnel, to control insertion without having to touch the catheter tube.",
+      "Ta ut katetern. Dra ner hylsgreppet för att täcka katetern. Använd skyddshylsan för att kontrollera införandet utan att behöva röra katetern.",
+      "Käytä liikuteltavaa asetinta, joka takaa paremman otteen ilman, että katetrin letkuosaan tarvitsee koskea paljain käsin.",
+    ),
+    image: "/images/instructions/lofric-origo-pro/step-5b.png",
+  },
+  {
+    text: withSv(
+      "Lift the penis towards the stomach to straighten the urethra. Slowly insert the catheter into the urethra. When urine begins to flow, insert the catheter slightly more to ensure both eyelets are inside the bladder.",
+      "Lyft penis mot magen för att räta ut urinröret. För långsamt in katetern i urinröret. När urinen börjar rinna ska du föra in katetern något längre för att säkerställa att bra flöde.",
+      "Nosta penistä ylöspäin vatsaa kohti. Tässä asennossa virtsaputki pitenee ja muuttuu U-muotoiseksi. Tämä helpottaa katetrin ohjaamista virtsarakkoon. Vie katetri hitaasti virtsaputkeen. Kun virtsaa alkaa valua, työnnä katetria vielä hiukan pidemmälle varmistaaksesi, että katetrin molemmat silmäaukot ovat sisällä virtsarakossa.",
+    ),
+    image: "/images/instructions/lofric-origo-pro/step-6.png",
+  },
+  {
+    text: withSv(
+      "Angle the penis down as urine begins to flow through the catheter.",
+      "Vinkla penis nedåt när urinen börjar rinna genom katetern.",
+      "Laske penis normaaliasentoon, kun virtsaa alkaa valua katetrin kautta.",
+    ),
+    image: "/images/instructions/lofric-origo-pro/step-7.png",
+  },
+  {
+    text: withSv(
+      "When the urine flow stops, slowly withdraw the catheter a little bit. If urine starts to flow again, wait until it has stopped to ensure complete bladder emptying. Then remove the catheter completely.",
+      "Vänta tills urinflödet upphör för att säkerställa fullständig tömning av blåsan. Dra långsamt ut katetern. Ta sedan bort katetern helt.",
+      "Kun virtsaa ei enää valu katetrista, vedä katetria hitaasti ulos. Jos virtsa alkaa valua uudelleen, odota kunnes virtsan tulo lakkaa varmistaaksesi, että virtsarakko on täysin tyhjä. Vedä sitten katetri kokonaan ulos.",
+    ),
+    image: "/images/instructions/lofric-origo-pro/step-8.png",
+  },
+  {
+    text: withSv(
+      "Put the catheter back in the package and dispose appropriately (local regulations may vary).",
+      "Lägg tillbaka katetern i förpackningen och kassera på lämpligt sätt (lokala bestämmelser kan variera).",
+      "Aseta katetri takaisin pakkaukseen ja hävitä se asianmukaisesti (paikalliset määräykset voivat vaihdella).",
+    ),
+    image: "/images/instructions/lofric-origo-pro/step-9.png",
   },
 ];
 
@@ -525,27 +661,51 @@ export const products: Product[] = [
     indications: elleProIfu.indications,
     instructions: [
       {
-        text: "Wash your hands thoroughly with soap and water.",
+        text: withFi(
+          "Wash your hands thoroughly with soap and water.",
+          "Pese kädet huolellisesti vedellä ja saippualla.",
+          "Tvätta händerna ordentligt med tvål och vatten.",
+        ),
         image: "/images/instructions/lofric-elle/step-1.png",
       },
       {
-        text: "Open the upper lid.",
+        text: withFi(
+          "Open the upper lid.",
+          "Avaa korkki.",
+          "Öppna det övre sterila barriärlocket.",
+        ),
         image: "/images/instructions/lofric-elle/step-2.png",
       },
       {
-        text: "Hold the catheter in your hand and gently bend the upper part to open. Pull the catheter out.",
+        text: withFi(
+          "Hold the catheter in your hand and gently bend the upper part to open. Pull the catheter out.",
+          "Irrota katetri säiliöstä. Käytä molempia käsiä ja taivuta avataksesi. Vedä katetri ulos. Tyhjennä ensin neste säiliöstä (wc-pönttöön tai käsienpesualtaaseen). Voit nyt katetroida.",
+          "Greppa katetern och böj försiktigt den övre delen för att öppna. Drag ut katetern. Töm ut den resterande vätskan från behållaren (i toaletten eller handfatet).",
+        ),
         image: "/images/instructions/lofric-elle/step-3.png",
       },
       {
-        text: "Connect the container to the catheter with a gentle twist, make sure the arrow on the container points down.",
+        text: withFi(
+          "Connect the container to the catheter with a gentle twist, make sure the arrow on the container points down.",
+          "Käytettäessä kahvaa, kiinnitä säiliö kahvaksi katetriin kiertämällä myötäpäivään. Varmista, että kahvassa oleva nuoli osoittaa katetriin päin.",
+          "ALTERNATIV: Katetern kan användas med eller utan handtaget. Handtaget ger ökad räckvidd och mer hygienisk kateterisering. Fäst handtaget på katetern med ett klick, kontrollera att pilen på handtaget pekar mot katetern.",
+        ),
         image: "/images/instructions/lofric-elle/step-4.png",
       },
       {
-        text: "Tilt your pelvis upwards, spread the labia, lift slightly to locate the urethra. The urethra is located just above the vaginal opening. With the other hand, insert the catheter slowly into your urethral opening, until urine starts to flow, insert slightly more to ensure both eyelets are inside the bladder. When the urine flow slows to a drip, withdraw the catheter slowly. If urine starts to flow again, stop the withdrawal process and wait until the urine flow stops, to ensure complete bladder emptying.",
+        text: withFi(
+          "Tilt your pelvis upwards, spread the labia, lift slightly to locate the urethra. The urethra is located just above the vaginal opening. With the other hand, insert the catheter slowly into your urethral opening, until urine starts to flow, insert slightly more to ensure both eyelets are inside the bladder. When the urine flow slows to a drip, withdraw the catheter slowly. If urine starts to flow again, stop the withdrawal process and wait until the urine flow stops, to ensure complete bladder emptying.",
+          "Katetria voidaan käyttää kahvan kanssa tai ilman. Kahva helpottaa ylttämistä ja tekee katetroinnista hygieenisempää. Levitä häpyhuulia paikallistaaksesi virtsaputken suun. Vie katetri virtsaputkeen, kunnes virtsa alkaa virrata. Vie katetria vielä hieman pidemmälle varmistaaksesi, että katetrin molemmat silmäaukot ovat virtsarakossa. Kun virtsaa ei enää valu katetrista, vedä katetria hitaasti ulos. Jos virtsa alkaa valua uudelleen, odota kunnes virtsan tulo lakkaa varmistaaksesi, että virtsarakko on täysin tyhjä.",
+          "Luta ditt bäcken framåt, sära på blygdläpparna, dra dem försiktigt uppåt, urinröret ligger strax ovanför vaginalöppningen. Med andra handen, för katetern långsamt in i urinrörsöppningen, tills urin börjar rinna, för in den lite längre för att säkerställa att båda kateterögonen befinner sig i urinblåsan. När urinflödet avtar till droppar, dra ut katetern långsamt. Om urin börjar rinna igen, vänta tills urinflödet upphör, för att säkerställa fullständig tömning av urinblåsan.",
+        ),
         image: "/images/instructions/lofric-elle/step-5.png",
       },
       {
-        text: "Put the catheter back inside the container. Dispose, or carry it in your bag until disposal. Please note! The container is recyclable.",
+        text: withFi(
+          "Put the catheter back inside the container. Dispose, or carry it in your bag until disposal. Please note! The container is recyclable.",
+          "Aseta katetri takaisin säiliön sisään. Hävitä katetri heti tai kuljeta katetria laukussasi, kunnes voit hävittää sen. Huomio! Säiliön voi kierrättää muovipakkausjätteenä.",
+          "Sätt tillbaka katetern i den nedre behållaren. Kassera eller förvara den i din väska tills du kan slänga den. Vänligen notera! Behållaren är återvinningsbar som plastförpackning.",
+        ),
         image: "/images/instructions/lofric-elle/step-6.png",
       },
     ],
@@ -578,6 +738,7 @@ export const products: Product[] = [
         text: withFi(
           "Wash your hands thoroughly with soap and water.",
           "Pese kätesi huolellisesti vedellä ja saippualla.",
+          "Tvätta händerna ordentligt med tvål och vatten.",
         ),
         image: "/images/instructions/lofric-sense/step-1.png",
       },
@@ -585,18 +746,24 @@ export const products: Product[] = [
         text: withFi(
           "Press to release the salt solution and the catheter is ready to use.",
           "Aktivoi katetri puristamalla suolaliuosta sisältävää nestetyynyä. Katetri on tämän jälkeen käyttövalmis.",
+          "Kläm sönder behållaren med saltlösning för att aktivera katetern. Sedan är katetern klar att användas.",
         ),
         image: "/images/instructions/lofric-sense/step-2.png",
       },
       {
-        text: withFi("Pull the tab up to open.", "Vedä avausliuskasta avataksesi pakkauksen."),
+        text: withFi(
+          "Pull the tab up to open.",
+          "Vedä avausliuskasta avataksesi pakkauksen.",
+          "Dra upp remsan för att öppna.",
+        ),
         image: "/images/instructions/lofric-sense/step-3.png",
       },
       {
-        title: withFi("OPTIONAL", "VALINNAINEN"),
+        title: withFi("OPTIONAL", "VALINNAINEN", "VALFRITT"),
         text: withFi(
           "Use the adhesive tab on the reverse side to attach the product to a dry, clean surface.",
           "Käytä takana olevaa tarralappua tuotteen kiinnittämiseen kuivalle ja puhtaalle pinnalle.",
+          "Använd klisterfliken på baksidan för att fästa produkten på en torr och ren yta.",
         ),
         image: "/images/instructions/lofric-sense/step-4.png",
       },
@@ -604,6 +771,7 @@ export const products: Product[] = [
         text: withFi(
           "Hold flap in place and take out the catheter.",
           "Pidä avausliuskaa paikallaan ja ota katetri pakkauksesta.",
+          "Håll fliken på plats och ta ut katetern.",
         ),
         image: "/images/instructions/lofric-sense/step-5.png",
       },
@@ -611,6 +779,7 @@ export const products: Product[] = [
         text: withFi(
           "Spread the labia and locate the urethra just above the vaginal opening. With the other hand, insert the catheter slowly into the urethra.",
           "Levitä häpyhuulia ja paikallista emättimen aukon yläpuolelle oleva virtsaputken suu. Työnnä katetri hitaasti toisella kädellä virtsaputkeen.",
+          "Sära på blygdläpparna och lokalisera urinröret strax ovanför vaginalöppningen. Med den andra handen, för långsamt in katetern i urinröret.",
         ),
         image: "/images/instructions/lofric-sense/step-6.png",
       },
@@ -618,6 +787,7 @@ export const products: Product[] = [
         text: withFi(
           "When urine begins to flow, insert the catheter slightly more to ensure both eyelets are inside the bladder.",
           "Kun virtsaa alkaa virrata, työnnä katetria hieman pidemmälle varmistaaksesi, että katetrin molemmat silmäaukot ovat virtsarakon sisällä.",
+          "När urinen börjar rinna ska du föra in katetern något längre för att säkerställa att båda kateterögonen är inne i blåsan.",
         ),
         image: "/images/instructions/lofric-sense/step-7.png",
       },
@@ -625,6 +795,7 @@ export const products: Product[] = [
         text: withFi(
           "When the urine flow stops, slowly withdraw the catheter a little bit. If urine starts to flow again, wait until it has stopped to ensure complete bladder emptying. Then remove the catheter completely.",
           "Kun virtsaa ei enää valu katetrista, vedä katetria hitaasti ulos. Jos virtsa alkaa valua uudelleen, odota kunnes virtsan tulo lakkaa varmistaaksesi, että virtsarakko on täysin tyhjä. Vedä sitten katetri kokonaan ulos.",
+          "När urinflödet avtar, drar du långsamt ut katetern. Om urinen börjar rinna igen ska du vänta tills den har slutat för att säkerställa fullständig tömning av blåsan. Dra sedan ut katetern helt.",
         ),
         image: "/images/instructions/lofric-sense/step-8.png",
       },
@@ -632,6 +803,7 @@ export const products: Product[] = [
         text: withFi(
           "Put the catheter back in the package, the outer packaging doubles as a hygienic and discreet disposal pouch. Dispose appropriately (local regulations may vary).",
           "Laita katetri takaisin pakkaukseen. Pakkaus toimii hygieenisenä ja huomaamattomana jätepussina. Hävitä poltettavan kotitalousjätteen mukana.",
+          "Lägg tillbaka katetern i förpackningen, den yttre förpackningen fungerar som en hygienisk och diskret avfallspåse. Släng som brännbart hushållsavfall.",
         ),
         image: "/images/instructions/lofric-sense/step-9.png",
       },
@@ -665,6 +837,7 @@ export const products: Product[] = [
         text: withFi(
           "Wash your hands thoroughly with soap and water.",
           "Pese kätesi huolellisesti vedellä ja saippualla.",
+          "Tvätta händerna ordentligt med tvål och vatten.",
         ),
         image: "/images/instructions/lofric-primo-female/1.png",
       },
@@ -672,17 +845,23 @@ export const products: Product[] = [
         text: withFi(
           "Unfold the package. Hold the product upright.",
           "Avaa pakkaus. Pidä pakkaus pystyasennossa.",
+          "Veckla ut förpackningen. Håll förpackningen upprätt.",
         ),
         image: "/images/instructions/lofric-primo-female/2.png",
       },
       {
-        text: withFi("Fold the water pocket.", "Taita ja purista nestepussia."),
+        text: withFi(
+          "Fold the water pocket.",
+          "Taita ja purista nestepussia.",
+          "Vik ihop vattenbehållaren.",
+        ),
         image: "/images/instructions/lofric-primo-female/3.png",
       },
       {
         text: withFi(
           "Press to release the salt solution and the catheter is ready to use.",
           "Aktivoi katetri puristamalla suolaliuosta sisältävää nestepussia. Katetri on käyttövalmis.",
+          "Kläm sönder behållaren med saltlösning för att aktivera katetern. Sedan är katetern klar att användas.",
         ),
         image: "/images/instructions/lofric-primo-female/4.png",
       },
@@ -690,6 +869,7 @@ export const products: Product[] = [
         text: withFi(
           'a) Open the product, take the catheter out to catheterize. b) OPTIONAL opening using handling aid: Remove the water pocket by tearing at indentation "A". Tear at indentation "B". Use the remaining packaging part as a handling aid. (This part will give you a firm grip and insertion aid, allowing you to insert the catheter without touching it.)',
           "a) Avaa pakkaus, ota katetri pakkauksesta katetrointia varten. b) VALINNAINEN: avaa sisäänvientiapua käyttäen: Irrota vesipussi repäisemällä liuska “A”. Repäise kohdasta “B”. Käytä jäljelle jäänyttä osaa sisäänvientiapuna. (Tämä osa mahdollistaa hyvän otteen ja mahdollistaa katetrin sisäänviennin katetriin käsin koskematta.)",
+          "a) Öppna förpackningen, ta ut katetern för att kateterisera. b) VALFRITT: öppna med införingshjälpmedel: Avlägsna vattenpåsen genom att riva vid markering ”A”. Riv vid markering ”B”. Använd den återstående förpackningsdelen som ett införingshjälpmedel. (Den här delen ger dig ett stadigt grepp och införingshjälp, så att du kan föra in katetern utan att röra vid den.)",
         ),
         image: "/images/instructions/lofric-primo-female/5.png",
       },
@@ -697,6 +877,7 @@ export const products: Product[] = [
         text: withFi(
           "Spread the labia and locate the urethra just above the vaginal opening. With the other hand, insert the catheter slowly into the urethra.",
           "Levitä häpyhuulia ja paikallista emättimen aukon yläpuolelle oleva virtsaputken suu. Työnnä katetri hitaasti toisella kädellä virtsaputkeen.",
+          "Sära på blygdläpparna och lokalisera urinröret strax ovanför vaginalöppningen. Med den andra handen, för långsamt in katetern i urinröret.",
         ),
         image: "/images/instructions/lofric-primo-female/6.png",
       },
@@ -704,6 +885,7 @@ export const products: Product[] = [
         text: withFi(
           "When urine begins to flow, insert the catheter slightly more to ensure both eyelets are inside the bladder.",
           "Kun virtsaa alkaa virrata, työnnä katetria hieman pidemmälle varmistaaksesi, että katetrin molemmat silmäaukot ovat virtsarakon sisällä.",
+          "När urinen börjar rinna, för in katetern något längre för att säkerställa att båda kateterögonen är inne i urinblåsan.",
         ),
         image: "/images/instructions/lofric-primo-female/7.png",
       },
@@ -711,6 +893,7 @@ export const products: Product[] = [
         text: withFi(
           "When the urine flow stops, slowly withdraw the catheter a little bit. If urine starts to flow again, wait until it has stopped to ensure complete bladder emptying. Then remove the catheter completely.",
           "Kun virtsaa ei enää valu katetrista, vedä katetria hitaasti ulos. Jos virtsa alkaa valua uudelleen, odota kunnes virtsan tulo lakkaa varmistaaksesi, että virtsarakko on täysin tyhjä. Vedä sitten katetri kokonaan ulos.",
+          "När urinflödet avtar, drar du långsamt ut katetern. Om urinen börjar rinna igen ska du vänta tills den har slutat för att säkerställa fullständig tömning av blåsan. Dra sedan ut katetern helt.",
         ),
         image: "/images/instructions/lofric-primo-female/8.png",
       },
@@ -718,6 +901,7 @@ export const products: Product[] = [
         text: withFi(
           "Put the catheter back in the package and dispose appropriately (local regulations may vary).",
           "Laita katetri takaisin pakkaukseen ja hävitä palavana kotitalousjätteenä.",
+          "Lägg tillbaka katetern i förpackningen och släng som brännbart hushållsavfall.",
         ),
         image: "/images/instructions/lofric-primo-female/9.png",
       },
@@ -748,14 +932,14 @@ export const products: Product[] = [
     instructions: hydroKitSteps("lofric-hydro-kit-female", [
       {
         en: "Spread the labia and locate the urethra just above the vaginal opening. With the other hand, insert the catheter slowly into the urethra.",
-        sv: "Sära på blygdläpparna och lokalisera urinröret strax ovanför slidöppningen. För med den andra handen in katetern långsamt i urinröret.",
+        sv: "Sära på blygdläpparna och lokalisera urinröret strax ovanför vaginalöppningen. Med den andra handen, för långsamt in katetern i urinröret.",
         fi: "Levitä häpyhuulia ja paikallista emättimen aukon yläpuolelle oleva virtsaputken suu. Työnnä katetri hitaasti toisella kädellä virtsaputkeen.",
         da: "Spred kønslæberne, og find urinrøret lige over skedeåbningen. Før kateteret langsomt ind i urinrøret med den anden hånd.",
         no: "Skill kjønnsleppene og finn urinrøret rett over skjedeåpningen. Før kateteret sakte inn i urinrøret med den andre hånden.",
       },
       {
         en: "When urine begins to flow, insert the catheter slightly more to ensure both eyelets are inside the bladder.",
-        sv: "När urinen börjar rinna, för in katetern lite till så att båda ögonen är inne i blåsan.",
+        sv: "När urinen börjar rinna ska du föra in katetern något längre för att säkerställa att båda kateterögonen är inne i blåsan.",
         fi: "Kun virtsaa alkaa virrata, työnnä katetria hieman pidemmälle varmistaaksesi, että katetrin molemmat silmäaukot ovat virtsarakon sisällä.",
         da: "Når urinen begynder at løbe, føres kateteret lidt længere ind, så begge øjne er inde i blæren.",
         no: "Når urinen begynner å renne, før kateteret litt lenger inn slik at begge øynene er inne i blæren.",
@@ -825,7 +1009,7 @@ export const products: Product[] = [
       no: "LoFric Origo Pro er et hydrofilt kateter for RIK. Det har 12 glatte Pro-øyne, utviklet for å forenkle kateteriseringen ytterligere. LoFric® Origo™ Pro-øynene er designet for å muliggjøre fullstendig blæretømming uten omplassering av kateteret.",
     },
     indications: origoIfu.indications,
-    instructions: origoSteps,
+    instructions: origoProSteps,
 
     safety: origoIfu.safety,
     contraindicationsIntro: origoIfu.contraindicationsIntro,
@@ -882,16 +1066,19 @@ export const products: Product[] = [
       title: withFi(
         "Special instruction for Tiemann/Coudé catheter, with slightly curved tip.",
         "Erityisohjeet kaarevakärkisellä Tiemann-katetrilla katetroimiseen.",
+        "Särskilda instruktioner för Tiemann-kateter med böjd tipp.",
       ),
       intro: withFi(
         "A special technique is required when using a Tiemann/Coudé. Speak to your healthcare professional for training and advice.",
         "Tiemann-katetrin käytössä tarvitaan erityistä tekniikkaa. Saat lisätietoa tarvittavasta perehdytyksestä ja neuvonnasta sinua hoitavalta sairaanhoitajalta tai uroterapeutilta.",
+        "En Tiemann kateter med böjd tipp kräver en speciell teknik vid kateterisering. Tala med din förskrivare för instruktioner och råd.",
       ),
       steps: [
         {
           text: withFi(
             "Note where the marker on the funnel is in relation to the curved catheter tip before inserting the catheter. It will guide you keeping the curved tip in the right direction during use.",
             "Huomaa kartiossa oleva merkki suhteessa kärkeen, kun viet katetria sisään virtsaputkeen. Se ohjaa pitämään katetrin kaarevan kärjen oikeassa suunnassa katetroinnin aikana.",
+            "Notera var markeringen på konan befinner sig i förhållande till katetertippen när du för in katetern. Då säkerställer du att katetertippen har rätt riktning under kateteriseringen.",
           ),
           image: "/images/instructions/lofric-primo-male/tiemann-1.png",
         },
@@ -899,6 +1086,7 @@ export const products: Product[] = [
           text: withFi(
             "Keep the curved tip upwards towards the stomach during insertion and throughout catheterization, including withdrawal. Or follow specific instructions given by your healthcare professional.",
             "Pidä kaareva kärki kasvoihin päin/ylöspäin sisäänviennin ja koko katetroinnin ajan, katetrin poistaminen mukaan lukien. Vaihtoehtoisesti noudata terveydenhuollon ammattilaisen antamia erityisohjeita.",
+            "Se till att katetertippen är vänd upp mot buken vid införandet av katetern och under kateteriseringen eller följ de specifika instruktioner du fått av din förskrivare.",
           ),
           image: "/images/instructions/lofric-primo-male/tiemann-2.png",
         },
@@ -909,6 +1097,7 @@ export const products: Product[] = [
         text: withFi(
           "Wash your hands thoroughly with soap and water.",
           "Pese kätesi huolellisesti vedellä ja saippualla.",
+          "Tvätta händerna ordentligt med tvål och vatten.",
         ),
         image: "/images/instructions/lofric-primo-male/1.png",
       },
@@ -916,17 +1105,23 @@ export const products: Product[] = [
         text: withFi(
           "Unfold the package. Hold the product upright.",
           "Avaa pakkaus. Pidä pakkaus pystyasennossa.",
+          "Veckla ut förpackningen. Håll förpackningen upprätt.",
         ),
         image: "/images/instructions/lofric-primo-male/2.png",
       },
       {
-        text: withFi("Fold the water pocket.", "Taita ja purista nestepussia."),
+        text: withFi(
+          "Fold the water pocket.",
+          "Taita ja purista nestepussia.",
+          "Vik ihop vattenbehållaren.",
+        ),
         image: "/images/instructions/lofric-primo-male/3.png",
       },
       {
         text: withFi(
           "Press to release the salt solution and the catheter is ready to use.",
           "Aktivoi katetri puristamalla suolaliuosta sisältävää säiliötä. Katetri on käyttövalmis.",
+          "Kläm sönder behållaren med saltlösning för att aktivera katetern. Sedan är katetern klar att användas.",
         ),
         image: "/images/instructions/lofric-primo-male/4.png",
       },
@@ -934,6 +1129,7 @@ export const products: Product[] = [
         text: withFi(
           'a) Open the product, take the catheter out to catheterize. b) OPTIONAL opening using handling aid: Remove the water pocket by tearing at indentation "A". Tear at indentation "B". Use the remaining packaging part as a handling aid. (This part will give you a firm grip and insertion aid, allowing you to insert the catheter without touching it.)',
           "a) Avaa pakkaus, ota katetri pakkauksesta katetrointia varten. b) VALINNAINEN: avaa sisäänvientiapua käyttäen: Irrota vesipussi repäisemällä liuska “A”. Repäise kohdasta “B”. Käytä jäljelle jäänyttä osaa sisäänvientiapuna. (Tämä osa mahdollistaa hyvän otteen ja mahdollistaa katetrin sisäänviennin katetriin käsin koskematta.)",
+          "a) Öppna förpackningen, ta ut katetern för att kateterisera. b) VALFRITT: öppna med införingshjälpmedel: Avlägsna vattenpåsen genom att riva vid markering ”A”. Riv vid markering ”B”. Använd den återstående förpackningsdelen som ett införingshjälpmedel. (Den här delen ger dig ett stadigt grepp och införingshjälp, så att du kan föra in katetern utan att röra vid den.)",
         ),
         image: "/images/instructions/lofric-primo-male/5.png",
       },
@@ -941,6 +1137,7 @@ export const products: Product[] = [
         text: withFi(
           "Lift the penis towards the stomach to straighten the urethra. Slowly insert the catheter into the urethra. When urine begins to flow, insert the catheter slightly more to ensure both eyelets are inside the bladder.",
           "Nosta penistä ylöspäin vatsaa kohti. Vie katetri hitaasti virtsaputkeen. Kun virtsaa alkaa valua, työnnä katetria vielä hiukan pidemmälle varmistaaksesi, että katetrin molemmat silmäaukot ovat sisällä virtsarakossa.",
+          "Lyft penis mot magen för att räta ut urinröret. För långsamt in katetern i urinröret. När urinen börjar rinna ska du föra in katetern något längre för att säkerställa att båda kateterögonen är inne i urinblåsan.",
         ),
         image: "/images/instructions/lofric-primo-male/6.png",
       },
@@ -948,6 +1145,7 @@ export const products: Product[] = [
         text: withFi(
           "Angle the penis down as urine begins to flow through the catheter.",
           "Laske penis normaaliasentoon, kun virtsaa alkaa valua katetrin kautta.",
+          "Vinkla penis nedåt när urinen börjar rinna genom katetern.",
         ),
         image: "/images/instructions/lofric-primo-male/7.png",
       },
@@ -955,6 +1153,7 @@ export const products: Product[] = [
         text: withFi(
           "When the urine flow stops, slowly withdraw the catheter a little bit. If urine starts to flow again, wait until it has stopped to ensure complete bladder emptying. Then remove the catheter completely.",
           "Kun virtsaa ei enää valu katetrista, vedä katetria hitaasti ulos. Jos virtsa alkaa valua uudelleen, odota kunnes virtsan tulo lakkaa varmistaaksesi, että virtsarakko on täysin tyhjä. Vedä sitten katetri kokonaan ulos.",
+          "När urinflödet avtar, drar du långsamt ut katetern. Om urinen börjar rinna igen ska du vänta tills den har slutat för att säkerställa fullständig tömning av blåsan. Dra sedan ut katetern helt.",
         ),
         image: "/images/instructions/lofric-primo-male/8.png",
       },
@@ -962,6 +1161,7 @@ export const products: Product[] = [
         text: withFi(
           "Put the catheter back in the package and dispose appropriately (local regulations may vary).",
           "Laita katetri takaisin pakkaukseen ja hävitä se poltettavan kotitalousjätteen mukana.",
+          "Lägg tillbaka katetern i förpackningen och släng som brännbart hushållsavfall.",
         ),
         image: "/images/instructions/lofric-primo-male/9.png",
       },
@@ -992,7 +1192,7 @@ export const products: Product[] = [
     instructions: hydroKitSteps("lofric-hydro-kit", [
       {
         en: "Lift the penis towards the stomach to straighten the urethra. Slowly insert the catheter into the urethra. When urine begins to flow, insert the catheter slightly more to ensure both eyelets are inside the bladder.",
-        sv: "Lyft penis mot magen för att räta ut urinröret. För långsamt in katetern i urinröret. När urinen börjar rinna, för in katetern lite till så att båda ögonen är inne i blåsan.",
+        sv: "Lyft penis mot magen för att räta ut urinröret. För långsamt in katetern i urinröret. När urinen börjar rinna ska du föra in katetern något längre för att säkerställa att båda kateterögonen är inne i blåsan.",
         fi: "Nosta penistä ylöspäin vatsaa kohti. Vie katetri hitaasti virtsaputkeen. Kun virtsaa alkaa valua, työnnä katetria vielä hiukan pidemmälle varmistaaksesi, että katetrin molemmat silmäaukot ovat sisällä virtsarakossa.",
         da: "Løft penis op mod maven for at rette urinrøret ud. Før langsomt kateteret ind i urinrøret. Når urinen begynder at løbe, føres kateteret lidt længere ind, så begge øjne er inde i blæren.",
         no: "Løft penis mot magen for å rette ut urinrøret. Før kateteret sakte inn i urinrøret. Når urinen begynner å renne, før kateteret litt lenger inn slik at begge øynene er inne i blæren.",
@@ -1009,19 +1209,22 @@ export const products: Product[] = [
     extraGuide: {
       title: {
         en: "Special instruction for Tiemann/Coudé catheter, with slightly curved tip.",
-        sv: "Särskild instruktion för Tiemann/Coudé-kateter med lätt böjd spets.",
+        sv: "Särskilda instruktioner för Tiemann-kateter med böjd tipp.",
         fi: "Erityisohjeet kaarevakärkisellä Tiemann-katetrilla katetroimiseen.",
         da: "Særlig vejledning til Tiemann/Coudé-kateter med let buet spids.",
         no: "Spesiell instruksjon for Tiemann/Coudé-kateter med lett buet spiss.",
       },
       intro: {
         en: "A special technique is required when using a Tiemann/Coudé. Speak to your healthcare professional for training and advice.",
-        sv: "En särskild teknik krävs när du använder Tiemann/Coudé. Tala med din vårdgivare för utbildning och råd.",
+        sv: "En Tiemann kateter med böjd tipp kräver en speciell teknik vid kateterisering. Tala med din förskrivare för instruktioner och råd.",
         fi: "Tiemann-katetrin käytössä tarvitaan erityistä tekniikkaa. Saat lisätietoa tarvittavasta perehdytyksestä ja neuvonnasta sinua hoitavalta sairaanhoitajalta tai uroterapeutilta.",
         da: "Der kræves en særlig teknik ved brug af Tiemann/Coudé. Tal med din sundhedsprofessionelle om oplæring og råd.",
         no: "Det kreves en spesiell teknikk ved bruk av Tiemann/Coudé. Snakk med helsepersonell for opplæring og råd.",
       },
-      steps: tiemannSteps("lofric-hydro-kit"),
+      steps: tiemannSteps("lofric-hydro-kit", [
+        "Notera var markeringen på konan befinner sig i förhållande till katetertippen när du för in katetern. Då säkerställer du att katetertippen har rätt riktning under kateteriseringen.",
+        "Se till att katetertippen är vänd upp mot buken vid införandet av katetern och under kateteriseringen eller följ de specifika instruktioner du fått av din förskrivare.",
+      ]),
     },
     safety: hydroKitIfu.safety,
     contraindications: hydroKitIfu.contraindications,
@@ -1186,7 +1389,7 @@ export const products: Product[] = [
           da: "Sid på eller stå over toilettet, og før forsigtigt konussen ind i endetarmen.",
           no: "Sitt på eller stå over toalettet og før konusen forsiktig inn i endetarmen.",
         },
-        image: "/images/instructions/navina-mini/5-7.png",
+        image: "/images/instructions/navina-mini/5.png",
       },
       {
         text: {
@@ -1196,17 +1399,17 @@ export const products: Product[] = [
           da: "Når konussen er på plads, klem forsigtigt på vandbeholderen for at instillere vandet. Før kun den spidse del af konussen ind, og stop ved den bredere base.",
           no: "Når konusen er på plass, klem forsiktig på vannbeholderen for å instillere vannet. Før bare inn den spisse delen av konusen og stopp ved den bredere basen.",
         },
-        image: "/images/instructions/navina-mini/5-7.png",
+        image: "/images/instructions/navina-mini/6.png",
       },
       {
         text: {
           en: "Withdraw the cone and let the bowel empty.",
-          sv: "Dra ut konan och låt tarmen tömmas.",
+          sv: "Drag ut konan och låt tarmen tömmas.",
           fi: "Vedä kartio ulos ja anna suolen tyhjentyä.",
           da: "Træk konussen ud, og lad tarmen tømmes.",
           no: "Trekk ut konusen og la tarmen tømmes.",
         },
-        image: "/images/instructions/navina-mini/5-7.png",
+        image: "/images/instructions/navina-mini/7.png",
       },
       {
         title: {
@@ -1283,42 +1486,47 @@ export const products: Product[] = [
     indications: navinaClassicIfu.indications,
     instructions: [
       {
-        title: withFi("Preparation", "Valmistelu"),
+        title: withFi("Preparation", "Valmistelu", "Förberedelser"),
         text: withFi(
           "Fill water to the 0-mark of the container with lukewarm (36–38 °C) clean tap water and close the lid. Connect the water container tube between the water container and the control unit (dark blue). Connect the catheter tube between the control unit and the catheter (light blue/white). Follow the colour coding and symbols, and make sure the safety valve on the lid is not blocked.",
           "1. Täytä säiliö vedellä 0-merkkiin asti ja sulje kansi. 2. Liitä vesisäiliöletku vesisäiliön ja ohjausyksikön välille (tummansininen). 3. Liitä katetriletku ohjausyksikön ja katetrin välille (harmaa/valkoinen). Huomaa: Seuraa värikoodeja ja symboleja. Käytä vain kädenlämpöistä, puhdasta vettä (36-38 °C). Varmista, että kannen turvaventtiili ei ole tukossa suolihuuhtelutoimenpiteen aikana.",
+          "1. Fyll på med vatten upp till 0-markeringen på behållaren och stäng locket. 2. Anslut vattenbehållaren och kontrollenheten med vattenbehållarens slang (mörkblå). 3. Anslut kontrollenheten och katetern med kateterslangen (ljusblå/vit). Obs! Följ färgkodningen och symbolerna. Använd endast ljummet rent vatten (36–38 °C). Försäkra dig om att säkerhetsventilen på locket inte är blockerad under irrigeringen.",
         ),
         image: "/images/instructions/navina-classic/1-preparation.png",
       },
       {
-        title: withFi("Activation", "Aktivointi"),
+        title: withFi("Activation", "Aktivointi", "Aktivering"),
         text: withFi(
           "Make sure the water flow is opened. Pump water with the dark blue pump until it covers 3/4 of the catheter tube, making it slippery. Do not add additional lubricant. Then close the water flow.",
           "1. Varmista, että vesivirta on auki. 2. Täytä katetripussi pumppaamalla vettä tummansinisellä pumpulla kunnes vettä on noin 3/4 katetrin pituudelta. Katetri saa näin liukkaan pinnan. 3. Sulje vesivirta. Huomaa: Älä käytä mitään lisäliukasteita.",
+          "1. Kontrollera att vattenflödet är öppet. 2. Pumpa vatten med den mörkblå pumpen tills vattnet täcker katetern och aktiverar den hala ytan. 3. Stäng av vattenflödet. Obs! Inget annat glidmedel behövs.",
         ),
         image: "/images/instructions/navina-classic/2-activation.png",
       },
       {
-        title: withFi("Instillation", "Veden johtaminen"),
+        title: withFi("Instillation", "Veden johtaminen", "Tillförsel av vatten"),
         text: withFi(
           "Carefully insert the rectal catheter according to your healthcare professional's instruction. Inflate the balloon with the light blue pump — never more than 5 pumps with the regular catheter or 2 pumps with the small catheter, and do not inflate more than 2 times. Gently pull the catheter slightly down to seal the rectum. Open the water flow and instill the prescribed water volume with the dark blue pump, then close the water flow. Never insert the catheter with force.",
           "1. Vie rektaalikatetri varovaisesti sisään katetrin kädensijaan asti. 2. Täytä ballonki ilmalla harmaan pumpun avulla: – Älä koskaan käytä yli viittä pumppausta, kun käytät regular-katetria. – Älä koskaan käytä yli kahta pumppausta, kun käytät small-katetria. Huomaa: Jos sinun on säädettävä katetrin asentoa, tyhjennä ballonki ensin kokonaan. 3. Sulje peräsuolesi vetämällä katetria varovaisesti alaspäin. 4. Avaa vesivirta. 5. Johda vettä terveydenhuollon ammattilaisen sinulle neuvoma määrä, käyttäen tummansinistä pumppua. Voit milloin tahansa lopettaa veden johtamisen tai pitää siitä taukoa vapauttamalla pumpun ja sulkemalla vesivirran. 6. Sulje vesivirta. Huomaa: Älä milloinkaan vie katetria peräsuoleen voimaa käyttäen. Jos tunnet vastusta, poista katetri, ja seuraa annettuja käyttöohjeita. Jos vastus jatkuu, lopeta huuhtelu ja kysy neuvoa terveydenhuollon ammattilaiselta.",
+          "1. För försiktigt in katetern i ändtarmen till kateterhandtaget. 2. Blås upp ballongen med hjälp av den ljusblå pumpen. Pumpa aldrig mer än 5 gånger när du använder regular katetern. Pumpa aldrig mer än 2 gånger när du använder en small kateter. Om du behöver justera kateterns position ska du släppa ut luften ur ballongen helt och hållet och därefter flytta katetern. 3. Dra försiktigt katetern nedåt för att försluta mot ändtarmen. 4. Öppna vattenflödet. 5. Pumpa in den mängd vatten som sjukvårdspersonalen har angivit med hjälp av den mörkblå pumpen. Du kan när som helst avbryta eller pausa vattentillförseln genom att släppa pumpen. 6. Stäng vattenflödet.",
         ),
         image: "/images/instructions/navina-classic/3-instillation.png",
       },
       {
-        title: withFi("Evacuation", "Tyhjennys"),
+        title: withFi("Evacuation", "Tyhjennys", "Tömning"),
         text: withFi(
           "Deflate the balloon by pressing the black button and remove the catheter gently. Allow the bowel to empty — if needed, relax for 10–15 minutes, lean forward, cough or massage the abdomen.",
           "1. Tyhjennä ballonki painamalla mustaa painiketta pitkään. 2. Poista katetri varovaisesti. 3. Anna suolen tyhjentyä. Jos suoli ei ala tyhjentyä itsestään, rentoudu 10–15 minuuttia ja yritä sitten nojata eteenpäin, hiero vatsaa tai liikuta ylävartaloa, jotta tyhjenemisprosessi alkaisi.",
+          "1. Släpp ut luften ur ballongen genom att trycka på den svarta knappen. 2. Ta försiktigt ut katetern. 3. Låt tarmen tömmas. Om tarmen inte börjar tömmas automatiskt, slappna av i 10–15 minuter, luta dig framåt, hosta eller massera magen.",
         ),
         image: "/images/instructions/navina-classic/4-evacuation.png",
       },
       {
-        title: withFi("Disassembly", "Purkaminen"),
+        title: withFi("Disassembly", "Purkaminen", "Isärtagning"),
         text: withFi(
           "Open the water container lid, disconnect the tubes from the control unit and empty the water from the tubes and control unit. Disconnect the single use catheter and dispose of it as household waste — it must not be reused or flushed down the toilet. Disconnect the tube from the water container, empty the water, then clean and dry the tubing, water container and control unit with a cloth and mild soapy water.",
           "1. Avaa vesisäiliön kansi. 2. Irrota letkut ohjausyksiköstä. 3. Poista vesi letkuista. 4. Avaa vesivirta ja tyhjennä vesi ohjausyksiköstä. 5. Irrota kertakäyttöinen katetri ja hävitä kotitalousjätteen mukana. Katetria ei saa käyttää uudelleen eikä sitä saa huuhdella alas wc-pöntöstä. 6. Irrota letku vesisäiliöstä ja poista vesi. 7. Tarvittaessa puhdista ja kuivaa letkusto, vesisäiliö ja ohjausyksikkö laimealla saippuavedellä ja liinalla. Huomaa: Merkitse jokainen huuhtelu käyttökalenteriin (katso käyttöohjeet) voidaksesi seurata, milloin vesisäiliö ja letkusto tulee vaihtaa uuteen.",
+          "1. Öppna vattenbehållarens lock. 2. Koppla loss slangarna från kontrollenheten. 3. Töm ut vattnet ur slangarna. 4. Öppna vattenflödet och töm ut vattnet ur kontrollenheten. 5. Koppla loss engångskatetern och kassera den som hushållsavfall. Den får inte återanvändas eller spolas ner i toaletten. 6. Koppla loss slangen från vattenbehållaren och töm ut vattnet. 7. Skölj av slangarna, vattenbehållaren och kontrollenheten, rengör dem med vatten och mild tvål och torka dem. Obs! Markera en ruta i förbrukningsmatrixen (se bruksanvisningen) efter varje användning för att hålla reda på när vattenbehållaren och vattenslangsetet behöver bytas.",
         ),
         image: "/images/instructions/navina-classic/5-disassembly.png",
       },
@@ -1417,49 +1625,64 @@ export const products: Product[] = [
     indications: navinaInsertIfu.indications,
     instructions: [
       {
-        title: "Insertion",
-        text: "Wash your hands.",
-        image: "/media/navina-insert-wash.png",
+        title: withDa("Insertion", "Indføring"),
+        text: withDa("Wash your hands.", "Vask dine hænder."),
+        image: "/images/instructions/navina-insert/1.png",
       },
       {
-        title: "Insertion",
-        text: "Open the packaging and remove the device.",
-        image: "/media/navina-insert-35.png",
+        title: withDa("Insertion", "Indføring"),
+        text: withDa("Open the packaging and remove the device.", "Åben pakken og tag enheden ud."),
+        image: "/images/instructions/navina-insert/2.png",
       },
       {
-        title: "Insertion",
-        text: "Place yourself in a relaxed, comfortable position, such as lying on a bed. Hold the pre-lubricated insert by the white plastic applicator and align the tip of the bulb with the anus.",
-        image: "/media/navina-insert-34.png",
+        title: withDa("Insertion", "Indføring"),
+        text: withDa(
+          "Place yourself in a relaxed, comfortable position, such as lying on a bed. Hold the pre-lubricated insert by the white plastic applicator and align the tip of the bulb with the anus.",
+          "Placer dig i en afslappet, behagelig stilling, f.eks. liggende på sengen eller siddende på toilettet. Hold i den hvide applikator, og sæt spidsen af den forsmurte prop ved din anus.",
+        ),
+        image: "/images/instructions/navina-insert/3.png",
       },
       {
-        title: "Insertion",
-        text: "Relax your muscles and gently insert the Navina insert until the retainer rests on the anus.",
-        image: "/media/navina-insert-32.png",
+        title: withDa("Insertion", "Indføring"),
+        text: withDa(
+          "Relax your muscles and gently insert the Navina insert until the retainer rests on the anus.",
+          "Slap af i dine muskler og før forsigtigt proppen ind, indtil håndtaget sidder ved anus.",
+        ),
+        image: "/images/instructions/navina-insert/4.png",
       },
       {
-        title: "Insertion",
-        text: "Withdraw the applicator and discard the applicator and packaging with the normal trash.",
-        image: "/media/navina-insert-31.png",
+        title: withDa("Insertion", "Indføring"),
+        text: withDa(
+          "Withdraw the applicator and discard the applicator and packaging with the normal trash.",
+          "Træk applikatoren ud, og bortskaf den sammen med indpakningen i restaffald.",
+        ),
+        image: "/images/instructions/navina-insert/5.png",
       },
       {
-        title: "Insertion",
-        text: "Wash your hands.",
-        image: "/media/navina-insert-wash.png",
+        title: withDa("Insertion", "Indføring"),
+        text: withDa("Wash your hands.", "Vask dine hænder."),
+        image: "/images/instructions/navina-insert/6.png",
       },
       {
-        title: "Removal",
-        text: "Grasp the external retainer and gently pull to remove the device.",
-        image: "/media/navina-insert-30.png",
+        title: withDa("Removal", "Udtagning"),
+        text: withDa(
+          "Grasp the external retainer and gently pull to remove the device.",
+          "Tag fat i håndtaget, der sidder eksternt og træk forsigtigt, for at fjerne proppen.",
+        ),
+        image: "/images/instructions/navina-insert/7.png",
       },
       {
-        title: "Removal",
-        text: "Discard the device with the normal waste. Flushing of the device or the device applicator is not recommended.",
-        image: "/media/navina-insert-33.png",
+        title: withDa("Removal", "Udtagning"),
+        text: withDa(
+          "Discard the device with the normal waste. Flushing of the device or the device applicator is not recommended.",
+          "Bortskaf proppen i det normale restaffald. Det anbefales ikke, at skylle proppen eller applikatoren i toilettet.",
+        ),
+        image: "/images/instructions/navina-insert/8.png",
       },
       {
-        title: "Removal",
-        text: "Wash your hands.",
-        image: "/media/navina-insert-wash.png",
+        title: withDa("Removal", "Udtagning"),
+        text: withDa("Wash your hands.", "Vask dine hænder."),
+        image: "/images/instructions/navina-insert/9.png",
       },
     ],
     image: "/media/navina-insert-device.png",
