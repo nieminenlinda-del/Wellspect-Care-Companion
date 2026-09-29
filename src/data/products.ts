@@ -841,11 +841,11 @@ export const products: Product[] = [
     nordicEcolabel: true,
     image: "/media/lofric-origo-pro.png",
     summary: {
-      en: "Ready-to-use male catheter with a firm grip and protective sleeve for a fully touch-free, one-handed routine.",
-      sv: "Färdig att använda kateter för män med stadigt grepp och skyddshölje för en helt beröringsfri rutin med en hand.",
-      fi: "Käyttövalmis miesten katetri, jossa tukeva ote ja suojaholkki täysin koskematta tapahtuvaan yhden käden katetrointiin.",
-      da: "Klar-til-brug kateter til mænd med fast greb og beskyttelseshylster til en helt berøringsfri rutine med én hånd.",
-      no: "Klar-til-bruk kateter for menn med fast grep og beskyttelseshylse for en helt berøringsfri rutine med én hånd.",
+      en: "LoFric Origo Pro is a hydrophilic intermittent catheter. Introducing 12 smooth Pro eyelets, developed to further simplify catheterization. LoFric® Origo™ Pro eyelets are designed to allow complete bladder emptying without repositioning the catheter.",
+      sv: "LoFric Origo Pro är en hydrofil kateter för RIK. Den har 12 släta Pro-ögon, utvecklade för att ytterligare förenkla kateteriseringen. LoFric® Origo™ Pro-ögonen är utformade för att möjliggöra fullständig blåstömning utan ompositionering av katetern.",
+      fi: "LoFric Origo Pro on hydrofiilinen katetri toistokatetrointiin. Siinä on 12 sileää Pro-silmää, jotka on kehitetty helpottamaan katetrointia entisestään. LoFric® Origo™ Pro -silmät on suunniteltu mahdollistamaan rakon täydellinen tyhjentäminen ilman katetrin uudelleenasettelua.",
+      da: "LoFric Origo Pro er et hydrofilt kateter til RIK. Det har 12 glatte Pro-øjne, udviklet til yderligere at forenkle kateteriseringen. LoFric® Origo™ Pro-øjnene er designet til at muliggøre fuldstændig blæretømning uden omplacering af kateteret.",
+      no: "LoFric Origo Pro er et hydrofilt kateter for RIK. Det har 12 glatte Pro-øyne, utviklet for å forenkle kateteriseringen ytterligere. LoFric® Origo™ Pro-øynene er designet for å muliggjøre fullstendig blæretømming uten omplassering av kateteret.",
     },
     indications: [
       "Intermittent catheterisation for men with incomplete bladder emptying or urinary retention",
