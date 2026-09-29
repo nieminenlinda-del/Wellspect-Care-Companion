@@ -655,39 +655,63 @@ export const products: Product[] = [
     indications: primoIfu.indications,
     instructions: [
       {
-        text: "Wash your hands thoroughly with soap and water.",
+        text: withFi(
+          "Wash your hands thoroughly with soap and water.",
+          "Pese kätesi huolellisesti vedellä ja saippualla.",
+        ),
         image: "/images/instructions/lofric-primo-female/1.png",
       },
       {
-        text: "Unfold the package. Hold the product upright.",
+        text: withFi(
+          "Unfold the package. Hold the product upright.",
+          "Avaa pakkaus. Pidä pakkaus pystyasennossa.",
+        ),
         image: "/images/instructions/lofric-primo-female/2.png",
       },
       {
-        text: "Fold the water pocket.",
+        text: withFi("Fold the water pocket.", "Taita ja purista nestepussia."),
         image: "/images/instructions/lofric-primo-female/3.png",
       },
       {
-        text: "Press to release the salt solution and the catheter is ready to use.",
+        text: withFi(
+          "Press to release the salt solution and the catheter is ready to use.",
+          "Aktivoi katetri puristamalla suolaliuosta sisältävää nestepussia. Katetri on käyttövalmis.",
+        ),
         image: "/images/instructions/lofric-primo-female/4.png",
       },
       {
-        text: 'a) Open the product, take the catheter out to catheterize. b) OPTIONAL opening using handling aid: Remove the water pocket by tearing at indentation "A". Tear at indentation "B". Use the remaining packaging part as a handling aid. (This part will give you a firm grip and insertion aid, allowing you to insert the catheter without touching it.)',
+        text: withFi(
+          'a) Open the product, take the catheter out to catheterize. b) OPTIONAL opening using handling aid: Remove the water pocket by tearing at indentation "A". Tear at indentation "B". Use the remaining packaging part as a handling aid. (This part will give you a firm grip and insertion aid, allowing you to insert the catheter without touching it.)',
+          "a) Avaa pakkaus, ota katetri pakkauksesta katetrointia varten. b) VALINNAINEN: avaa sisäänvientiapua käyttäen: Irrota vesipussi repäisemällä liuska “A”. Repäise kohdasta “B”. Käytä jäljelle jäänyttä osaa sisäänvientiapuna. (Tämä osa mahdollistaa hyvän otteen ja mahdollistaa katetrin sisäänviennin katetriin käsin koskematta.)",
+        ),
         image: "/images/instructions/lofric-primo-female/5.png",
       },
       {
-        text: "Spread the labia and locate the urethra just above the vaginal opening. With the other hand, insert the catheter slowly into the urethra.",
+        text: withFi(
+          "Spread the labia and locate the urethra just above the vaginal opening. With the other hand, insert the catheter slowly into the urethra.",
+          "Levitä häpyhuulia ja paikallista emättimen aukon yläpuolelle oleva virtsaputken suu. Työnnä katetri hitaasti toisella kädellä virtsaputkeen.",
+        ),
         image: "/images/instructions/lofric-primo-female/6.png",
       },
       {
-        text: "When urine begins to flow, insert the catheter slightly more to ensure both eyelets are inside the bladder.",
+        text: withFi(
+          "When urine begins to flow, insert the catheter slightly more to ensure both eyelets are inside the bladder.",
+          "Kun virtsaa alkaa virrata, työnnä katetria hieman pidemmälle varmistaaksesi, että katetrin molemmat silmäaukot ovat virtsarakon sisällä.",
+        ),
         image: "/images/instructions/lofric-primo-female/7.png",
       },
       {
-        text: "When the urine flow stops, slowly withdraw the catheter a little bit. If urine starts to flow again, wait until it has stopped to ensure complete bladder emptying. Then remove the catheter completely.",
+        text: withFi(
+          "When the urine flow stops, slowly withdraw the catheter a little bit. If urine starts to flow again, wait until it has stopped to ensure complete bladder emptying. Then remove the catheter completely.",
+          "Kun virtsaa ei enää valu katetrista, vedä katetria hitaasti ulos. Jos virtsa alkaa valua uudelleen, odota kunnes virtsan tulo lakkaa varmistaaksesi, että virtsarakko on täysin tyhjä. Vedä sitten katetri kokonaan ulos.",
+        ),
         image: "/images/instructions/lofric-primo-female/8.png",
       },
       {
-        text: "Put the catheter back in the package and dispose appropriately (local regulations may vary).",
+        text: withFi(
+          "Put the catheter back in the package and dispose appropriately (local regulations may vary).",
+          "Laita katetri takaisin pakkaukseen ja hävitä palavana kotitalousjätteenä.",
+        ),
         image: "/images/instructions/lofric-primo-female/9.png",
       },
     ],
@@ -848,55 +872,90 @@ export const products: Product[] = [
     },
     indications: primoIfu.indications,
     extraGuide: {
-      title: "Special instruction for Tiemann/Coudé catheter, with slightly curved tip.",
-      intro:
+      title: withFi(
+        "Special instruction for Tiemann/Coudé catheter, with slightly curved tip.",
+        "Erityisohjeet kaarevakärkisellä Tiemann-katetrilla katetroimiseen.",
+      ),
+      intro: withFi(
         "A special technique is required when using a Tiemann/Coudé. Speak to your healthcare professional for training and advice.",
+        "Tiemann-katetrin käytössä tarvitaan erityistä tekniikkaa. Saat lisätietoa tarvittavasta perehdytyksestä ja neuvonnasta sinua hoitavalta sairaanhoitajalta tai uroterapeutilta.",
+      ),
       steps: [
         {
-          text: "Note where the marker on the funnel is in relation to the curved catheter tip before inserting the catheter. It will guide you keeping the curved tip in the right direction during use.",
+          text: withFi(
+            "Note where the marker on the funnel is in relation to the curved catheter tip before inserting the catheter. It will guide you keeping the curved tip in the right direction during use.",
+            "Huomaa kartiossa oleva merkki suhteessa kärkeen, kun viet katetria sisään virtsaputkeen. Se ohjaa pitämään katetrin kaarevan kärjen oikeassa suunnassa katetroinnin aikana.",
+          ),
           image: "/images/instructions/lofric-primo-male/tiemann-1.png",
         },
         {
-          text: "Keep the curved tip upwards towards the stomach during insertion and throughout catheterization, including withdrawal. Or follow specific instructions given by your healthcare professional.",
+          text: withFi(
+            "Keep the curved tip upwards towards the stomach during insertion and throughout catheterization, including withdrawal. Or follow specific instructions given by your healthcare professional.",
+            "Pidä kaareva kärki kasvoihin päin/ylöspäin sisäänviennin ja koko katetroinnin ajan, katetrin poistaminen mukaan lukien. Vaihtoehtoisesti noudata terveydenhuollon ammattilaisen antamia erityisohjeita.",
+          ),
           image: "/images/instructions/lofric-primo-male/tiemann-2.png",
         },
       ],
     },
     instructions: [
       {
-        text: "Wash your hands thoroughly with soap and water.",
+        text: withFi(
+          "Wash your hands thoroughly with soap and water.",
+          "Pese kätesi huolellisesti vedellä ja saippualla.",
+        ),
         image: "/images/instructions/lofric-primo-male/1.png",
       },
       {
-        text: "Unfold the package. Hold the product upright.",
+        text: withFi(
+          "Unfold the package. Hold the product upright.",
+          "Avaa pakkaus. Pidä pakkaus pystyasennossa.",
+        ),
         image: "/images/instructions/lofric-primo-male/2.png",
       },
       {
-        text: "Fold the water pocket.",
+        text: withFi("Fold the water pocket.", "Taita ja purista nestepussia."),
         image: "/images/instructions/lofric-primo-male/3.png",
       },
       {
-        text: "Press to release the salt solution and the catheter is ready to use.",
+        text: withFi(
+          "Press to release the salt solution and the catheter is ready to use.",
+          "Aktivoi katetri puristamalla suolaliuosta sisältävää säiliötä. Katetri on käyttövalmis.",
+        ),
         image: "/images/instructions/lofric-primo-male/4.png",
       },
       {
-        text: 'a) Open the product, take the catheter out to catheterize. b) OPTIONAL opening using handling aid: Remove the water pocket by tearing at indentation "A". Tear at indentation "B". Use the remaining packaging part as a handling aid. (This part will give you a firm grip and insertion aid, allowing you to insert the catheter without touching it.)',
+        text: withFi(
+          'a) Open the product, take the catheter out to catheterize. b) OPTIONAL opening using handling aid: Remove the water pocket by tearing at indentation "A". Tear at indentation "B". Use the remaining packaging part as a handling aid. (This part will give you a firm grip and insertion aid, allowing you to insert the catheter without touching it.)',
+          "a) Avaa pakkaus, ota katetri pakkauksesta katetrointia varten. b) VALINNAINEN: avaa sisäänvientiapua käyttäen: Irrota vesipussi repäisemällä liuska “A”. Repäise kohdasta “B”. Käytä jäljelle jäänyttä osaa sisäänvientiapuna. (Tämä osa mahdollistaa hyvän otteen ja mahdollistaa katetrin sisäänviennin katetriin käsin koskematta.)",
+        ),
         image: "/images/instructions/lofric-primo-male/5.png",
       },
       {
-        text: "Lift the penis towards the stomach to straighten the urethra. Slowly insert the catheter into the urethra. When urine begins to flow, insert the catheter slightly more to ensure both eyelets are inside the bladder.",
+        text: withFi(
+          "Lift the penis towards the stomach to straighten the urethra. Slowly insert the catheter into the urethra. When urine begins to flow, insert the catheter slightly more to ensure both eyelets are inside the bladder.",
+          "Nosta penistä ylöspäin vatsaa kohti. Vie katetri hitaasti virtsaputkeen. Kun virtsaa alkaa valua, työnnä katetria vielä hiukan pidemmälle varmistaaksesi, että katetrin molemmat silmäaukot ovat sisällä virtsarakossa.",
+        ),
         image: "/images/instructions/lofric-primo-male/6.png",
       },
       {
-        text: "Angle the penis down as urine begins to flow through the catheter.",
+        text: withFi(
+          "Angle the penis down as urine begins to flow through the catheter.",
+          "Laske penis normaaliasentoon, kun virtsaa alkaa valua katetrin kautta.",
+        ),
         image: "/images/instructions/lofric-primo-male/7.png",
       },
       {
-        text: "When the urine flow stops, slowly withdraw the catheter a little bit. If urine starts to flow again, wait until it has stopped to ensure complete bladder emptying. Then remove the catheter completely.",
+        text: withFi(
+          "When the urine flow stops, slowly withdraw the catheter a little bit. If urine starts to flow again, wait until it has stopped to ensure complete bladder emptying. Then remove the catheter completely.",
+          "Kun virtsaa ei enää valu katetrista, vedä katetria hitaasti ulos. Jos virtsa alkaa valua uudelleen, odota kunnes virtsan tulo lakkaa varmistaaksesi, että virtsarakko on täysin tyhjä. Vedä sitten katetri kokonaan ulos.",
+        ),
         image: "/images/instructions/lofric-primo-male/8.png",
       },
       {
-        text: "Put the catheter back in the package and dispose appropriately (local regulations may vary).",
+        text: withFi(
+          "Put the catheter back in the package and dispose appropriately (local regulations may vary).",
+          "Laita katetri takaisin pakkaukseen ja hävitä se poltettavan kotitalousjätteen mukana.",
+        ),
         image: "/images/instructions/lofric-primo-male/9.png",
       },
     ],
