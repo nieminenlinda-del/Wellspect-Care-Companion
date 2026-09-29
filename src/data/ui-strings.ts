@@ -21,7 +21,6 @@ export type UIStrings = {
   warningSigns: string;
   emergencyWarning: string;
   storage: string;
-  disclaimerShort: string;
   disclaimerTitle: string;
   disclaimerBody: string;
   browseTitle: string;
@@ -61,8 +60,6 @@ const en: UIStrings = {
   warningSigns: "Contact your healthcare professional if you notice",
   emergencyWarning: "Warning!",
   storage: "Handling and storage",
-  disclaimerShort:
-    "Information only — not medical advice. Always read the instructions for use supplied with the product and follow the guidance of your healthcare professional.",
   disclaimerTitle: "Medical disclaimer",
   disclaimerBody:
     "This kiosk gives general information about Wellspect medical devices. It does not replace the instructions for use in the product packaging, individual training, or advice from your healthcare professional. Catheterisation and transanal irrigation must be prescribed and taught by a clinician before you start.",
@@ -103,8 +100,6 @@ const sv: UIStrings = {
   warningSigns: "Kontakta vården om du märker",
   emergencyWarning: "Varning!",
   storage: "Hantering och förvaring",
-  disclaimerShort:
-    "Endast information — inte medicinsk rådgivning. Läs alltid bruksanvisningen som följer med produkten och följ din vårdgivares råd.",
   disclaimerTitle: "Medicinsk friskrivning",
   disclaimerBody:
     "Den här kiosken ger allmän information om Wellspects medicintekniska produkter. Den ersätter inte bruksanvisningen i förpackningen, individuell instruktion eller råd från din vårdgivare. RIK och transanal irrigation ska ordineras och läras ut av vårdpersonal innan du börjar.",
@@ -145,8 +140,6 @@ const fi: UIStrings = {
   warningSigns: "Ota yhteys hoitohenkilökuntaan, jos huomaat",
   emergencyWarning: "Varoitus!",
   storage: "Käsittely ja säilytys",
-  disclaimerShort:
-    "Vain tiedoksi — ei lääketieteellistä neuvontaa. Lue aina tuotteen mukana toimitettu käyttöohje ja noudata hoitohenkilökunnan ohjeita.",
   disclaimerTitle: "Lääketieteellinen vastuuvapauslauseke",
   disclaimerBody:
     "Tämä kioski antaa yleistä tietoa Wellspectin lääkinnällisistä laitteista. Se ei korvaa pakkauksen käyttöohjetta, henkilökohtaista opastusta tai hoitohenkilökunnan neuvoja. Katetroinnin ja transanaalisen huuhtelun tulee olla lääkärin määräämiä ja ammattilaisen opastamia.",
@@ -187,8 +180,6 @@ const da: UIStrings = {
   warningSigns: "Kontakt din behandler hvis du oplever",
   emergencyWarning: "Advarsel!",
   storage: "Håndtering og opbevaring",
-  disclaimerShort:
-    "Kun information — ikke lægelig rådgivning. Læs altid brugsanvisningen, der følger med produktet, og følg din behandlers vejledning.",
   disclaimerTitle: "Medicinsk ansvarsfraskrivelse",
   disclaimerBody:
     "Denne kiosk giver generel information om Wellspects medicinske udstyr. Den erstatter ikke brugsanvisningen i emballagen, individuel oplæring eller råd fra din behandler. Kateterisering og transanal irrigation skal ordineres og oplæres af sundhedspersonale, før du begynder.",
@@ -229,8 +220,6 @@ const no: UIStrings = {
   warningSigns: "Kontakt helsepersonell hvis du merker",
   emergencyWarning: "Advarsel!",
   storage: "Håndtering og oppbevaring",
-  disclaimerShort:
-    "Kun informasjon — ikke medisinsk rådgivning. Les alltid bruksanvisningen som følger med produktet, og følg rådene fra helsepersonell.",
   disclaimerTitle: "Medisinsk ansvarsfraskrivelse",
   disclaimerBody:
     "Denne kiosken gir generell informasjon om Wellspects medisinske utstyr. Den erstatter ikke bruksanvisningen i pakningen, individuell opplæring eller råd fra helsepersonell. Kateterisering og transanal irrigasjon skal forskrives og læres bort av helsepersonell før du starter.",
