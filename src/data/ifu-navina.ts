@@ -402,7 +402,7 @@ export const navinaMiniIfu = {
     ),
     L(
       "Any serious adverse reaction occurring when using the Navina Mini should be reported to the manufacturer and your local health authority.",
-      "Eventuella allvarliga bivirkninger som uppstår vid användning av Navina Mini ska rapporteras till tillverkaren och din lokala hälsovårdsmyndighet.",
+      "Eventuella allvarliga biverkningar som uppstår vid användning av Navina Mini ska rapporteras till tillverkaren och din lokala hälsovårdsmyndighet.",
       "Kaikki Navina Minin käyttöön liittyvät vakavat haittavaikutukset tulee ilmoittaa valmistajalle ja paikalliselle terveysviranomaiselle.",
       "Enhver alvorlig bivirkning, der opstår ved brug af Navina Mini, skal rapporteres til producenten og din lokale sundhedsmyndighed.",
       "Alle alvorlige bivirkninger som oppstår i forbindelse med bruk av Navina Mini, skal rapporteres til produsenten og lokale helsemyndigheter.",
