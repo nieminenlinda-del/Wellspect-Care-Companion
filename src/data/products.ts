@@ -753,11 +753,11 @@ export const products: Product[] = [
     nordicEcolabel: true,
     image: "/media/lofric-hydro-kit.png",
     summary: {
-      en: "All-in-one set with catheter, water sachet and an attached urine bag for catheterisation anywhere.",
-      sv: "Komplett set med kateter, vattenpåse och fastsatt urinpåse för kateterisering var som helst.",
-      fi: "Kaikki yhdessä -setti: katetri, vesipussi ja kiinteä virtsapussi katetrointiin missä tahansa.",
-      da: "Alt-i-ét sæt med kateter, vandpose og fastgjort urinpose til kateterisering hvor som helst.",
-      no: "Alt-i-ett-sett med kateter, vannpose og fastmontert urinpose for kateterisering hvor som helst.",
+      en: "LoFric® Hydro-Kit™ is an all-in-one hydrophilic catheter kit for intermittent catheterisation. It has an integrated collection bag and is ready to use anywhere.",
+      sv: "LoFric® Hydro-Kit™ är ett hydrofilt allt-i-ett-kateterset för RIK. Det har en integrerad uppsamlingspåse och är färdigt att använda var som helst.",
+      fi: "LoFric® Hydro-Kit™ on täydellinen hydrofiilinen katetripakkaus toistokatetrointiin. Siinä on kiinteä keräyspussi, ja se on valmis käytettäväksi missä tahansa.",
+      da: "LoFric® Hydro-Kit™ er et alt-i-ét hydrofilt katetersæt til RIK. Det har en integreret opsamlingspose og er klart til brug hvor som helst.",
+      no: "LoFric® Hydro-Kit™ er et hydrofilt alt-i-ett-katetersett for RIK. Det har en integrert oppsamlingspose og er klart til bruk hvor som helst.",
     },
     indications: [
       "Intermittent catheterisation for women without access to a toilet",
@@ -980,11 +980,11 @@ export const products: Product[] = [
     nordicEcolabel: true,
     image: "/media/lofric-hydro-kit.png",
     summary: {
-      en: "Closed system with catheter and collection bag in one, for use without a toilet nearby.",
-      sv: "Slutet system med kateter och uppsamlingspåse i ett, för användning utan toalett i närheten.",
-      fi: "Suljettu järjestelmä, jossa katetri ja keräyspussi yhdessä — käytettävissä ilman wc:tä.",
-      da: "Lukket system med kateter og opsamlingspose i ét, til brug uden et toilet i nærheden.",
-      no: "Lukket system med kateter og oppsamlingspose i ett, for bruk uten toalett i nærheten.",
+      en: "LoFric® Hydro-Kit™ is an all-in-one hydrophilic catheter kit for intermittent catheterisation. It has an integrated collection bag and is ready to use anywhere.",
+      sv: "LoFric® Hydro-Kit™ är ett hydrofilt allt-i-ett-kateterset för RIK. Det har en integrerad uppsamlingspåse och är färdigt att använda var som helst.",
+      fi: "LoFric® Hydro-Kit™ on täydellinen hydrofiilinen katetripakkaus toistokatetrointiin. Siinä on kiinteä keräyspussi, ja se on valmis käytettäväksi missä tahansa.",
+      da: "LoFric® Hydro-Kit™ er et alt-i-ét hydrofilt katetersæt til RIK. Det har en integreret opsamlingspose og er klart til brug hvor som helst.",
+      no: "LoFric® Hydro-Kit™ er et hydrofilt alt-i-ett-katetersett for RIK. Det har en integrert oppsamlingspose og er klart til bruk hvor som helst.",
     },
     indications: [
       "Catheterisation in a wheelchair, in bed or while travelling",
