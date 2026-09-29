@@ -44,6 +44,10 @@ import elleVideo from "@/assets/lofric-elle-step-by-step.mp4.asset.json";
 import navinaClassicVideo from "@/assets/navina-classic-animation.mp4.asset.json";
 import origoVideo from "@/assets/lofric-origo-step-by-step.mp4.asset.json";
 import type { LocaleCode } from "@/lib/locale";
+import { classicIfu, elleProIfu, hydroKitIfu, origoIfu, primoIfu, senseIfu } from "@/data/ifu-copy";
+import { navinaInsertIfu, navinaMiniIfu } from "@/data/ifu-navina";
+import { navinaClassicIfu } from "@/data/ifu-navina-classic";
+import { navinaSmartIfu } from "@/data/ifu-navina-smart";
 
 export type CategoryId = "women" | "men" | "bowel" | "contact";
 
@@ -302,81 +306,6 @@ const classicSteps = (dir: string, mid: Localized[]): InstructionStep[] =>
     image: `/images/instructions/${dir}/step-${i + 1}.png`,
   }));
 
-const navinaContraIntro: LocalizedText = {
-  en: "Do NOT use Navina Systems if you have one or more of the following:",
-  sv: "Använd INTE Navina-system om du har ett eller flera av följande:",
-  fi: "ÄLÄ käytä Navina-järjestelmiä, jos sinulla on yksi tai useampi seuraavista:",
-  da: "Brug IKKE Navina-systemer, hvis du har en eller flere af følgende:",
-  no: "IKKE bruk Navina-systemer hvis du har en eller flere av følgende:",
-};
-
-const navinaSystemContra: LocalizedText[] = [
-  {
-    en: "Known anal or colorectal stenosis",
-    sv: "Känd anal eller kolorektal stenos",
-    fi: "Tunnettu anaali- tai kolorektaalinen ahtauma",
-    da: "Kendt anal eller kolorektal stenose",
-    no: "Kjent anal eller kolorektal stenose",
-  },
-  {
-    en: "Active inflammatory bowel disease",
-    sv: "Aktiv inflammatorisk tarmsjukdom",
-    fi: "Aktiivinen tulehduksellinen suolistosairaus",
-    da: "Aktiv inflammatorisk tarmsygdom",
-    no: "Aktiv inflammatorisk tarmsykdom",
-  },
-  {
-    en: "Acute diverticulitis",
-    sv: "Akut divertikulit",
-    fi: "Akuutti divertikuliitti",
-    da: "Akut diverticulitis",
-    no: "Akutt divertikulitt",
-  },
-  {
-    en: "Colorectal cancer",
-    sv: "Kolorektal cancer",
-    fi: "Kolorektaalisyöpä",
-    da: "Kolorektal kræft",
-    no: "Kolorektal kreft",
-  },
-  {
-    en: "Ischemic colitis",
-    sv: "Ischemisk kolit",
-    fi: "Iskeeminen koliitti",
-    da: "Iskæmisk colitis",
-    no: "Iskemisk kolitt",
-  },
-  {
-    en: "You are within three months of anal or colorectal surgery",
-    sv: "Det har gått mindre än tre månader sedan anal eller kolorektal kirurgi",
-    fi: "Anaali- tai kolorektaalileikkauksesta on alle kolme kuukautta",
-    da: "Der er gået mindre end tre måneder siden anal eller kolorektal kirurgi",
-    no: "Det har gått mindre enn tre måneder siden anal eller kolorektal kirurgi",
-  },
-  {
-    en: "You are within 4 weeks of previous endoscopic polypectomy",
-    sv: "Det har gått mindre än 4 veckor sedan endoskopisk polypektomi",
-    fi: "Endoskooppisesta polypektomiasta on alle 4 viikkoa",
-    da: "Der er gået mindre end 4 uger siden endoskopisk polypektomi",
-    no: "Det har gått mindre enn 4 uker siden endoskopisk polypektomi",
-  },
-  {
-    en: "You are pregnant",
-    sv: "Du är gravid",
-    fi: "Olet raskaana",
-    da: "Du er gravid",
-    no: "Du er gravid",
-  },
-];
-
-const navinaEmergencyWarning: LocalizedText = {
-  en: "Seek medical care immediately if you experience severe or sustained abdominal pain, back pain or rectal bleeding during or after anal irrigation. Bowel perforation is a very rare (1 out of 500,000 irrigations or 0.0002 %) yet extremely serious complication of TAI. It is a medical emergency and requires immediate medical attention. Symptoms of bowel perforation include severe or sustained abdominal or back pain or significant rectal bleeding (not just smearing of blood on the rectal catheter/cone which is very common and is not a concern).",
-  sv: "Sök vård omedelbart om du får svår eller ihållande buksmärta, ryggsmärta eller blödning från ändtarmen under eller efter analirrigation. Tarmperforation är en mycket sällsynt (1 av 500 000 irrigationer eller 0,0002 %) men extremt allvarlig komplikation vid TAI. Det är ett medicinskt nödläge som kräver omedelbar vård. Symtom på tarmperforation är svår eller ihållande buk- eller ryggsmärta eller betydande blödning från ändtarmen (inte bara lite blod på rektalkatetern/konen, vilket är mycket vanligt och inte oroande).",
-  fi: "Hakeudu heti hoitoon, jos sinulla on voimakasta tai jatkuvaa vatsakipua, selkäkipua tai peräsuolen verenvuotoa anaalihuuhtelun aikana tai sen jälkeen. Suolen puhkeaminen on erittäin harvinainen (1 / 500 000 huuhtelua eli 0,0002 %) mutta äärimmäisen vakava TAI:n komplikaatio. Se on hätätilanne ja vaatii välitöntä hoitoa. Suolen puhkeamisen oireita ovat voimakas tai jatkuva vatsa- tai selkäkipu tai runsas peräsuolen verenvuoto (ei pelkkä verinen tahra peräsuolikatetrissa/kartiossa, mikä on hyvin tavallista eikä aiheuta huolta).",
-  da: "Søg læge omgående, hvis du oplever kraftige eller vedvarende mavesmerter, rygsmerter eller blødning fra endetarmen under eller efter anal irrigation. Tarmperforation er en meget sjælden (1 ud af 500.000 irrigationer eller 0,0002 %), men yderst alvorlig komplikation ved TAI. Det er en medicinsk nødsituation og kræver omgående lægehjælp. Symptomer på tarmperforation er kraftige eller vedvarende mave- eller rygsmerter eller betydelig blødning fra endetarmen (ikke blot lidt blod på rektalkateteret/konussen, hvilket er meget almindeligt og ikke bekymrende).",
-  no: "Oppsøk lege umiddelbart hvis du får sterke eller vedvarende magesmerter, ryggsmerter eller blødning fra endetarmen under eller etter anal irrigasjon. Tarmperforasjon er en svært sjelden (1 av 500 000 irrigasjoner eller 0,0002 %), men ekstremt alvorlig komplikasjon ved TAI. Det er en medisinsk nødsituasjon og krever umiddelbar legehjelp. Symptomer på tarmperforasjon er sterke eller vedvarende mage- eller ryggsmerter eller betydelig blødning fra endetarmen (ikke bare litt blod på rektalkateteret/konusen, som er svært vanlig og ikke gir grunn til bekymring).",
-};
-
 export type Product = {
   id: string;
   brand: "LoFric" | "Navina" | "Wellspect";
@@ -411,12 +340,12 @@ export type Product = {
   summary: Localized;
   indications: LocalizedText[];
   instructions: InstructionStep[];
-  safety: string[];
+  safety: LocalizedText[];
   contraindicationsIntro?: LocalizedText;
   contraindications: LocalizedText[];
-  warningSigns: string[];
+  warningSigns: LocalizedText[];
   emergencyWarning?: LocalizedText;
-  storage: string;
+  storage: LocalizedText;
 };
 
 /** True when a product has illustrated quick-guide steps (or an extra illustrated guide). */
@@ -442,20 +371,6 @@ const cathWarnings = [
   "More than a few drops of blood in the urine, or bleeding that does not stop",
   "Pain, burning or difficulty passing the catheter that is new for you",
   "Little or no urine drained despite a full bladder feeling",
-];
-
-const irrigationSafety = [
-  "Only start transanal irrigation after training from your healthcare professional.",
-  "Use lukewarm tap water at body temperature — never hot water.",
-  "Inflate the balloon slowly and stop immediately if it feels painful.",
-  "Keep to the water volume and frequency agreed in your care plan.",
-];
-
-const irrigationWarnings = [
-  "Severe or persistent abdominal pain during or after irrigation",
-  "Bleeding from the rectum",
-  "Fever, chills or feeling generally unwell after irrigation",
-  "Dizziness, sweating or fainting during the procedure",
 ];
 
 const origoSteps: InstructionStep[] = [
@@ -517,11 +432,7 @@ export const products: Product[] = [
       da: "LoFric® Elle™ Pro, designet til kvinder af kvinder, er et hydrofilt intermittent kateter. Med tolv glatte Pro-øjne udviklet til yderligere at forenkle kateteriseringen er LoFric® Elle™ Pro designet til at tømme blæren i ét frit flow, uden behov for omplacering.",
       no: "LoFric® Elle™ Pro, designet for kvinner av kvinner, er et hydrofilt intermittent kateter. Med tolv glatte Pro-øyne utviklet for å forenkle kateteriseringen ytterligere er LoFric® Elle™ Pro designet for å tømme blæren i én fri strøm, uten behov for omplassering.",
     },
-    indications: [
-      "Intermittent catheterisation for women who want a fully self-contained, ready-to-use catheter",
-      "Reduced hand function or limited dexterity where a firm handle helps control",
-      "Bladder emptying away from home where no water source is available",
-    ],
+    indications: elleProIfu.indications,
     instructions: [
       {
         text: "Wash your hands thoroughly with soap and water.",
@@ -548,11 +459,10 @@ export const products: Product[] = [
         image: "/images/instructions/lofric-elle-pro/step-6.png",
       },
     ],
-    safety: cathSafety,
-    contraindications: cathContra,
-    warningSigns: cathWarnings,
-    storage:
-      "Store below 40 °C, away from direct sunlight. Activate the water sachet only just before use.",
+    safety: elleProIfu.safety,
+    contraindications: elleProIfu.contraindications,
+    warningSigns: elleProIfu.warningSigns,
+    storage: elleProIfu.storage,
   },
   {
     id: "lofric-elle",
@@ -626,11 +536,7 @@ export const products: Product[] = [
       da: "LoFric® Sense™ er et hydrofilt intermittent kateter, skræddersyet til kvinder og deres behov.",
       no: "LoFric® Sense™ er et hydrofilt intermittent kateter, skreddersydd for kvinner og deres behov.",
     },
-    indications: [
-      "Intermittent catheterisation for women with incomplete bladder emptying",
-      "Neurogenic bladder, for example after spinal cord injury or with multiple sclerosis",
-      "Urinary retention where a discreet, pocket-sized catheter is preferred",
-    ],
+    indications: senseIfu.indications,
     instructions: [
       {
         text: "Wash your hands thoroughly with soap and water.",
@@ -671,10 +577,10 @@ export const products: Product[] = [
       },
     ],
 
-    safety: cathSafety,
-    contraindications: cathContra,
-    warningSigns: cathWarnings,
-    storage: "Store below 40 °C, away from direct sunlight. Do not use if the package is damaged.",
+    safety: senseIfu.safety,
+    contraindications: senseIfu.contraindications,
+    warningSigns: senseIfu.warningSigns,
+    storage: senseIfu.storage,
   },
   {
     id: "lofric-primo-female",
@@ -693,11 +599,7 @@ export const products: Product[] = [
       da: "LoFric® Primo™ er et hydrofilt, intermittent kateter. Det er pakket med sit eget sterile vand og kan bruges hvor som helst.",
       no: "LoFric® Primo™ er et hydrofilt, intermittent kateter. Det er pakket med sitt eget sterile vann og kan brukes hvor som helst.",
     },
-    indications: [
-      "Intermittent catheterisation for women in the shorter 20 cm length",
-      "Travel, work and other situations without access to clean water",
-      "Users who prefer a slim, discreet package that can be carried in a bag",
-    ],
+    indications: primoIfu.indications,
     instructions: [
       {
         text: "Wash your hands thoroughly with soap and water.",
@@ -736,11 +638,10 @@ export const products: Product[] = [
         image: "/images/instructions/lofric-primo-female/9.png",
       },
     ],
-    safety: cathSafety,
-    contraindications: cathContra,
-    warningSigns: cathWarnings,
-    storage:
-      "Store below 40 °C in the unopened package. Do not use if the sachet has already burst.",
+    safety: primoIfu.safety,
+    contraindications: primoIfu.contraindications,
+    warningSigns: primoIfu.warningSigns,
+    storage: primoIfu.storage,
   },
   {
     id: "lofric-hydro-kit-female",
@@ -759,11 +660,7 @@ export const products: Product[] = [
       da: "LoFric® Hydro-Kit™ er et alt-i-ét hydrofilt katetersæt til RIK. Det har en integreret opsamlingspose og er klart til brug hvor som helst.",
       no: "LoFric® Hydro-Kit™ er et hydrofilt alt-i-ett-katetersett for RIK. Det har en integrert oppsamlingspose og er klart til bruk hvor som helst.",
     },
-    indications: [
-      "Intermittent catheterisation for women without access to a toilet",
-      "Catheterisation while seated in a wheelchair, in bed or when travelling",
-      "Situations where the drained urine volume needs to be measured",
-    ],
+    indications: hydroKitIfu.indications,
     instructions: hydroKitSteps("lofric-hydro-kit-female", [
       {
         en: "Spread the labia and locate the urethra just above the vaginal opening. With the other hand, insert the catheter slowly into the urethra.",
@@ -781,10 +678,10 @@ export const products: Product[] = [
       },
       hydroKitShared.s9,
     ]),
-    safety: cathSafety,
-    contraindications: cathContra,
-    warningSigns: cathWarnings,
-    storage: "Store below 40 °C, flat and dry. Single use — never rinse or reuse the bag.",
+    safety: hydroKitIfu.safety,
+    contraindications: hydroKitIfu.contraindications,
+    warningSigns: hydroKitIfu.warningSigns,
+    storage: hydroKitIfu.storage,
   },
   {
     id: "lofric-classic-female",
@@ -803,11 +700,7 @@ export const products: Product[] = [
       da: "LoFric® er det første hydrofile kateter udviklet til RIK. Det kræver rent vand for at aktivere den unikke Urotonic™ Surface Technology-coating på kateterslangen.",
       no: "LoFric® er det første hydrofile kateteret utviklet for RIK. Det krever rent vann for å aktivere det unike Urotonic™ Surface Technology-belegget på kateterslangen.",
     },
-    indications: [
-      "Everyday intermittent catheterisation for women at home",
-      "Users who need a size outside the standard ready-to-use range",
-      "Long-term catheterisation where a simple, familiar routine is preferred",
-    ],
+    indications: classicIfu.indications,
     instructions: classicSteps("lofric-classic-female", [
       {
         en: "Spread the labia and locate the urethra just above the vaginal opening. With the other hand, insert the catheter slowly into the urethra.",
@@ -824,10 +717,10 @@ export const products: Product[] = [
         no: "Når urinen begynner å renne, før kateteret litt lenger inn slik at begge øynene er inne i blæren.",
       },
     ]),
-    safety: cathSafety,
-    contraindications: cathContra,
-    warningSigns: cathWarnings,
-    storage: "Store dry at room temperature. Use immediately once water has been added.",
+    safety: classicIfu.safety,
+    contraindications: classicIfu.contraindications,
+    warningSigns: classicIfu.warningSigns,
+    storage: classicIfu.storage,
   },
   {
     id: "lofric-origo-pro",
@@ -877,17 +770,14 @@ export const products: Product[] = [
       da: "LoFric® Origo™ er et hydrofilt kateter til RIK. Det er foldbart til lommestørrelse, diskret og let at have med og bruge hvor som helst. Vælg mellem indføringsgrebet eller det forlængelige beskyttelseshylster* for at opnå en hygiejnisk indføring.",
       no: "LoFric® Origo™ er et hydrofilt kateter for RIK. Det er brettbart til lommestørrelse, diskret og lett å ha med og bruke hvor som helst. Velg mellom innføringsgrepet eller den forlengbare beskyttelseshylsen* for å oppnå en hygienisk innføring.",
     },
-    indications: [
-      "Intermittent catheterisation for men",
-      "Bladder emptying away from home, at work or when travelling",
-      "Users who want to avoid touching the catheter tube",
-    ],
+    indications: origoIfu.indications,
     instructions: origoSteps,
 
-    safety: cathSafety,
-    contraindications: cathContra,
-    warningSigns: cathWarnings,
-    storage: "Store below 40 °C. Activate only immediately before use.",
+    safety: origoIfu.safety,
+    contraindicationsIntro: origoIfu.contraindicationsIntro,
+    contraindications: origoIfu.contraindications,
+    warningSigns: origoIfu.warningSigns,
+    storage: origoIfu.storage,
   },
   {
     id: "lofric-primo",
@@ -906,11 +796,7 @@ export const products: Product[] = [
       da: "LoFric® Primo™ er et hydrofilt, intermittent kateter. Det er pakket med sit eget sterile vand og kan bruges hvor som helst.",
       no: "LoFric® Primo™ er et hydrofilt, intermittent kateter. Det er pakket med sitt eget sterile vann og kan brukes hvor som helst.",
     },
-    indications: [
-      "Intermittent catheterisation for men and women",
-      "Situations without access to clean water",
-      "Everyday use where a longer catheter length is needed",
-    ],
+    indications: primoIfu.indications,
     extraGuide: {
       title: "Special instruction for Tiemann/Coudé catheter, with slightly curved tip.",
       intro:
@@ -964,10 +850,10 @@ export const products: Product[] = [
         image: "/images/instructions/lofric-primo-male/9.png",
       },
     ],
-    safety: cathSafety,
-    contraindications: cathContra,
-    warningSigns: cathWarnings,
-    storage: "Store flat below 40 °C. Do not use if the water sachet has already burst.",
+    safety: primoIfu.safety,
+    contraindications: primoIfu.contraindications,
+    warningSigns: primoIfu.warningSigns,
+    storage: primoIfu.storage,
   },
   {
     id: "lofric-hydro-kit",
@@ -986,11 +872,7 @@ export const products: Product[] = [
       da: "LoFric® Hydro-Kit™ er et alt-i-ét hydrofilt katetersæt til RIK. Det har en integreret opsamlingspose og er klart til brug hvor som helst.",
       no: "LoFric® Hydro-Kit™ er et hydrofilt alt-i-ett-katetersett for RIK. Det har en integrert oppsamlingspose og er klart til bruk hvor som helst.",
     },
-    indications: [
-      "Catheterisation in a wheelchair, in bed or while travelling",
-      "Users who need a closed, hygienic system",
-      "Situations where no toilet is available",
-    ],
+    indications: hydroKitIfu.indications,
     instructions: hydroKitSteps("lofric-hydro-kit", [
       {
         en: "Lift the penis towards the stomach to straighten the urethra. Slowly insert the catheter into the urethra. When urine begins to flow, insert the catheter slightly more to ensure both eyelets are inside the bladder.",
@@ -1025,10 +907,10 @@ export const products: Product[] = [
       },
       steps: tiemannSteps("lofric-hydro-kit"),
     },
-    safety: cathSafety,
-    contraindications: cathContra,
-    warningSigns: cathWarnings,
-    storage: "Store below 40 °C, flat and away from sharp objects.",
+    safety: hydroKitIfu.safety,
+    contraindications: hydroKitIfu.contraindications,
+    warningSigns: hydroKitIfu.warningSigns,
+    storage: hydroKitIfu.storage,
   },
   {
     id: "lofric-classic",
@@ -1047,11 +929,7 @@ export const products: Product[] = [
       da: "LoFric® er det første hydrofile kateter udviklet til RIK. Det kræver rent vand for at aktivere den unikke Urotonic™ Surface Technology-coating på kateterslangen.",
       no: "LoFric® er det første hydrofile kateteret utviklet for RIK. Det krever rent vann for å aktivere det unike Urotonic™ Surface Technology-belegget på kateterslangen.",
     },
-    indications: [
-      "Intermittent catheterisation for adults and children",
-      "Home use where clean water is available",
-      "A wide range of sizes for individual fitting",
-    ],
+    indications: classicIfu.indications,
     instructions: classicSteps("lofric-classic", [
       {
         en: "Lift the penis towards the stomach to straighten the urethra. Slowly insert the catheter into the urethra without touching the tube. When urine begins to flow, insert the catheter slightly more to ensure both eyelets are inside the bladder.",
@@ -1085,10 +963,10 @@ export const products: Product[] = [
       },
       steps: tiemannSteps("lofric-classic"),
     },
-    safety: cathSafety,
-    contraindications: cathContra,
-    warningSigns: cathWarnings,
-    storage: "Store dry below 40 °C in the unopened package.",
+    safety: classicIfu.safety,
+    contraindications: classicIfu.contraindications,
+    warningSigns: classicIfu.warningSigns,
+    storage: classicIfu.storage,
   },
   {
     id: "navina-mini",
@@ -1128,11 +1006,7 @@ export const products: Product[] = [
       da: "Kompakt irrigationssæt til mindre vandmængder og nem rejse.",
       no: "Kompakt irrigasjonssett for mindre vannmengder og enkel reise.",
     },
-    indications: [
-      "Low-volume transanal irrigation",
-      "Travel and time away from home",
-      "Users starting out with smaller water volumes",
-    ],
+    indications: navinaMiniIfu.indications,
     instructions: [
       {
         title: {
@@ -1266,18 +1140,15 @@ export const products: Product[] = [
         image: "/images/instructions/navina-mini/11.png",
       },
     ],
-    safety: irrigationSafety,
-    contraindications: [
-      "Anal or rectal stenosis",
-      "Active inflammatory bowel disease",
-      "Recent colorectal surgery unless cleared by your clinician",
-    ],
-    warningSigns: irrigationWarnings,
+    safety: navinaMiniIfu.safety,
+    contraindicationsIntro: navinaMiniIfu.contraindicationsIntro,
+    contraindications: navinaMiniIfu.contraindications,
+    warningSigns: navinaMiniIfu.warningSigns,
     storage: "Dry fully before packing away to prevent mould in the tubing.",
   },
   {
     id: "navina-classic",
-    emergencyWarning: navinaEmergencyWarning,
+    emergencyWarning: navinaClassicIfu.emergencyWarning,
     logo: navinaClassicLogo.url,
     videoUrl: navinaClassicVideo.url,
     brand: "Navina",
@@ -1293,22 +1164,7 @@ export const products: Product[] = [
       da: "Manuelt transanalt irrigationssystem med håndpumpe for fuld kontrol i hvert trin.",
       no: "Manuelt transanalt irrigasjonssystem med håndpumpe for full kontroll i hvert trinn.",
     },
-    indications: [
-      {
-        en: "Intended use: The Navina Systems is intended for Transanal Irrigation by instilling water up into the lower part of the colon through a rectal catheter.",
-        sv: "Avsedd användning: Navina-systemen är avsedda för transanal irrigation genom att vatten förs in i den nedre delen av tjocktarmen via en rektalkateter.",
-        fi: "Käyttötarkoitus: Navina-järjestelmät on tarkoitettu transanaaliseen huuhteluun, jossa vettä johdetaan peräsuolikatetrin kautta paksusuolen alaosaan.",
-        da: "Tilsigtet anvendelse: Navina-systemerne er beregnet til transanal irrigation ved at føre vand op i den nederste del af tyktarmen gennem et rektalkateter.",
-        no: "Tiltenkt bruk: Navina-systemene er beregnet for transanal irrigasjon ved at vann føres opp i den nedre delen av tykktarmen gjennom et rektalkateter.",
-      },
-      {
-        en: "Indications: The Navina Systems is indicated to help adults and children from 3 years who suffer from fecal incontinence, chronic constipation and/or time-consuming bowel management. By instilling water up into the lower part of the colon, the peristaltic muscles in the bowel can be triggered and start to evacuate the lower colon and rectum.",
-        sv: "Indikationer: Navina-systemen är indicerade för att hjälpa vuxna och barn från 3 år som lider av analinkontinens, kronisk förstoppning och/eller tidskrävande tarmskötsel. När vatten förs in i den nedre delen av tjocktarmen kan tarmens peristaltiska muskler aktiveras och börja tömma nedre tjocktarmen och ändtarmen.",
-        fi: "Käyttöaiheet: Navina-järjestelmät on tarkoitettu aikuisille ja yli 3-vuotiaille lapsille, joilla on ulosteinkontinenssi, krooninen ummetus ja/tai aikaa vievä suolen hoito. Kun vettä johdetaan paksusuolen alaosaan, suolen peristalttiset lihakset voivat aktivoitua ja alkaa tyhjentää paksusuolen alaosaa ja peräsuolta.",
-        da: "Indikationer: Navina-systemerne er indiceret til at hjælpe voksne og børn fra 3 år, der lider af fækal inkontinens, kronisk forstoppelse og/eller tidskrævende tarmhåndtering. Ved at føre vand op i den nederste del af tyktarmen kan tarmens peristaltiske muskler aktiveres og begynde at tømme den nedre tyktarm og endetarmen.",
-        no: "Indikasjoner: Navina-systemene er indisert for å hjelpe voksne og barn fra 3 år som har fekal inkontinens, kronisk forstoppelse og/eller tidkrevende tarmhåndtering. Ved å føre vann opp i den nedre delen av tykktarmen kan tarmens peristaltiske muskler aktiveres og begynne å tømme nedre tykktarm og endetarm.",
-      },
-    ],
+    indications: navinaClassicIfu.indications,
     instructions: [
       {
         title: "Preparation",
@@ -1336,17 +1192,17 @@ export const products: Product[] = [
         image: "/images/instructions/navina-classic/5-disassembly.png",
       },
     ],
-    safety: irrigationSafety,
-    contraindicationsIntro: navinaContraIntro,
-    contraindications: navinaSystemContra,
-    warningSigns: irrigationWarnings,
+    safety: navinaClassicIfu.safety,
+    contraindicationsIntro: navinaClassicIfu.contraindicationsIntro,
+    contraindications: navinaClassicIfu.contraindications,
+    warningSigns: navinaClassicIfu.warningSigns,
     storage:
       "Store clean and dry; replace the catheter and tubing at the interval stated in the manual.",
   },
   {
     id: "navina-smart",
     unavailableLocales: ["no"],
-    emergencyWarning: navinaEmergencyWarning,
+    emergencyWarning: navinaSmartIfu.emergencyWarning,
     logo: navinaSmartLogo.url,
     videoUrl: smartVideo.url,
     brand: "Navina",
@@ -1362,11 +1218,7 @@ export const products: Product[] = [
       da: "Elektronisk transanalt irrigationssystem, der styrer vandflow og ballonfyldning for dig.",
       no: "Elektronisk transanalt irrigasjonssystem som styrer vannmengde og ballongfylling for deg.",
     },
-    indications: [
-      "Neurogenic bowel dysfunction, for example after spinal cord injury or with spina bifida",
-      "Chronic constipation not resolved by diet and medication",
-      "Faecal incontinence where a planned emptying routine helps",
-    ],
+    indications: navinaSmartIfu.indications,
     instructions: [
       {
         title: "Preparation",
@@ -1394,12 +1246,11 @@ export const products: Product[] = [
         image: "/images/instructions/navina-smart/5-disassembly.png",
       },
     ],
-    safety: irrigationSafety,
-    contraindicationsIntro: navinaContraIntro,
-    contraindications: navinaSystemContra,
-    warningSigns: irrigationWarnings,
-    storage:
-      "Charge and store the control unit dry at room temperature; replace catheters as instructed.",
+    safety: navinaSmartIfu.safety,
+    contraindicationsIntro: navinaSmartIfu.contraindicationsIntro,
+    contraindications: navinaSmartIfu.contraindications,
+    warningSigns: navinaSmartIfu.warningSigns,
+    storage: navinaSmartIfu.storage,
   },
   {
     id: "navina-insert",
@@ -1417,12 +1268,7 @@ export const products: Product[] = [
       da: "Blødt rektalt engangsindlæg, der hjælper med at holde på lækage mellem tarmtømninger.",
       no: "Mykt rektalt engangsinnlegg som hjelper med å holde igjen lekkasje mellom tarmtømminger.",
     },
-    indications: [
-      "Faecal incontinence with leakage between planned bowel emptyings",
-      "Neurogenic bowel dysfunction, for example after spinal cord injury or with spina bifida",
-      "Added security during work, exercise, travel or social activities",
-      "Complement to a transanal irrigation routine, not a replacement for it",
-    ],
+    indications: navinaInsertIfu.indications,
     instructions: [
       {
         title: "Insertion",
@@ -1471,25 +1317,9 @@ export const products: Product[] = [
       },
     ],
     image: "/media/navina-insert-device.png",
-    safety: [
-      "Only start using rectal inserts after assessment and training by your healthcare professional.",
-      "Single use only — never wash, reuse or share an insert.",
-      "Remove the insert immediately if you feel pain, cramping or a strong urge to empty the bowel.",
-      "Never use more than one insert at a time, and do not exceed the wear time in your care plan.",
-      "Choose the size fitted for you; a wrong size can cause discomfort or leakage.",
-    ],
-    contraindications: [
-      "Anal or rectal stenosis, fissures, painful haemorrhoids or other anal lesions",
-      "Active inflammatory bowel disease or acute diverticulitis",
-      "Colorectal cancer, or recent anorectal or colorectal surgery",
-      "Rectal prolapse or a known allergy to any material in the product",
-    ],
-    warningSigns: [
-      "Pain, cramping or a feeling of pressure that does not settle after removal",
-      "Bleeding from the rectum",
-      "Fever, chills or feeling generally unwell",
-      "Difficulty removing the insert, or a withdrawal string that breaks",
-    ],
+    safety: navinaInsertIfu.safety,
+    contraindications: navinaInsertIfu.contraindications,
+    warningSigns: navinaInsertIfu.warningSigns,
     storage:
       "Store dry at room temperature in the sealed wrapper. Do not use if the wrapper is damaged or the expiry date has passed.",
   },

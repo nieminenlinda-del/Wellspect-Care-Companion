@@ -421,7 +421,9 @@ function ProductDetail() {
                 />
               </Panel>
               <Panel title={t.storage} icon={<Package className="text-primary size-4" />}>
-                <p className="text-muted-foreground text-sm leading-relaxed">{product.storage}</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {localizedText(product.storage, locale)}
+                </p>
               </Panel>
             </>
           )}
@@ -433,24 +435,28 @@ function ProductDetail() {
                 tone="warning"
                 icon={<AlertTriangle className="text-warning-foreground size-4" />}
               >
-                <Bullets items={product.safety} dot="bg-warning" />
+                <Bullets
+                  items={product.safety.map((item) => localizedText(item, locale))}
+                  dot="bg-warning"
+                />
               </Panel>
               <Panel
                 title={t.doNotUse}
                 tone="danger"
                 icon={<Ban className="text-danger-foreground size-4" />}
               >
-                {product.contraindicationsIntro && (
-                  <p className="text-foreground mb-3 text-sm font-semibold leading-relaxed">
-                    {localizedText(product.contraindicationsIntro, locale)}
-                  </p>
-                )}
+                {product.contraindicationsIntro &&
+                  localizedText(product.contraindicationsIntro, locale) && (
+                    <p className="text-foreground mb-3 text-sm font-semibold leading-relaxed">
+                      {localizedText(product.contraindicationsIntro, locale)}
+                    </p>
+                  )}
                 <Bullets
                   items={product.contraindications.map((c) => localizedText(c, locale))}
                   dot="bg-danger"
                 />
               </Panel>
-              {product.emergencyWarning ? (
+              {product.emergencyWarning && (
                 <div
                   role="alert"
                   className="border-danger bg-danger/10 rounded-2xl border-2 p-5 lg:col-span-2"
@@ -465,14 +471,18 @@ function ProductDetail() {
                     {localizedText(product.emergencyWarning, locale)}
                   </p>
                 </div>
-              ) : (
+              )}
+              {product.warningSigns.length > 0 && (
                 <div className="lg:col-span-2">
                   <Panel
                     title={t.warningSigns}
                     tone="danger"
                     icon={<PhoneCall className="text-danger-foreground size-4" />}
                   >
-                    <Bullets items={product.warningSigns} dot="bg-danger" />
+                    <Bullets
+                      items={product.warningSigns.map((item) => localizedText(item, locale))}
+                      dot="bg-danger"
+                    />
                   </Panel>
                 </div>
               )}
