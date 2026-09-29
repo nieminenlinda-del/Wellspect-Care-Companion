@@ -45,6 +45,7 @@ import navinaClassicVideo from "@/assets/navina-classic-animation.mp4.asset.json
 import origoVideo from "@/assets/lofric-origo-step-by-step.mp4.asset.json";
 import type { LocaleCode } from "@/lib/locale";
 import { classicIfu, elleProIfu, hydroKitIfu, origoIfu, senseIfu } from "@/data/ifu-copy";
+import { navinaInsertIfu, navinaMiniIfu } from "@/data/ifu-navina";
 
 export type CategoryId = "women" | "men" | "bowel" | "contact";
 
@@ -1101,11 +1102,7 @@ export const products: Product[] = [
       da: "Kompakt irrigationssæt til mindre vandmængder og nem rejse.",
       no: "Kompakt irrigasjonssett for mindre vannmengder og enkel reise.",
     },
-    indications: [
-      "Low-volume transanal irrigation",
-      "Travel and time away from home",
-      "Users starting out with smaller water volumes",
-    ],
+    indications: navinaMiniIfu.indications,
     instructions: [
       {
         title: {
@@ -1239,13 +1236,10 @@ export const products: Product[] = [
         image: "/images/instructions/navina-mini/11.png",
       },
     ],
-    safety: irrigationSafety,
-    contraindications: [
-      "Anal or rectal stenosis",
-      "Active inflammatory bowel disease",
-      "Recent colorectal surgery unless cleared by your clinician",
-    ],
-    warningSigns: irrigationWarnings,
+    safety: navinaMiniIfu.safety,
+    contraindicationsIntro: navinaMiniIfu.contraindicationsIntro,
+    contraindications: navinaMiniIfu.contraindications,
+    warningSigns: navinaMiniIfu.warningSigns,
     storage: "Dry fully before packing away to prevent mould in the tubing.",
   },
   {
@@ -1390,12 +1384,7 @@ export const products: Product[] = [
       da: "Blødt rektalt engangsindlæg, der hjælper med at holde på lækage mellem tarmtømninger.",
       no: "Mykt rektalt engangsinnlegg som hjelper med å holde igjen lekkasje mellom tarmtømminger.",
     },
-    indications: [
-      "Faecal incontinence with leakage between planned bowel emptyings",
-      "Neurogenic bowel dysfunction, for example after spinal cord injury or with spina bifida",
-      "Added security during work, exercise, travel or social activities",
-      "Complement to a transanal irrigation routine, not a replacement for it",
-    ],
+    indications: navinaInsertIfu.indications,
     instructions: [
       {
         title: "Insertion",
@@ -1444,25 +1433,9 @@ export const products: Product[] = [
       },
     ],
     image: "/media/navina-insert-device.png",
-    safety: [
-      "Only start using rectal inserts after assessment and training by your healthcare professional.",
-      "Single use only — never wash, reuse or share an insert.",
-      "Remove the insert immediately if you feel pain, cramping or a strong urge to empty the bowel.",
-      "Never use more than one insert at a time, and do not exceed the wear time in your care plan.",
-      "Choose the size fitted for you; a wrong size can cause discomfort or leakage.",
-    ],
-    contraindications: [
-      "Anal or rectal stenosis, fissures, painful haemorrhoids or other anal lesions",
-      "Active inflammatory bowel disease or acute diverticulitis",
-      "Colorectal cancer, or recent anorectal or colorectal surgery",
-      "Rectal prolapse or a known allergy to any material in the product",
-    ],
-    warningSigns: [
-      "Pain, cramping or a feeling of pressure that does not settle after removal",
-      "Bleeding from the rectum",
-      "Fever, chills or feeling generally unwell",
-      "Difficulty removing the insert, or a withdrawal string that breaks",
-    ],
+    safety: navinaInsertIfu.safety,
+    contraindications: navinaInsertIfu.contraindications,
+    warningSigns: navinaInsertIfu.warningSigns,
     storage:
       "Store dry at room temperature in the sealed wrapper. Do not use if the wrapper is damaged or the expiry date has passed.",
   },
