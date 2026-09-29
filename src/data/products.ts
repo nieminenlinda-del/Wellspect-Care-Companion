@@ -661,27 +661,51 @@ export const products: Product[] = [
     indications: elleProIfu.indications,
     instructions: [
       {
-        text: "Wash your hands thoroughly with soap and water.",
+        text: withFi(
+          "Wash your hands thoroughly with soap and water.",
+          "Wash your hands thoroughly with soap and water.",
+          "Tvätta händerna ordentligt med tvål och vatten.",
+        ),
         image: "/images/instructions/lofric-elle/step-1.png",
       },
       {
-        text: "Open the upper lid.",
+        text: withFi(
+          "Open the upper lid.",
+          "Open the upper lid.",
+          "Öppna det övre sterila barriärlocket.",
+        ),
         image: "/images/instructions/lofric-elle/step-2.png",
       },
       {
-        text: "Hold the catheter in your hand and gently bend the upper part to open. Pull the catheter out.",
+        text: withFi(
+          "Hold the catheter in your hand and gently bend the upper part to open. Pull the catheter out.",
+          "Hold the catheter in your hand and gently bend the upper part to open. Pull the catheter out.",
+          "Greppa katetern och böj försiktigt den övre delen för att öppna. Drag ut katetern. Töm ut den resterande vätskan från behållaren (i toaletten eller handfatet).",
+        ),
         image: "/images/instructions/lofric-elle/step-3.png",
       },
       {
-        text: "Connect the container to the catheter with a gentle twist, make sure the arrow on the container points down.",
+        text: withFi(
+          "Connect the container to the catheter with a gentle twist, make sure the arrow on the container points down.",
+          "Connect the container to the catheter with a gentle twist, make sure the arrow on the container points down.",
+          "ALTERNATIV: Katetern kan användas med eller utan handtaget. Handtaget ger ökad räckvidd och mer hygienisk kateterisering. Fäst handtaget på katetern med ett klick, kontrollera att pilen på handtaget pekar mot katetern.",
+        ),
         image: "/images/instructions/lofric-elle/step-4.png",
       },
       {
-        text: "Tilt your pelvis upwards, spread the labia, lift slightly to locate the urethra. The urethra is located just above the vaginal opening. With the other hand, insert the catheter slowly into your urethral opening, until urine starts to flow, insert slightly more to ensure both eyelets are inside the bladder. When the urine flow slows to a drip, withdraw the catheter slowly. If urine starts to flow again, stop the withdrawal process and wait until the urine flow stops, to ensure complete bladder emptying.",
+        text: withFi(
+          "Tilt your pelvis upwards, spread the labia, lift slightly to locate the urethra. The urethra is located just above the vaginal opening. With the other hand, insert the catheter slowly into your urethral opening, until urine starts to flow, insert slightly more to ensure both eyelets are inside the bladder. When the urine flow slows to a drip, withdraw the catheter slowly. If urine starts to flow again, stop the withdrawal process and wait until the urine flow stops, to ensure complete bladder emptying.",
+          "Tilt your pelvis upwards, spread the labia, lift slightly to locate the urethra. The urethra is located just above the vaginal opening. With the other hand, insert the catheter slowly into your urethral opening, until urine starts to flow, insert slightly more to ensure both eyelets are inside the bladder. When the urine flow slows to a drip, withdraw the catheter slowly. If urine starts to flow again, stop the withdrawal process and wait until the urine flow stops, to ensure complete bladder emptying.",
+          "Luta ditt bäcken framåt, sära på blygdläpparna, dra dem försiktigt uppåt, urinröret ligger strax ovanför vaginalöppningen. Med andra handen, för katetern långsamt in i urinrörsöppningen, tills urin börjar rinna, för in den lite längre för att säkerställa att båda kateterögonen befinner sig i urinblåsan. När urinflödet avtar till droppar, dra ut katetern långsamt. Om urin börjar rinna igen, vänta tills urinflödet upphör, för att säkerställa fullständig tömning av urinblåsan.",
+        ),
         image: "/images/instructions/lofric-elle/step-5.png",
       },
       {
-        text: "Put the catheter back inside the container. Dispose, or carry it in your bag until disposal. Please note! The container is recyclable.",
+        text: withFi(
+          "Put the catheter back inside the container. Dispose, or carry it in your bag until disposal. Please note! The container is recyclable.",
+          "Put the catheter back inside the container. Dispose, or carry it in your bag until disposal. Please note! The container is recyclable.",
+          "Sätt tillbaka katetern i den nedre behållaren. Kassera eller förvara den i din väska tills du kan slänga den. Vänligen notera! Behållaren är återvinningsbar som plastförpackning.",
+        ),
         image: "/images/instructions/lofric-elle/step-6.png",
       },
     ],
