@@ -11,7 +11,7 @@ import { uiStrings } from "@/data/ui-strings";
  * 2. Add the matching key under that locale below
  *
  * Omit a key when the asset does not exist yet. Callers hide the card, so a
- * gap (Finnish Origo Pro) does not show a broken image.
+ * missing QR does not show a broken image.
  */
 export type BrochureId = "cic-women" | "cic-men" | "elle" | "elle-pro" | "origo-pro" | "tai";
 
@@ -80,7 +80,10 @@ const brochureCatalog: Partial<Record<LocaleCode, Partial<Record<BrochureId, Bro
       image: "/images/qr/brochure/tai/fi.png",
       url: "https://wellspect.qrd.by/agxnuc",
     },
-    // origo-pro: no Finnish asset yet
+    "origo-pro": {
+      image: "/images/qr/brochure/fi/origo-pro.png",
+      url: "https://wellspect.qrd.by/zgkv0o",
+    },
   },
   da: {
     "cic-women": {
@@ -182,7 +185,6 @@ const brochureCovers: Partial<Record<LocaleCode, Partial<Record<BrochureId, stri
     "cic-men": "/images/qr/brochure/covers/fi/cic-men.png",
     elle: "/images/qr/brochure/covers/fi/elle.png",
     "elle-pro": "/images/qr/brochure/covers/fi/elle-pro.png",
-    // Ready for when a Finnish Origo Pro QR is added. No QR key, so no card.
     "origo-pro": "/images/qr/brochure/covers/fi/origo-pro.png",
   },
 };
