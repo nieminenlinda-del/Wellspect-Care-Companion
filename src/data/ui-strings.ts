@@ -36,6 +36,12 @@ export type UIStrings = {
   imageGuide: string;
   enlargeIllustration: string;
   qrLearnMore: string;
+  /** Label for a product step-guide brochure QR (Elle, Elle Pro, Origo Pro). */
+  brochurePdfGuide: string;
+  /** Home and How to use label for the women’s CIC brochure. */
+  brochureCicWomen: string;
+  /** Home and How to use label for the men’s CIC brochure. */
+  brochureCicMen: string;
 };
 
 const en: UIStrings = {
@@ -76,6 +82,9 @@ const en: UIStrings = {
   imageGuide: "Step-by-step guide",
   enlargeIllustration: "Enlarge illustration",
   qrLearnMore: "Learn more on the website",
+  brochurePdfGuide: "Brochure / PDF guide",
+  brochureCicWomen: "CIC – women",
+  brochureCicMen: "CIC – men",
 };
 
 const sv: UIStrings = {
@@ -116,6 +125,9 @@ const sv: UIStrings = {
   imageGuide: "Steg-för-steg-guide",
   enlargeIllustration: "Förstora illustrationen",
   qrLearnMore: "Läs mer på webbplatsen",
+  brochurePdfGuide: "Broschyr / PDF-guide",
+  brochureCicWomen: "RIK – kvinnor",
+  brochureCicMen: "RIK – män",
 };
 
 const fi: UIStrings = {
@@ -156,6 +168,9 @@ const fi: UIStrings = {
   imageGuide: "Käyttöohjeet",
   enlargeIllustration: "Suurenna kuva",
   qrLearnMore: "Lue lisää verkkosivuilta",
+  brochurePdfGuide: "Esite / PDF-opas",
+  brochureCicWomen: "Toistokatetrointi – naiset",
+  brochureCicMen: "Toistokatetrointi – miehet",
 };
 
 const da: UIStrings = {
@@ -196,6 +211,9 @@ const da: UIStrings = {
   imageGuide: "Trin-for-trin-guide",
   enlargeIllustration: "Forstør illustrationen",
   qrLearnMore: "Læs mere på hjemmesiden",
+  brochurePdfGuide: "Brochure / PDF-guide",
+  brochureCicWomen: "RIK – kvinder",
+  brochureCicMen: "RIK – mænd",
 };
 
 const no: UIStrings = {
@@ -236,6 +254,9 @@ const no: UIStrings = {
   imageGuide: "Trinnvis guide",
   enlargeIllustration: "Forstørr illustrasjonen",
   qrLearnMore: "Les mer på nettstedet",
+  brochurePdfGuide: "Brosjyre / PDF-guide",
+  brochureCicWomen: "RIK – kvinner",
+  brochureCicMen: "RIK – menn",
 };
 
 export const uiStrings: Record<LocaleCode, UIStrings> = { en, sv, fi, da, no };
