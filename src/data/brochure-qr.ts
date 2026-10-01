@@ -133,6 +133,26 @@ const brochureCatalog: Partial<Record<LocaleCode, Partial<Record<BrochureId, Bro
     },
   },
   en: {
+    "cic-women": {
+      image: "/images/qr/brochure/en/cic-women.png",
+      url: "https://wellspect.qrd.by/ab82kp",
+    },
+    "cic-men": {
+      image: "/images/qr/brochure/en/cic-men.png",
+      url: "https://wellspect.qrd.by/j4op9l",
+    },
+    elle: {
+      image: "/images/qr/brochure/en/elle.png",
+      url: "https://wellspect.qrd.by/in7ywl",
+    },
+    "elle-pro": {
+      image: "/images/qr/brochure/en/elle-pro.png",
+      url: "https://wellspect.qrd.by/7voh2u",
+    },
+    "origo-pro": {
+      image: "/images/qr/brochure/en/origo-pro.png",
+      url: "https://wellspect.qrd.by/a9wm1f",
+    },
     tai: {
       image: "/images/qr/brochure/tai/en.png",
       url: "https://wellspect.qrd.by/gpn04e",
