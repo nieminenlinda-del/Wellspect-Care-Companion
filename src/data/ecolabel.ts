@@ -9,9 +9,8 @@ export type EcolabelContent = {
   points: { title: string; text: string }[];
   footnote: string;
   /**
-   * Short help shown beside the locale QR. Present for every market so an
-   * English QR can be wired later without new copy. The dialog hides the
-   * block when `ecolabelQrs` has no image for that locale.
+   * Short help shown beside the locale QR. The dialog hides the block when
+   * `ecolabelQrs` has no image for that locale.
    */
   qrHint: string;
   close: string;
@@ -46,7 +45,7 @@ export const ecolabelContent: Record<LocaleCode, EcolabelContent> = {
     footnote:
       "Certification applies to specific products and sizes. Check the packaging or ask your healthcare professional if you are unsure.",
     qrHint:
-      "Scan the QR code to read more about the ecolabel on Wellspect’s website, or visit the official Nordic Swan site for your country (for example nordic-ecolabel.org).",
+      "Scan the QR code to read more about the Nordic Swan Ecolabel on the official website, svanen.se/en.",
     close: "Close",
   },
   sv: {
@@ -186,15 +185,20 @@ export type EcolabelQr = {
  * Swan / ecolabel QR codes. The PNG is the source of truth.
  *
  * Destinations behind the short URLs:
+ * en https://www.svanen.se/en/
  * sv https://www.wellspect.se/hallbarhet/
  * fi https://se.wellspect.fi/hallbarhet/
  * da https://www.wellspect.dk/baredygtighed/
  * no https://www.wellspect.no/barekraft/
  *
- * Omit a locale when the asset does not exist yet. English is pending, so
- * the dialog hides the QR block there.
+ * Omit a locale when the asset does not exist yet. The dialog hides the QR
+ * block in that case.
  */
 export const ecolabelQrs: Partial<Record<LocaleCode, EcolabelQr>> = {
+  en: {
+    image: "/images/qr/ecolabel/en.png",
+    url: "https://wellspect.qrd.by/nemqdo",
+  },
   sv: {
     image: "/images/qr/ecolabel/sv.png",
     url: "https://wellspect.qrd.by/hwcfk9",
