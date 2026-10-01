@@ -8,6 +8,12 @@ export type EcolabelContent = {
   intro: string;
   points: { title: string; text: string }[];
   footnote: string;
+  /**
+   * Short help shown beside the locale QR. Present for every market so an
+   * English QR can be wired later without new copy. The dialog hides the
+   * block when `ecolabelQrs` has no image for that locale.
+   */
+  qrHint: string;
   close: string;
 };
 
@@ -39,6 +45,8 @@ export const ecolabelContent: Record<LocaleCode, EcolabelContent> = {
     ],
     footnote:
       "Certification applies to specific products and sizes. Check the packaging or ask your healthcare professional if you are unsure.",
+    qrHint:
+      "Scan the QR code to read more about the ecolabel on Wellspect’s website, or visit the official Nordic Swan site for your country (for example nordic-ecolabel.org).",
     close: "Close",
   },
   sv: {
@@ -68,6 +76,8 @@ export const ecolabelContent: Record<LocaleCode, EcolabelContent> = {
     ],
     footnote:
       "Märkningen gäller specifika produkter och storlekar. Kontrollera förpackningen eller fråga din vårdpersonal om du är osäker.",
+    qrHint:
+      "Skanna QR-koden för att läsa mer om Svanenmärket på Wellspects webbplats, eller besök den officiella sajten svanen.se.",
     close: "Stäng",
   },
   fi: {
@@ -97,6 +107,8 @@ export const ecolabelContent: Record<LocaleCode, EcolabelContent> = {
     ],
     footnote:
       "Merkintä koskee tiettyjä tuotteita ja kokoja. Tarkista pakkaus tai kysy hoitohenkilökunnalta, jos olet epävarma.",
+    qrHint:
+      "Skanna QR-koodi lukeaksesi lisää Joutsenmerkistä Wellspectin sivustolta, tai käy virallisella sivustolla joutsenmerkki.fi.",
     close: "Sulje",
   },
   da: {
@@ -126,6 +138,8 @@ export const ecolabelContent: Record<LocaleCode, EcolabelContent> = {
     ],
     footnote:
       "Mærkningen gælder specifikke produkter og størrelser. Tjek emballagen, eller spørg din sundhedsprofessionelle, hvis du er i tvivl.",
+    qrHint:
+      "Scan QR-koden for at læse mere om Svanemærket på Wellspects website, eller besøg den officielle side svanemaerket.dk.",
     close: "Luk",
   },
   no: {
@@ -155,6 +169,50 @@ export const ecolabelContent: Record<LocaleCode, EcolabelContent> = {
     ],
     footnote:
       "Merkingen gjelder bestemte produkter og størrelser. Sjekk emballasjen eller spør helsepersonell hvis du er usikker.",
+    qrHint:
+      "Skann QR-koden for å lese mer om Svanemerket på Wellspects nettside, eller besøk den offisielle siden svanemerket.no.",
     close: "Lukk",
   },
 };
+
+export type EcolabelQr = {
+  /** Public path, e.g. `/images/qr/ecolabel/sv.png`. */
+  image: string;
+  /** Short URL encoded in the QR image (not shown as a text link). */
+  url: string;
+};
+
+/**
+ * Swan / ecolabel QR codes. The PNG is the source of truth.
+ *
+ * Destinations behind the short URLs:
+ * sv https://www.wellspect.se/hallbarhet/
+ * fi https://se.wellspect.fi/hallbarhet/
+ * da https://www.wellspect.dk/baredygtighed/
+ * no https://www.wellspect.no/barekraft/
+ *
+ * Omit a locale when the asset does not exist yet. English is pending, so
+ * the dialog hides the QR block there.
+ */
+export const ecolabelQrs: Partial<Record<LocaleCode, EcolabelQr>> = {
+  sv: {
+    image: "/images/qr/ecolabel/sv.png",
+    url: "https://wellspect.qrd.by/hwcfk9",
+  },
+  fi: {
+    image: "/images/qr/ecolabel/fi.png",
+    url: "https://wellspect.qrd.by/gs7th1",
+  },
+  da: {
+    image: "/images/qr/ecolabel/da.png",
+    url: "https://wellspect.qrd.by/8nuiov",
+  },
+  no: {
+    image: "/images/qr/ecolabel/no.png",
+    url: "https://wellspect.qrd.by/7gjlhz",
+  },
+};
+
+export function getEcolabelQr(locale: LocaleCode): EcolabelQr | undefined {
+  return ecolabelQrs[locale];
+}

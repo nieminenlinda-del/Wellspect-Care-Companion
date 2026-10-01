@@ -7,7 +7,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { ecolabelContent } from "@/data/ecolabel";
+import { ecolabelContent, getEcolabelQr } from "@/data/ecolabel";
 import { useLocale } from "@/lib/locale";
 import swanAsset from "@/assets/nordic-swan-ecolabel.png.asset.json";
 import { publicUrl } from "@/lib/public-url";
@@ -27,6 +27,7 @@ export function SwanMark({ className = "size-10" }: { className?: string }) {
 export function EcolabelDialog({ trigger }: { trigger: ReactNode }) {
   const { locale } = useLocale();
   const c = ecolabelContent[locale];
+  const qr = getEcolabelQr(locale);
 
   return (
     <Dialog>
@@ -44,6 +45,19 @@ export function EcolabelDialog({ trigger }: { trigger: ReactNode }) {
             {c.intro}
           </DialogDescription>
         </DialogHeader>
+
+        {qr && (
+          <div className="border-border flex items-center gap-4 rounded-2xl border bg-white p-3">
+            <img
+              src={publicUrl(qr.image)}
+              alt=""
+              width={96}
+              height={96}
+              className="size-20 shrink-0 rounded-lg bg-white object-contain sm:size-24"
+            />
+            <p className="text-muted-foreground min-w-0 text-sm leading-relaxed">{c.qrHint}</p>
+          </div>
+        )}
 
         <ul className="mt-2 grid gap-4">
           {c.points.map((p) => (
