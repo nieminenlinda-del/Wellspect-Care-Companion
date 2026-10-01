@@ -254,7 +254,12 @@ export function getHowToBrochures(
 
   const productBrochure = productBrochureIds[productId];
   if (productBrochure) {
-    const card = resolve(productBrochure, locale, t.brochurePdfGuide, productName);
+    const card = resolve(
+      productBrochure,
+      locale,
+      productName ?? t.brochurePdfGuide,
+      productName ? t.brochurePdfGuide : undefined,
+    );
     if (card) cards.push(card);
   }
 
