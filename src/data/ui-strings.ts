@@ -46,6 +46,10 @@ export type UIStrings = {
   brochureTai: string;
   /** Title of the Life with Navina guide encoded in the TAI QR. */
   brochureLifeWithNavina: string;
+  /** How to use chip and modal title for brochure / TAI QR guides. */
+  downloadableGuides: string;
+  /** Hint under the downloadable-guides modal title. */
+  downloadableGuidesHint: string;
 };
 
 const en: UIStrings = {
@@ -91,6 +95,8 @@ const en: UIStrings = {
   brochureCicMen: "CIC – men",
   brochureTai: "TAI guide",
   brochureLifeWithNavina: "Life with Navina",
+  downloadableGuides: "Downloadable guides",
+  downloadableGuidesHint: "Scan the QR code with your phone. More guides can be added here.",
 };
 
 const sv: UIStrings = {
@@ -136,6 +142,8 @@ const sv: UIStrings = {
   brochureCicMen: "RIK – män",
   brochureTai: "TAI-guide",
   brochureLifeWithNavina: "Att leva med Navina",
+  downloadableGuides: "Nedladdningsbara guider",
+  downloadableGuidesHint: "Skanna QR-koden med din telefon. Fler guider kan läggas till här.",
 };
 
 const fi: UIStrings = {
@@ -181,6 +189,8 @@ const fi: UIStrings = {
   brochureCicMen: "Toistokatetrointi – miehet",
   brochureTai: "TAI-opas",
   brochureLifeWithNavina: "Elämä Navina suolihuuhtelun kanssa",
+  downloadableGuides: "Ladattavat oppaat",
+  downloadableGuidesHint: "Skannaa QR-koodi puhelimellasi. Tähän voidaan lisätä lisää oppaita.",
 };
 
 const da: UIStrings = {
@@ -226,6 +236,8 @@ const da: UIStrings = {
   brochureCicMen: "RIK – mænd",
   brochureTai: "TAI-guide",
   brochureLifeWithNavina: "At leve med Navina Tarmirrigation",
+  downloadableGuides: "Guider til download",
+  downloadableGuidesHint: "Scan QR-koden med din telefon. Flere guider kan tilføjes her.",
 };
 
 const no: UIStrings = {
@@ -271,6 +283,8 @@ const no: UIStrings = {
   brochureCicMen: "RIK – menn",
   brochureTai: "TAI-guide",
   brochureLifeWithNavina: "Å leve med Navina",
+  downloadableGuides: "Nedlastbare guider",
+  downloadableGuidesHint: "Skann QR-koden med telefonen. Flere guider kan legges til her.",
 };
 
 export const uiStrings: Record<LocaleCode, UIStrings> = { en, sv, fi, da, no };
