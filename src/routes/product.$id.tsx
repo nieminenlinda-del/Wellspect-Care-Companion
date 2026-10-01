@@ -431,6 +431,7 @@ function ProductDetail() {
                         image={card.image}
                         label={card.label}
                         detail={card.detail}
+                        cover={card.cover}
                       />
                     ))}
                   </div>

@@ -24,10 +24,12 @@ export type BrochureQrCode = {
 
 export type ResolvedBrochure = BrochureQrCode & {
   id: BrochureId;
-  /** Primary label, already localized. */
+  /** Primary label, already localized. Shown as text, or as the cover alt when a cover exists. */
   label: string;
   /** Secondary line, e.g. "Brochure / PDF guide". Omitted when it repeats `label`. */
   detail?: string;
+  /** Optional guide-cover thumbnail. When set, the card shows this instead of the text title. */
+  cover?: string;
 };
 
 const brochureCatalog: Partial<Record<LocaleCode, Partial<Record<BrochureId, BrochureQrCode>>>> = {
@@ -170,6 +172,21 @@ const productBrochureIds: Partial<Record<string, BrochureId>> = {
   "lofric-origo-pro": "origo-pro",
 };
 
+/**
+ * Optional guide-cover thumbnails. A cover is shown only when that brochure
+ * also has a QR in `brochureCatalog`, so a cover alone never creates a card.
+ */
+const brochureCovers: Partial<Record<LocaleCode, Partial<Record<BrochureId, string>>>> = {
+  fi: {
+    "cic-women": "/images/qr/brochure/covers/fi/cic-women.png",
+    "cic-men": "/images/qr/brochure/covers/fi/cic-men.png",
+    elle: "/images/qr/brochure/covers/fi/elle.png",
+    "elle-pro": "/images/qr/brochure/covers/fi/elle-pro.png",
+    // Ready for when a Finnish Origo Pro QR is added. No QR key, so no card.
+    "origo-pro": "/images/qr/brochure/covers/fi/origo-pro.png",
+  },
+};
+
 /** Category-grid order: CIC women, CIC men, then the Navina TAI guide. */
 const homeBrochureIds: BrochureId[] = ["cic-women", "cic-men", "tai"];
 
@@ -191,6 +208,7 @@ function resolve(
     url: qr.url,
     label,
     detail: detail && detail !== label ? detail : undefined,
+    cover: brochureCovers[locale]?.[id],
   };
 }
 
