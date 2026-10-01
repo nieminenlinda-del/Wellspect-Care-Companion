@@ -24,10 +24,12 @@ export type BrochureQrCode = {
 
 export type ResolvedBrochure = BrochureQrCode & {
   id: BrochureId;
-  /** Primary label, already localized. */
+  /** Primary label, already localized. Shown as text, or as the cover alt when a cover exists. */
   label: string;
   /** Secondary line, e.g. "Brochure / PDF guide". Omitted when it repeats `label`. */
   detail?: string;
+  /** Optional guide-cover thumbnail. When set, the card shows this instead of the text title. */
+  cover?: string;
 };
 
 const brochureCatalog: Partial<Record<LocaleCode, Partial<Record<BrochureId, BrochureQrCode>>>> = {
@@ -170,7 +172,23 @@ const productBrochureIds: Partial<Record<string, BrochureId>> = {
   "lofric-origo-pro": "origo-pro",
 };
 
-const homeBrochureIds: BrochureId[] = ["cic-women", "cic-men"];
+/**
+ * Optional guide-cover thumbnails. A cover is shown only when that brochure
+ * also has a QR in `brochureCatalog`, so a cover alone never creates a card.
+ */
+const brochureCovers: Partial<Record<LocaleCode, Partial<Record<BrochureId, string>>>> = {
+  fi: {
+    "cic-women": "/images/qr/brochure/covers/fi/cic-women.png",
+    "cic-men": "/images/qr/brochure/covers/fi/cic-men.png",
+    elle: "/images/qr/brochure/covers/fi/elle.png",
+    "elle-pro": "/images/qr/brochure/covers/fi/elle-pro.png",
+    // Ready for when a Finnish Origo Pro QR is added. No QR key, so no card.
+    "origo-pro": "/images/qr/brochure/covers/fi/origo-pro.png",
+  },
+};
+
+/** Category-grid order: CIC women, CIC men, then the Navina TAI guide. */
+const homeBrochureIds: BrochureId[] = ["cic-women", "cic-men", "tai"];
 
 export function getBrochureQr(id: BrochureId, locale: LocaleCode): BrochureQrCode | undefined {
   return brochureCatalog[locale]?.[id];
@@ -190,21 +208,21 @@ function resolve(
     url: qr.url,
     label,
     detail: detail && detail !== label ? detail : undefined,
+    cover: brochureCovers[locale]?.[id],
   };
 }
 
-/** Life with Navina guide for the bowel-care grid. Missing assets are skipped. */
-export function getBowelBrochure(locale: LocaleCode): ResolvedBrochure | undefined {
-  const t = uiStrings[locale];
-  return resolve("tai", locale, t.brochureTai, t.brochureLifeWithNavina);
-}
-
-/** CIC audience brochures for the home grid. Missing assets are skipped. */
+/** Brochure QR cards for the home category grid. Missing assets are skipped. */
 export function getHomeBrochures(locale: LocaleCode): ResolvedBrochure[] {
   const t = uiStrings[locale];
-  const labelFor = (id: BrochureId) => (id === "cic-women" ? t.brochureCicWomen : t.brochureCicMen);
+  const copyFor = (id: BrochureId): { label: string; detail: string } => {
+    if (id === "cic-women") return { label: t.brochureCicWomen, detail: t.brochurePdfGuide };
+    if (id === "cic-men") return { label: t.brochureCicMen, detail: t.brochurePdfGuide };
+    return { label: t.brochureTai, detail: t.brochureLifeWithNavina };
+  };
   return homeBrochureIds.flatMap((id) => {
-    const card = resolve(id, locale, labelFor(id), t.brochurePdfGuide);
+    const copy = copyFor(id);
+    const card = resolve(id, locale, copy.label, copy.detail);
     return card ? [card] : [];
   });
 }
