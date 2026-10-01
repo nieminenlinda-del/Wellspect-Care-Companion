@@ -12,6 +12,7 @@ import {
 import { contactInfo } from "@/data/contact";
 import { uiStrings } from "@/data/ui-strings";
 import { useLocale } from "@/lib/locale";
+import { ContactDetails, EnglishContactSection } from "@/components/ContactSection";
 import { DisclaimerCard } from "@/components/MedicalDisclaimer";
 import { MarketSelector } from "@/components/MarketSelector";
 import { EcolabelDialog, SwanMark } from "@/components/NordicEcolabel";
@@ -303,58 +304,11 @@ function Index() {
             )}
 
             {showContact ? (
-              <div className="border-border bg-card mt-6 rounded-3xl border p-7 shadow-soft sm:p-9">
-                <p className="text-card-foreground text-lg font-semibold">{contact.company}</p>
-                <p className="text-muted-foreground mt-3 max-w-2xl text-sm leading-relaxed">
-                  {contact.intro}
-                </p>
-                <dl className="mt-8 grid gap-6 sm:grid-cols-2">
-                  <div>
-                    <dt className="text-muted-foreground text-[11px] tracking-[0.2em] uppercase">
-                      {contact.phoneLabel}
-                    </dt>
-                    <dd className="mt-1">
-                      <a
-                        href={`tel:${contact.phone.replace(/[^+\d]/g, "")}`}
-                        className="text-primary text-base font-medium underline-offset-4 hover:underline"
-                      >
-                        {contact.phone}
-                      </a>
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="text-muted-foreground text-[11px] tracking-[0.2em] uppercase">
-                      {contact.emailLabel}
-                    </dt>
-                    <dd className="mt-1">
-                      <a
-                        href={`mailto:${contact.email}`}
-                        className="text-primary text-base font-medium break-all underline-offset-4 hover:underline"
-                      >
-                        {contact.email}
-                      </a>
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="text-muted-foreground text-[11px] tracking-[0.2em] uppercase">
-                      {contact.hoursLabel}
-                    </dt>
-                    <dd className="text-card-foreground mt-1 text-base">{contact.hours}</dd>
-                  </div>
-                  <div>
-                    <dt className="text-muted-foreground text-[11px] tracking-[0.2em] uppercase">
-                      {contact.websiteLabel}
-                    </dt>
-                    <dd className="text-card-foreground mt-1 text-base">{contact.website}</dd>
-                  </div>
-                  <div className="sm:col-span-2">
-                    <dt className="text-muted-foreground text-[11px] tracking-[0.2em] uppercase">
-                      {contact.addressLabel}
-                    </dt>
-                    <dd className="text-card-foreground mt-1 text-base">{contact.address}</dd>
-                  </div>
-                </dl>
-              </div>
+              locale === "en" ? (
+                <EnglishContactSection />
+              ) : (
+                <ContactDetails contact={contact} />
+              )
             ) : (
               <>
                 <ul className="mt-6 grid gap-4 sm:grid-cols-2 clinic-landscape:grid-cols-3 lg:grid-cols-3">
