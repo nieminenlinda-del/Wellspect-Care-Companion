@@ -11,7 +11,7 @@ import { uiStrings } from "@/data/ui-strings";
  * 2. Add the matching key under that locale below
  *
  * Omit a key when the asset does not exist yet. Callers hide the card, so a
- * gap (Finnish Origo Pro, Norwegian CIC women) does not show a broken image.
+ * gap (Finnish Origo Pro) does not show a broken image.
  */
 export type BrochureId = "cic-women" | "cic-men" | "elle" | "elle-pro" | "origo-pro";
 
@@ -95,7 +95,10 @@ const brochureCatalog: Partial<Record<LocaleCode, Partial<Record<BrochureId, Bro
     },
   },
   no: {
-    // cic-women: omit until https://wellspect.qrd.by/bjyd41 is live
+    "cic-women": {
+      image: "/images/qr/brochure/no/cic-women.png",
+      url: "https://wellspect.qrd.by/bjyd41",
+    },
     "cic-men": {
       image: "/images/qr/brochure/no/cic-men.png",
       url: "https://wellspect.qrd.by/3sdzbn",
