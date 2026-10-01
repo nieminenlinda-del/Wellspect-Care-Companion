@@ -196,6 +196,13 @@ const brochureCovers: Partial<Record<LocaleCode, Partial<Record<BrochureId, stri
     "origo-pro": "/images/qr/brochure/covers/fi/origo-pro.png",
     tai: "/images/qr/brochure/covers/fi/tai.png",
   },
+  da: {
+    "cic-women": "/images/qr/brochure/covers/da/cic-women.png",
+    "cic-men": "/images/qr/brochure/covers/da/cic-men.png",
+    elle: "/images/qr/brochure/covers/da/elle.png",
+    "elle-pro": "/images/qr/brochure/covers/da/elle-pro.png",
+    tai: "/images/qr/brochure/covers/da/tai.png",
+  },
 };
 
 /** Category-grid order: CIC women, CIC men, then the Navina TAI guide. */
