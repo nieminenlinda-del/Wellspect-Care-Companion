@@ -1,5 +1,48 @@
 import type { LocaleCode } from "@/lib/locale";
 
+/** Nordic desk shown inside the English contact section. Not a UI language. */
+export type ContactCountry = Exclude<LocaleCode, "en">;
+
+/** Separate from `wellspect-locale`, so choosing a desk does not change language. */
+export const CONTACT_COUNTRY_STORAGE_KEY = "wellspect-contact-country";
+
+/** Shown until the visitor picks another desk, and when stored data is missing. */
+export const defaultContactCountry: ContactCountry = "sv";
+
+export const contactCountryOptions: { code: ContactCountry; label: string }[] = [
+  { code: "sv", label: "Sweden" },
+  { code: "fi", label: "Finland" },
+  { code: "da", label: "Denmark" },
+  { code: "no", label: "Norway" },
+];
+
+export const englishNordicContactIntro =
+  "English-speaking customers in the Nordics should choose their country. The phone, email, hours, address and website below are for that local desk. For medical advice, always contact your healthcare professional.";
+
+export function isContactCountry(value: string | null): value is ContactCountry {
+  return contactCountryOptions.some((option) => option.code === value);
+}
+
+/** English field labels with the selected Nordic desk’s details. */
+export function englishContactFor(country: ContactCountry): ContactInfo {
+  const desk = contactInfo[country];
+  const labels = contactInfo.en;
+  return {
+    company: desk.company,
+    intro: englishNordicContactIntro,
+    phoneLabel: labels.phoneLabel,
+    phone: desk.phone,
+    emailLabel: labels.emailLabel,
+    email: desk.email,
+    hoursLabel: labels.hoursLabel,
+    hours: desk.hours,
+    addressLabel: labels.addressLabel,
+    address: desk.address,
+    websiteLabel: labels.websiteLabel,
+    website: desk.website,
+  };
+}
+
 export type ContactInfo = {
   company: string;
   intro: string;
@@ -16,6 +59,8 @@ export type ContactInfo = {
 };
 
 export const contactInfo: Record<LocaleCode, ContactInfo> = {
+  // English labels live here. The English contact screen does not show this
+  // headquarters phone, email, or hours; it shows a Nordic desk instead.
   en: {
     company: "Wellspect HealthCare",
     intro:
