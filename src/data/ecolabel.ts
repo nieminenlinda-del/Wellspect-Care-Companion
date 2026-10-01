@@ -43,8 +43,8 @@ export const ecolabelContent: Record<LocaleCode, EcolabelContent> = {
   },
   sv: {
     name: "Svanenmärkt",
-    cardTitle: "Svanenmärkning",
-    cardSubtitle: "Därför spelar Svanen roll inom vården",
+    cardTitle: "Svanenmärket",
+    cardSubtitle: "Därför är Svanenmärket viktig inom hälso- och sjukvården",
     badge: "Svanenmärkt produkt",
     intro:
       "Svanen är Nordens officiella miljömärkning och en av världens strängaste miljöcertifieringar. Endast produkter som klarar hårda krav får bära Svanen.",
