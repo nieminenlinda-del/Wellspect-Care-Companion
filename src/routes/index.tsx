@@ -20,7 +20,7 @@ import { BrochureQrCard } from "@/components/BrochureQr";
 import { AnatomyDialog } from "@/components/AnatomyDialog";
 import { anatomyStrings } from "@/data/anatomy";
 import { arabicVideosStrings } from "@/data/arabic-videos";
-import { getBowelBrochure, getHomeBrochures } from "@/data/brochure-qr";
+import { getHomeBrochures } from "@/data/brochure-qr";
 import { ProductImage } from "@/components/ProductImage";
 import { ecolabelContent } from "@/data/ecolabel";
 import { publicUrl } from "@/lib/public-url";
@@ -89,7 +89,6 @@ function Index() {
 
   const showCategories = !searching && active === null;
   const showContact = !searching && active === "contact";
-  const bowelBrochure = !searching && active === "bowel" ? getBowelBrochure(locale) : undefined;
 
   return (
     <div className="clinic-page bg-background">
@@ -202,6 +201,16 @@ function Index() {
                     </button>
                   </li>
                 ))}
+              {getHomeBrochures(locale).map((card) => (
+                <li key={card.id}>
+                  <BrochureQrCard
+                    variant="home"
+                    image={card.image}
+                    label={card.label}
+                    detail={card.detail}
+                  />
+                </li>
+              ))}
               <li>
                 <ArabicVideosDialog
                   trigger={
@@ -219,16 +228,6 @@ function Index() {
                   }
                 />
               </li>
-              {getHomeBrochures(locale).map((card) => (
-                <li key={card.id}>
-                  <BrochureQrCard
-                    variant="home"
-                    image={card.image}
-                    label={card.label}
-                    detail={card.detail}
-                  />
-                </li>
-              ))}
               <li>
                 <EcolabelDialog
                   trigger={
@@ -358,16 +357,6 @@ function Index() {
             ) : (
               <>
                 <ul className="mt-6 grid gap-4 sm:grid-cols-2 clinic-landscape:grid-cols-3 lg:grid-cols-3">
-                  {bowelBrochure && (
-                    <li>
-                      <BrochureQrCard
-                        variant="home"
-                        image={bowelBrochure.image}
-                        label={bowelBrochure.label}
-                        detail={bowelBrochure.detail}
-                      />
-                    </li>
-                  )}
                   {results.map((p) => (
                     <li key={p.id}>
                       <Link

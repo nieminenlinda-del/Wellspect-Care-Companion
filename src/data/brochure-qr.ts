@@ -170,7 +170,8 @@ const productBrochureIds: Partial<Record<string, BrochureId>> = {
   "lofric-origo-pro": "origo-pro",
 };
 
-const homeBrochureIds: BrochureId[] = ["cic-women", "cic-men"];
+/** Category-grid order: CIC women, CIC men, then the Navina TAI guide. */
+const homeBrochureIds: BrochureId[] = ["cic-women", "cic-men", "tai"];
 
 export function getBrochureQr(id: BrochureId, locale: LocaleCode): BrochureQrCode | undefined {
   return brochureCatalog[locale]?.[id];
@@ -193,18 +194,17 @@ function resolve(
   };
 }
 
-/** Life with Navina guide for the bowel-care grid. Missing assets are skipped. */
-export function getBowelBrochure(locale: LocaleCode): ResolvedBrochure | undefined {
-  const t = uiStrings[locale];
-  return resolve("tai", locale, t.brochureTai, t.brochureLifeWithNavina);
-}
-
-/** CIC audience brochures for the home grid. Missing assets are skipped. */
+/** Brochure QR cards for the home category grid. Missing assets are skipped. */
 export function getHomeBrochures(locale: LocaleCode): ResolvedBrochure[] {
   const t = uiStrings[locale];
-  const labelFor = (id: BrochureId) => (id === "cic-women" ? t.brochureCicWomen : t.brochureCicMen);
+  const copyFor = (id: BrochureId): { label: string; detail: string } => {
+    if (id === "cic-women") return { label: t.brochureCicWomen, detail: t.brochurePdfGuide };
+    if (id === "cic-men") return { label: t.brochureCicMen, detail: t.brochurePdfGuide };
+    return { label: t.brochureTai, detail: t.brochureLifeWithNavina };
+  };
   return homeBrochureIds.flatMap((id) => {
-    const card = resolve(id, locale, labelFor(id), t.brochurePdfGuide);
+    const copy = copyFor(id);
+    const card = resolve(id, locale, copy.label, copy.detail);
     return card ? [card] : [];
   });
 }
