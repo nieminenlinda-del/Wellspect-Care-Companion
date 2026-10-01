@@ -42,6 +42,10 @@ export type UIStrings = {
   brochureCicWomen: string;
   /** Home and How to use label for the men’s CIC brochure. */
   brochureCicMen: string;
+  /** Short label for the transanal irrigation brochure. */
+  brochureTai: string;
+  /** Title of the Life with Navina guide encoded in the TAI QR. */
+  brochureLifeWithNavina: string;
 };
 
 const en: UIStrings = {
@@ -85,6 +89,8 @@ const en: UIStrings = {
   brochurePdfGuide: "Brochure / PDF guide",
   brochureCicWomen: "CIC – women",
   brochureCicMen: "CIC – men",
+  brochureTai: "TAI guide",
+  brochureLifeWithNavina: "Life with Navina",
 };
 
 const sv: UIStrings = {
@@ -128,6 +134,8 @@ const sv: UIStrings = {
   brochurePdfGuide: "Broschyr / PDF-guide",
   brochureCicWomen: "RIK – kvinnor",
   brochureCicMen: "RIK – män",
+  brochureTai: "TAI-guide",
+  brochureLifeWithNavina: "Att leva med Navina",
 };
 
 const fi: UIStrings = {
@@ -171,6 +179,8 @@ const fi: UIStrings = {
   brochurePdfGuide: "Esite / PDF-opas",
   brochureCicWomen: "Toistokatetrointi – naiset",
   brochureCicMen: "Toistokatetrointi – miehet",
+  brochureTai: "TAI-opas",
+  brochureLifeWithNavina: "Elämä Navina suolihuuhtelun kanssa",
 };
 
 const da: UIStrings = {
@@ -214,6 +224,8 @@ const da: UIStrings = {
   brochurePdfGuide: "Brochure / PDF-guide",
   brochureCicWomen: "RIK – kvinder",
   brochureCicMen: "RIK – mænd",
+  brochureTai: "TAI-guide",
+  brochureLifeWithNavina: "At leve med Navina Tarmirrigation",
 };
 
 const no: UIStrings = {
@@ -257,6 +269,8 @@ const no: UIStrings = {
   brochurePdfGuide: "Brosjyre / PDF-guide",
   brochureCicWomen: "RIK – kvinner",
   brochureCicMen: "RIK – menn",
+  brochureTai: "TAI-guide",
+  brochureLifeWithNavina: "Å leve med Navina",
 };
 
 export const uiStrings: Record<LocaleCode, UIStrings> = { en, sv, fi, da, no };

@@ -13,7 +13,7 @@ import { uiStrings } from "@/data/ui-strings";
  * Omit a key when the asset does not exist yet. Callers hide the card, so a
  * gap (Finnish Origo Pro) does not show a broken image.
  */
-export type BrochureId = "cic-women" | "cic-men" | "elle" | "elle-pro" | "origo-pro";
+export type BrochureId = "cic-women" | "cic-men" | "elle" | "elle-pro" | "origo-pro" | "tai";
 
 export type BrochureQrCode = {
   /** Public path, e.g. `/images/qr/brochure/sv/cic-women.png`. */
@@ -52,6 +52,10 @@ const brochureCatalog: Partial<Record<LocaleCode, Partial<Record<BrochureId, Bro
       image: "/images/qr/brochure/sv/origo-pro.png",
       url: "https://wellspect.qrd.by/4vqi0h",
     },
+    tai: {
+      image: "/images/qr/brochure/tai/sv.png",
+      url: "https://wellspect.qrd.by/vx6m7p",
+    },
   },
   fi: {
     "cic-women": {
@@ -69,6 +73,10 @@ const brochureCatalog: Partial<Record<LocaleCode, Partial<Record<BrochureId, Bro
     "elle-pro": {
       image: "/images/qr/brochure/fi/elle-pro.png",
       url: "https://wellspect.qrd.by/zvwmpy",
+    },
+    tai: {
+      image: "/images/qr/brochure/tai/fi.png",
+      url: "https://wellspect.qrd.by/agxnuc",
     },
     // origo-pro: no Finnish asset yet
   },
@@ -93,6 +101,10 @@ const brochureCatalog: Partial<Record<LocaleCode, Partial<Record<BrochureId, Bro
       image: "/images/qr/brochure/da/origo-pro.png",
       url: "https://wellspect.qrd.by/4i0q2p",
     },
+    tai: {
+      image: "/images/qr/brochure/tai/da.png",
+      url: "https://wellspect.qrd.by/lorzn3",
+    },
   },
   no: {
     "cic-women": {
@@ -114,6 +126,16 @@ const brochureCatalog: Partial<Record<LocaleCode, Partial<Record<BrochureId, Bro
     "origo-pro": {
       image: "/images/qr/brochure/no/origo-pro.png",
       url: "https://wellspect.qrd.by/tmc74f",
+    },
+    tai: {
+      image: "/images/qr/brochure/tai/no.png",
+      url: "https://wellspect.qrd.by/k0vdgh",
+    },
+  },
+  en: {
+    tai: {
+      image: "/images/qr/brochure/tai/en.png",
+      url: "https://wellspect.qrd.by/gpn04e",
     },
   },
 };
@@ -151,6 +173,12 @@ function resolve(
   };
 }
 
+/** Life with Navina guide for the bowel-care grid. Missing assets are skipped. */
+export function getBowelBrochure(locale: LocaleCode): ResolvedBrochure | undefined {
+  const t = uiStrings[locale];
+  return resolve("tai", locale, t.brochureTai, t.brochureLifeWithNavina);
+}
+
 /** CIC audience brochures for the home grid. Missing assets are skipped. */
 export function getHomeBrochures(locale: LocaleCode): ResolvedBrochure[] {
   const t = uiStrings[locale];
@@ -163,7 +191,8 @@ export function getHomeBrochures(locale: LocaleCode): ResolvedBrochure[] {
 
 /**
  * Brochures for a product How to use tab.
- * Product step-guide QR first (beside the in-app guide), then the CIC audience QR.
+ * Product step-guide QR first (beside the in-app guide), then the CIC audience
+ * QR or the Life with Navina guide on bowel products.
  */
 export function getHowToBrochures(
   productId: string,
@@ -188,6 +217,11 @@ export function getHowToBrochures(
       cicId === "cic-women" ? t.brochureCicWomen : t.brochureCicMen,
       t.brochurePdfGuide,
     );
+    if (card) cards.push(card);
+  }
+
+  if (category === "bowel") {
+    const card = resolve("tai", locale, t.brochureTai, t.brochureLifeWithNavina);
     if (card) cards.push(card);
   }
 
