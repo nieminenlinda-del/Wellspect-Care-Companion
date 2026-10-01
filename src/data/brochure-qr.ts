@@ -180,6 +180,14 @@ const productBrochureIds: Partial<Record<string, BrochureId>> = {
  * also has a QR in `brochureCatalog`, so a cover alone never creates a card.
  */
 const brochureCovers: Partial<Record<LocaleCode, Partial<Record<BrochureId, string>>>> = {
+  sv: {
+    "cic-women": "/images/qr/brochure/covers/sv/cic-women.png",
+    "cic-men": "/images/qr/brochure/covers/sv/cic-men.png",
+    elle: "/images/qr/brochure/covers/sv/elle.png",
+    "elle-pro": "/images/qr/brochure/covers/sv/elle-pro.png",
+    "origo-pro": "/images/qr/brochure/covers/sv/origo-pro.png",
+    tai: "/images/qr/brochure/covers/sv/tai.png",
+  },
   fi: {
     "cic-women": "/images/qr/brochure/covers/fi/cic-women.png",
     "cic-men": "/images/qr/brochure/covers/fi/cic-men.png",
