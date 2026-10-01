@@ -186,6 +186,7 @@ const brochureCovers: Partial<Record<LocaleCode, Partial<Record<BrochureId, stri
     elle: "/images/qr/brochure/covers/fi/elle.png",
     "elle-pro": "/images/qr/brochure/covers/fi/elle-pro.png",
     "origo-pro": "/images/qr/brochure/covers/fi/origo-pro.png",
+    tai: "/images/qr/brochure/covers/fi/tai.png",
   },
 };
 
