@@ -16,9 +16,11 @@ import { DisclaimerCard } from "@/components/MedicalDisclaimer";
 import { MarketSelector } from "@/components/MarketSelector";
 import { EcolabelDialog, SwanMark } from "@/components/NordicEcolabel";
 import { ArabicVideosDialog } from "@/components/ArabicVideos";
+import { BrochureQrCard } from "@/components/BrochureQr";
 import { AnatomyDialog } from "@/components/AnatomyDialog";
 import { anatomyStrings } from "@/data/anatomy";
 import { arabicVideosStrings } from "@/data/arabic-videos";
+import { getHomeBrochures } from "@/data/brochure-qr";
 import { ProductImage } from "@/components/ProductImage";
 import { ecolabelContent } from "@/data/ecolabel";
 import { publicUrl } from "@/lib/public-url";
@@ -216,6 +218,16 @@ function Index() {
                   }
                 />
               </li>
+              {getHomeBrochures(locale).map((card) => (
+                <li key={card.id}>
+                  <BrochureQrCard
+                    variant="home"
+                    image={card.image}
+                    label={card.label}
+                    detail={card.detail}
+                  />
+                </li>
+              ))}
               <li>
                 <EcolabelDialog
                   trigger={

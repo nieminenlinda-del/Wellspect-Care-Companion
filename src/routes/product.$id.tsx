@@ -14,6 +14,7 @@ import {
   PlayCircle,
   ShieldAlert,
 } from "lucide-react";
+import { getHowToBrochures } from "@/data/brochure-qr";
 import {
   categoryLabels,
   getProduct,
@@ -28,6 +29,7 @@ import { MarketSelector } from "@/components/MarketSelector";
 import { EcolabelDialog } from "@/components/NordicEcolabel";
 import { ProductImage } from "@/components/ProductImage";
 import { ProductWebsiteQr } from "@/components/ProductWebsiteQr";
+import { BrochureQrCard } from "@/components/BrochureQr";
 import { AnatomyDialog } from "@/components/AnatomyDialog";
 import { ImageGuideDialog, InlineInstructionGuide } from "@/components/ImageGuideDialog";
 import { anatomyStrings } from "@/data/anatomy";
@@ -158,6 +160,7 @@ function ProductDetail() {
   const showImageGuide = hasImageGuide(product);
   const showHowToActions =
     product.category === "women" || product.category === "men" || hasVideoSection || showImageGuide;
+  const howToBrochures = getHowToBrochures(product.id, product.category, locale, product.name);
 
   if (!isProductAvailable(product, locale)) {
     return <Navigate to="/" replace />;
@@ -310,103 +313,129 @@ function ProductDetail() {
                 </div>
               )}
 
-              {hasVideoSection && (
-                <div
-                  className={`border-border bg-muted/40 rounded-2xl border p-4 ${
-                    showImageGuide ? "" : "mb-6"
-                  }`}
-                >
-                  <p className="text-foreground flex items-center gap-2 text-sm font-semibold">
-                    <PlayCircle className="text-primary size-4" aria-hidden="true" />
-                    {product.videoTitle ?? t.videoGuide}
-                  </p>
-                  {videoVariants.length > 1 && (
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      {videoVariants.map((variant, idx) => (
-                        <button
-                          key={localizedText(variant.label, locale)}
-                          type="button"
-                          onClick={() => setVariantIdx(idx)}
-                          aria-pressed={variantIdx === idx}
-                          className={`min-h-10 rounded-full px-4 text-xs font-medium transition-colors ${
-                            variantIdx === idx
-                              ? "bg-primary text-primary-foreground"
-                              : "border-border bg-background text-muted-foreground hover:bg-muted border"
-                          }`}
-                        >
-                          {localizedText(variant.label, locale)}
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                  {!activeVideoUrl && (
-                    <p className="text-muted-foreground mt-3 text-sm">{t.videoPending}</p>
-                  )}
-                  <div
-                    className={`bg-card border-border mt-3 overflow-hidden rounded-xl border ${
-                      activeVideoUrl ? "" : "hidden"
-                    }`}
-                  >
-                    <video
-                      key={activeVideoUrl}
-                      ref={videoRef}
-                      src={activeVideoUrl ? publicUrl(activeVideoUrl) : undefined}
-                      controls
-                      playsInline
-                      preload="metadata"
-                      className="clinic-video"
+              <div
+                className={
+                  howToBrochures.length > 0
+                    ? "grid items-start gap-4 lg:grid-cols-[minmax(0,1fr)_20rem]"
+                    : undefined
+                }
+              >
+                <div className="min-w-0">
+                  {hasVideoSection && (
+                    <div
+                      className={`border-border bg-muted/40 rounded-2xl border p-4 ${
+                        showImageGuide ? "" : "mb-6"
+                      }`}
                     >
-                      {captionTracks.map(([code, url]) => (
-                        <track
-                          key={code}
-                          kind="subtitles"
-                          src={publicUrl(url)}
-                          srcLang={code}
-                          label={localeLabel(code)}
-                          default={code === captionLang}
-                        />
-                      ))}
-                    </video>
-                  </div>
-                  {captionTracks.length > 0 && (
-                    <div className="mt-3 flex flex-wrap items-center gap-2">
-                      <span className="text-muted-foreground text-xs font-medium">
-                        {t.captions}
-                      </span>
-                      {captionTracks.map(([code]) => (
-                        <button
-                          key={code}
-                          type="button"
-                          onClick={() => setCaptionLang(code)}
-                          aria-pressed={captionLang === code}
-                          className={`min-h-9 rounded-full px-3 text-xs font-medium transition-colors ${
-                            captionLang === code
-                              ? "bg-primary text-primary-foreground"
-                              : "border-border bg-background text-muted-foreground hover:bg-muted border"
-                          }`}
-                        >
-                          {localeLabel(code)}
-                        </button>
-                      ))}
-                      <button
-                        type="button"
-                        onClick={() => setCaptionLang("off")}
-                        aria-pressed={captionLang === "off"}
-                        className={`min-h-9 rounded-full px-3 text-xs font-medium transition-colors ${
-                          captionLang === "off"
-                            ? "bg-primary text-primary-foreground"
-                            : "border-border bg-background text-muted-foreground hover:bg-muted border"
+                      <p className="text-foreground flex items-center gap-2 text-sm font-semibold">
+                        <PlayCircle className="text-primary size-4" aria-hidden="true" />
+                        {product.videoTitle ?? t.videoGuide}
+                      </p>
+                      {videoVariants.length > 1 && (
+                        <div className="mt-3 flex flex-wrap gap-2">
+                          {videoVariants.map((variant, idx) => (
+                            <button
+                              key={localizedText(variant.label, locale)}
+                              type="button"
+                              onClick={() => setVariantIdx(idx)}
+                              aria-pressed={variantIdx === idx}
+                              className={`min-h-10 rounded-full px-4 text-xs font-medium transition-colors ${
+                                variantIdx === idx
+                                  ? "bg-primary text-primary-foreground"
+                                  : "border-border bg-background text-muted-foreground hover:bg-muted border"
+                              }`}
+                            >
+                              {localizedText(variant.label, locale)}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                      {!activeVideoUrl && (
+                        <p className="text-muted-foreground mt-3 text-sm">{t.videoPending}</p>
+                      )}
+                      <div
+                        className={`bg-card border-border mt-3 overflow-hidden rounded-xl border ${
+                          activeVideoUrl ? "" : "hidden"
                         }`}
                       >
-                        {t.captionsOff}
-                      </button>
+                        <video
+                          key={activeVideoUrl}
+                          ref={videoRef}
+                          src={activeVideoUrl ? publicUrl(activeVideoUrl) : undefined}
+                          controls
+                          playsInline
+                          preload="metadata"
+                          className="clinic-video"
+                        >
+                          {captionTracks.map(([code, url]) => (
+                            <track
+                              key={code}
+                              kind="subtitles"
+                              src={publicUrl(url)}
+                              srcLang={code}
+                              label={localeLabel(code)}
+                              default={code === captionLang}
+                            />
+                          ))}
+                        </video>
+                      </div>
+                      {captionTracks.length > 0 && (
+                        <div className="mt-3 flex flex-wrap items-center gap-2">
+                          <span className="text-muted-foreground text-xs font-medium">
+                            {t.captions}
+                          </span>
+                          {captionTracks.map(([code]) => (
+                            <button
+                              key={code}
+                              type="button"
+                              onClick={() => setCaptionLang(code)}
+                              aria-pressed={captionLang === code}
+                              className={`min-h-9 rounded-full px-3 text-xs font-medium transition-colors ${
+                                captionLang === code
+                                  ? "bg-primary text-primary-foreground"
+                                  : "border-border bg-background text-muted-foreground hover:bg-muted border"
+                              }`}
+                            >
+                              {localeLabel(code)}
+                            </button>
+                          ))}
+                          <button
+                            type="button"
+                            onClick={() => setCaptionLang("off")}
+                            aria-pressed={captionLang === "off"}
+                            className={`min-h-9 rounded-full px-3 text-xs font-medium transition-colors ${
+                              captionLang === "off"
+                                ? "bg-primary text-primary-foreground"
+                                : "border-border bg-background text-muted-foreground hover:bg-muted border"
+                            }`}
+                          >
+                            {t.captionsOff}
+                          </button>
+                        </div>
+                      )}
                     </div>
                   )}
+                  {!showImageGuide && (
+                    <InlineInstructionGuide
+                      product={product}
+                      done={done}
+                      onToggleStep={toggleStep}
+                    />
+                  )}
                 </div>
-              )}
-              {!showImageGuide && (
-                <InlineInstructionGuide product={product} done={done} onToggleStep={toggleStep} />
-              )}
+                {howToBrochures.length > 0 && (
+                  <div className="order-first grid content-start gap-3 lg:order-none">
+                    {howToBrochures.map((card) => (
+                      <BrochureQrCard
+                        key={card.id}
+                        image={card.image}
+                        label={card.label}
+                        detail={card.detail}
+                      />
+                    ))}
+                  </div>
+                )}
+              </div>
             </Panel>
           )}
 
