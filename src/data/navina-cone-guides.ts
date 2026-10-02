@@ -6,9 +6,8 @@ import type { InstructionStep } from "@/data/products";
  * equivalents), including the English quick guides. Norwegian is Classic
  * only — Smart has no
  * Norwegian cone or catheter sheet and stays unavailable in that locale.
- * Illustrations are the official Navina system panels (same files as the
- * catheter tab). The attached cone PNG packs were LoFric urinary-catheter
- * drawings, so they are not used here.
+ * Cone illustrations come from the cone packs only. They are not the
+ * catheter step images.
  */
 
 const classicImages = [
