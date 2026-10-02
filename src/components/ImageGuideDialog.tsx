@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { Check, Image as ImageIcon, Maximize2 } from "lucide-react";
 import {
   Dialog,
@@ -9,6 +9,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import {
+  availableInstructionGuides,
   localizedText,
   stepImage,
   stepText,
@@ -201,86 +202,68 @@ function InstructionSteps({
   );
 }
 
-export function ImageGuideDialog({
+function InstructionGuideBody({
   product,
-  trigger,
   done,
   onToggleStep,
 }: {
   product: Product;
-  trigger: ReactNode;
-  done: number[];
-  onToggleStep: (idx: number) => void;
+  done: Record<string, number[]>;
+  onToggleStep: (guideId: string, idx: number) => void;
 }) {
   const { locale } = useLocale();
   const t = uiStrings[locale];
-  const progress = Math.round((done.length / product.instructions.length) * 100);
-
-  return (
-    <Dialog>
-      <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogContent className="max-h-[min(88dvh,52rem)] overflow-y-auto rounded-3xl sm:max-w-2xl clinic-landscape:max-w-4xl">
-        <DialogHeader>
-          <DialogTitle className="pr-10 text-left text-xl tracking-tight">
-            {t.imageGuide}
-          </DialogTitle>
-          <DialogDescription className="sr-only">{t.imageGuide}</DialogDescription>
-        </DialogHeader>
-
-        <div>
-          <div className="bg-muted h-1.5 w-full overflow-hidden rounded-full">
-            <div
-              className="bg-primary h-full rounded-full transition-all duration-500"
-              style={{ width: `${progress}%` }}
-            />
-          </div>
-          <p className="text-muted-foreground mt-2 text-xs" aria-live="polite">
-            {done.length}/{product.instructions.length} · {progress}%
-          </p>
-        </div>
-
-        <InstructionSteps
-          steps={product.instructions}
-          locale={locale}
-          done={done}
-          onToggle={onToggleStep}
-        />
-
-        {product.extraGuide && (
-          <section className="border-border bg-muted/40 rounded-2xl border p-5">
-            <h3 className="text-foreground text-sm font-semibold">
-              {localizedText(product.extraGuide.title, locale)}
-            </h3>
-            {product.extraGuide.intro && (
-              <p className="text-muted-foreground mt-2 text-sm leading-relaxed">
-                {localizedText(product.extraGuide.intro, locale)}
-              </p>
-            )}
-            <div className="mt-4">
-              <InstructionSteps steps={product.extraGuide.steps} locale={locale} />
-            </div>
-          </section>
-        )}
-      </DialogContent>
-    </Dialog>
+  const guides = useMemo(
+    () =>
+      availableInstructionGuides(product, locale, {
+        catheter: t.guideCatheter,
+        cone: t.guideCone,
+      }),
+    [product, locale, t.guideCatheter, t.guideCone],
   );
-}
+  const guideKey = guides.map((guide) => guide.id).join("|");
+  const [activeId, setActiveId] = useState(guides[0]?.id ?? "catheter");
 
-export function InlineInstructionGuide({
-  product,
-  done,
-  onToggleStep,
-}: {
-  product: Product;
-  done: number[];
-  onToggleStep: (idx: number) => void;
-}) {
-  const { locale } = useLocale();
-  const progress = Math.round((done.length / product.instructions.length) * 100);
+  useEffect(() => {
+    if (!guides.some((guide) => guide.id === activeId)) {
+      setActiveId(guides[0]?.id ?? "catheter");
+    }
+  }, [activeId, guideKey, guides]);
+
+  const active = guides.find((guide) => guide.id === activeId) ?? guides[0];
+  if (!active) return null;
+
+  const checked = done[active.id] ?? [];
+  const progress = Math.round((checked.length / active.steps.length) * 100);
 
   return (
     <>
-      <div className="mb-5">
+      {guides.length > 1 && (
+        <div
+          role="tablist"
+          aria-label={t.imageGuide}
+          className="bg-muted/60 flex gap-1.5 rounded-full border p-1.5"
+        >
+          {guides.map((guide) => (
+            <button
+              key={guide.id}
+              role="tab"
+              type="button"
+              aria-selected={guide.id === active.id}
+              onClick={() => setActiveId(guide.id)}
+              className={`flex min-h-11 flex-1 items-center justify-center rounded-full px-4 py-2 text-sm font-medium whitespace-nowrap transition-all ${
+                guide.id === active.id
+                  ? "bg-primary text-primary-foreground shadow-soft"
+                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
+              }`}
+            >
+              {guide.label}
+            </button>
+          ))}
+        </div>
+      )}
+
+      <div>
         <div className="bg-muted h-1.5 w-full overflow-hidden rounded-full">
           <div
             className="bg-primary h-full rounded-full transition-all duration-500"
@@ -288,17 +271,19 @@ export function InlineInstructionGuide({
           />
         </div>
         <p className="text-muted-foreground mt-2 text-xs" aria-live="polite">
-          {done.length}/{product.instructions.length} · {progress}%
+          {checked.length}/{active.steps.length} · {progress}%
         </p>
       </div>
+
       <InstructionSteps
-        steps={product.instructions}
+        steps={active.steps}
         locale={locale}
-        done={done}
-        onToggle={onToggleStep}
+        done={checked}
+        onToggle={(idx) => onToggleStep(active.id, idx)}
       />
+
       {product.extraGuide && (
-        <section className="border-border bg-muted/40 mt-6 rounded-2xl border p-5">
+        <section className="border-border bg-muted/40 rounded-2xl border p-5">
           <h3 className="text-foreground text-sm font-semibold">
             {localizedText(product.extraGuide.title, locale)}
           </h3>
@@ -314,4 +299,46 @@ export function InlineInstructionGuide({
       )}
     </>
   );
+}
+
+export function ImageGuideDialog({
+  product,
+  trigger,
+  done,
+  onToggleStep,
+}: {
+  product: Product;
+  trigger: ReactNode;
+  done: Record<string, number[]>;
+  onToggleStep: (guideId: string, idx: number) => void;
+}) {
+  const { locale } = useLocale();
+  const t = uiStrings[locale];
+
+  return (
+    <Dialog>
+      <DialogTrigger asChild>{trigger}</DialogTrigger>
+      <DialogContent className="max-h-[min(88dvh,52rem)] overflow-y-auto rounded-3xl sm:max-w-2xl clinic-landscape:max-w-4xl">
+        <DialogHeader>
+          <DialogTitle className="pr-10 text-left text-xl tracking-tight">
+            {t.imageGuide}
+          </DialogTitle>
+          <DialogDescription className="sr-only">{t.imageGuide}</DialogDescription>
+        </DialogHeader>
+        <InstructionGuideBody product={product} done={done} onToggleStep={onToggleStep} />
+      </DialogContent>
+    </Dialog>
+  );
+}
+
+export function InlineInstructionGuide({
+  product,
+  done,
+  onToggleStep,
+}: {
+  product: Product;
+  done: Record<string, number[]>;
+  onToggleStep: (guideId: string, idx: number) => void;
+}) {
+  return <InstructionGuideBody product={product} done={done} onToggleStep={onToggleStep} />;
 }

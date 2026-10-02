@@ -34,6 +34,10 @@ export type UIStrings = {
   captionsOff: string;
   viewImageGuide: string;
   imageGuide: string;
+  /** Tab label for the rectal-catheter quick guide. */
+  guideCatheter: string;
+  /** Tab label for the rectal-cone quick guide. */
+  guideCone: string;
   enlargeIllustration: string;
   qrLearnMore: string;
   /** Label for a product step-guide brochure QR (Elle, Elle Pro, Origo Pro). */
@@ -88,6 +92,8 @@ const en: UIStrings = {
   captionsOff: "Off",
   viewImageGuide: "View step-by-step guide",
   imageGuide: "Step-by-step guide",
+  guideCatheter: "Catheter",
+  guideCone: "Cone",
   enlargeIllustration: "Enlarge illustration",
   qrLearnMore: "Learn more on the website",
   brochurePdfGuide: "Brochure / PDF guide",
@@ -135,6 +141,8 @@ const sv: UIStrings = {
   captionsOff: "Av",
   viewImageGuide: "Visa steg-för-steg-guide",
   imageGuide: "Steg-för-steg-guide",
+  guideCatheter: "Kateter",
+  guideCone: "Kona",
   enlargeIllustration: "Förstora illustrationen",
   qrLearnMore: "Läs mer på webbplatsen",
   brochurePdfGuide: "Broschyr / PDF-guide",
@@ -182,6 +190,8 @@ const fi: UIStrings = {
   captionsOff: "Pois",
   viewImageGuide: "Näytä kuvalliset käyttöohjeet",
   imageGuide: "Käyttöohjeet",
+  guideCatheter: "Katetri",
+  guideCone: "Kartio",
   enlargeIllustration: "Suurenna kuva",
   qrLearnMore: "Lue lisää verkkosivuilta",
   brochurePdfGuide: "Esite / PDF-opas",
@@ -229,6 +239,8 @@ const da: UIStrings = {
   captionsOff: "Fra",
   viewImageGuide: "Se trin-for-trin-guide",
   imageGuide: "Trin-for-trin-guide",
+  guideCatheter: "Kateter",
+  guideCone: "Cone",
   enlargeIllustration: "Forstør illustrationen",
   qrLearnMore: "Læs mere på hjemmesiden",
   brochurePdfGuide: "Brochure / PDF-guide",
@@ -276,6 +288,8 @@ const no: UIStrings = {
   captionsOff: "Av",
   viewImageGuide: "Se trinnvis guide",
   imageGuide: "Trinnvis guide",
+  guideCatheter: "Kateter",
+  guideCone: "Cone",
   enlargeIllustration: "Forstørr illustrasjonen",
   qrLearnMore: "Les mer på nettstedet",
   brochurePdfGuide: "Brosjyre / PDF-guide",
