@@ -85,7 +85,7 @@ export const contactInfo: Record<LocaleCode, ContactInfo> = {
     emailLabel: "E-post",
     email: "info.se@wellspect.com",
     hoursLabel: "Öppettider",
-    hours: "09.00-16.00",
+    hours: "Vardagar kl. 09.00-16.00",
     addressLabel: "Adress",
     address: "Wellspect HealthCare, Aminogatan 1, 431 53 Mölndal",
     websiteLabel: "Webbplats",
