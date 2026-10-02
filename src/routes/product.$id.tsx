@@ -116,7 +116,7 @@ function ProductDetail() {
   const t = uiStrings[locale];
   const eco = ecolabelContent[locale];
   const [tab, setTab] = useState<TabId>("usage");
-  const [done, setDone] = useState<number[]>([]);
+  const [done, setDone] = useState<Record<string, number[]>>({});
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const captionTracks = useMemo(
@@ -149,8 +149,16 @@ function ProductDetail() {
     });
   }, [captionLang, product.id, captionTracks.length]);
 
-  const toggleStep = (idx: number) =>
-    setDone((d) => (d.includes(idx) ? d.filter((x) => x !== idx) : [...d, idx]));
+  useEffect(() => {
+    setDone({});
+  }, [product.id]);
+
+  const toggleStep = (guideId: string, idx: number) =>
+    setDone((current) => {
+      const checked = current[guideId] ?? [];
+      const next = checked.includes(idx) ? checked.filter((x) => x !== idx) : [...checked, idx];
+      return { ...current, [guideId]: next };
+    });
 
   const tabs: { id: TabId; label: string; icon: React.ReactNode }[] = [
     { id: "usage", label: t.howToUse, icon: <ListChecks className="size-4" /> },
