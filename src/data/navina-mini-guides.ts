@@ -5,7 +5,8 @@ import type { InstructionStep, LocalizedText } from "@/data/products";
  * (PD-00097825): Without is steps 1, 2, 4, 5, 6–7, 9, 12, 13, 14.
  * With adds extension-tube steps 3, 4 (cone on the tube), and 10/11.
  * Illustrations are the AID0056458–6480 frames matched to those rows.
- * Step 8 (withdraw the cone) is not on the picture rows.
+ * Step 8 (pull out the cone and let the bowel empty) has no picture row.
+ * It is still its own card on both tabs, reusing that tab's instillation frame.
  */
 
 export const miniWithoutTubeLabel: LocalizedText = {
@@ -102,6 +103,15 @@ const instillWith: InstructionStep = {
   image: aid("AID0056458"),
 };
 
+/** IFU step 8. No dedicated frame; reuse this tab's instillation illustration. */
+const withdrawText: LocalizedText = {
+  en: "Pull out the cone and let the bowel empty.",
+  sv: "Dra ut konan och låt tarmen tömmas.",
+  fi: "Vedä kartio ulos ja anna suolen tyhjentyä.",
+  da: "Træk keglen ud, og lad tarmen tømmes.",
+  no: "Trekk ut conen og la tarmen tømme seg.",
+};
+
 const disposeWithout = {
   title: cleaning,
   text: {
@@ -153,7 +163,7 @@ const washHands: InstructionStep = {
   image: aid("AID0056470"),
 };
 
-/** IFU picture row without the extension tube. */
+/** IFU steps without the extension tube, plus step 8 (no picture row). */
 export const navinaMiniWithoutTube: InstructionStep[] = [
   fill,
   closeLid,
@@ -169,13 +179,14 @@ export const navinaMiniWithoutTube: InstructionStep[] = [
   },
   wetCone,
   instillWithout,
+  { text: withdrawText, image: instillWithout.image },
   disposeWithout,
   emptyContainer,
   cleanContainer,
   washHands,
 ];
 
-/** IFU picture row with the extension tube. Steps 3 and 10/11 are extension-only. */
+/** IFU steps with the extension tube, plus step 8 (no picture row). Steps 3 and 10/11 are extension-only. */
 export const navinaMiniWithTube: InstructionStep[] = [
   fill,
   closeLid,
@@ -201,6 +212,7 @@ export const navinaMiniWithTube: InstructionStep[] = [
   },
   wetCone,
   instillWith,
+  { text: withdrawText, image: instillWith.image },
   disposeWith,
   {
     text: {
