@@ -8,9 +8,10 @@ import type { InstructionStep } from "@/data/products";
  * Norwegian cone or catheter sheet and stays unavailable in that locale.
  * Cone illustrations are shared across locales. Steps that have a matching
  * cone-pack frame use that frame. Preparation, activation, and disassembly
- * for Classic, and instillation and disassembly for Smart, are cropped from
- * the cone quick-guide panel because the pack has no separate frame for them.
- * Catheter art is not used on these steps.
+ * for Classic, and activation, instillation, and disassembly for Smart, are
+ * cropped from the cone quick-guide panel because the pack has no separate
+ * frame for them. Smart activation is the control unit wetting the cone,
+ * with no body and no insertion. Catheter art is not used on these steps.
  */
 
 const classicImages = [
