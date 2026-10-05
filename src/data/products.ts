@@ -49,6 +49,12 @@ import { navinaInsertIfu, navinaMiniIfu } from "@/data/ifu-navina";
 import { navinaClassicIfu } from "@/data/ifu-navina-classic";
 import { navinaSmartIfu } from "@/data/ifu-navina-smart";
 import { navinaClassicCone, navinaSmartCone } from "@/data/navina-cone-guides";
+import {
+  miniWithTubeLabel,
+  miniWithoutTubeLabel,
+  navinaMiniWithTube,
+  navinaMiniWithoutTube,
+} from "@/data/navina-mini-guides";
 
 export type CategoryId = "women" | "men" | "bowel" | "contact";
 
@@ -357,6 +363,12 @@ export type Product = {
    * have copy. Other locales stay on the catheter guide.
    */
   coneInstructions?: InstructionStep[];
+  /**
+   * When set, these tabs replace the catheter/cone pair. The first guide
+   * with copy is the default. A tab is omitted in locales that lack a label
+   * or lack step copy.
+   */
+  instructionGuides?: NamedInstructionGuide[];
   safety: LocalizedText[];
   contraindicationsIntro?: LocalizedText;
   contraindications: LocalizedText[];
@@ -369,6 +381,11 @@ export type Product = {
 export const hasImageGuide = (product: Product) =>
   product.instructions.some((step) => Boolean(stepImage(step))) ||
   Boolean(product.coneInstructions?.some((step) => Boolean(stepImage(step)))) ||
+  Boolean(
+    product.instructionGuides?.some((guide) =>
+      guide.steps.some((step) => Boolean(stepImage(step))),
+    ),
+  ) ||
   Boolean(product.extraGuide?.steps.some((step) => Boolean(stepImage(step))));
 
 /** True when every step has non-empty copy for this locale. */
@@ -381,12 +398,26 @@ export type InstructionGuideView = {
   steps: InstructionStep[];
 };
 
+/** A selectable quick-guide tab. The label is localized; empty locales hide the tab. */
+export type NamedInstructionGuide = {
+  id: string;
+  label: LocalizedText;
+  steps: InstructionStep[];
+};
+
 /** Catheter guide, plus the cone guide when this locale has cone copy. */
 export function availableInstructionGuides(
   product: Product,
   locale: LocaleCode,
   labels: { catheter: string; cone: string },
 ): InstructionGuideView[] {
+  if (product.instructionGuides?.length) {
+    return product.instructionGuides.flatMap((guide) => {
+      const label = localizedText(guide.label, locale).trim();
+      if (!label || !guideHasCopy(guide.steps, locale)) return [];
+      return [{ id: guide.id, label, steps: guide.steps }];
+    });
+  }
   const guides: InstructionGuideView[] = [
     { id: "catheter", label: labels.catheter, steps: product.instructions },
   ];
@@ -1324,26 +1355,8 @@ export const products: Product[] = [
     id: "navina-mini",
     logo: navinaMiniLogo.url,
     videos: [
-      {
-        label: {
-          en: "With extension tube",
-          sv: "Med förlängningsslang",
-          fi: "Jatkoletkun kanssa",
-          da: "Med forlængerslange",
-          no: "Med forlengelsesslange",
-        },
-        url: navinaMiniTubeVideo.url,
-      },
-      {
-        label: {
-          en: "Without extension tube",
-          sv: "Utan förlängningsslang",
-          fi: "Ilman jatkoletkua",
-          da: "Uden forlængerslange",
-          no: "Uten forlengelsesslange",
-        },
-        url: navinaMiniUsxVideo.url,
-      },
+      { label: miniWithTubeLabel, url: navinaMiniTubeVideo.url },
+      { label: miniWithoutTubeLabel, url: navinaMiniUsxVideo.url },
     ],
     brand: "Navina",
     name: "Navina Mini",
@@ -1359,137 +1372,17 @@ export const products: Product[] = [
       no: "Kompakt irrigasjonssett for mindre vannmengder og enkel reise.",
     },
     indications: navinaMiniIfu.indications,
-    instructions: [
+    instructions: navinaMiniWithoutTube,
+    instructionGuides: [
       {
-        title: {
-          en: "Preparations",
-          sv: "Förberedelser",
-          fi: "Valmistelut",
-          da: "Forberedelser",
-          no: "Forberedelser",
-        },
-        text: {
-          en: "Open the lid and fill the entire water container with lukewarm (36–38 °C) tap water.",
-          sv: "Öppna locket och fyll hela vattenbehållaren med ljummet (36–38 °C) kranvatten.",
-          fi: "Avaa kansi ja täytä koko vesisäiliö haalealla (36–38 °C) hanavedellä.",
-          da: "Åbn låget og fyld hele vandbeholderen med lunkent (36–38 °C) vand fra hanen.",
-          no: "Åpne lokket og fyll hele vannbeholderen med lunkent (36–38 °C) springvann.",
-        },
-        image: "/images/instructions/navina-mini/1.png",
+        id: "without",
+        label: miniWithoutTubeLabel,
+        steps: navinaMiniWithoutTube,
       },
       {
-        text: {
-          en: "Close the lid.",
-          sv: "Stäng locket.",
-          fi: "Sulje kansi.",
-          da: "Luk låget.",
-          no: "Lukk lokket.",
-        },
-        image: "/images/instructions/navina-mini/2.png",
-      },
-      {
-        text: {
-          en: "Open the pouch and connect the cone to the water container.",
-          sv: "Öppna påsen och anslut konan till vattenbehållaren.",
-          fi: "Avaa pussi ja liitä kartio vesisäiliöön.",
-          da: "Åbn posen og forbind konussen til vandbeholderen.",
-          no: "Åpne posen og koble konusen til vannbeholderen.",
-        },
-        image: "/images/instructions/navina-mini/3.png",
-      },
-      {
-        text: {
-          en: "Activate the slippery surface on the cone by wetting it with tap water.",
-          sv: "Aktivera den hala ytan på konan genom att väta den med kranvatten.",
-          fi: "Aktivoi kartion liukas pinta kostuttamalla se hanavedellä.",
-          da: "Aktivér konussens glatte overflade ved at væde den med vand fra hanen.",
-          no: "Aktiver den glatte overflaten på konusen ved å fukte den med springvann.",
-        },
-        image: "/images/instructions/navina-mini/4.png",
-      },
-      {
-        title: {
-          en: "Instillation",
-          sv: "Instillation",
-          fi: "Instillaatio",
-          da: "Instillation",
-          no: "Instillasjon",
-        },
-        text: {
-          en: "Sit on or stand over the toilet and gently insert the cone into the rectum.",
-          sv: "Sitt på eller stå över toaletten och för försiktigt in konan i rektum.",
-          fi: "Istu wc:n päällä tai seiso sen yllä ja vie kartio varovasti peräsuoleen.",
-          da: "Sid på eller stå over toilettet, og før forsigtigt konussen ind i endetarmen.",
-          no: "Sitt på eller stå over toalettet og før konusen forsiktig inn i endetarmen.",
-        },
-        image: "/images/instructions/navina-mini/5.png",
-      },
-      {
-        text: {
-          en: "When the cone is in place, gently squeeze the water container to instill the water. Only insert the tapered part of the cone and stop when you reach the wider base.",
-          sv: "När konan är på plats, kläm försiktigt på vattenbehållaren för att instillera vattnet. Tänk på att bara föra in den spetsiga delen av konan och stanna när du kommer till den bredare basen.",
-          fi: "Kun kartio on paikallaan, purista vesisäiliötä varovasti veden instilloimiseksi. Vie sisään vain kartion kapeneva osa ja pysähdy leveämpään tyveen.",
-          da: "Når konussen er på plads, klem forsigtigt på vandbeholderen for at instillere vandet. Før kun den spidse del af konussen ind, og stop ved den bredere base.",
-          no: "Når konusen er på plass, klem forsiktig på vannbeholderen for å instillere vannet. Før bare inn den spisse delen av konusen og stopp ved den bredere basen.",
-        },
-        image: "/images/instructions/navina-mini/6.png",
-      },
-      {
-        text: {
-          en: "Withdraw the cone and let the bowel empty.",
-          sv: "Drag ut konan och låt tarmen tömmas.",
-          fi: "Vedä kartio ulos ja anna suolen tyhjentyä.",
-          da: "Træk konussen ud, og lad tarmen tømmes.",
-          no: "Trekk ut konusen og la tarmen tømmes.",
-        },
-        image: "/images/instructions/navina-mini/7.png",
-      },
-      {
-        title: {
-          en: "Disassembly and cleaning",
-          sv: "Isärtagning och rengöring",
-          fi: "Purkaminen ja puhdistus",
-          da: "Adskillelse og rengøring",
-          no: "Demontering og rengjøring",
-        },
-        text: {
-          en: "Place the cone back into the pouch and dispose of it as household waste.",
-          sv: "Lägg tillbaka konan i påsen och släng som hushållsavfall.",
-          fi: "Laita kartio takaisin pussiin ja hävitä se sekajätteenä.",
-          da: "Læg konussen tilbage i posen, og bortskaf den som husholdningsaffald.",
-          no: "Legg konusen tilbake i posen og kast den som husholdningsavfall.",
-        },
-        image: "/images/instructions/navina-mini/8.png",
-      },
-      {
-        text: {
-          en: "Open the lid of the water container and empty any remaining water.",
-          sv: "Öppna locket på vattenbehållaren och töm ut resterande vatten.",
-          fi: "Avaa vesisäiliön kansi ja kaada jäljellä oleva vesi pois.",
-          da: "Åbn låget på vandbeholderen, og tøm det resterende vand ud.",
-          no: "Åpne lokket på vannbeholderen og tøm ut resterende vann.",
-        },
-        image: "/images/instructions/navina-mini/9.png",
-      },
-      {
-        text: {
-          en: "Gently clean the water container after each use with lukewarm soapy water only. Allow to dry.",
-          sv: "Rengör försiktigt vattenbehållaren efter varje användning med enbart ljummet tvålvatten. Låt torka.",
-          fi: "Puhdista vesisäiliö varovasti jokaisen käytön jälkeen vain haalealla saippuavedellä. Anna kuivua.",
-          da: "Rengør forsigtigt vandbeholderen efter hver brug med kun lunkent sæbevand. Lad den tørre.",
-          no: "Rengjør vannbeholderen forsiktig etter hver bruk med kun lunkent såpevann. La den tørke.",
-        },
-        image: "/images/instructions/navina-mini/10.png",
-      },
-      {
-        text: {
-          en: "Wash your hands.",
-          sv: "Tvätta händerna.",
-          fi: "Pese kädet.",
-          da: "Vask hænderne.",
-          no: "Vask hendene.",
-        },
-        image: "/images/instructions/navina-mini/11.png",
+        id: "with",
+        label: miniWithTubeLabel,
+        steps: navinaMiniWithTube,
       },
     ],
     safety: navinaMiniIfu.safety,

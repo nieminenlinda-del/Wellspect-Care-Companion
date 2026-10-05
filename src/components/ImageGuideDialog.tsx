@@ -251,7 +251,7 @@ function InstructionGuideBody({
               type="button"
               aria-selected={guide.id === active.id}
               onClick={() => setActiveId(guide.id)}
-              className={`flex min-h-11 flex-1 items-center justify-center rounded-full px-4 py-2 text-sm font-medium whitespace-nowrap transition-all ${
+              className={`flex min-h-11 flex-1 items-center justify-center rounded-full px-3 py-2 text-center text-sm leading-tight font-medium transition-all ${
                 guide.id === active.id
                   ? "bg-primary text-primary-foreground shadow-soft"
                   : "text-muted-foreground hover:bg-muted hover:text-foreground"
