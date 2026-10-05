@@ -6,8 +6,11 @@ import type { InstructionStep } from "@/data/products";
  * equivalents), including the English quick guides. Norwegian is Classic
  * only — Smart has no
  * Norwegian cone or catheter sheet and stays unavailable in that locale.
- * Cone illustrations come from the cone packs only. They are not the
- * catheter step images.
+ * Cone illustrations are shared across locales. Steps that have a matching
+ * cone-pack frame use that frame. Preparation, activation, and disassembly
+ * for Classic, and instillation and disassembly for Smart, are cropped from
+ * the cone quick-guide panel because the pack has no separate frame for them.
+ * Catheter art is not used on these steps.
  */
 
 const classicImages = [
