@@ -350,6 +350,11 @@ export type Product = {
   image?: string;
   /** Official product wordmark/logo URL (CDN asset). Optional. */
   logo?: string;
+  /**
+   * Plain-text set beside the wordmark when the variant has no logo of its
+   * own. “Sleeve” next to the LoFric Origo mark.
+   */
+  logoSuffix?: string;
   /** Optional instructional video (CDN asset URL) shown in the "How to use" tab. */
   videoUrl?: string;
   /**
@@ -1129,15 +1134,14 @@ export const products: Product[] = [
   },
   {
     // Male articles only (Nelaton 446 and Flexible 448) on every market,
-    // so there is no female product. No Sleeve wordmark or packshot is
-    // published; the name is set in type and the photo stays empty.
+    // so there is no female product. No Sleeve wordmark exists; the Origo
+    // mark is shown with “Sleeve” set beside it.
     id: "lofric-origo-sleeve",
-    videoByLocale: {
-      en: "/media/lofric-origo-sleeve-en.mp4",
-      sv: "/media/lofric-origo-sleeve-sv.mp4",
-      da: "/media/lofric-origo-sleeve-da.mp4",
-      fi: "/media/lofric-origo-sleeve-fi.mp4",
-    },
+    image: "/media/lofric-origo-sleeve.png",
+    logo: "/media/lofric-origo-wordmark.svg",
+    logoSuffix: "Sleeve",
+    videoUrl: "/media/lofric-origo-sleeve.mp4",
+    captions: { en: "/media/lofric-origo-sleeve-en.vtt" },
     brand: "LoFric",
     name: "LoFric Origo Sleeve",
     spec: "CH 12–16 · 40 cm",

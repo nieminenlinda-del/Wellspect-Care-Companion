@@ -28,7 +28,7 @@ import { locales, useLocale, type LocaleCode } from "@/lib/locale";
 import { DisclaimerCard } from "@/components/MedicalDisclaimer";
 import { MarketSelector } from "@/components/MarketSelector";
 import { EcolabelDialog } from "@/components/NordicEcolabel";
-import { ProductImage } from "@/components/ProductImage";
+import { ProductImage, ProductTitle } from "@/components/ProductImage";
 import { ProductWebsiteQr } from "@/components/ProductWebsiteQr";
 import { DownloadableGuidesDialog } from "@/components/DownloadableGuidesDialog";
 import { AnatomyDialog } from "@/components/AnatomyDialog";
@@ -239,15 +239,13 @@ function ProductDetail() {
                 className="text-foreground text-[clamp(1.6rem,3vw,2.75rem)] leading-[1.1] font-semibold tracking-tight text-balance"
                 aria-label={product.name}
               >
-                {product.logo ? (
-                  <img
-                    src={publicUrl(product.logo)}
-                    alt={product.name}
-                    className="h-9 w-auto object-contain object-left sm:h-11"
-                  />
-                ) : (
-                  product.name
-                )}
+                <ProductTitle
+                  name={product.name}
+                  logo={product.logo}
+                  logoSuffix={product.logoSuffix}
+                  logoClassName="h-8 w-auto max-w-[16rem] object-contain object-left sm:h-10"
+                  suffixClassName="text-2xl leading-none font-medium tracking-tight text-[#758cc6] sm:text-[1.85rem]"
+                />
               </h1>
               <p className="text-muted-foreground mt-1 text-sm">{product.spec}</p>
               <p className="text-foreground mt-5 max-w-2xl text-base leading-relaxed text-pretty sm:text-lg">
