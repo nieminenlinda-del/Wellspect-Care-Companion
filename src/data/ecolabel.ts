@@ -1,13 +1,19 @@
 import type { LocaleCode } from "@/lib/locale";
 
+/** Licence number printed with the Nordic Swan mark in the pop-up. */
+export const swanLicenseNumber = "3098 0002";
+
 export type EcolabelContent = {
   name: string;
   cardTitle: string;
-  cardSubtitle: string;
   badge: string;
-  intro: string;
-  points: { title: string; text: string }[];
-  footnote: string;
+  /** Pop-up heading. */
+  heading: string;
+  paragraphs: string[];
+  /** Label above the product list, e.g. "Svanenmärkningen gäller:". */
+  appliesLabel: string;
+  /** Products the label covers, as one closing line. */
+  appliesTo: string;
   /**
    * Short help shown beside the locale QR. The dialog hides the block when
    * `ecolabelQrs` has no image for that locale.
@@ -16,34 +22,22 @@ export type EcolabelContent = {
   close: string;
 };
 
+const appliesTo =
+  "LoFric Elle, LoFric Elle Pro, LoFric Origo, LoFric Origo Sleeve, LoFric Origo Pro, LoFric Sense, LoFric Hydro-Kit";
+
 export const ecolabelContent: Record<LocaleCode, EcolabelContent> = {
   en: {
     name: "Nordic Swan Ecolabel",
     cardTitle: "Nordic Ecolabel",
-    cardSubtitle: "Why the Swan matters in healthcare",
     badge: "Nordic Swan Ecolabel certified",
-    intro:
-      "The Nordic Swan Ecolabel is the official environmental label of the Nordic countries and one of the strictest environmental certifications in the world. Only products that meet demanding requirements are allowed to carry the Swan.",
-    points: [
-      {
-        title: "Strict requirements across the lifecycle",
-        text: "Raw materials, chemicals, production, use and waste are all reviewed. Requirements are tightened over time, so certification has to be earned again and again.",
-      },
-      {
-        title: "Careful chemistry",
-        text: "Substances of concern are limited or excluded, which supports safe daily use for people who catheterise or irrigate several times a day.",
-      },
-      {
-        title: "Responsible materials and packaging",
-        text: "Eco-conscious materials and recyclable packaging are prioritised, with less material used per product wherever possible.",
-      },
-      {
-        title: "Clinical safety comes first",
-        text: "Environmental improvements are never made at the expense of product performance, hygiene or patient safety.",
-      },
+    heading: "Environment",
+    paragraphs: [
+      "LoFric catheters are PVC-free and made of a polyolefin-based elastomer (POBE). It is an elastic material, free from plasticisers, known as phthalates. POBE has a 33% lower environmental impact compared with polyurethane.",
+      "LoFric was the first among hydrophilic intermittent catheters to receive the Nordic Swan Ecolabel. To be awarded the Nordic Swan Ecolabel, a product must meet strict environmental requirements. These include, among other things, restrictions and bans on various types of chemical substances in both production and the product.",
+      "The Nordic Swan Ecolabel makes it easier for users to make a good environmental choice when choosing a catheter.",
     ],
-    footnote:
-      "Certification applies to specific products and sizes. Check the packaging or ask your healthcare professional if you are unsure.",
+    appliesLabel: "The Nordic Swan Ecolabel applies to:",
+    appliesTo: `${appliesTo} and LoFric Primo.`,
     qrHint:
       "Scan the QR code to read more about the Nordic Swan Ecolabel on the official website, svanen.se/en.",
     close: "Close",
@@ -51,30 +45,15 @@ export const ecolabelContent: Record<LocaleCode, EcolabelContent> = {
   sv: {
     name: "Svanenmärkt",
     cardTitle: "Svanenmärket",
-    cardSubtitle: "Därför är Svanenmärket viktig inom hälso- och sjukvården",
     badge: "Svanenmärkt produkt",
-    intro:
-      "Svanen är Nordens officiella miljömärkning och en av världens strängaste miljöcertifieringar. Endast produkter som klarar hårda krav får bära Svanen.",
-    points: [
-      {
-        title: "Stränga krav genom hela livscykeln",
-        text: "Råvaror, kemikalier, tillverkning, användning och avfall granskas. Kraven skärps över tid, så märkningen måste förtjänas på nytt.",
-      },
-      {
-        title: "Noggrant vald kemi",
-        text: "Ämnen med oönskade egenskaper begränsas eller utesluts, vilket stödjer säker daglig användning för den som katetriserar eller irrigerar flera gånger om dagen.",
-      },
-      {
-        title: "Ansvarsfulla material och förpackningar",
-        text: "Miljömedvetna material och återvinningsbara förpackningar prioriteras, med mindre material per produkt där det är möjligt.",
-      },
-      {
-        title: "Klinisk säkerhet först",
-        text: "Miljöförbättringar görs aldrig på bekostnad av funktion, hygien eller patientsäkerhet.",
-      },
+    heading: "Miljö",
+    paragraphs: [
+      "LoFric-katetrar är PVC-fria och tillverkade av polyolefinbaserad elastomer (POBE). Det är ett elastiskt material, fritt från mjukgörare, så kallade ftalater. POBE har 33% lägre miljöpåverkan jämfört med polyuretan.",
+      "LoFric var först bland hydrofila tappningskatetrar med att erhålla den nordiska miljömärkningen Svanen. För att beviljas Svanen-märkningen måste en produkt uppfylla strikta miljökrav. Dessa inkluderar bland annat begränsningar och förbud för olika typer av kemiska ämnen i både produktion och produkt.",
+      "Svanenmärkningen gör det enklare för användarna att göra ett bra miljöval när de väljer kateter.",
     ],
-    footnote:
-      "Märkningen gäller specifika produkter och storlekar. Kontrollera förpackningen eller fråga din vårdpersonal om du är osäker.",
+    appliesLabel: "Svanenmärkningen gäller:",
+    appliesTo: `${appliesTo} och LoFric Primo.`,
     qrHint:
       "Skanna QR-koden för att läsa mer om Svanenmärket på Wellspects webbplats, eller besök den officiella sajten svanen.se.",
     close: "Stäng",
@@ -82,30 +61,15 @@ export const ecolabelContent: Record<LocaleCode, EcolabelContent> = {
   fi: {
     name: "Joutsenmerkki",
     cardTitle: "Joutsenmerkki",
-    cardSubtitle: "Miksi Joutsenmerkki on tärkeä terveydenhuollolle",
     badge: "Joutsenmerkitty tuote",
-    intro:
-      "Joutsenmerkki on Pohjoismaiden virallinen ympäristömerkki ja yksi maailman tiukimmista ympäristösertifikaateista. Vain vaativat kriteerit täyttävät tuotteet saavat merkin.",
-    points: [
-      {
-        title: "Tiukat vaatimukset koko elinkaaren ajan",
-        text: "Raaka-aineet, kemikaalit, valmistus, käyttö ja jäte arvioidaan. Vaatimukset kiristyvät ajan myötä, joten merkki on ansaittava yhä uudelleen.",
-      },
-      {
-        title: "Harkittu kemia",
-        text: "Haitallisia aineita rajoitetaan tai vältetään, mikä tukee turvallista päivittäistä käyttöä useita kertoja päivässä katetroivilla tai huuhtelevilla.",
-      },
-      {
-        title: "Vastuulliset materiaalit ja pakkaukset",
-        text: "Ympäristöystävälliset materiaalit ja kierrätettävät pakkaukset ovat etusijalla, ja materiaalia käytetään mahdollisimman vähän.",
-      },
-      {
-        title: "Kliininen turvallisuus on etusijalla",
-        text: "Ympäristöparannuksia ei koskaan tehdä toimivuuden, hygienian tai potilasturvallisuuden kustannuksella.",
-      },
+    heading: "Ympäristö",
+    paragraphs: [
+      "LoFric-katetrit ovat PVC-vapaita ja valmistettu polyolefiinipohjaisesta elastomeerista (POBE). Se on joustava materiaali, jossa ei ole pehmentimiä, niin sanottuja ftalaatteja. POBE:lla on 33% pienempi ympäristövaikutus verrattuna polyuretaaniin.",
+      "LoFric sai pohjoismaisen ympäristömerkin Joutsenmerkin ensimmäisenä hydrofiilisistä kertakatetreista. Joutsenmerkin myöntäminen edellyttää, että tuote täyttää tiukat ympäristövaatimukset. Vaatimuksiin kuuluu muun muassa rajoituksia ja kieltoja, jotka koskevat erilaisia kemiallisia aineita sekä tuotannossa että tuotteessa.",
+      "Joutsenmerkki helpottaa käyttäjää tekemään hyvän ympäristövalinnan katetria valitessaan.",
     ],
-    footnote:
-      "Merkintä koskee tiettyjä tuotteita ja kokoja. Tarkista pakkaus tai kysy hoitohenkilökunnalta, jos olet epävarma.",
+    appliesLabel: "Joutsenmerkki koskee:",
+    appliesTo: `${appliesTo} ja LoFric Primo.`,
     qrHint:
       "Skanna QR-koodi lukeaksesi lisää Joutsenmerkistä Wellspectin sivustolta, tai käy virallisella sivustolla joutsenmerkki.fi.",
     close: "Sulje",
@@ -113,30 +77,15 @@ export const ecolabelContent: Record<LocaleCode, EcolabelContent> = {
   da: {
     name: "Svanemærket",
     cardTitle: "Svanemærket",
-    cardSubtitle: "Derfor betyder Svanen noget i sundhedsplejen",
     badge: "Svanemærket produkt",
-    intro:
-      "Svanemærket er Nordens officielle miljømærke og en af verdens strengeste miljøcertificeringer. Kun produkter, der lever op til skrappe krav, må bære Svanen.",
-    points: [
-      {
-        title: "Strenge krav i hele livscyklussen",
-        text: "Råvarer, kemikalier, produktion, brug og affald vurderes. Kravene skærpes over tid, så mærket skal fortjenes igen og igen.",
-      },
-      {
-        title: "Omhyggelig kemi",
-        text: "Problematiske stoffer begrænses eller udelukkes, hvilket understøtter sikker daglig brug for dem, der kateteriserer eller irrigerer flere gange dagligt.",
-      },
-      {
-        title: "Ansvarlige materialer og emballage",
-        text: "Miljøbevidste materialer og genanvendelig emballage prioriteres, med mindre materiale pr. produkt hvor det er muligt.",
-      },
-      {
-        title: "Klinisk sikkerhed først",
-        text: "Miljøforbedringer sker aldrig på bekostning af funktion, hygiejne eller patientsikkerhed.",
-      },
+    heading: "Miljø",
+    paragraphs: [
+      "LoFric-katetre er PVC-frie og fremstillet af polyolefinbaseret elastomer (POBE). Det er et elastisk materiale, frit for blødgørere, såkaldte ftalater. POBE har 33% lavere miljøpåvirkning sammenlignet med polyuretan.",
+      "LoFric var først blandt hydrofile intermitterende katetre til at opnå det nordiske miljømærke Svanemærket. For at få tildelt Svanemærket skal et produkt opfylde strenge miljøkrav. Disse omfatter blandt andet begrænsninger og forbud mod forskellige typer kemiske stoffer både i produktionen og i produktet.",
+      "Svanemærket gør det lettere for brugerne at træffe et godt miljøvalg, når de vælger kateter.",
     ],
-    footnote:
-      "Mærkningen gælder specifikke produkter og størrelser. Tjek emballagen, eller spørg din sundhedsprofessionelle, hvis du er i tvivl.",
+    appliesLabel: "Svanemærket gælder:",
+    appliesTo: `${appliesTo} og LoFric Primo.`,
     qrHint:
       "Scan QR-koden for at læse mere om Svanemærket på Wellspects website, eller besøg den officielle side svanemaerket.dk.",
     close: "Luk",
@@ -144,30 +93,15 @@ export const ecolabelContent: Record<LocaleCode, EcolabelContent> = {
   no: {
     name: "Svanemerket",
     cardTitle: "Svanemerket",
-    cardSubtitle: "Derfor betyr Svanen noe i helsetjenesten",
     badge: "Svanemerket produkt",
-    intro:
-      "Svanemerket er Nordens offisielle miljømerke og en av verdens strengeste miljøsertifiseringer. Bare produkter som oppfyller strenge krav får bære Svanen.",
-    points: [
-      {
-        title: "Strenge krav gjennom hele livsløpet",
-        text: "Råvarer, kjemikalier, produksjon, bruk og avfall vurderes. Kravene skjerpes over tid, så merket må fortjenes på nytt.",
-      },
-      {
-        title: "Nøye vurdert kjemi",
-        text: "Uønskede stoffer begrenses eller utelukkes, noe som støtter trygg daglig bruk for dem som kateteriserer eller irrigerer flere ganger om dagen.",
-      },
-      {
-        title: "Ansvarlige materialer og emballasje",
-        text: "Miljøbevisste materialer og resirkulerbar emballasje prioriteres, med mindre materialbruk per produkt der det er mulig.",
-      },
-      {
-        title: "Klinisk sikkerhet først",
-        text: "Miljøforbedringer går aldri på bekostning av funksjon, hygiene eller pasientsikkerhet.",
-      },
+    heading: "Miljø",
+    paragraphs: [
+      "LoFric-katetre er PVC-frie og laget av polyolefinbasert elastomer (POBE). Det er et elastisk materiale, fritt for myknere, såkalte ftalater. POBE har 33% lavere miljøpåvirkning sammenlignet med polyuretan.",
+      "LoFric var først blant hydrofile tappekatetre til å få det nordiske miljømerket Svanemerket. For å bli tildelt Svanemerket må et produkt oppfylle strenge miljøkrav. Disse omfatter blant annet begrensninger og forbud mot ulike typer kjemiske stoffer både i produksjonen og i produktet.",
+      "Svanemerket gjør det enklere for brukerne å ta et godt miljøvalg når de velger kateter.",
     ],
-    footnote:
-      "Merkingen gjelder bestemte produkter og størrelser. Sjekk emballasjen eller spør helsepersonell hvis du er usikker.",
+    appliesLabel: "Svanemerket gjelder:",
+    appliesTo: `${appliesTo} og LoFric Primo.`,
     qrHint:
       "Skann QR-koden for å lese mer om Svanemerket på Wellspects nettside, eller besøk den offisielle siden svanemerket.no.",
     close: "Lukk",

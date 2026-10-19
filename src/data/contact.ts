@@ -23,7 +23,21 @@ export function isContactCountry(value: string | null): value is ContactCountry 
   return contactCountryOptions.some((option) => option.code === value);
 }
 
-/** English field labels with the selected Nordic desk’s details. */
+/**
+ * Opening hours for the English contact page only. Local-language pages keep
+ * the wording in `contactInfo`.
+ */
+const englishDeskHours: Record<ContactCountry, string> = {
+  sv: "Mon–Fri 09.00–16.00",
+  fi: "Mon–Fri 08.00–16.00",
+  da: "Mon–Fri 09.00–11.30 and 12.00–15.00",
+  no: "Mon–Fri 09.00–15.00",
+};
+
+const englishDeskEmailNotice =
+  "Please use the email address on your local Wellspect country website.";
+
+/** English field labels with the selected Nordic desk’s phone and address. */
 export function englishContactFor(country: ContactCountry): ContactInfo {
   const desk = contactInfo[country];
   const labels = contactInfo.en;
@@ -33,13 +47,14 @@ export function englishContactFor(country: ContactCountry): ContactInfo {
     phoneLabel: labels.phoneLabel,
     phone: desk.phone,
     emailLabel: labels.emailLabel,
-    email: desk.email,
+    email: englishDeskEmailNotice,
     hoursLabel: labels.hoursLabel,
-    hours: desk.hours,
+    hours: englishDeskHours[country],
     addressLabel: labels.addressLabel,
     address: desk.address,
     websiteLabel: labels.websiteLabel,
-    website: desk.website,
+    website: "www.wellspect.com",
+    websiteHref: "https://www.wellspect.com",
   };
 }
 
@@ -56,6 +71,8 @@ export type ContactInfo = {
   address: string;
   websiteLabel: string;
   website: string;
+  /** When set, the website value is rendered as a link. Local pages omit this. */
+  websiteHref?: string;
 };
 
 export const contactInfo: Record<LocaleCode, ContactInfo> = {
@@ -77,7 +94,7 @@ export const contactInfo: Record<LocaleCode, ContactInfo> = {
     website: "www.wellspect.com",
   },
   sv: {
-    company: "Wellspect HealthCare Sverige",
+    company: "Wellspect AB",
     intro:
       "Vår kundservice hjälper dig med produktfrågor, prover och beställningar. För medicinska råd, kontakta alltid din vårdgivare.",
     phoneLabel: "Telefon",

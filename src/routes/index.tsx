@@ -243,7 +243,6 @@ function Index() {
                           {eco.cardTitle}
                         </span>
                       </span>
-                      <span className="text-muted-foreground mt-4 text-sm">{eco.cardSubtitle}</span>
                     </button>
                   }
                 />
