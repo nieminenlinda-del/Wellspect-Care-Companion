@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Search, X } from "lucide-react";
 import {
   categoryLabels,
@@ -67,6 +67,12 @@ function Index() {
   const [active, setActive] = useState<CategoryId | null>(() =>
     categoryOrder.includes(category as CategoryId) ? (category as CategoryId) : null,
   );
+
+  useEffect(() => {
+    if (categoryOrder.includes(category as CategoryId)) {
+      setActive(category as CategoryId);
+    }
+  }, [category]);
 
   const searching = query.trim() !== "";
 

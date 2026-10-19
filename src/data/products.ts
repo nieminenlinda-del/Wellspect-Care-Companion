@@ -332,8 +332,9 @@ export type Product = {
   category: CategoryId;
   /**
    * Markets where this product is not sold. Omitted means it is available
-   * in every locale. Listing, search, counts, and the product page all
-   * honor this through `isProductAvailable`.
+   * in every locale. The home list, search, and category counts skip these
+   * markets through `isProductAvailable`. A direct product link redirects
+   * to that product's category list.
    */
   unavailableLocales?: LocaleCode[];
   nordicEcolabel: boolean;

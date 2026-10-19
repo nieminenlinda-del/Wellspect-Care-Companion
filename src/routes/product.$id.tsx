@@ -112,7 +112,7 @@ function Bullets({ items, dot }: { items: string[]; dot: string }) {
 
 function ProductDetail() {
   const { product } = Route.useLoaderData();
-  const { locale } = useLocale();
+  const { locale, localeReady } = useLocale();
   const t = uiStrings[locale];
   const eco = ecolabelContent[locale];
   const [tab, setTab] = useState<TabId>("usage");
@@ -175,8 +175,12 @@ function ProductDetail() {
     showImageGuide ||
     howToBrochures.length > 0;
 
+  if (product.unavailableLocales?.length && !localeReady) {
+    return null;
+  }
+
   if (!isProductAvailable(product, locale)) {
-    return <Navigate to="/" replace />;
+    return <Navigate to="/" search={{ category: product.category }} replace />;
   }
 
   return (
