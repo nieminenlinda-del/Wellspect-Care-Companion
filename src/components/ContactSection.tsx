@@ -25,17 +25,23 @@ function ContactFields({ contact }: { contact: ContactInfo }) {
           </a>
         </dd>
       </div>
-      <div>
+      <div className={contact.email.includes("@") ? undefined : "sm:col-span-2"}>
         <dt className="text-muted-foreground text-[11px] tracking-[0.2em] uppercase">
           {contact.emailLabel}
         </dt>
         <dd className="mt-1">
-          <a
-            href={`mailto:${contact.email}`}
-            className="text-primary text-base font-medium break-all underline-offset-4 hover:underline"
-          >
-            {contact.email}
-          </a>
+          {contact.email.includes("@") ? (
+            <a
+              href={`mailto:${contact.email}`}
+              className="text-primary text-base font-medium break-all underline-offset-4 hover:underline"
+            >
+              {contact.email}
+            </a>
+          ) : (
+            <p className="text-card-foreground max-w-2xl text-base leading-relaxed">
+              {contact.email}
+            </p>
+          )}
         </dd>
       </div>
       <div>
@@ -48,7 +54,18 @@ function ContactFields({ contact }: { contact: ContactInfo }) {
         <dt className="text-muted-foreground text-[11px] tracking-[0.2em] uppercase">
           {contact.websiteLabel}
         </dt>
-        <dd className="text-card-foreground mt-1 text-base">{contact.website}</dd>
+        <dd className="mt-1 text-base">
+          {contact.websiteHref ? (
+            <a
+              href={contact.websiteHref}
+              className="text-primary font-medium underline-offset-4 hover:underline"
+            >
+              {contact.website}
+            </a>
+          ) : (
+            <span className="text-card-foreground">{contact.website}</span>
+          )}
+        </dd>
       </div>
       <div className="sm:col-span-2">
         <dt className="text-muted-foreground text-[11px] tracking-[0.2em] uppercase">
