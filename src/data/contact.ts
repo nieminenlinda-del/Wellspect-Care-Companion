@@ -34,10 +34,7 @@ const englishDeskHours: Record<ContactCountry, string> = {
   no: "Mon–Fri 09.00–15.00",
 };
 
-const englishDeskEmailNotice =
-  "Please use the email address on your local Wellspect country website.";
-
-/** English field labels with the selected Nordic desk’s phone and address. */
+/** English field labels with the selected Nordic desk’s details. */
 export function englishContactFor(country: ContactCountry): ContactInfo {
   const desk = contactInfo[country];
   const labels = contactInfo.en;
@@ -47,14 +44,14 @@ export function englishContactFor(country: ContactCountry): ContactInfo {
     phoneLabel: labels.phoneLabel,
     phone: desk.phone,
     emailLabel: labels.emailLabel,
-    email: englishDeskEmailNotice,
+    email: desk.email,
     hoursLabel: labels.hoursLabel,
     hours: englishDeskHours[country],
     addressLabel: labels.addressLabel,
     address: desk.address,
     websiteLabel: labels.websiteLabel,
-    website: "www.wellspect.com",
-    websiteHref: "https://www.wellspect.com",
+    website: desk.website,
+    websiteHref: `https://${desk.website}`,
   };
 }
 
