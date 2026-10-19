@@ -133,8 +133,15 @@ function ProductDetail() {
   const [captionLang, setCaptionLang] = useState<LocaleCode | "off">(preferredCaption);
   const videoVariants = product.videos ?? [];
   const [variantIdx, setVariantIdx] = useState(0);
-  const activeVideoUrl = videoVariants.length ? videoVariants[variantIdx]?.url : product.videoUrl;
-  const hasVideoSection = videoVariants.length > 0 || Boolean(product.videoUrl);
+  const usesLocaleVideo = Boolean(product.videoByLocale);
+  const activeVideoUrl = usesLocaleVideo
+    ? product.videoByLocale?.[locale]
+    : videoVariants.length
+      ? videoVariants[variantIdx]?.url
+      : product.videoUrl;
+  const hasVideoSection = usesLocaleVideo
+    ? Object.values(product.videoByLocale ?? {}).some((url) => Boolean(url))
+    : videoVariants.length > 0 || Boolean(product.videoUrl);
 
   useEffect(() => {
     setCaptionLang(preferredCaption());

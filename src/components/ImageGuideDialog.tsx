@@ -24,12 +24,14 @@ import { publicUrl } from "@/lib/public-url";
 function StepIllustration({
   image,
   index,
+  label,
   done = false,
   enlargeLabel,
   onEnlarge,
 }: {
   image: string | undefined;
   index: number;
+  label?: string;
   done?: boolean;
   enlargeLabel?: string;
   onEnlarge?: () => void;
@@ -51,13 +53,13 @@ function StepIllustration({
         <ImageIcon className="text-muted-foreground/50 size-6" aria-hidden="true" />
       )}
       <span
-        className={`absolute top-1 left-1 grid size-6 place-items-center rounded-full text-[11px] font-semibold ${
+        className={`absolute top-1 left-1 grid h-6 min-w-6 place-items-center rounded-full px-1 text-[11px] font-semibold ${
           done
             ? "bg-primary text-primary-foreground"
             : "bg-card text-secondary-foreground shadow-soft"
         }`}
       >
-        {done ? <Check className="size-3.5" aria-hidden="true" /> : index + 1}
+        {done ? <Check className="size-3.5" aria-hidden="true" /> : (label ?? index + 1)}
       </span>
       {image && onEnlarge && (
         <span
@@ -111,6 +113,7 @@ function InstructionSteps({
           const text = stepText(step, locale);
           const title = stepTitle(step, locale);
           const image = stepImage(step);
+          const label = typeof step === "string" ? undefined : step.label;
           const copy = (
             <span className="min-w-0 flex-1">
               {title && (
@@ -139,6 +142,7 @@ function InstructionSteps({
             <StepIllustration
               image={image}
               index={idx}
+              label={label}
               done={Boolean(onToggle && isDone)}
               enlargeLabel={t.enlargeIllustration}
               onEnlarge={image ? () => setEnlarged(image) : undefined}
@@ -235,9 +239,14 @@ function InstructionGuideBody({
 
   const checked = done[active.id] ?? [];
   const progress = Math.round((checked.length / active.steps.length) * 100);
+  const intro = product.instructionsIntro
+    ? localizedText(product.instructionsIntro, locale)
+    : "";
+  const note = product.instructionsNote ? localizedText(product.instructionsNote, locale) : "";
 
   return (
     <>
+      {intro && <p className="text-muted-foreground text-sm leading-relaxed">{intro}</p>}
       {guides.length > 1 && (
         <div
           role="tablist"
@@ -281,6 +290,12 @@ function InstructionGuideBody({
         done={checked}
         onToggle={(idx) => onToggleStep(active.id, idx)}
       />
+
+      {note && (
+        <p className="border-border bg-muted/40 text-foreground rounded-2xl border p-4 text-sm leading-relaxed">
+          {note}
+        </p>
+      )}
 
       {product.extraGuide && (
         <section className="border-border bg-muted/40 rounded-2xl border p-5">

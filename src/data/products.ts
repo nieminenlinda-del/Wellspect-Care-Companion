@@ -45,6 +45,8 @@ import navinaClassicVideo from "@/assets/navina-classic-animation.mp4.asset.json
 import origoVideo from "@/assets/lofric-origo-step-by-step.mp4.asset.json";
 import type { LocaleCode } from "@/lib/locale";
 import { classicIfu, elleProIfu, hydroKitIfu, origoIfu, primoIfu, senseIfu } from "@/data/ifu-copy";
+import { origoSleeveIfu } from "@/data/ifu-origo-sleeve";
+import { origoSleeveIntro, origoSleeveNote, origoSleeveSteps } from "@/data/origo-sleeve-guide";
 import { navinaInsertIfu, navinaMiniIfu } from "@/data/ifu-navina";
 import { navinaClassicIfu } from "@/data/ifu-navina-classic";
 import { navinaSmartIfu } from "@/data/ifu-navina-smart";
@@ -136,7 +138,14 @@ export const categoryOrder: CategoryId[] = ["women", "men", "bowel", "contact"];
 export type LocalizedText = string | Partial<Record<LocaleCode, string>>;
 
 export type InstructionStep =
-  string | { text: LocalizedText; title?: LocalizedText; image?: string };
+  | string
+  | {
+      text: LocalizedText;
+      title?: LocalizedText;
+      image?: string;
+      /** Sheet label shown on the illustration badge. Defaults to 1, 2, 3… */
+      label?: string;
+    };
 
 export const localizedText = (value: LocalizedText, locale: LocaleCode): string =>
   typeof value === "string" ? value : (value[locale] ?? "");
@@ -343,6 +352,12 @@ export type Product = {
   logo?: string;
   /** Optional instructional video (CDN asset URL) shown in the "How to use" tab. */
   videoUrl?: string;
+  /**
+   * Per-market instructional video. When set, only the current locale’s file
+   * plays. A locale with no entry shows the pending message and does not
+   * fall back to another language.
+   */
+  videoByLocale?: Partial<Record<LocaleCode, string>>;
   /** Optional override title for the instructional video. */
   videoTitle?: string;
   /** Optional WebVTT caption tracks keyed by app language. */
@@ -357,6 +372,10 @@ export type Product = {
   };
   summary: Localized;
   indications: LocalizedText[];
+  /** Preamble shown above the illustrated steps (quick-guide intro). */
+  instructionsIntro?: LocalizedText;
+  /** Closing notice shown under the illustrated steps (for example IMPORTANT). */
+  instructionsNote?: LocalizedText;
   instructions: InstructionStep[];
   /**
    * Optional cone quick-guide. Shown as a second tab only in locales that
@@ -1107,6 +1126,39 @@ export const products: Product[] = [
     contraindications: origoIfu.contraindications,
     warningSigns: origoIfu.warningSigns,
     storage: origoIfu.storage,
+  },
+  {
+    // Male articles only (Nelaton 446 and Flexible 448) on every market,
+    // so there is no female product. No Sleeve wordmark or packshot is
+    // published; the name is set in type and the photo stays empty.
+    id: "lofric-origo-sleeve",
+    videoByLocale: {
+      en: "/media/lofric-origo-sleeve-en.mp4",
+      sv: "/media/lofric-origo-sleeve-sv.mp4",
+      da: "/media/lofric-origo-sleeve-da.mp4",
+      fi: "/media/lofric-origo-sleeve-fi.mp4",
+    },
+    brand: "LoFric",
+    name: "LoFric Origo Sleeve",
+    spec: "CH 12–16 · 40 cm",
+    category: "men",
+    nordicEcolabel: true,
+    summary: {
+      en: "LoFric® Origo™, single use, hydrophilic urinary catheter with salt solution for activation. Protective sleeve for excellent control allows for non-touch technique. Foldable into handy, discreet pocket size.",
+      sv: "LoFric® Origo™, hydrofil tappningskateter för engångsbruk med bipackad saltlösning för aktivering. Skyddshölje för utmärkt kontroll möjliggör non-touch-teknik. Vikbar till fickformat.",
+      fi: "LoFric® Origo™, kertakäyttöinen hydrofiilinen virtsakatetri ja suolaliuos aktivointia varten. Hygieniasuoja takaa paremman otteen ilman, että katetrin letkuosaan tarvitsee koskea paljain käsin. Voidaan taittaa kätevään, huomaamattomaan taskukokoon.",
+      da: "LoFric® Origo™, hydrofilt kateter til engangsbrug med vedlagt saltopløsning til aktivering. Beskyttelseshylster for fremragende kontrol og non-touch teknik. Foldbart til at passe i lommen.",
+      no: "LoFric® Origo™ er hydrofilt engangs urinkateter for intermitterende kateterisering. Beskyttelseshylse for fullstendig kontroll muliggjør berøringsfri teknikk. Kan brettes sammen og får plass i lommen.",
+    },
+    indications: origoSleeveIfu.indications,
+    instructionsIntro: origoSleeveIntro,
+    instructionsNote: origoSleeveNote,
+    instructions: origoSleeveSteps,
+    safety: origoSleeveIfu.safety,
+    contraindicationsIntro: origoSleeveIfu.contraindicationsIntro,
+    contraindications: origoSleeveIfu.contraindications,
+    warningSigns: origoSleeveIfu.warningSigns,
+    storage: origoSleeveIfu.storage,
   },
   {
     id: "lofric-primo",
