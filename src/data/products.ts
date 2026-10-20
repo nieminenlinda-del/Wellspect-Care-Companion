@@ -359,9 +359,10 @@ export type Product = {
   /** Optional instructional video (CDN asset URL) shown in the "How to use" tab. */
   videoUrl?: string;
   /**
-   * Per-market instructional video. When set, only the current locale’s file
-   * plays. A locale with no entry shows the pending message and does not
-   * fall back to another language.
+   * Per-market instructional video. A locale listed here plays that file
+   * instead of `videoUrl`. Locales that are not listed keep `videoUrl`.
+   * A locale dub does not inherit caption tracks from other languages;
+   * only a `captions` entry for that same locale is shown.
    */
   videoByLocale?: Partial<Record<LocaleCode, string>>;
   /** Optional override title for the instructional video. */
@@ -1142,6 +1143,13 @@ export const products: Product[] = [
     logo: "/media/lofric-origo-wordmark.svg",
     logoSuffix: "Sleeve",
     videoUrl: "/media/lofric-origo-sleeve.mp4",
+    // sv and fi are dubbed films. Their subtitles are burned into the
+    // picture, so they have no caption track. da, no, and en keep videoUrl
+    // and the English WebVTT.
+    videoByLocale: {
+      sv: "/media/lofric-origo-sleeve-sv.mp4",
+      fi: "/media/lofric-origo-sleeve-fi.mp4",
+    },
     captions: { en: "/media/lofric-origo-sleeve-en.vtt" },
     brand: "LoFric",
     name: "LoFric Origo Sleeve",
