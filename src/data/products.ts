@@ -21,7 +21,6 @@ import origoProCapNo from "@/assets/origo-pro-no.vtt.asset.json";
 import origoProCapSv from "@/assets/origo-pro-sv.vtt.asset.json";
 import classicVideo from "@/assets/lofric-classic-animation.mp4.asset.json";
 import hydroKitVideo from "@/assets/lofric-hydro-kit-instruction-film.mp4.asset.json";
-import origoCapDa from "@/assets/origo-da.vtt.asset.json";
 import elleCapDa from "@/assets/elle-da.vtt.asset.json";
 import elleProCapDa from "@/assets/elle-pro-da.vtt.asset.json";
 import origoCapEn from "@/assets/origo-en.vtt.asset.json";
@@ -33,7 +32,6 @@ import elleProCapFi from "@/assets/elle-pro-fi.vtt.asset.json";
 import origoCapNo from "@/assets/origo-no.vtt.asset.json";
 import elleCapNo from "@/assets/elle-no.vtt.asset.json";
 import elleProCapNo from "@/assets/elle-pro-no.vtt.asset.json";
-import origoCapSv from "@/assets/origo-sv.vtt.asset.json";
 import elleCapSv from "@/assets/elle-sv.vtt.asset.json";
 import elleProCapSv from "@/assets/elle-pro-sv.vtt.asset.json";
 import senseVideo from "@/assets/lofric-sense-animation.mp4.asset.json";
@@ -66,11 +64,9 @@ export type Localized = Record<LocaleCode, string>;
 export type Captions = Partial<Record<LocaleCode, string>>;
 
 const origoCaptions: Captions = {
-  da: origoCapDa.url,
   en: origoCapEn.url,
   fi: origoCapFi.url,
   no: origoCapNo.url,
-  sv: origoCapSv.url,
 };
 
 const origoProCaptions: Captions = {
@@ -809,6 +805,11 @@ export const products: Product[] = [
     id: "lofric-sense",
     logo: senseLogo.url,
     videoUrl: senseVideo.url,
+    // Swedish and Danish films have subtitles burned into the picture.
+    videoByLocale: {
+      sv: "/media/lofric-sense-sv.mp4",
+      da: "/media/lofric-sense-da.mp4",
+    },
     brand: "LoFric",
     name: "LoFric Sense",
     spec: "CH 8–14 · 15 cm",
@@ -1005,6 +1006,11 @@ export const products: Product[] = [
     id: "lofric-hydro-kit-female",
     logo: hydroKitLogo.url,
     videoUrl: hydroKitVideo.url,
+    // The Danish film demonstrates both female and male insertion, so both
+    // Hydro-Kit products play it. Subtitles are not a separate track.
+    videoByLocale: {
+      da: "/media/lofric-hydro-kit-da.mp4",
+    },
     brand: "LoFric",
     name: "LoFric Hydro-Kit",
     spec: "CH 8–14 · 20 cm",
@@ -1111,6 +1117,12 @@ export const products: Product[] = [
     id: "lofric-origo",
     logo: origoLogo.url,
     videoUrl: origoVideo.url,
+    // Swedish and Danish films have subtitles burned into the picture, so
+    // those locales do not use the shared film's WebVTT.
+    videoByLocale: {
+      sv: "/media/lofric-origo-sv.mp4",
+      da: "/media/lofric-origo-da.mp4",
+    },
     captions: origoCaptions,
     brand: "LoFric",
     name: "LoFric Origo",
@@ -1143,12 +1155,13 @@ export const products: Product[] = [
     logo: "/media/lofric-origo-wordmark.svg",
     logoSuffix: "Sleeve",
     videoUrl: "/media/lofric-origo-sleeve.mp4",
-    // sv and fi are dubbed films. Their subtitles are burned into the
-    // picture, so they have no caption track. da, no, and en keep videoUrl
+    // sv, fi, and da are dubbed films. Their subtitles are burned into the
+    // picture, so they have no caption track. no and en keep videoUrl
     // and the English WebVTT.
     videoByLocale: {
       sv: "/media/lofric-origo-sleeve-sv.mp4",
       fi: "/media/lofric-origo-sleeve-fi.mp4",
+      da: "/media/lofric-origo-sleeve-da.mp4",
     },
     captions: { en: "/media/lofric-origo-sleeve-en.vtt" },
     brand: "LoFric",
@@ -1304,6 +1317,10 @@ export const products: Product[] = [
     id: "lofric-hydro-kit",
     logo: hydroKitLogo.url,
     videoUrl: hydroKitVideo.url,
+    // Same Danish film as the women’s Hydro-Kit: it shows both insertions.
+    videoByLocale: {
+      da: "/media/lofric-hydro-kit-da.mp4",
+    },
     brand: "LoFric",
     name: "LoFric Hydro-Kit",
     spec: "CH 8–16",
