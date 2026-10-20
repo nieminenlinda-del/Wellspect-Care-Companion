@@ -119,10 +119,23 @@ function ProductDetail() {
   const [done, setDone] = useState<Record<string, number[]>>({});
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const captionTracks = useMemo(
-    () => Object.entries(product.captions ?? {}) as [LocaleCode, string][],
-    [product.captions],
-  );
+  const videoVariants = product.videos ?? [];
+  const [variantIdx, setVariantIdx] = useState(0);
+  const localeDub = product.videoByLocale?.[locale];
+  const activeVideoUrl =
+    localeDub ??
+    (videoVariants.length ? videoVariants[variantIdx]?.url : product.videoUrl);
+  const hasVideoSection =
+    Boolean(product.videoUrl) ||
+    videoVariants.length > 0 ||
+    Object.values(product.videoByLocale ?? {}).some((url) => Boolean(url));
+  // A dubbed film replaces the shared video and does not inherit its
+  // captions. Only a track in this locale is attached.
+  const captionTracks = useMemo(() => {
+    const all = Object.entries(product.captions ?? {}) as [LocaleCode, string][];
+    if (localeDub) return all.filter(([code]) => code === locale);
+    return all;
+  }, [product.captions, locale, localeDub]);
   const localeLabel = (code: LocaleCode) =>
     locales.find((l) => l.code === code)?.language ?? code.toUpperCase();
   const preferredCaption = (): LocaleCode | "off" => {
@@ -131,17 +144,6 @@ function ProductDetail() {
     return "off";
   };
   const [captionLang, setCaptionLang] = useState<LocaleCode | "off">(preferredCaption);
-  const videoVariants = product.videos ?? [];
-  const [variantIdx, setVariantIdx] = useState(0);
-  const usesLocaleVideo = Boolean(product.videoByLocale);
-  const activeVideoUrl = usesLocaleVideo
-    ? product.videoByLocale?.[locale]
-    : videoVariants.length
-      ? videoVariants[variantIdx]?.url
-      : product.videoUrl;
-  const hasVideoSection = usesLocaleVideo
-    ? Object.values(product.videoByLocale ?? {}).some((url) => Boolean(url))
-    : videoVariants.length > 0 || Boolean(product.videoUrl);
 
   useEffect(() => {
     setCaptionLang(preferredCaption());
