@@ -153,10 +153,19 @@ function ProductDetail() {
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
-    Array.from(video.textTracks).forEach((track) => {
-      track.mode = track.language === captionLang ? "showing" : "disabled";
-    });
-  }, [captionLang, product.id, captionTracks.length]);
+    const apply = () => {
+      Array.from(video.textTracks).forEach((track) => {
+        track.mode = track.language === captionLang ? "showing" : "disabled";
+      });
+    };
+    apply();
+    video.textTracks.addEventListener("addtrack", apply);
+    video.addEventListener("loadeddata", apply);
+    return () => {
+      video.textTracks.removeEventListener("addtrack", apply);
+      video.removeEventListener("loadeddata", apply);
+    };
+  }, [captionLang, activeVideoUrl, captionTracks]);
 
   useEffect(() => {
     setDone({});
@@ -404,7 +413,6 @@ function ProductDetail() {
                           src={publicUrl(url)}
                           srcLang={code}
                           label={localeLabel(code)}
-                          default={code === captionLang}
                         />
                       ))}
                     </video>
