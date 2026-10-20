@@ -37,7 +37,7 @@ const qrCatalog: Partial<Record<LocaleCode, ProductQrEntry[]>> = {
       url: "https://wellspect.qrd.by/ivulqj",
     },
     {
-      productIds: ["lofric-origo", "lofric-origo-pro"],
+      productIds: ["lofric-origo", "lofric-origo-sleeve", "lofric-origo-pro"],
       image: "/images/qr/fi/fi-lofric-origo.png",
       url: "https://wellspect.qrd.by/9r2nxh",
     },
@@ -89,7 +89,7 @@ const qrCatalog: Partial<Record<LocaleCode, ProductQrEntry[]>> = {
       url: "https://wellspect.qrd.by/91tb5x",
     },
     {
-      productIds: ["lofric-origo", "lofric-origo-pro"],
+      productIds: ["lofric-origo", "lofric-origo-sleeve", "lofric-origo-pro"],
       image: "/images/qr/sv/sv-lofric-origo.png",
       url: "https://wellspect.qrd.by/ag4cl9",
     },
@@ -156,7 +156,7 @@ const qrCatalog: Partial<Record<LocaleCode, ProductQrEntry[]>> = {
       url: "https://wellspect.qrd.by/kfmwq9",
     },
     {
-      productIds: ["lofric-origo"],
+      productIds: ["lofric-origo", "lofric-origo-sleeve"],
       image: "/images/qr/no/no-lofric-origo.png",
       url: "https://wellspect.qrd.by/zwkdio",
     },
@@ -193,7 +193,7 @@ const qrCatalog: Partial<Record<LocaleCode, ProductQrEntry[]>> = {
       url: "https://wellspect.qrd.by/qh1x8d",
     },
     {
-      productIds: ["lofric-origo"],
+      productIds: ["lofric-origo", "lofric-origo-sleeve"],
       image: "/images/qr/da/da-lofric-origo.png",
       url: "https://wellspect.qrd.by/x4hr1c",
     },
@@ -250,7 +250,7 @@ const qrCatalog: Partial<Record<LocaleCode, ProductQrEntry[]>> = {
       url: "https://wellspect.qrd.by/8b43vd",
     },
     {
-      productIds: ["lofric-origo", "lofric-origo-pro"],
+      productIds: ["lofric-origo", "lofric-origo-sleeve", "lofric-origo-pro"],
       image: "/images/qr/en/en-lofric-origo.png",
       url: "https://wellspect.qrd.by/i7nklv",
     },

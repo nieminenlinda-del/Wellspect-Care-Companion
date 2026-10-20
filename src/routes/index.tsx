@@ -22,7 +22,7 @@ import { AnatomyDialog } from "@/components/AnatomyDialog";
 import { anatomyStrings } from "@/data/anatomy";
 import { arabicVideosStrings } from "@/data/arabic-videos";
 import { getHomeBrochures } from "@/data/brochure-qr";
-import { ProductImage } from "@/components/ProductImage";
+import { ProductImage, ProductTitle } from "@/components/ProductImage";
 import { ecolabelContent } from "@/data/ecolabel";
 import { publicUrl } from "@/lib/public-url";
 import coast from "@/assets/nordic-coast.webp.asset.json";
@@ -334,16 +334,14 @@ function Index() {
                           className="text-card-foreground mt-5 flex-1 text-xl font-semibold tracking-tight"
                           aria-label={p.name}
                         >
-                          {p.logo ? (
-                            <img
-                              src={publicUrl(p.logo)}
-                              alt={p.name}
-                              className="h-8 w-auto object-contain object-left sm:h-9"
-                              loading="lazy"
-                            />
-                          ) : (
-                            p.name
-                          )}
+                          <ProductTitle
+                            name={p.name}
+                            logo={p.logo}
+                            logoSuffix={p.logoSuffix}
+                            logoClassName="h-7 w-auto max-w-[14rem] object-contain object-left sm:h-8"
+                            suffixClassName="text-[1.05rem] leading-none font-medium tracking-tight text-[#758cc6] sm:text-lg"
+                            loading="lazy"
+                          />
                         </h3>
 
                         {p.nordicEcolabel && (
