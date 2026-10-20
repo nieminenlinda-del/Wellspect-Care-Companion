@@ -370,7 +370,7 @@ function ProductDetail() {
                     <PlayCircle className="text-primary size-4" aria-hidden="true" />
                     {product.videoTitle ?? t.videoGuide}
                   </p>
-                  {videoVariants.length > 1 && (
+                  {videoVariants.length > 1 && !localeDub && (
                     <div className="mt-3 flex flex-wrap gap-2">
                       {videoVariants.map((variant, idx) => (
                         <button

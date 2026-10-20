@@ -28,7 +28,6 @@ import elleCapEn from "@/assets/elle-en.vtt.asset.json";
 import elleProCapEn from "@/assets/elle-pro-en.vtt.asset.json";
 import elleCapFi from "@/assets/elle-fi.vtt.asset.json";
 import elleProCapFi from "@/assets/elle-pro-fi.vtt.asset.json";
-import origoCapNo from "@/assets/origo-no.vtt.asset.json";
 import elleCapNo from "@/assets/elle-no.vtt.asset.json";
 import elleProCapNo from "@/assets/elle-pro-no.vtt.asset.json";
 import elleCapSv from "@/assets/elle-sv.vtt.asset.json";
@@ -64,7 +63,6 @@ export type Captions = Partial<Record<LocaleCode, string>>;
 
 const origoCaptions: Captions = {
   en: origoCapEn.url,
-  no: origoCapNo.url,
 };
 
 const origoProCaptions: Captions = {
@@ -803,10 +801,11 @@ export const products: Product[] = [
     id: "lofric-sense",
     logo: senseLogo.url,
     videoUrl: senseVideo.url,
-    // Swedish and Danish films have subtitles burned into the picture.
+    // Swedish, Danish, and Norwegian films have subtitles burned into the picture.
     videoByLocale: {
       sv: "/media/lofric-sense-sv.mp4",
       da: "/media/lofric-sense-da.mp4",
+      no: "/media/lofric-sense-no.mp4",
     },
     brand: "LoFric",
     name: "LoFric Sense",
@@ -1115,12 +1114,13 @@ export const products: Product[] = [
     id: "lofric-origo",
     logo: origoLogo.url,
     videoUrl: origoVideo.url,
-    // Swedish, Finnish, and Danish films have subtitles burned into the
-    // picture, so those locales do not use the shared film's WebVTT.
+    // Swedish, Finnish, Danish, and Norwegian films have subtitles burned
+    // into the picture, so those locales do not use the shared film's WebVTT.
     videoByLocale: {
       sv: "/media/lofric-origo-sv.mp4",
       fi: "/media/lofric-origo-fi.mp4",
       da: "/media/lofric-origo-da.mp4",
+      no: "/media/lofric-origo-no.mp4",
     },
     captions: origoCaptions,
     brand: "LoFric",
@@ -1154,13 +1154,14 @@ export const products: Product[] = [
     logo: "/media/lofric-origo-wordmark.svg",
     logoSuffix: "Sleeve",
     videoUrl: "/media/lofric-origo-sleeve.mp4",
-    // sv, fi, and da are dubbed films. Their subtitles are burned into the
-    // picture, so they have no caption track. no and en keep videoUrl
-    // and the English WebVTT.
+    // sv, fi, da, and no are dubbed films. Their subtitles are burned into
+    // the picture, so they have no caption track. en keeps videoUrl and
+    // the English WebVTT.
     videoByLocale: {
       sv: "/media/lofric-origo-sleeve-sv.mp4",
       fi: "/media/lofric-origo-sleeve-fi.mp4",
       da: "/media/lofric-origo-sleeve-da.mp4",
+      no: "/media/lofric-origo-sleeve-no.mp4",
     },
     captions: { en: "/media/lofric-origo-sleeve-en.vtt" },
     brand: "LoFric",
@@ -1439,6 +1440,10 @@ export const products: Product[] = [
       { label: miniWithTubeLabel, url: navinaMiniTubeVideo.url },
       { label: miniWithoutTubeLabel, url: navinaMiniUsxVideo.url },
     ],
+    // Norwegian film replaces both Mini variants. Subtitles are burned in.
+    videoByLocale: {
+      no: "/media/navina-mini-no.mp4",
+    },
     brand: "Navina",
     name: "Navina Mini",
     spec: "Compact irrigation kit · travel case",
@@ -1477,6 +1482,9 @@ export const products: Product[] = [
     emergencyWarning: navinaClassicIfu.emergencyWarning,
     logo: navinaClassicLogo.url,
     videoUrl: navinaClassicVideo.url,
+    videoByLocale: {
+      no: "/media/navina-classic-no.mp4",
+    },
     brand: "Navina",
     name: "Navina Classic",
     spec: "Manual pump · 1000 ml container",
@@ -1699,6 +1707,11 @@ export const products: Product[] = [
     id: "navina-insert",
     logo: navinaInsertLogo.url,
     videoUrl: navinaInsertVideo.url,
+    // Linda’s Swedish film, used for Swedish and Norwegian. No caption track.
+    videoByLocale: {
+      sv: "/media/navina-insert-sv.mp4",
+      no: "/media/navina-insert-sv.mp4",
+    },
     brand: "Navina",
     name: "Navina Insert",
     spec: "Single-use rectal insert · sizes S/M/L · latex-free",
