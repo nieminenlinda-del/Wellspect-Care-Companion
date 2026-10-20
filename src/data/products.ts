@@ -26,7 +26,6 @@ import elleProCapDa from "@/assets/elle-pro-da.vtt.asset.json";
 import origoCapEn from "@/assets/origo-en.vtt.asset.json";
 import elleCapEn from "@/assets/elle-en.vtt.asset.json";
 import elleProCapEn from "@/assets/elle-pro-en.vtt.asset.json";
-import origoCapFi from "@/assets/origo-fi.vtt.asset.json";
 import elleCapFi from "@/assets/elle-fi.vtt.asset.json";
 import elleProCapFi from "@/assets/elle-pro-fi.vtt.asset.json";
 import origoCapNo from "@/assets/origo-no.vtt.asset.json";
@@ -65,7 +64,6 @@ export type Captions = Partial<Record<LocaleCode, string>>;
 
 const origoCaptions: Captions = {
   en: origoCapEn.url,
-  fi: origoCapFi.url,
   no: origoCapNo.url,
 };
 
@@ -1117,10 +1115,11 @@ export const products: Product[] = [
     id: "lofric-origo",
     logo: origoLogo.url,
     videoUrl: origoVideo.url,
-    // Swedish and Danish films have subtitles burned into the picture, so
-    // those locales do not use the shared film's WebVTT.
+    // Swedish, Finnish, and Danish films have subtitles burned into the
+    // picture, so those locales do not use the shared film's WebVTT.
     videoByLocale: {
       sv: "/media/lofric-origo-sv.mp4",
+      fi: "/media/lofric-origo-fi.mp4",
       da: "/media/lofric-origo-da.mp4",
     },
     captions: origoCaptions,
