@@ -36,27 +36,48 @@ export function ProductImage({
 /**
  * Official wordmark, plus an optional plain-text suffix when the variant
  * has no wordmark of its own (LoFric Origo + “Sleeve”).
+ *
+ * `logoClassName` sets the logo height via font-size (1em). Sleeve is sized
+ * from that em so it reads as part of the mark: Origo’s cap height is
+ * 185/315 of the SVG and its baseline sits 54/315 above the image bottom.
+ * Montserrat’s visible cap height is 0.7075 of its font-size, so the suffix
+ * is 0.83em. A line-height of 1 leaves the alphabetic baseline about 0.155em
+ * above the line box; the margin cancels that so Sleeve shares Origo’s baseline.
  */
 export function ProductTitle({
   name,
   logo,
   logoSuffix,
   logoClassName,
-  suffixClassName,
   loading,
 }: {
   name: string;
   logo?: string;
   logoSuffix?: string;
+  /** Font-size classes. 1em is the rendered logo height. */
   logoClassName: string;
-  suffixClassName: string;
   loading?: "eager" | "lazy";
 }): ReactNode {
   if (!logo) return name;
   return (
-    <span className="inline-flex max-w-full items-center gap-2">
-      <img src={publicUrl(logo)} alt="" className={logoClassName} loading={loading} />
-      {logoSuffix ? <span className={suffixClassName}>{logoSuffix}</span> : null}
+    <span className={`inline-flex max-w-full items-end gap-[0.028em] leading-none ${logoClassName}`}>
+      <img
+        src={publicUrl(logo)}
+        alt=""
+        loading={loading}
+        className="h-[1em] w-auto max-w-full object-contain object-left"
+      />
+      {logoSuffix ? (
+        <span
+          className="font-medium leading-none tracking-normal whitespace-nowrap text-[#758cc6]"
+          style={{
+            fontSize: "0.83em",
+            marginBottom: "calc(0.17143em / 0.83 - 0.155em)",
+          }}
+        >
+          {logoSuffix}
+        </span>
+      ) : null}
     </span>
   );
 }
