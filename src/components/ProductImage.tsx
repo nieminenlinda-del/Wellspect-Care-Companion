@@ -37,12 +37,11 @@ export function ProductImage({
  * Official wordmark, plus an optional plain-text suffix when the variant
  * has no wordmark of its own (LoFric Origo + “Sleeve”).
  *
- * `logoClassName` sets the logo height via font-size (1em). Sleeve is sized
- * from that em so it reads as part of the mark: Origo’s cap height is
- * 185/315 of the SVG and its baseline sits 54/315 above the image bottom.
- * Montserrat’s visible cap height is 0.7075 of its font-size, so the suffix
- * is 0.83em. A line-height of 1 leaves the alphabetic baseline about 0.155em
- * above the line box; the margin cancels that so Sleeve shares Origo’s baseline.
+ * `logoClassName` sets the logo height via font-size (1em). “Sleeve” is
+ * matched to “Pro” in the Origo Pro logo (849×123): that word is the same
+ * blue as the Origo beside it, #7793cb, its cap is 77/123 of the image and
+ * its baseline sits 18/123 above the image bottom, and its stem is 10/77 of
+ * the cap. Montserrat’s cap is 0.70em, so the suffix is 0.894em at weight 480.
  */
 export function ProductTitle({
   name,
@@ -60,7 +59,7 @@ export function ProductTitle({
 }): ReactNode {
   if (!logo) return name;
   return (
-    <span className={`inline-flex max-w-full items-end gap-[0.028em] leading-none ${logoClassName}`}>
+    <span className={`inline-flex max-w-full items-end gap-[0.09em] leading-none ${logoClassName}`}>
       <img
         src={publicUrl(logo)}
         alt=""
@@ -69,10 +68,14 @@ export function ProductTitle({
       />
       {logoSuffix ? (
         <span
-          className="font-medium leading-none tracking-normal whitespace-nowrap text-[#758cc6]"
+          className="leading-none tracking-normal whitespace-nowrap"
           style={{
-            fontSize: "0.83em",
-            marginBottom: "calc(0.17143em / 0.83 - 0.155em)",
+            fontSize: "0.894em",
+            fontWeight: 480,
+            color: "#7793cb",
+            // 1em here is the suffix font-size. Lift the line box so the
+            // alphabetic baseline meets Pro’s (18/123 of the logo height).
+            marginBottom: "calc(0.14634em / 0.894 - 0.155em)",
           }}
         >
           {logoSuffix}
