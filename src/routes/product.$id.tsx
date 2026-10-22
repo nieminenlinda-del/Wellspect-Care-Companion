@@ -258,8 +258,7 @@ function ProductDetail() {
                   name={product.name}
                   logo={product.logo}
                   logoSuffix={product.logoSuffix}
-                  logoClassName="h-8 w-auto max-w-[16rem] object-contain object-left sm:h-10"
-                  suffixClassName="text-2xl leading-none font-medium tracking-tight text-[#758cc6] sm:text-[1.85rem]"
+                  logoClassName="text-[2rem] sm:text-[2.5rem]"
                 />
               </h1>
               <p className="text-muted-foreground mt-1 text-sm">{product.spec}</p>

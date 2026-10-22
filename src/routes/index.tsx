@@ -338,8 +338,7 @@ function Index() {
                             name={p.name}
                             logo={p.logo}
                             logoSuffix={p.logoSuffix}
-                            logoClassName="h-7 w-auto max-w-[14rem] object-contain object-left sm:h-8"
-                            suffixClassName="text-[1.05rem] leading-none font-medium tracking-tight text-[#758cc6] sm:text-lg"
+                            logoClassName="text-[1.75rem] sm:text-[2rem]"
                             loading="lazy"
                           />
                         </h3>
