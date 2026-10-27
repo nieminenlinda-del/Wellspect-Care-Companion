@@ -336,7 +336,8 @@ export type Product = {
   id: string;
   brand: "LoFric" | "Navina" | "Wellspect";
   name: string;
-  spec: string;
+  /** Shared across locales, or one line per locale when the wording differs. */
+  spec: LocalizedText;
   category: CategoryId;
   /**
    * Markets where this product is not sold. Omitted means it is available
@@ -1277,7 +1278,13 @@ export const products: Product[] = [
     },
     brand: "Navina",
     name: "Navina Mini",
-    spec: "Compact irrigation kit · travel case",
+    spec: {
+      en: "Low volume TAI, 185 ml",
+      sv: "Lågvolymsirrigering, 185 ml",
+      da: "Lavt skyl, 185 ml",
+      fi: "Matalan volyymin huuhtelu, 185 ml",
+      no: "Lavvolum irrigasjon, 185 ml",
+    },
     category: "bowel",
     nordicEcolabel: false,
     image: "/media/navina-mini.png",

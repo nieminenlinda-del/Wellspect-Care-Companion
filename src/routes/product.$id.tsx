@@ -269,7 +269,7 @@ function ProductDetail() {
                   logoClassName="text-[2rem] sm:text-[2.5rem]"
                 />
               </h1>
-              <p className="text-muted-foreground mt-1 text-sm">{product.spec}</p>
+              <p className="text-muted-foreground mt-1 text-sm">{localizedText(product.spec, locale)}</p>
               <p className="text-foreground mt-5 max-w-2xl text-base leading-relaxed text-pretty sm:text-lg">
                 {product.summary[locale]}
               </p>
