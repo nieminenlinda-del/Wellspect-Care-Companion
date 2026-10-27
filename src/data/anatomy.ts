@@ -197,7 +197,7 @@ const femaleGroupsSv: AnatomyStrings["femaleGroups"] = [
       },
       {
         badge: "2",
-        term: "Slidlöppning",
+        term: "Slidöppning",
         text: "Urinrörsöppningen sitter mellan klitoris och slidöppningen.",
       },
       {
