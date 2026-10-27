@@ -75,7 +75,7 @@ export const categoryFeatures: Record<FeatureId, CategoryFeature> = {
       da: "Transanal irrigation (TAI)",
       no: "Transanal irrigasjon (TAI)",
     },
-    image: "/media/navina-classic.png",
+    image: "/media/navina-mini.png",
     // Dominant blue on the Navina Smart packshot, public/media/navina-smart.png
     accent: "#007bb5",
   },

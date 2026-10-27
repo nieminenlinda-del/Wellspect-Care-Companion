@@ -2,35 +2,20 @@ import type { CategoryFeature } from "@/data/category-features";
 import { publicUrl } from "@/lib/public-url";
 
 function FigureIcon({ kind }: { kind: "female" | "male" }) {
-  const shoulders =
-    kind === "female"
-      ? "M7.2 20.2c.5-2.7 1.8-4.2 4.8-4.2s4.3 1.5 4.8 4.2"
-      : "M5.8 20.2c.7-2.5 2.2-4 6.2-4s5.5 1.5 6.2 4";
+  if (kind === "female") {
+    return (
+      <svg viewBox="0 0 24 24" className="size-6" aria-hidden="true">
+        <circle cx="12" cy="4.6" r="2.35" fill="currentColor" />
+        <path d="M12 8.2 17.4 21.2H6.6L12 8.2z" fill="currentColor" />
+      </svg>
+    );
+  }
   return (
-    <svg viewBox="0 0 24 24" className="size-5" fill="none" aria-hidden="true">
-      <circle cx="12" cy="7.1" r="2.35" stroke="currentColor" strokeWidth="1.6" />
-      {kind === "female" ? (
-        <path
-          d="M8.1 8.4c.2-2.6 1.6-4 3.9-4s3.7 1.4 3.9 4"
-          stroke="currentColor"
-          strokeWidth="1.6"
-          strokeLinecap="round"
-        />
-      ) : (
-        <path
-          d="M9.3 8.2c.6-1.5 1.5-2.2 2.7-2.2s2.1.7 2.7 2.2"
-          stroke="currentColor"
-          strokeWidth="1.6"
-          strokeLinecap="round"
-        />
-      )}
-      <path d={shoulders} stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-      <path
-        d={kind === "female" ? "M9.4 16.4h5.2" : "M8.2 16.2h7.6"}
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-      />
+    <svg viewBox="0 0 24 24" className="size-6" aria-hidden="true">
+      <circle cx="12" cy="4.5" r="2.35" fill="currentColor" />
+      <rect x="8.4" y="8.1" width="7.2" height="5.4" rx="0.4" fill="currentColor" />
+      <rect x="8.6" y="13.6" width="2.7" height="7.2" rx="0.3" fill="currentColor" />
+      <rect x="12.7" y="13.6" width="2.7" height="7.2" rx="0.3" fill="currentColor" />
     </svg>
   );
 }
@@ -66,13 +51,13 @@ export function CategoryFeatureCard({
         <span className={figure ? "mb-3" : "mb-3 hidden md:block"}>
           {figure ? (
             <span
-              className="grid size-9 place-items-center rounded-full"
+              className="grid size-11 place-items-center rounded-full"
               style={{ backgroundColor: `${accent}18`, color: accent }}
             >
               <FigureIcon kind={figure} />
             </span>
           ) : (
-            <span className="block size-9" aria-hidden="true" />
+            <span className="block size-11" aria-hidden="true" />
           )}
         </span>
         <span className="text-card-foreground text-2xl font-semibold tracking-tight text-balance sm:text-[1.7rem]">

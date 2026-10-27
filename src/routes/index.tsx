@@ -209,24 +209,33 @@ function Index() {
                 </li>
               ))}
             </ul>
-            <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {icVideos.length > 0
-                ? icVideos.map((video) => (
-                    <li key={video.id}>
-                      <IcHomeVideoCard video={video} className={secondaryCard} />
-                    </li>
-                  ))
-                : getHomeBrochures(locale).map((card) => (
-                    <li key={card.id}>
-                      <BrochureQrCard
-                        variant="home"
-                        image={card.image}
-                        label={card.label}
-                        detail={card.detail}
-                        cover={card.cover}
-                      />
-                    </li>
-                  ))}
+            {icVideos.length > 0 ? (
+              <ul className="mt-6 grid gap-4 md:grid-cols-2">
+                {icVideos.map((video) => (
+                  <li key={video.id}>
+                    <IcHomeVideoCard
+                      video={video}
+                      className="border-border bg-card focus-visible:ring-primary flex h-full w-full flex-col rounded-3xl border p-4 text-left shadow-lift transition-transform duration-300 hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:outline-none sm:p-5"
+                    />
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <ul className="mt-6 grid gap-4 md:grid-cols-3">
+                {getHomeBrochures(locale).map((card) => (
+                  <li key={card.id}>
+                    <BrochureQrCard
+                      variant="home"
+                      image={card.image}
+                      label={card.label}
+                      detail={card.detail}
+                      cover={card.cover}
+                    />
+                  </li>
+                ))}
+              </ul>
+            )}
+            <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               <li>
                 <ArabicVideosDialog
                   trigger={

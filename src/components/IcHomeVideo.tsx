@@ -57,7 +57,9 @@ function CaptionedFilm({
 }
 
 export function IcHomeVideoCard({ video, className }: { video: IcHomeVideo; className: string }) {
+  const { locale } = useLocale();
   const videoRef = useRef<HTMLVideoElement>(null);
+  const hasCaptions = Boolean(video.captions?.[locale]);
 
   return (
     <Dialog
@@ -79,7 +81,7 @@ export function IcHomeVideoCard({ video, className }: { video: IcHomeVideo; clas
               </span>
             </span>
           </span>
-          <span className="text-card-foreground mt-3 block text-base font-semibold tracking-tight text-balance">
+          <span className="text-card-foreground mt-4 block text-xl font-semibold tracking-tight text-balance sm:text-2xl">
             {video.title}
           </span>
           <span className="text-muted-foreground mt-1 block text-sm">{video.duration}</span>
@@ -90,8 +92,8 @@ export function IcHomeVideoCard({ video, className }: { video: IcHomeVideo; clas
           <DialogTitle className="text-left text-xl tracking-tight text-balance">
             {video.title}
           </DialogTitle>
-          <DialogDescription className="text-left text-sm">
-            English captions are included.
+          <DialogDescription className={hasCaptions ? "text-left text-sm" : "sr-only"}>
+            {hasCaptions ? "English captions are included." : video.title}
           </DialogDescription>
         </DialogHeader>
         <CaptionedFilm video={video} videoRef={videoRef} />
