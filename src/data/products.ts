@@ -149,6 +149,20 @@ export type InstructionStep =
 export const localizedText = (value: LocalizedText, locale: LocaleCode): string =>
   typeof value === "string" ? value : (value[locale] ?? "");
 
+/**
+ * A description may end with a footnote set off by " * ", as on the
+ * Wellspect product pages ("skyddshöljet* … * Finns med …"). The asterisk
+ * glued to a word stays in the paragraph. The trailing note is returned
+ * on its own, still starting with "* ".
+ */
+export function splitDescriptionFootnote(text: string): { body: string; footnote?: string } {
+  const match = text.match(/^(.*\S)\s+\*\s+(\S[\s\S]*)$/);
+  if (!match) return { body: text };
+  const note = match[2].trim();
+  if (!note) return { body: text };
+  return { body: match[1], footnote: `* ${note}` };
+}
+
 export const stepText = (step: InstructionStep, locale: LocaleCode) =>
   typeof step === "string" ? step : localizedText(step.text, locale);
 export const stepTitle = (step: InstructionStep, locale: LocaleCode) =>

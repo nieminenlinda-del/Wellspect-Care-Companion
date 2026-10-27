@@ -22,6 +22,7 @@ import {
   hasImageGuide,
   isProductAvailable,
   localizedText,
+  splitDescriptionFootnote,
 } from "@/data/products";
 import { uiStrings } from "@/data/ui-strings";
 import { categoryHeadline } from "@/data/category-features";
@@ -120,6 +121,21 @@ function BackToLabel({ full, headline }: { full: string; headline: string }) {
       {lead}
       <span className="whitespace-nowrap">{headline}</span>
     </span>
+  );
+}
+
+/** Body paragraph, with a trailing "* ..." note on its own muted line. */
+function Description({ text }: { text: string }) {
+  const { body, footnote } = splitDescriptionFootnote(text);
+  return (
+    <>
+      <p className="text-foreground mt-5 max-w-2xl text-base leading-relaxed text-pretty sm:text-lg">
+        {body}
+      </p>
+      {footnote && (
+        <p className="text-muted-foreground mt-3 max-w-2xl text-xs leading-relaxed">{footnote}</p>
+      )}
+    </>
   );
 }
 
@@ -270,9 +286,7 @@ function ProductDetail() {
                 />
               </h1>
               <p className="text-muted-foreground mt-1 text-sm">{localizedText(product.spec, locale)}</p>
-              <p className="text-foreground mt-5 max-w-2xl text-base leading-relaxed text-pretty sm:text-lg">
-                {product.summary[locale]}
-              </p>
+              <Description text={product.summary[locale]} />
               <ProductWebsiteQr productId={product.id} productName={product.name} />
             </div>
           </div>
