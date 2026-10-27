@@ -336,7 +336,8 @@ export type Product = {
   id: string;
   brand: "LoFric" | "Navina" | "Wellspect";
   name: string;
-  spec: string;
+  /** Shared across locales, or one line per locale when the wording differs. */
+  spec: LocalizedText;
   category: CategoryId;
   /**
    * Markets where this product is not sold. Omitted means it is available
@@ -737,7 +738,7 @@ export const products: Product[] = [
     videoUrl: primoVideo.url,
     brand: "LoFric",
     name: "LoFric Primo",
-    spec: "CH 8–18 · 15/20 cm",
+    spec: "CH 6–18 · 15/20 cm",
     category: "women",
     nordicEcolabel: true,
     image: "/media/lofric-primo.webp",
@@ -879,7 +880,7 @@ export const products: Product[] = [
     videoUrl: classicVideo.url,
     brand: "LoFric",
     name: "LoFric",
-    spec: "CH 8–18 · 15/20 cm",
+    spec: "CH 6–18 · 15/20 cm",
     category: "women",
     nordicEcolabel: false,
     image: "/media/lofric-classic.png",
@@ -955,7 +956,7 @@ export const products: Product[] = [
     captions: origoCaptions,
     brand: "LoFric",
     name: "LoFric Origo",
-    spec: "CH 10–18 · 40 cm",
+    spec: "CH 8–18 · 30/40 cm",
     category: "men",
     nordicEcolabel: true,
     image: "/media/lofric-origo.png",
@@ -1277,7 +1278,13 @@ export const products: Product[] = [
     },
     brand: "Navina",
     name: "Navina Mini",
-    spec: "Compact irrigation kit · travel case",
+    spec: {
+      en: "Low volume TAI, 185 ml",
+      sv: "Lågvolymsirrigering, 185 ml",
+      da: "Lavt skyl, 185 ml",
+      fi: "Matalan volyymin huuhtelu, 185 ml",
+      no: "Lavvolum irrigasjon, 185 ml",
+    },
     category: "bowel",
     nordicEcolabel: false,
     image: "/media/navina-mini.png",
@@ -1318,7 +1325,13 @@ export const products: Product[] = [
     },
     brand: "Navina",
     name: "Navina Classic",
-    spec: "Manual pump · 1500 ml container",
+    spec: {
+      en: "High volume TAI, 1500 ml",
+      sv: "Högvolymsirrigering, 1500 ml",
+      da: "Højt skyl, 1500 ml",
+      fi: "Korkean volyymin huuhtelu, 1500 ml",
+      no: "Høyvolum irrigasjon, 1500 ml",
+    },
     category: "bowel",
     nordicEcolabel: false,
     image: "/media/navina-classic.png",
@@ -1433,7 +1446,14 @@ export const products: Product[] = [
     videoUrl: smartVideo.url,
     brand: "Navina",
     name: "Navina Smart",
-    spec: "Electronic control unit · rechargeable",
+    spec: {
+      en: "High volume TAI, 1500 ml, Electronic control unit",
+      sv: "Högvolymsirrigering, 1500 ml, Elektronisk kontrollenhet",
+      da: "Højt skyl, 1500 ml, Elektronisk kontrolenhed",
+      fi: "Korkean volyymin huuhtelu, 1500 ml, Elektroninen ohjausyksikkö",
+      // Hidden in Norway. Keep the previous shared line.
+      no: "Electronic control unit · rechargeable",
+    },
     category: "bowel",
     nordicEcolabel: false,
     image: "/media/navina-smart.png",
