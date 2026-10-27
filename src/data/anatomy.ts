@@ -45,12 +45,12 @@ export const anatomyImages: Record<AnatomySex, AnatomyImage[]> = {
   female: [
     {
       url: "/media/female-anatomy-tract.png",
-      alt: "Female urinary tract: kidneys, ureters, bladder and urethra",
+      alt: "Female urinary tract numbered 1 to 4: kidneys, ureters, bladder and urethra",
       view: "tract",
     },
     {
       url: "/media/female-anatomy-external.png",
-      alt: "External female anatomy showing the urethral opening",
+      alt: "External female anatomy numbered 1 to 3: urethra, vaginal opening and labia",
       view: "external",
     },
   ],
@@ -141,11 +141,11 @@ const femaleGroupsEn: AnatomyStrings["femaleGroups"] = [
   {
     view: "tract",
     items: [
-      { badge: "A", term: "Kidneys", text: "Filter blood and produce urine." },
-      { badge: "B", term: "Ureters", text: "Two narrow tubes carrying urine to the bladder." },
-      { badge: "C", term: "Bladder", text: "Stores urine until emptying." },
+      { badge: "1", term: "Kidneys", text: "Filter blood and produce urine." },
+      { badge: "2", term: "Ureters", text: "Two narrow tubes carrying urine to the bladder." },
+      { badge: "3", term: "Bladder", text: "Stores urine until emptying." },
       {
-        badge: "D",
+        badge: "4",
         term: "Urethra",
         text: "Short channel (about 3–5 cm) that carries urine out of the body.",
       },
@@ -153,11 +153,10 @@ const femaleGroupsEn: AnatomyStrings["femaleGroups"] = [
   },
   {
     view: "external",
-    note: "The urethral opening lies between A and C.",
     items: [
-      { badge: "A", term: "Clitoris", text: "Sits in front of the urethral opening." },
-      { badge: "B", term: "Labia", text: "Surround the urethral opening and the vaginal opening." },
-      { badge: "C", term: "Vaginal opening", text: "Sits behind the urethral opening." },
+      { badge: "1", term: "Urethra", text: "The opening the catheter is passed through." },
+      { badge: "2", term: "Vaginal opening", text: "Sits behind the urethral opening." },
+      { badge: "3", term: "Labia", text: "Surround the urethral opening and the vaginal opening." },
     ],
   },
   {
@@ -176,11 +175,11 @@ const femaleGroupsSv: AnatomyStrings["femaleGroups"] = [
   {
     view: "tract",
     items: [
-      { badge: "A", term: "Njurar", text: "Filtrerar blodet och bildar urin." },
-      { badge: "B", term: "Urinledare", text: "Två smala rör som leder urinen till urinblåsan." },
-      { badge: "C", term: "Urinblåsa", text: "Lagrar urinen tills blåsan töms." },
+      { badge: "1", term: "Njurar", text: "Filtrerar blodet och bildar urin." },
+      { badge: "2", term: "Urinledare", text: "Två smala rör som leder urinen till urinblåsan." },
+      { badge: "3", term: "Urinblåsa", text: "Lagrar urinen tills blåsan töms." },
       {
-        badge: "D",
+        badge: "4",
         term: "Urinrör",
         text: "Kort kanal (cirka 3–5 cm) som leder ut urinen ur kroppen.",
       },
@@ -223,15 +222,15 @@ const femaleGroupsFi: AnatomyStrings["femaleGroups"] = [
   {
     view: "tract",
     items: [
-      { badge: "A", term: "Munuaiset", text: "Suodattavat verta ja tuottavat virtsaa." },
+      { badge: "1", term: "Munuaiset", text: "Suodattavat verta ja tuottavat virtsaa." },
       {
-        badge: "B",
+        badge: "2",
         term: "Virtsanjohtimet",
         text: "Kaksi kapeaa putkea, jotka johtavat virtsan rakkoon.",
       },
-      { badge: "C", term: "Virtsarakko", text: "Varastoi virtsan tyhjennykseen asti." },
+      { badge: "3", term: "Virtsarakko", text: "Varastoi virtsan tyhjennykseen asti." },
       {
-        badge: "D",
+        badge: "4",
         term: "Virtsaputki",
         text: "Lyhyt kanava (noin 3–5 cm), joka johtaa virtsan ulos.",
       },
@@ -274,11 +273,11 @@ const femaleGroupsDa: AnatomyStrings["femaleGroups"] = [
   {
     view: "tract",
     items: [
-      { badge: "A", term: "Nyrer", text: "Filtrerer blodet og danner urin." },
-      { badge: "B", term: "Urinledere", text: "To smalle rør, der leder urinen til blæren." },
-      { badge: "C", term: "Blære", text: "Opbevarer urinen indtil tømning." },
+      { badge: "1", term: "Nyrer", text: "Filtrerer blodet og danner urin." },
+      { badge: "2", term: "Urinledere", text: "To smalle rør, der leder urinen til blæren." },
+      { badge: "3", term: "Blære", text: "Opbevarer urinen indtil tømning." },
       {
-        badge: "D",
+        badge: "4",
         term: "Urinrør",
         text: "Kort kanal (ca. 3–5 cm), der leder urinen ud af kroppen.",
       },
@@ -321,11 +320,11 @@ const femaleGroupsNo: AnatomyStrings["femaleGroups"] = [
   {
     view: "tract",
     items: [
-      { badge: "A", term: "Nyrer", text: "Filtrerer blodet og lager urin." },
-      { badge: "B", term: "Urinledere", text: "To smale rør som leder urinen til blæren." },
-      { badge: "C", term: "Blære", text: "Lagrer urinen til tømming." },
+      { badge: "1", term: "Nyrer", text: "Filtrerer blodet og lager urin." },
+      { badge: "2", term: "Urinledere", text: "To smale rør som leder urinen til blæren." },
+      { badge: "3", term: "Blære", text: "Lagrer urinen til tømming." },
       {
-        badge: "D",
+        badge: "4",
         term: "Urinrør",
         text: "Kort kanal (ca. 3–5 cm) som leder urinen ut av kroppen.",
       },
