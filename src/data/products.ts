@@ -43,6 +43,13 @@ import type { LocaleCode } from "@/lib/locale";
 import { classicIfu, elleProIfu, hydroKitIfu, origoIfu, primoIfu, senseIfu } from "@/data/ifu-copy";
 import { origoSleeveIfu } from "@/data/ifu-origo-sleeve";
 import { origoSleeveIntro, origoSleeveNote, origoSleeveSteps } from "@/data/origo-sleeve-guide";
+import {
+  ellePdfSteps,
+  elleProPdfSteps,
+  origoProPdfNote,
+  origoProPdfSteps,
+  sleeveEnPdfSteps,
+} from "@/data/pdf-step-guides";
 import { navinaInsertIfu, navinaMiniIfu } from "@/data/ifu-navina";
 import { navinaClassicIfu } from "@/data/ifu-navina-classic";
 import { navinaSmartIfu } from "@/data/ifu-navina-smart";
@@ -377,6 +384,11 @@ export type Product = {
   instructionsNote?: LocalizedText;
   instructions: InstructionStep[];
   /**
+   * Locale-specific step list. When set, that locale uses these steps
+   * instead of `instructions`. Other locales keep `instructions`.
+   */
+  instructionsByLocale?: Partial<Record<LocaleCode, InstructionStep[]>>;
+  /**
    * Optional cone quick-guide. Shown as a second tab only in locales that
    * have copy. Other locales stay on the catheter guide.
    */
@@ -396,8 +408,14 @@ export type Product = {
 };
 
 /** True when a product has illustrated quick-guide steps (or an extra illustrated guide). */
+export const instructionStepsFor = (product: Product, locale: LocaleCode): InstructionStep[] =>
+  product.instructionsByLocale?.[locale] ?? product.instructions;
+
 export const hasImageGuide = (product: Product) =>
   product.instructions.some((step) => Boolean(stepImage(step))) ||
+  Object.values(product.instructionsByLocale ?? {}).some((steps) =>
+    steps.some((step) => Boolean(stepImage(step))),
+  ) ||
   Boolean(product.coneInstructions?.some((step) => Boolean(stepImage(step)))) ||
   Boolean(
     product.instructionGuides?.some((guide) =>
@@ -437,7 +455,7 @@ export function availableInstructionGuides(
     });
   }
   const guides: InstructionGuideView[] = [
-    { id: "catheter", label: labels.catheter, steps: product.instructions },
+    { id: "catheter", label: labels.catheter, steps: instructionStepsFor(product, locale) },
   ];
   if (product.coneInstructions && guideHasCopy(product.coneInstructions, locale)) {
     guides.push({ id: "cone", label: labels.cone, steps: product.coneInstructions });
@@ -464,15 +482,6 @@ const withDa = (en: string, da: string): Localized => ({
   fi: en,
   no: en,
   da,
-});
-
-/** Swedish from the Origo Pro sheet. Danish and Norwegian keep the English line. */
-const withSv = (en: string, sv: string, fi: string): Localized => ({
-  en,
-  sv,
-  da: en,
-  no: en,
-  fi,
 });
 
 const optionalTitle: Localized = {
@@ -565,97 +574,6 @@ const origoSteps: InstructionStep[] = [
   },
 ];
 
-/**
- * LoFric Origo Pro male guide. Illustrations are shared across languages.
- * Swedish follows the sheet. English, Danish, Norwegian, and Finnish keep
- * existing wording, split or joined so each picture has a matching step.
- * The sheet’s storage tip (A) is not a numbered step, so it is omitted.
- */
-const origoProSteps: InstructionStep[] = [
-  {
-    text: withSv(
-      "Wash your hands thoroughly with soap and water.",
-      "Tvätta händerna ordentligt med tvål och vatten.",
-      "Pese kätesi huolellisesti vedellä ja saippualla.",
-    ),
-    image: "/images/instructions/lofric-origo-pro/step-1.png",
-  },
-  {
-    text: withSv(
-      "Press to release the salt solution and the catheter is ready to use.",
-      "Kläm på påsen med saltlösningen så att vattnet rinner ut. Sedan är katetern färdig att användas.",
-      "Aktivoi katetri puristamalla suolaliuosta sisältävää nestetyynyä. Tämän jälkeen katetri on käyttövalmis.",
-    ),
-    image: "/images/instructions/lofric-origo-pro/step-2.png",
-  },
-  {
-    text: withSv(
-      "Pull the tab down to open.",
-      "Använd öglan för att dra ner och öppna.",
-      "Vedä avausliuskasta avataksesi pakkauksen.",
-    ),
-    image: "/images/instructions/lofric-origo-pro/step-3.png",
-  },
-  {
-    title: optionalTitle,
-    text: withSv(
-      "Use the adhesive tab on the reverse side to attach the product to a dry, clean surface.",
-      "Använd klisterfliken på baksidan för att fästa produkten på en torr och ren yta.",
-      "Kiinnitä pakkaus kuivalle ja puhtaalle pinnalle pakkauksen takaosassa olevalla tarralapulla.",
-    ),
-    image: "/images/instructions/lofric-origo-pro/step-4.png",
-  },
-  {
-    text: withSv(
-      "Take out the catheter.",
-      "Efter öppning, nyp försiktigt och håll i hylsgreppet för att automatiskt dra ner skyddshylsan när katetern tas ut. Använd skyddshylsan för att kontrollera införandet utan att behöva röra katetern.",
-      "Ota katetri pakkauksesta.",
-    ),
-    image: "/images/instructions/lofric-origo-pro/step-5a.png",
-  },
-  {
-    title: optionalTitle,
-    text: withSv(
-      "Pull and adjust the Insertion Grip located on the funnel, to control insertion without having to touch the catheter tube.",
-      "Ta ut katetern. Dra ner hylsgreppet för att täcka katetern. Använd skyddshylsan för att kontrollera införandet utan att behöva röra katetern.",
-      "Käytä liikuteltavaa asetinta, joka takaa paremman otteen ilman, että katetrin letkuosaan tarvitsee koskea paljain käsin.",
-    ),
-    image: "/images/instructions/lofric-origo-pro/step-5b.png",
-  },
-  {
-    text: withSv(
-      "Lift the penis towards the stomach to straighten the urethra. Slowly insert the catheter into the urethra. When urine begins to flow, insert the catheter slightly more to ensure both eyelets are inside the bladder.",
-      "Lyft penis mot magen för att räta ut urinröret. För långsamt in katetern i urinröret. När urinen börjar rinna ska du föra in katetern något längre för att säkerställa att bra flöde.",
-      "Nosta penistä ylöspäin vatsaa kohti. Tässä asennossa virtsaputki pitenee ja muuttuu U-muotoiseksi. Tämä helpottaa katetrin ohjaamista virtsarakkoon. Vie katetri hitaasti virtsaputkeen. Kun virtsaa alkaa valua, työnnä katetria vielä hiukan pidemmälle varmistaaksesi, että katetrin molemmat silmäaukot ovat sisällä virtsarakossa.",
-    ),
-    image: "/images/instructions/lofric-origo-pro/step-6.png",
-  },
-  {
-    text: withSv(
-      "Angle the penis down as urine begins to flow through the catheter.",
-      "Vinkla penis nedåt när urinen börjar rinna genom katetern.",
-      "Laske penis normaaliasentoon, kun virtsaa alkaa valua katetrin kautta.",
-    ),
-    image: "/images/instructions/lofric-origo-pro/step-7.png",
-  },
-  {
-    text: withSv(
-      "When the urine flow stops, slowly withdraw the catheter a little bit. If urine starts to flow again, wait until it has stopped to ensure complete bladder emptying. Then remove the catheter completely.",
-      "Vänta tills urinflödet upphör för att säkerställa fullständig tömning av blåsan. Dra långsamt ut katetern. Ta sedan bort katetern helt.",
-      "Kun virtsaa ei enää valu katetrista, vedä katetria hitaasti ulos. Jos virtsa alkaa valua uudelleen, odota kunnes virtsan tulo lakkaa varmistaaksesi, että virtsarakko on täysin tyhjä. Vedä sitten katetri kokonaan ulos.",
-    ),
-    image: "/images/instructions/lofric-origo-pro/step-8.png",
-  },
-  {
-    text: withSv(
-      "Put the catheter back in the package and dispose appropriately (local regulations may vary).",
-      "Lägg tillbaka katetern i förpackningen och kassera på lämpligt sätt (lokala bestämmelser kan variera).",
-      "Aseta katetri takaisin pakkaukseen ja hävitä se asianmukaisesti (paikalliset määräykset voivat vaihdella).",
-    ),
-    image: "/images/instructions/lofric-origo-pro/step-9.png",
-  },
-];
-
 export const products: Product[] = [
   {
     id: "lofric-elle-pro",
@@ -676,47 +594,7 @@ export const products: Product[] = [
       no: "LoFric® Elle™ Pro, designet av kvinner for kvinner, er et hydrofilt intermitterende kateter. LoFric Elle Pro ble utviklet for å støtte kateterisering og å hjelpe brukerne med å sikre oversikt og posisjonering under bruk. I brukernes tilbakemeldinger rapporterte deltakerne at det L-formede håndtaket gir bedre oversikt når du bruker et speil, hjalp dem med å finne urinrøret enklere og støttet en mer oppreist sittestilling under kateterisering. LoFric Elle Pro har 12 Pro øyne. LoFric Elle Pro har blitt udviklet for å forenkle kateteriseringen ytterligere, og er designet for å muliggjøre tømming av blæren i én fri strøm, uten behov for posisjoneringen. LoFric Elle Pro er liten, diskret og praktisk å bære, forsegle på nytt og kaste.",
     },
     indications: elleProIfu.indications,
-    instructions: [
-      {
-        text: withFi(
-          "Wash your hands thoroughly with soap and water.",
-          "Pese kätesi huolellisesti vedellä ja saippualla.",
-        ),
-        image: "/images/instructions/lofric-elle-pro/step-1.png",
-      },
-      {
-        text: withFi("Open the upper lid.", "Avaa korkki."),
-        image: "/images/instructions/lofric-elle-pro/step-2.png",
-      },
-      {
-        text: withFi(
-          "Hold the catheter in your hand and gently bend the upper part to open. Pull the catheter out.",
-          "Käytä molempia käsiä ja taivuta avataksesi. Vedä katetri ulos.",
-        ),
-        image: "/images/instructions/lofric-elle-pro/step-3.png",
-      },
-      {
-        text: withFi(
-          "Connect the container to the catheter with a gentle twist, make sure the arrow on the container points down.",
-          "Kierrä nestesäiliö kiinni katetriin umpinainen pohja alaspäin - varmista, että nuoli osoittaa alaspäin.",
-        ),
-        image: "/images/instructions/lofric-elle-pro/step-4.png",
-      },
-      {
-        text: withFi(
-          "Tilt your pelvis upwards, spread the labia, lift slightly to locate the urethra. The urethra is located just above the vaginal opening. With the other hand, insert the catheter slowly into your urethral opening until urine starts to flow, insert slightly more to ensure a steady stream. Wait until urine flow stops, then slowly withdraw the catheter.",
-          "Kallista lantiota hieman ylöspäin ja levitä häpyhuulet. Virtsaputken suuaukko sijaitsee aivan emättimen suuaukon yläpuolella. Pidä kahvasta kiinni dominoivalla kädelläsi. Ohjaa katetri virtsaputkeen. Kun virtsa alkaa virrata, työnnä hieman lisää varmistaaksesi tasaisen virtauksen. Odota, kunnes virtsan virtaus loppuu ja vedä sitten katetri hitaasti ulos.",
-        ),
-        image: "/images/instructions/lofric-elle-pro/step-5.png",
-      },
-      {
-        text: withFi(
-          "Put the catheter back inside the container. Dispose, or carry it in your bag until disposal. Please note! The container is recyclable.",
-          "Laita katetri takaisin säiliöön. Hävitä se asianmukaisesti tai kuljeta mukanasi, kunnes voit hävittää sen. Säiliö on kierrätettävissä muovijätteenä.",
-        ),
-        image: "/images/instructions/lofric-elle-pro/step-6.png",
-      },
-    ],
+    instructions: elleProPdfSteps,
     safety: elleProIfu.safety,
     contraindications: elleProIfu.contraindications,
     warningSigns: elleProIfu.warningSigns,
@@ -741,56 +619,7 @@ export const products: Product[] = [
       no: "LoFric® Elle™, designet av kvinner for kvinner, er et hydrofilt intermitterende kateter. LoFric Elle ble utviklet for å støtte kateterisering og å hjelpe brukerne med å sikre oversikt og posisjonering under bruk. I brukernes tilbakemeldinger rapporterte deltakerne at det L-formede håndtaket gir bedre oversikt når du bruker et speil, hjalp dem med å finne urinrøret enklere og støttet en mer oppreist sittestilling under kateterisering. LoFric Elle har 2 øyne. LoFric Elle har blitt udviklet for å forenkle kateteriseringen ytterligere, og er designet for å muliggjøre tømming av blæren i én fri strøm, uten behov for posisjoneringen. LoFric Elle er liten, diskret og praktisk å bære, forsegle på nytt og kaste.",
     },
     indications: elleProIfu.indications,
-    instructions: [
-      {
-        text: withFi(
-          "Wash your hands thoroughly with soap and water.",
-          "Pese kädet huolellisesti vedellä ja saippualla.",
-          "Tvätta händerna ordentligt med tvål och vatten.",
-        ),
-        image: "/images/instructions/lofric-elle/step-1.png",
-      },
-      {
-        text: withFi(
-          "Open the upper lid.",
-          "Avaa korkki.",
-          "Öppna det övre sterila barriärlocket.",
-        ),
-        image: "/images/instructions/lofric-elle/step-2.png",
-      },
-      {
-        text: withFi(
-          "Hold the catheter in your hand and gently bend the upper part to open. Pull the catheter out.",
-          "Irrota katetri säiliöstä. Käytä molempia käsiä ja taivuta avataksesi. Vedä katetri ulos. Tyhjennä ensin neste säiliöstä (wc-pönttöön tai käsienpesualtaaseen). Voit nyt katetroida.",
-          "Greppa katetern och böj försiktigt den övre delen för att öppna. Drag ut katetern. Töm ut den resterande vätskan från behållaren (i toaletten eller handfatet).",
-        ),
-        image: "/images/instructions/lofric-elle/step-3.png",
-      },
-      {
-        text: withFi(
-          "Connect the container to the catheter with a gentle twist, make sure the arrow on the container points down.",
-          "Käytettäessä kahvaa, kiinnitä säiliö kahvaksi katetriin kiertämällä myötäpäivään. Varmista, että kahvassa oleva nuoli osoittaa katetriin päin.",
-          "ALTERNATIV: Katetern kan användas med eller utan handtaget. Handtaget ger ökad räckvidd och mer hygienisk kateterisering. Fäst handtaget på katetern med ett klick, kontrollera att pilen på handtaget pekar mot katetern.",
-        ),
-        image: "/images/instructions/lofric-elle/step-4.png",
-      },
-      {
-        text: withFi(
-          "Tilt your pelvis upwards, spread the labia, lift slightly to locate the urethra. The urethra is located just above the vaginal opening. With the other hand, insert the catheter slowly into your urethral opening, until urine starts to flow, insert slightly more to ensure both eyelets are inside the bladder. When the urine flow slows to a drip, withdraw the catheter slowly. If urine starts to flow again, stop the withdrawal process and wait until the urine flow stops, to ensure complete bladder emptying.",
-          "Katetria voidaan käyttää kahvan kanssa tai ilman. Kahva helpottaa ylttämistä ja tekee katetroinnista hygieenisempää. Levitä häpyhuulia paikallistaaksesi virtsaputken suun. Vie katetri virtsaputkeen, kunnes virtsa alkaa virrata. Vie katetria vielä hieman pidemmälle varmistaaksesi, että katetrin molemmat silmäaukot ovat virtsarakossa. Kun virtsaa ei enää valu katetrista, vedä katetria hitaasti ulos. Jos virtsa alkaa valua uudelleen, odota kunnes virtsan tulo lakkaa varmistaaksesi, että virtsarakko on täysin tyhjä.",
-          "Luta ditt bäcken framåt, sära på blygdläpparna, dra dem försiktigt uppåt, urinröret ligger strax ovanför vaginalöppningen. Med andra handen, för katetern långsamt in i urinrörsöppningen, tills urin börjar rinna, för in den lite längre för att säkerställa att båda kateterögonen befinner sig i urinblåsan. När urinflödet avtar till droppar, dra ut katetern långsamt. Om urin börjar rinna igen, vänta tills urinflödet upphör, för att säkerställa fullständig tömning av urinblåsan.",
-        ),
-        image: "/images/instructions/lofric-elle/step-5.png",
-      },
-      {
-        text: withFi(
-          "Put the catheter back inside the container. Dispose, or carry it in your bag until disposal. Please note! The container is recyclable.",
-          "Aseta katetri takaisin säiliön sisään. Hävitä katetri heti tai kuljeta katetria laukussasi, kunnes voit hävittää sen. Huomio! Säiliön voi kierrättää muovipakkausjätteenä.",
-          "Sätt tillbaka katetern i den nedre behållaren. Kassera eller förvara den i din väska tills du kan slänga den. Vänligen notera! Behållaren är återvinningsbar som plastförpackning.",
-        ),
-        image: "/images/instructions/lofric-elle/step-6.png",
-      },
-    ],
+    instructions: ellePdfSteps,
 
     safety: elleProIfu.safety,
     contraindications: elleProIfu.contraindications,
@@ -1102,7 +931,8 @@ export const products: Product[] = [
       no: "Vi introduserer flere glatte Pro-øyne, utviklet for å forenkle kateteriseringen ytterligere. LoFric® Origo™ Pro kateterøyne er utformet for å muliggjøre fullstendig tømming av blæren uten å måtte reposisjonere kateteret. LoFric Origo Pro er et hydrofilt intermitterende kateter. Den er sammenleggbar til lommestørrelse, diskret og enkel å bære og bruke overalt. LoFric Origo Pro leveres med en fleksibel spiss og et uttrekkbart beskyttelseshylse for hygienisk innsetting.",
     },
     indications: origoIfu.indications,
-    instructions: origoProSteps,
+    instructions: origoProPdfSteps,
+    instructionsNote: origoProPdfNote,
 
     safety: origoIfu.safety,
     contraindicationsIntro: origoIfu.contraindicationsIntro,
@@ -1180,6 +1010,7 @@ export const products: Product[] = [
     instructionsIntro: origoSleeveIntro,
     instructionsNote: origoSleeveNote,
     instructions: origoSleeveSteps,
+    instructionsByLocale: { en: sleeveEnPdfSteps },
     safety: origoSleeveIfu.safety,
     contraindicationsIntro: origoSleeveIfu.contraindicationsIntro,
     contraindications: origoSleeveIfu.contraindications,

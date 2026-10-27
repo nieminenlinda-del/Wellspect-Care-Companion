@@ -13,7 +13,8 @@ import { uiStrings } from "@/data/ui-strings";
  * Omit a key when the asset does not exist yet. Callers hide the card, so a
  * missing QR does not show a broken image.
  */
-export type BrochureId = "cic-women" | "cic-men" | "elle" | "elle-pro" | "origo-pro" | "tai";
+export type BrochureId =
+  "cic-women" | "cic-men" | "elle" | "elle-pro" | "origo-pro" | "origo-sleeve" | "tai";
 
 export type BrochureQrCode = {
   /** Public path, e.g. `/images/qr/brochure/sv/cic-women.png`. */
@@ -158,6 +159,10 @@ const brochureCatalog: Partial<Record<LocaleCode, Partial<Record<BrochureId, Bro
       image: "/images/qr/brochure/en/origo-pro.png",
       url: "https://wellspect.qrd.by/a9wm1f",
     },
+    "origo-sleeve": {
+      image: "/images/qr/brochure/en/origo-sleeve.png",
+      url: "https://wellspect.qrd.by/dq0vj6",
+    },
     tai: {
       image: "/images/qr/brochure/tai/en.png",
       url: "https://wellspect.qrd.by/gpn04e",
@@ -173,6 +178,7 @@ const productBrochureIds: Partial<Record<string, BrochureId>> = {
   "lofric-elle": "elle",
   "lofric-elle-pro": "elle-pro",
   "lofric-origo-pro": "origo-pro",
+  "lofric-origo-sleeve": "origo-sleeve",
 };
 
 /**
@@ -218,6 +224,7 @@ const brochureCovers: Partial<Record<LocaleCode, Partial<Record<BrochureId, stri
     elle: "/images/qr/brochure/covers/en/elle.png",
     "elle-pro": "/images/qr/brochure/covers/en/elle-pro.png",
     "origo-pro": "/images/qr/brochure/covers/en/origo-pro.png",
+    "origo-sleeve": "/images/qr/brochure/covers/en/origo-sleeve.png",
     tai: "/images/qr/brochure/covers/en/tai.png",
   },
 };
