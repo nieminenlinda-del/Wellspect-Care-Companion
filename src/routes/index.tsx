@@ -345,7 +345,7 @@ function Index() {
                     <ul className="mt-3 grid items-stretch gap-4 md:grid-cols-2">
                       {bodyVideos.map((video) => (
                         <li key={video.id} className="flex">
-                          <IcHomeVideoCard video={video} className={videoCard} />
+                          <IcHomeVideoCard video={video} className={videoCard} compact />
                         </li>
                       ))}
                     </ul>

@@ -56,7 +56,16 @@ function CaptionedFilm({
   );
 }
 
-export function IcHomeVideoCard({ video, className }: { video: IcHomeVideo; className: string }) {
+export function IcHomeVideoCard({
+  video,
+  className,
+  compact = false,
+}: {
+  video: IcHomeVideo;
+  className: string;
+  /** Shorter thumbnail so a category row stays above the product grid on a 1280×800 tablet. */
+  compact?: boolean;
+}) {
   const { locale } = useLocale();
   const videoRef = useRef<HTMLVideoElement>(null);
   const hasCaptions = Boolean(video.captions?.[locale]);
@@ -74,17 +83,35 @@ export function IcHomeVideoCard({ video, className }: { video: IcHomeVideo; clas
               <Play className="size-4 translate-x-px" aria-hidden="true" />
             </span>
             <span className="min-w-0">
-              <span className="text-card-foreground block text-lg font-semibold tracking-tight text-balance">
+              <span
+                className={
+                  compact
+                    ? "text-card-foreground block text-base font-semibold tracking-tight text-balance"
+                    : "text-card-foreground block text-lg font-semibold tracking-tight text-balance"
+                }
+              >
                 {video.title}
               </span>
-              <span className="text-muted-foreground mt-3 block text-base">{video.duration}</span>
+              <span
+                className={
+                  compact
+                    ? "text-muted-foreground mt-1 block text-sm"
+                    : "text-muted-foreground mt-3 block text-base"
+                }
+              >
+                {video.duration}
+              </span>
             </span>
           </span>
           <span className="bg-muted mt-3 block w-fit max-w-full shrink-0 overflow-hidden rounded-xl clinic-landscape:mt-0">
             <img
               src={publicUrl(video.poster)}
               alt=""
-              className="h-auto max-h-36 w-auto max-w-full object-contain clinic-landscape:max-h-48"
+              className={
+                compact
+                  ? "h-auto max-h-24 w-auto max-w-full object-contain clinic-landscape:max-h-20"
+                  : "h-auto max-h-36 w-auto max-w-full object-contain clinic-landscape:max-h-48"
+              }
             />
           </span>
         </button>
