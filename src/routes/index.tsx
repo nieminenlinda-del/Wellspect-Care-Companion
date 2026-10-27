@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { Search, X } from "lucide-react";
+import { ArrowLeft, Search, X } from "lucide-react";
 import {
   categoryLabels,
   categoryOrder,
@@ -22,6 +22,11 @@ import { AnatomyDialog } from "@/components/AnatomyDialog";
 import { anatomyStrings } from "@/data/anatomy";
 import { arabicVideosStrings } from "@/data/arabic-videos";
 import { getHomeBrochures } from "@/data/brochure-qr";
+import { categoryFeatureOrder, categoryFeatures } from "@/data/category-features";
+import { getIcHomeVideos } from "@/data/ic-home-videos";
+import { CategoryFeatureCard } from "@/components/CategoryFeatureCard";
+import { IcHomeVideoCard } from "@/components/IcHomeVideo";
+import { navPillClassName } from "@/components/NavPill";
 import { ProductImage, ProductTitle } from "@/components/ProductImage";
 import { ecolabelContent } from "@/data/ecolabel";
 import { publicUrl } from "@/lib/public-url";
@@ -96,6 +101,9 @@ function Index() {
 
   const showCategories = !searching && active === null;
   const showContact = !searching && active === "contact";
+  const icVideos = getIcHomeVideos(locale);
+  const secondaryCard =
+    "border-border bg-card focus-visible:ring-primary flex min-h-24 w-full flex-col justify-between rounded-2xl border p-5 text-left shadow-soft transition-colors hover:bg-muted/40 focus-visible:ring-2 focus-visible:outline-none";
 
   return (
     <div className="clinic-page bg-background">
@@ -189,47 +197,44 @@ function Index() {
             <h2 className="text-foreground text-xl font-semibold tracking-tight sm:text-2xl">
               {t.browseTitle}
             </h2>
-            <ul className="mt-5 grid gap-4 sm:grid-cols-2 clinic-landscape:grid-cols-3">
-              {categoryOrder
-                .filter((c) => c !== "contact")
-                .map((c) => (
-                  <li key={c}>
-                    <button
-                      type="button"
-                      onClick={() => setActive(c)}
-                      className="group border-border bg-card hover:border-primary/40 focus-visible:ring-primary flex min-h-28 w-full flex-col justify-between rounded-3xl border p-6 text-left shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lift focus-visible:ring-2 focus-visible:outline-none active:translate-y-0 active:scale-[0.99] clinic-landscape:min-h-32 clinic-landscape:p-7 sm:p-7"
-                    >
-                      <span className="text-card-foreground text-xl font-semibold tracking-tight text-balance sm:text-2xl">
-                        {categoryLabels[c][locale]}
-                      </span>
-                      <span className="text-muted-foreground mt-4 text-sm">
-                        {t.productCount(availableProducts.filter((p) => p.category === c).length)}
-                      </span>
-                    </button>
-                  </li>
-                ))}
-              {getHomeBrochures(locale).map((card) => (
-                <li key={card.id}>
-                  <BrochureQrCard
-                    variant="home"
-                    image={card.image}
-                    label={card.label}
-                    detail={card.detail}
-                    cover={card.cover}
+            <ul className="mt-5 grid gap-4 md:grid-cols-3">
+              {categoryFeatureOrder.map((c) => (
+                <li key={c}>
+                  <CategoryFeatureCard
+                    feature={categoryFeatures[c]}
+                    headline={categoryFeatures[c].headline[locale]}
+                    subtitle={categoryFeatures[c].subtitle[locale]}
+                    onSelect={() => setActive(c)}
                   />
                 </li>
               ))}
+            </ul>
+            <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {icVideos.length > 0
+                ? icVideos.map((video) => (
+                    <li key={video.id}>
+                      <IcHomeVideoCard video={video} className={secondaryCard} />
+                    </li>
+                  ))
+                : getHomeBrochures(locale).map((card) => (
+                    <li key={card.id}>
+                      <BrochureQrCard
+                        variant="home"
+                        image={card.image}
+                        label={card.label}
+                        detail={card.detail}
+                        cover={card.cover}
+                      />
+                    </li>
+                  ))}
               <li>
                 <ArabicVideosDialog
                   trigger={
-                    <button
-                      type="button"
-                      className="group border-border bg-card hover:border-primary/40 focus-visible:ring-primary flex min-h-28 w-full flex-col justify-between rounded-3xl border p-6 text-left shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lift focus-visible:ring-2 focus-visible:outline-none active:translate-y-0 active:scale-[0.99] clinic-landscape:min-h-32 clinic-landscape:p-7 sm:p-7"
-                    >
-                      <span className="text-card-foreground text-xl font-semibold tracking-tight text-balance sm:text-2xl">
+                    <button type="button" className={secondaryCard}>
+                      <span className="text-card-foreground text-lg font-semibold tracking-tight text-balance">
                         {av.cardTitle}
                       </span>
-                      <span className="text-muted-foreground mt-4 text-base" dir="rtl" lang="ar">
+                      <span className="text-muted-foreground mt-3 text-base" dir="rtl" lang="ar">
                         {av.cardSubtitle}
                       </span>
                     </button>
@@ -239,13 +244,10 @@ function Index() {
               <li>
                 <EcolabelDialog
                   trigger={
-                    <button
-                      type="button"
-                      className="group border-border bg-card hover:border-success/50 focus-visible:ring-primary flex min-h-28 w-full flex-col justify-between rounded-3xl border p-6 text-left shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lift focus-visible:ring-2 focus-visible:outline-none active:translate-y-0 active:scale-[0.99] clinic-landscape:min-h-32 clinic-landscape:p-7 sm:p-7"
-                    >
-                      <span className="flex items-start gap-4">
-                        <SwanMark className="size-11 shrink-0" />
-                        <span className="text-card-foreground text-xl font-semibold tracking-tight text-balance sm:text-2xl">
+                    <button type="button" className={secondaryCard}>
+                      <span className="flex items-start gap-3">
+                        <SwanMark className="size-9 shrink-0" />
+                        <span className="text-card-foreground text-lg font-semibold tracking-tight text-balance">
                           {eco.cardTitle}
                         </span>
                       </span>
@@ -257,12 +259,12 @@ function Index() {
                 <button
                   type="button"
                   onClick={() => setActive("contact")}
-                  className="group border-border bg-card hover:border-primary/40 focus-visible:ring-primary flex min-h-28 w-full flex-col justify-between rounded-3xl border p-6 text-left shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lift focus-visible:ring-2 focus-visible:outline-none active:translate-y-0 active:scale-[0.99] clinic-landscape:min-h-32 clinic-landscape:p-7 sm:p-7"
+                  className={secondaryCard}
                 >
-                  <span className="text-card-foreground text-xl font-semibold tracking-tight text-balance sm:text-2xl">
+                  <span className="text-card-foreground text-lg font-semibold tracking-tight text-balance">
                     {categoryLabels.contact[locale]}
                   </span>
-                  <span className="text-muted-foreground mt-4 text-sm">{contact.company}</span>
+                  <span className="text-muted-foreground mt-3 text-sm">{contact.company}</span>
                 </button>
               </li>
             </ul>
@@ -276,9 +278,10 @@ function Index() {
                   setActive(null);
                   setQuery("");
                 }}
-                className="border-border bg-card text-foreground hover:bg-muted focus-visible:ring-primary min-h-11 rounded-full border px-5 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:outline-none"
+                className={navPillClassName}
               >
-                {t.allCategories}
+                <ArrowLeft className="size-4 shrink-0" aria-hidden="true" />
+                <span className="whitespace-nowrap">{t.home}</span>
               </button>
               {!showContact && (
                 <p className="text-muted-foreground text-xs tracking-wide" aria-live="polite">

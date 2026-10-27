@@ -42,9 +42,9 @@ export type UIStrings = {
   qrLearnMore: string;
   /** Label for a product step-guide brochure QR (Elle, Elle Pro, Origo Pro). */
   brochurePdfGuide: string;
-  /** Home and How to use label for the women’s CIC brochure. */
+  /** Home and How to use label for the women’s IC brochure. */
   brochureCicWomen: string;
-  /** Home and How to use label for the men’s CIC brochure. */
+  /** Home and How to use label for the men’s IC brochure. */
   brochureCicMen: string;
   /** Short label for the transanal irrigation brochure. */
   brochureTai: string;
@@ -97,8 +97,8 @@ const en: UIStrings = {
   enlargeIllustration: "Enlarge illustration",
   qrLearnMore: "Learn more on the website",
   brochurePdfGuide: "Brochure / PDF guide",
-  brochureCicWomen: "CIC – women",
-  brochureCicMen: "CIC – men",
+  brochureCicWomen: "IC – women",
+  brochureCicMen: "IC – men",
   brochureTai: "TAI guide",
   brochureLifeWithNavina: "Life with Navina",
   downloadableGuides: "Downloadable guides",
