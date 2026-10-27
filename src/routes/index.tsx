@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ArrowLeft, Search, X } from "lucide-react";
 import {
   categoryLabels,
@@ -102,31 +102,11 @@ function Index() {
   const showCategories = !searching && active === null;
   const showContact = !searching && active === "contact";
   const icVideos = getIcHomeVideos(locale);
-  const featureCardRef = useRef<HTMLButtonElement>(null);
-  const videoRowRef = useRef<HTMLUListElement>(null);
-
-  useLayoutEffect(() => {
-    const feature = featureCardRef.current;
-    const row = videoRowRef.current;
-    if (!feature || !row) return;
-    const apply = () => {
-      const height = Math.round(feature.getBoundingClientRect().height);
-      row.querySelectorAll<HTMLButtonElement>(":scope > li > button").forEach((button) => {
-        button.style.height = `${height}px`;
-      });
-    };
-    apply();
-    const observer = new ResizeObserver(apply);
-    observer.observe(feature);
-    window.addEventListener("resize", apply);
-    return () => {
-      observer.disconnect();
-      window.removeEventListener("resize", apply);
-    };
-  }, [locale, icVideos.length]);
 
   const secondaryCard =
     "border-border bg-card focus-visible:ring-primary flex min-h-24 w-full flex-col justify-between rounded-2xl border p-5 text-left shadow-soft transition-colors hover:bg-muted/40 focus-visible:ring-2 focus-visible:outline-none";
+  const videoCard =
+    "border-border bg-card focus-visible:ring-primary flex h-full w-full flex-col justify-start overflow-hidden rounded-2xl border p-5 text-left shadow-soft transition-colors hover:bg-muted/40 focus-visible:ring-2 focus-visible:outline-none clinic-landscape:flex-row clinic-landscape:items-center clinic-landscape:gap-4";
 
   return (
     <div className="clinic-page bg-background">
@@ -228,19 +208,15 @@ function Index() {
                     headline={categoryFeatures[c].headline[locale]}
                     subtitle={categoryFeatures[c].subtitle[locale]}
                     onSelect={() => setActive(c)}
-                    buttonRef={c === "women" ? featureCardRef : undefined}
                   />
                 </li>
               ))}
             </ul>
             {icVideos.length > 0 ? (
-              <ul ref={videoRowRef} className="mt-4 grid items-stretch gap-4 md:grid-cols-2">
+              <ul className="mt-4 grid items-stretch gap-4 md:grid-cols-2">
                 {icVideos.map((video) => (
                   <li key={video.id} className="flex">
-                    <IcHomeVideoCard
-                      video={video}
-                      className={`${secondaryCard} h-full w-full overflow-hidden`}
-                    />
+                    <IcHomeVideoCard video={video} className={videoCard} />
                   </li>
                 ))}
               </ul>

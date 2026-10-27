@@ -1,4 +1,3 @@
-import type { Ref } from "react";
 import type { CategoryFeature } from "@/data/category-features";
 import { publicUrl } from "@/lib/public-url";
 
@@ -26,18 +25,15 @@ export function CategoryFeatureCard({
   headline,
   subtitle,
   onSelect,
-  buttonRef,
 }: {
   feature: CategoryFeature;
   headline: string;
   subtitle: string;
   onSelect: () => void;
-  buttonRef?: Ref<HTMLButtonElement>;
 }) {
   const { accent, figure, image } = feature;
   return (
     <button
-      ref={buttonRef}
       type="button"
       onClick={onSelect}
       className="group focus-visible:ring-primary relative flex h-full min-h-48 w-full flex-row items-stretch overflow-hidden rounded-3xl border bg-card text-left shadow-lift transition-transform duration-300 hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:outline-none active:translate-y-0 md:min-h-[22rem] md:flex-col"

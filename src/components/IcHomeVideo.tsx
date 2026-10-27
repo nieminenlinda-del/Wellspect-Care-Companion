@@ -80,11 +80,11 @@ export function IcHomeVideoCard({ video, className }: { video: IcHomeVideo; clas
               <span className="text-muted-foreground mt-3 block text-base">{video.duration}</span>
             </span>
           </span>
-          <span className="bg-muted mt-4 flex min-h-28 flex-1 items-center justify-center overflow-hidden rounded-xl">
+          <span className="bg-muted mt-3 block w-fit max-w-full shrink-0 overflow-hidden rounded-xl clinic-landscape:mt-0">
             <img
               src={publicUrl(video.poster)}
               alt=""
-              className="h-full max-h-full w-full object-contain"
+              className="h-auto max-h-36 w-auto max-w-full object-contain clinic-landscape:max-h-48"
             />
           </span>
         </button>

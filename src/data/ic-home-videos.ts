@@ -17,7 +17,13 @@ export type IcHomeVideo = {
  * Add a locale under videoByLocale when a dubbed film exists. English is
  * not a fallback. Every current locale has a pair. A locale with no entry
  * still keeps the brochure row.
+ *
+ * The card image is shared: one clinician thumbnail for every women's film,
+ * and one for every men's film. Those same files are the modal posters.
  */
+const womenPoster = "/media/ic-thumb-women.jpg";
+const menPoster = "/media/ic-thumb-men.jpg";
+
 const icHomeVideos: Array<{
   id: string;
   videoByLocale: Partial<Record<LocaleCode, Omit<IcHomeVideo, "id">>>;
@@ -27,38 +33,37 @@ const icHomeVideos: Array<{
     videoByLocale: {
       en: {
         title: "Introduction to IC for women",
-        // ic-video-2 opening title card at 00:01.
         src: "/media/ic-video-2.mp4",
-        poster: "/media/ic-video-2-poster.jpg",
+        poster: womenPoster,
         duration: "3:29",
         captions: { en: "/media/ic-video-2-en.vtt" },
       },
       sv: {
         title: "Introduktion till RIK för kvinnor",
-        // Purple title card at 00:01. Swedish subtitles are burned in.
+        // Swedish subtitles are burned in.
         src: "/media/ic-video-women-sv.mp4",
-        poster: "/media/ic-video-women-sv-poster.jpg",
+        poster: womenPoster,
         duration: "3:29",
       },
       da: {
         title: "Introduktion til RIK for kvinder",
-        // Purple title card at 00:01. Danish subtitles are burned in.
+        // Danish subtitles are burned in.
         src: "/media/ic-video-women-da.mp4",
-        poster: "/media/ic-video-women-da-poster.jpg",
+        poster: womenPoster,
         duration: "3:29",
       },
       fi: {
         title: "Johdanto toistokatetrointiin naisille",
-        // Purple title card at 00:01. Finnish subtitles are burned in.
+        // Finnish subtitles are burned in.
         src: "/media/ic-video-women-fi.mp4",
-        poster: "/media/ic-video-women-fi-poster.jpg",
+        poster: womenPoster,
         duration: "3:29",
       },
       no: {
         title: "Introduksjon til RIK for kvinner",
-        // Purple title card at 00:01. Norwegian subtitles are burned in.
+        // Norwegian subtitles are burned in.
         src: "/media/ic-video-women-no.mp4",
-        poster: "/media/ic-video-women-no-poster.jpg",
+        poster: womenPoster,
         duration: "3:29",
       },
     },
@@ -68,38 +73,37 @@ const icHomeVideos: Array<{
     videoByLocale: {
       en: {
         title: "Introduction to IC for men",
-        // ic-video-1 opening title card at 00:01.
         src: "/media/ic-video-1.mp4",
-        poster: "/media/ic-video-1-poster.jpg",
+        poster: menPoster,
         duration: "3:18",
         captions: { en: "/media/ic-video-1-en.vtt" },
       },
       sv: {
         title: "Introduktion till RIK för män",
-        // Blue title card at 00:01. Swedish subtitles are burned in.
+        // Swedish subtitles are burned in.
         src: "/media/ic-video-men-sv.mp4",
-        poster: "/media/ic-video-men-sv-poster.jpg",
+        poster: menPoster,
         duration: "3:18",
       },
       da: {
         title: "Introduktion til RIK for mænd",
-        // Blue title card at 00:01. Danish subtitles are burned in.
+        // Danish subtitles are burned in.
         src: "/media/ic-video-men-da.mp4",
-        poster: "/media/ic-video-men-da-poster.jpg",
+        poster: menPoster,
         duration: "3:18",
       },
       fi: {
         title: "Johdanto toistokatetrointiin miehille",
-        // Blue title card at 00:01. Finnish subtitles are burned in.
+        // Finnish subtitles are burned in.
         src: "/media/ic-video-men-fi.mp4",
-        poster: "/media/ic-video-men-fi-poster.jpg",
+        poster: menPoster,
         duration: "3:18",
       },
       no: {
         title: "Introduksjon til RIK for menn",
-        // Blue title card at 00:01. Norwegian subtitles are burned in.
+        // Norwegian subtitles are burned in.
         src: "/media/ic-video-men-no.mp4",
-        poster: "/media/ic-video-men-no-poster.jpg",
+        poster: menPoster,
         duration: "3:18",
       },
     },
