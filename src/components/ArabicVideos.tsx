@@ -52,7 +52,9 @@ export function ArabicVideosDialog({ trigger }: { trigger: ReactNode }) {
                   </div>
                 )}
               </div>
-              <p className="text-foreground mt-4 text-sm font-semibold">{v.titleEn}</p>
+              <p className="text-foreground mt-4 text-sm font-semibold">
+                {locale === "en" ? v.titleEn.replaceAll("CIC", "IC") : v.titleEn}
+              </p>
               <p className="text-muted-foreground mt-1 text-base" dir="rtl" lang="ar">
                 {v.titleAr}
               </p>

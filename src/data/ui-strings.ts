@@ -42,9 +42,9 @@ export type UIStrings = {
   qrLearnMore: string;
   /** Label for a product step-guide brochure QR (Elle, Elle Pro, Origo Pro). */
   brochurePdfGuide: string;
-  /** Home and How to use label for the women’s CIC brochure. */
+  /** Home and How to use label for the women’s IC brochure. */
   brochureCicWomen: string;
-  /** Home and How to use label for the men’s CIC brochure. */
+  /** Home and How to use label for the men’s IC brochure. */
   brochureCicMen: string;
   /** Short label for the transanal irrigation brochure. */
   brochureTai: string;
@@ -80,7 +80,7 @@ const en: UIStrings = {
   storage: "Handling and storage",
   disclaimerTitle: "Medical disclaimer",
   disclaimerBody:
-    "This kiosk gives general information about Wellspect medical devices. It does not replace the instructions for use in the product packaging, individual training, or advice from your healthcare professional. Catheterisation and transanal irrigation must be prescribed and taught by a clinician before you start.",
+    "This app gives general information about Wellspect medical devices. It does not replace the instructions for use in the product packaging, individual training, or advice from your healthcare professional. Catheterisation and transanal irrigation must be prescribed and taught by a clinician before you start.",
   browseTitle: "Choose a category",
   allCategories: "All categories",
   backToCategory: (label) => `Back to ${label}`,
@@ -97,8 +97,8 @@ const en: UIStrings = {
   enlargeIllustration: "Enlarge illustration",
   qrLearnMore: "Learn more on the website",
   brochurePdfGuide: "Brochure / PDF guide",
-  brochureCicWomen: "CIC – women",
-  brochureCicMen: "CIC – men",
+  brochureCicWomen: "IC – women",
+  brochureCicMen: "IC – men",
   brochureTai: "TAI guide",
   brochureLifeWithNavina: "Life with Navina",
   downloadableGuides: "Downloadable guides",
@@ -129,7 +129,7 @@ const sv: UIStrings = {
   storage: "Hantering och förvaring",
   disclaimerTitle: "Medicinsk friskrivning",
   disclaimerBody:
-    "Den här kiosken ger allmän information om Wellspects medicintekniska produkter. Den ersätter inte bruksanvisningen i förpackningen, individuell instruktion eller råd från din vårdgivare. RIK och transanal irrigation ska ordineras och läras ut av vårdpersonal innan du börjar.",
+    "Den här appen ger allmän information om Wellspects medicintekniska produkter. Den ersätter inte bruksanvisningen i förpackningen, individuell instruktion eller råd från din vårdgivare. RIK och transanal irrigation ska ordineras och läras ut av vårdpersonal innan du börjar.",
   browseTitle: "Välj en kategori",
   allCategories: "Alla kategorier",
   backToCategory: (label) => `Tillbaka till ${label}`,
@@ -178,7 +178,7 @@ const fi: UIStrings = {
   storage: "Käsittely ja säilytys",
   disclaimerTitle: "Lääketieteellinen vastuuvapauslauseke",
   disclaimerBody:
-    "Tämä kioski antaa yleistä tietoa Wellspectin lääkinnällisistä laitteista. Se ei korvaa pakkauksen käyttöohjetta, henkilökohtaista opastusta tai hoitohenkilökunnan neuvoja. Katetroinnin ja transanaalisen huuhtelun tulee olla lääkärin määräämiä ja ammattilaisen opastamia.",
+    "Tämä sovellus antaa yleistä tietoa Wellspectin lääkinnällisistä laitteista. Se ei korvaa pakkauksen käyttöohjetta, henkilökohtaista opastusta tai hoitohenkilökunnan neuvoja. Katetroinnin ja transanaalisen huuhtelun tulee olla lääkärin määräämiä ja ammattilaisen opastamia.",
   browseTitle: "Valitse kategoria",
   allCategories: "Kaikki kategoriat",
   backToCategory: (label) => `Takaisin: ${label}`,
@@ -227,7 +227,7 @@ const da: UIStrings = {
   storage: "Håndtering og opbevaring",
   disclaimerTitle: "Medicinsk ansvarsfraskrivelse",
   disclaimerBody:
-    "Denne kiosk giver generel information om Wellspects medicinske udstyr. Den erstatter ikke brugsanvisningen i emballagen, individuel oplæring eller råd fra din behandler. Kateterisering og transanal irrigation skal ordineres og oplæres af sundhedspersonale, før du begynder.",
+    "Denne app giver generel information om Wellspects medicinske udstyr. Den erstatter ikke brugsanvisningen i emballagen, individuel oplæring eller råd fra din behandler. Kateterisering og transanal irrigation skal ordineres og oplæres af sundhedspersonale, før du begynder.",
   browseTitle: "Vælg en kategori",
   allCategories: "Alle kategorier",
   backToCategory: (label) => `Tilbage til ${label}`,
@@ -276,7 +276,7 @@ const no: UIStrings = {
   storage: "Håndtering og oppbevaring",
   disclaimerTitle: "Medisinsk ansvarsfraskrivelse",
   disclaimerBody:
-    "Denne kiosken gir generell informasjon om Wellspects medisinske utstyr. Den erstatter ikke bruksanvisningen i pakningen, individuell opplæring eller råd fra helsepersonell. Kateterisering og transanal irrigasjon skal forskrives og læres bort av helsepersonell før du starter.",
+    "Denne appen gir generell informasjon om Wellspects medisinske utstyr. Den erstatter ikke bruksanvisningen i pakningen, individuell opplæring eller råd fra helsepersonell. Kateterisering og transanal irrigasjon skal forskrives og læres bort av helsepersonell før du starter.",
   browseTitle: "Velg en kategori",
   allCategories: "Alle kategorier",
   backToCategory: (label) => `Tilbake til ${label}`,

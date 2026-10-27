@@ -24,6 +24,8 @@ import {
   localizedText,
 } from "@/data/products";
 import { uiStrings } from "@/data/ui-strings";
+import { categoryHeadline } from "@/data/category-features";
+import { navPillClassName } from "@/components/NavPill";
 import { locales, useLocale, type LocaleCode } from "@/lib/locale";
 import { DisclaimerCard } from "@/components/MedicalDisclaimer";
 import { MarketSelector } from "@/components/MarketSelector";
@@ -110,6 +112,17 @@ function Bullets({ items, dot }: { items: string[]; dot: string }) {
   );
 }
 
+function BackToLabel({ full, headline }: { full: string; headline: string }) {
+  const lead = full.endsWith(headline) ? full.slice(0, -headline.length) : "";
+  if (!lead) return <span className="whitespace-nowrap">{full}</span>;
+  return (
+    <span className="leading-tight">
+      {lead}
+      <span className="whitespace-nowrap">{headline}</span>
+    </span>
+  );
+}
+
 function ProductDetail() {
   const { product } = Route.useLoaderData();
   const { locale, localeReady } = useLocale();
@@ -123,8 +136,7 @@ function ProductDetail() {
   const [variantIdx, setVariantIdx] = useState(0);
   const localeDub = product.videoByLocale?.[locale];
   const activeVideoUrl =
-    localeDub ??
-    (videoVariants.length ? videoVariants[variantIdx]?.url : product.videoUrl);
+    localeDub ?? (videoVariants.length ? videoVariants[variantIdx]?.url : product.videoUrl);
   const hasVideoSection =
     Boolean(product.videoUrl) ||
     videoVariants.length > 0 ||
@@ -204,27 +216,23 @@ function ProductDetail() {
   return (
     <div className="clinic-page bg-background">
       <div className="border-border/70 glass sticky top-0 z-20 border-b pt-[env(safe-area-inset-top)]">
-        <div className="clinic-shell grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 py-2 clinic-landscape:py-1.5">
-          <nav className="flex min-w-0 flex-wrap items-center gap-x-4 gap-y-1">
-            <Link
-              to="/"
-              className="text-muted-foreground hover:text-foreground inline-flex min-h-11 min-w-0 items-center gap-2 text-sm"
-            >
+        <div className="clinic-shell flex flex-wrap items-center gap-2 py-2 clinic-landscape:py-1.5">
+          <nav className="order-2 flex w-full flex-wrap items-center gap-2 sm:order-none sm:w-auto sm:flex-1">
+            <Link to="/" className={navPillClassName}>
               <ArrowLeft className="size-4 shrink-0" aria-hidden="true" />
-              <span className="truncate">{t.home}</span>
+              <span className="whitespace-nowrap">{t.home}</span>
             </Link>
-            <Link
-              to="/"
-              search={{ category: product.category }}
-              className="text-foreground hover:text-primary inline-flex min-h-11 min-w-0 items-center gap-2 text-sm font-medium"
-            >
+            <Link to="/" search={{ category: product.category }} className={navPillClassName}>
               <ArrowLeft className="size-4 shrink-0" aria-hidden="true" />
-              <span className="truncate">
-                {t.backToCategory(categoryLabels[product.category][locale])}
-              </span>
+              <BackToLabel
+                full={t.backToCategory(categoryHeadline(product.category, locale))}
+                headline={categoryHeadline(product.category, locale)}
+              />
             </Link>
           </nav>
-          <MarketSelector />
+          <div className="order-1 ml-auto sm:order-none sm:ml-0">
+            <MarketSelector />
+          </div>
         </div>
       </div>
 
