@@ -1446,7 +1446,14 @@ export const products: Product[] = [
     videoUrl: smartVideo.url,
     brand: "Navina",
     name: "Navina Smart",
-    spec: "Electronic control unit · rechargeable",
+    spec: {
+      en: "High volume TAI, 1500 ml, Electronic control unit",
+      sv: "Högvolymsirrigering, 1500 ml, Elektronisk kontrollenhet",
+      da: "Højt skyl, 1500 ml, Elektronisk kontrolenhed",
+      fi: "Korkean volyymin huuhtelu, 1500 ml, Elektroninen ohjausyksikkö",
+      // Hidden in Norway. Keep the previous shared line.
+      no: "Electronic control unit · rechargeable",
+    },
     category: "bowel",
     nordicEcolabel: false,
     image: "/media/navina-smart.png",
