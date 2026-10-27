@@ -71,7 +71,7 @@ export const categoryFeatures: Record<FeatureId, CategoryFeature> = {
     subtitle: {
       en: "Transanal irrigation (TAI)",
       sv: "Transanal irrigering (TAI)",
-      fi: "Peräaukon kautta tapahtuva huuhtelu (TAI)",
+      fi: "Suolihuuhtelu",
       da: "Transanal irrigation (TAI)",
       no: "Transanal irrigasjon (TAI)",
     },
