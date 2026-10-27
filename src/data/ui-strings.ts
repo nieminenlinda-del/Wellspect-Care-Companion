@@ -97,7 +97,7 @@ const en: UIStrings = {
   enlargeIllustration: "Enlarge illustration",
   qrLearnMore: "Learn more on the website",
   brochurePdfGuide: "Brochure / PDF guide",
-  brochureCicWomen: "IC – women",
+  brochureCicWomen: "Starting Intermittent Catheterization for Women",
   brochureCicMen: "IC – men",
   brochureTai: "TAI guide",
   brochureLifeWithNavina: "Life with Navina",

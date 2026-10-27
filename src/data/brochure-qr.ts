@@ -141,7 +141,7 @@ const brochureCatalog: Partial<Record<LocaleCode, Partial<Record<BrochureId, Bro
   en: {
     "cic-women": {
       image: "/images/qr/brochure/en/cic-women.png",
-      url: "https://wellspect.qrd.by/ab82kp",
+      url: "https://wellspect.qrd.by/3vdra0",
     },
     "cic-men": {
       image: "/images/qr/brochure/en/cic-men.png",
@@ -242,7 +242,7 @@ const brochureTitles: Partial<Record<LocaleCode, Partial<Record<BrochureId, stri
     "elle-pro": "Your Step-by-Step Guide to Intermittent Catheterization (IC)",
     "origo-pro": "Your Step-by-Step Guide to Intermittent Catheterization (IC)",
     "origo-sleeve": "Your Step-by-Step Guide to Intermittent Catheterization (IC)",
-    "cic-women": "BLADDER MANAGEMENT AND INTERMITTENT CATHETERIZATION",
+    "cic-women": "Starting Intermittent Catheterization for Women",
     "cic-men": "BLADDER MANAGEMENT AND INTERMITTENT CATHETERIZATION",
     tai: "Life with Navina Irrigation when you suffer from Bowel Dysfunction",
   },
