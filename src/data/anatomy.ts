@@ -188,11 +188,23 @@ const femaleGroupsSv: AnatomyStrings["femaleGroups"] = [
   },
   {
     view: "external",
-    note: "Urinrörsmynningen ligger mellan A och C.",
+    note: "Urinrörsöppningen är liten, och sitter mellan klitoris och slidöppningen.",
     items: [
-      { badge: "A", term: "Klitoris", text: "Ligger framför urinrörsmynningen." },
-      { badge: "B", term: "Blygdläppar", text: "Omger urinrörsmynningen och slidöppningen." },
-      { badge: "C", term: "Slidöppning", text: "Ligger bakom urinrörsmynningen." },
+      {
+        badge: "1",
+        term: "Urinrörsöppning",
+        text: "Liten öppning mellan klitoris och slidöppningen.",
+      },
+      {
+        badge: "2",
+        term: "Slidöppning",
+        text: "Urinrörsöppningen sitter mellan klitoris och slidöppningen.",
+      },
+      {
+        badge: "3",
+        term: "Blygdläppar",
+        text: "Säras försiktigt för att hitta urinrörsöppningen.",
+      },
     ],
   },
   {
@@ -227,15 +239,23 @@ const femaleGroupsFi: AnatomyStrings["femaleGroups"] = [
   },
   {
     view: "external",
-    note: "Virtsaputken suu on A:n ja C:n välissä.",
+    note: "Virtsaputken suuaukko on pieni ja sijaitsee juuri emättimen aukon yläpuolella ja klitoriksen alapuolella.",
     items: [
-      { badge: "A", term: "Klitoris", text: "Sijaitsee virtsaputken suun edessä." },
       {
-        badge: "B",
-        term: "Häpyhuulet",
-        text: "Ympäröivät virtsaputken suuta ja emättimen aukkoa.",
+        badge: "1",
+        term: "Virtsaputki",
+        text: "Virtsaputken suuaukko on pieni, juuri emättimen aukon yläpuolella ja klitoriksen alapuolella.",
       },
-      { badge: "C", term: "Emättimen aukko", text: "Sijaitsee virtsaputken suun takana." },
+      {
+        badge: "2",
+        term: "Emättimen suuaukko",
+        text: "Virtsaputken suuaukko sijaitsee juuri emättimen aukon yläpuolella.",
+      },
+      {
+        badge: "3",
+        term: "Häpyhuulet",
+        text: "Levitä varovasti, jotta virtsaputki löytyy.",
+      },
     ],
   },
   {
@@ -266,11 +286,23 @@ const femaleGroupsDa: AnatomyStrings["femaleGroups"] = [
   },
   {
     view: "external",
-    note: "Urinrørsåbningen ligger mellem A og C.",
+    note: "Urinrørsåbningen er et lille hul, det sidder lige over skedeindgangen og under klitoris.",
     items: [
-      { badge: "A", term: "Klitoris", text: "Ligger foran urinrørsåbningen." },
-      { badge: "B", term: "Kønslæber", text: "Omgiver urinrørsåbningen og skedeåbningen." },
-      { badge: "C", term: "Skedeåbning", text: "Ligger bag urinrørsåbningen." },
+      {
+        badge: "1",
+        term: "Urinrør",
+        text: "Et lille hul, der sidder lige over skedeindgangen og under klitoris.",
+      },
+      {
+        badge: "2",
+        term: "Skedeåbning",
+        text: "Urinrørsåbningen sidder lige over skedeindgangen.",
+      },
+      {
+        badge: "3",
+        term: "Kønslæber",
+        text: "Adskilles for at finde urinrørsåbningen.",
+      },
     ],
   },
   {
@@ -291,7 +323,7 @@ const femaleGroupsNo: AnatomyStrings["femaleGroups"] = [
     items: [
       { badge: "A", term: "Nyrer", text: "Filtrerer blodet og lager urin." },
       { badge: "B", term: "Urinledere", text: "To smale rør som leder urinen til blæren." },
-      { badge: "C", term: "Urinblære", text: "Lagrer urinen til tømming." },
+      { badge: "C", term: "Blære", text: "Lagrer urinen til tømming." },
       {
         badge: "D",
         term: "Urinrør",
@@ -301,11 +333,23 @@ const femaleGroupsNo: AnatomyStrings["femaleGroups"] = [
   },
   {
     view: "external",
-    note: "Urinrørsåpningen ligger mellom A og C.",
+    note: "Urinrørsåpningen er liten og befinner seg mellom klitoris og skjedeåpningen.",
     items: [
-      { badge: "A", term: "Klitoris", text: "Ligger foran urinrørsåpningen." },
-      { badge: "B", term: "Kjønnslepper", text: "Omgir urinrørsåpningen og skjedeåpningen." },
-      { badge: "C", term: "Skjedeåpning", text: "Ligger bak urinrørsåpningen." },
+      {
+        badge: "1",
+        term: "Urinrørsåpning",
+        text: "Liten, og befinner seg mellom klitoris og skjedeåpningen.",
+      },
+      {
+        badge: "2",
+        term: "Skjedeåpningen",
+        text: "Urinrørsåpningen befinner seg mellom klitoris og skjedeåpningen.",
+      },
+      {
+        badge: "3",
+        term: "Kjønnslepper",
+        text: "Sprees forsiktig for å finne urinrøret.",
+      },
     ],
   },
   {

@@ -37,12 +37,10 @@ export function AnatomyDialog({ sex, trigger }: { sex: AnatomySex; trigger: Reac
 
         {images.length > 0 ? (
           <div className="mt-2 grid gap-3 sm:grid-cols-2">
-            {images.map((image, i) => (
+            {images.map((image) => (
               <figure
                 key={image.url}
-                className={`border-border overflow-hidden rounded-2xl border bg-white ${
-                  i === 0 ? "sm:col-span-2" : ""
-                }`}
+                className="border-border overflow-hidden rounded-2xl border bg-white sm:col-span-2"
               >
                 <img
                   src={publicUrl(image.url)}
