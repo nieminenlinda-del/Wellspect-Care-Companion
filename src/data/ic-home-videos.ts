@@ -14,8 +14,9 @@ export type IcHomeVideo = {
  * Intermittent-catheterisation films for the home screen.
  * Women first, then men, matching the category cards.
  *
- * Add a locale under videoByLocale when a dubbed film exists. A locale
- * with no entry keeps the brochure row. English is not a fallback.
+ * Add a locale under videoByLocale when a dubbed film exists. English is
+ * not a fallback. Every current locale has a pair. A locale with no entry
+ * still keeps the brochure row.
  */
 const icHomeVideos: Array<{
   id: string;
@@ -46,6 +47,20 @@ const icHomeVideos: Array<{
         poster: "/media/ic-video-women-da-poster.jpg",
         duration: "3:29",
       },
+      fi: {
+        title: "Johdanto toistokatetrointiin naisille",
+        // Purple title card at 00:01. Finnish subtitles are burned in.
+        src: "/media/ic-video-women-fi.mp4",
+        poster: "/media/ic-video-women-fi-poster.jpg",
+        duration: "3:29",
+      },
+      no: {
+        title: "Introduksjon til RIK for kvinner",
+        // Purple title card at 00:01. Norwegian subtitles are burned in.
+        src: "/media/ic-video-women-no.mp4",
+        poster: "/media/ic-video-women-no-poster.jpg",
+        duration: "3:29",
+      },
     },
   },
   {
@@ -71,6 +86,20 @@ const icHomeVideos: Array<{
         // Blue title card at 00:01. Danish subtitles are burned in.
         src: "/media/ic-video-men-da.mp4",
         poster: "/media/ic-video-men-da-poster.jpg",
+        duration: "3:18",
+      },
+      fi: {
+        title: "Johdanto toistokatetrointiin miehille",
+        // Blue title card at 00:01. Finnish subtitles are burned in.
+        src: "/media/ic-video-men-fi.mp4",
+        poster: "/media/ic-video-men-fi-poster.jpg",
+        duration: "3:18",
+      },
+      no: {
+        title: "Introduksjon til RIK for menn",
+        // Blue title card at 00:01. Norwegian subtitles are burned in.
+        src: "/media/ic-video-men-no.mp4",
+        poster: "/media/ic-video-men-no-poster.jpg",
         duration: "3:18",
       },
     },
