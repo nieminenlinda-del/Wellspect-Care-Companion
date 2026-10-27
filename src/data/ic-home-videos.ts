@@ -26,7 +26,7 @@ const icHomeVideos: Array<{
     videoByLocale: {
       en: {
         title: "Introduction to IC for women",
-        // ic-video-2, 3:29. Poster is the Urotonic frame at 00:02:44.
+        // ic-video-2 opening title card at 00:01.
         src: "/media/ic-video-2.mp4",
         poster: "/media/ic-video-2-poster.jpg",
         duration: "3:29",
@@ -46,7 +46,7 @@ const icHomeVideos: Array<{
     videoByLocale: {
       en: {
         title: "Introduction to IC for men",
-        // ic-video-1, 3:18. Poster is the Nelaton tip frame at 00:02:24.
+        // ic-video-1 opening title card at 00:01.
         src: "/media/ic-video-1.mp4",
         poster: "/media/ic-video-1-poster.jpg",
         duration: "3:18",

@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { ArrowLeft, Search, X } from "lucide-react";
 import {
   categoryLabels,
@@ -102,6 +102,29 @@ function Index() {
   const showCategories = !searching && active === null;
   const showContact = !searching && active === "contact";
   const icVideos = getIcHomeVideos(locale);
+  const featureCardRef = useRef<HTMLButtonElement>(null);
+  const videoRowRef = useRef<HTMLUListElement>(null);
+
+  useLayoutEffect(() => {
+    const feature = featureCardRef.current;
+    const row = videoRowRef.current;
+    if (!feature || !row) return;
+    const apply = () => {
+      const height = Math.round(feature.getBoundingClientRect().height);
+      row.querySelectorAll<HTMLButtonElement>(":scope > li > button").forEach((button) => {
+        button.style.height = `${height}px`;
+      });
+    };
+    apply();
+    const observer = new ResizeObserver(apply);
+    observer.observe(feature);
+    window.addEventListener("resize", apply);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", apply);
+    };
+  }, [locale, icVideos.length]);
+
   const secondaryCard =
     "border-border bg-card focus-visible:ring-primary flex min-h-24 w-full flex-col justify-between rounded-2xl border p-5 text-left shadow-soft transition-colors hover:bg-muted/40 focus-visible:ring-2 focus-visible:outline-none";
 
@@ -205,17 +228,18 @@ function Index() {
                     headline={categoryFeatures[c].headline[locale]}
                     subtitle={categoryFeatures[c].subtitle[locale]}
                     onSelect={() => setActive(c)}
+                    buttonRef={c === "women" ? featureCardRef : undefined}
                   />
                 </li>
               ))}
             </ul>
             {icVideos.length > 0 ? (
-              <ul className="mt-6 grid gap-4 md:grid-cols-2">
+              <ul ref={videoRowRef} className="mt-4 grid items-stretch gap-4 md:grid-cols-2">
                 {icVideos.map((video) => (
-                  <li key={video.id}>
+                  <li key={video.id} className="flex">
                     <IcHomeVideoCard
                       video={video}
-                      className="border-border bg-card focus-visible:ring-primary flex h-full w-full flex-col rounded-3xl border p-4 text-left shadow-lift transition-transform duration-300 hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:outline-none sm:p-5"
+                      className={`${secondaryCard} h-full w-full overflow-hidden`}
                     />
                   </li>
                 ))}
