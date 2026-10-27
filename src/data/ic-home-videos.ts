@@ -39,6 +39,13 @@ const icHomeVideos: Array<{
         poster: "/media/ic-video-women-sv-poster.jpg",
         duration: "3:29",
       },
+      da: {
+        title: "Introduktion til RIK for kvinder",
+        // Purple title card at 00:01. Danish subtitles are burned in.
+        src: "/media/ic-video-women-da.mp4",
+        poster: "/media/ic-video-women-da-poster.jpg",
+        duration: "3:29",
+      },
     },
   },
   {
@@ -57,6 +64,13 @@ const icHomeVideos: Array<{
         // Blue title card at 00:01. Swedish subtitles are burned in.
         src: "/media/ic-video-men-sv.mp4",
         poster: "/media/ic-video-men-sv-poster.jpg",
+        duration: "3:18",
+      },
+      da: {
+        title: "Introduktion til RIK for mænd",
+        // Blue title card at 00:01. Danish subtitles are burned in.
+        src: "/media/ic-video-men-da.mp4",
+        poster: "/media/ic-video-men-da-poster.jpg",
         duration: "3:18",
       },
     },
