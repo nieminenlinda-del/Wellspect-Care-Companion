@@ -24,6 +24,7 @@ import { arabicVideosStrings } from "@/data/arabic-videos";
 import { getHomeBrochures } from "@/data/brochure-qr";
 import { categoryFeatureOrder, categoryFeatures } from "@/data/category-features";
 import { getIcHomeVideos } from "@/data/ic-home-videos";
+import { bodyEducationHeading, getBodyEducationVideos } from "@/data/body-education-videos";
 import { CategoryFeatureCard } from "@/components/CategoryFeatureCard";
 import { IcHomeVideoCard } from "@/components/IcHomeVideo";
 import { navPillClassName } from "@/components/NavPill";
@@ -102,6 +103,11 @@ function Index() {
   const showCategories = !searching && active === null;
   const showContact = !searching && active === "contact";
   const icVideos = getIcHomeVideos(locale);
+  const bodyVideos =
+    !searching && (active === "women" || active === "men")
+      ? getBodyEducationVideos(locale, active)
+      : [];
+  const bodyHeading = bodyEducationHeading[locale];
 
   const secondaryCard =
     "border-border bg-card focus-visible:ring-primary flex min-h-24 w-full flex-col justify-between rounded-2xl border p-5 text-left shadow-soft transition-colors hover:bg-muted/40 focus-visible:ring-2 focus-visible:outline-none";
@@ -328,6 +334,23 @@ function Index() {
               )
             ) : (
               <>
+                {bodyVideos.length > 0 && bodyHeading && (
+                  <section className="mt-6" aria-labelledby="body-education-heading">
+                    <h3
+                      id="body-education-heading"
+                      className="text-foreground text-base font-semibold tracking-tight"
+                    >
+                      {bodyHeading}
+                    </h3>
+                    <ul className="mt-3 grid items-stretch gap-4 md:grid-cols-2">
+                      {bodyVideos.map((video) => (
+                        <li key={video.id} className="flex">
+                          <IcHomeVideoCard video={video} className={videoCard} compact />
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
+                )}
                 <ul className="mt-6 grid gap-4 sm:grid-cols-2 clinic-landscape:grid-cols-3 lg:grid-cols-3">
                   {results.map((p) => (
                     <li key={p.id}>
