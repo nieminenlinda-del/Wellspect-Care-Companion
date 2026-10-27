@@ -1,10 +1,10 @@
 /**
  * LoFric Origo Sleeve male quick guide (75028-USX-2024-05-17).
  *
- * English step text is the supplied official guide, verbatim.
- * Swedish, Finnish, Danish, and Norwegian are faithful translations: no
- * local-language Sleeve quick guide was published. Sentences that match the
- * insertion-grip Origo quick guide reuse that locale’s official wording.
+ * Swedish, Finnish, Danish, and Norwegian keep this quick-guide wording.
+ * English steps in the app come from the 2026 booklet (`sleeveEnPdfSteps`).
+ * The English note below is that booklet’s salt-solution warning.
+ * The English strings on the steps themselves are not shown.
  *
  * Illustrations are the language-neutral frames from the English guide.
  * Badges keep the sheet’s labels (A, 1–4, 5A, 5B, 6–9).
@@ -30,7 +30,7 @@ const optionalTitle: LocalizedText = {
 };
 
 export const origoSleeveIntro: LocalizedText = L(
-  "LoFric Origo single use, hydrophilic urinary catheter with salt solution for activation. For short and long term bladder management with intermittent urinary catheterization. Prescription use only; follow HCP training; see IFU in package.",
+  "",
   "LoFric Origo, hydrofil tappningskateter för engångsbruk med saltlösning för aktivering. För kort- och långvarig blåsskötsel med intermittent kateterisering. Endast efter förskrivning; följ utbildningen från vårdpersonalen; se bruksanvisningen i förpackningen.",
   "LoFric Origo, kertakäyttöinen hydrofiilinen virtsakatetri ja suolaliuos aktivointia varten. Lyhyt- ja pitkäaikaiseen virtsarakon omatoimiseen toistokatetrointiin. Vain terveydenhuollon ammattilaisen määräyksestä; noudata saatua koulutusta; katso pakkauksen käyttöohje.",
   "LoFric Origo, hydrofilt engangskateter med saltvandsopløsning til aktivering. Til kort- og langvarig blærebehandling med intermitterende urinkateterisering. Kun på bevilling; følg sundhedspersonalets oplæring; se brugsanvisningen i pakken.",
@@ -38,7 +38,7 @@ export const origoSleeveIntro: LocalizedText = L(
 );
 
 export const origoSleeveNote: LocalizedText = L(
-  "IMPORTANT: Use only the salt solution included to wet the catheter. Do not place the catheter on paper or cloth as these materials can absorb the wet coating.",
+  "IMPORTANT INFORMATION Use only the salt solution included to wet the catheter. Do not place the catheter on paper or cloth as these materials can absorb the wet coating.",
   "VIKTIG INFORMATION: Använd endast den medföljande saltlösningen för att väta katetern. Lägg inte katetern på papper eller tyg, eftersom dessa material kan absorbera den våta ytbeläggningen.",
   "TÄRKEÄÄ: Käytä katetrin kostuttamiseen vain mukana tulevaa suolaliuosta. Älä aseta katetria paperin tai kankaan päälle, koska nämä materiaalit voivat imeä märän pinnoitteen.",
   "VIGTIG INFORMATION: Brug kun den medfølgende saltvandsopløsning til at væde kateteret. Læg ikke kateteret på papir eller stof, da disse materialer kan absorbere den våde belægning.",

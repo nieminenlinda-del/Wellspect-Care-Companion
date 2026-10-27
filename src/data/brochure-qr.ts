@@ -13,7 +13,8 @@ import { uiStrings } from "@/data/ui-strings";
  * Omit a key when the asset does not exist yet. Callers hide the card, so a
  * missing QR does not show a broken image.
  */
-export type BrochureId = "cic-women" | "cic-men" | "elle" | "elle-pro" | "origo-pro" | "tai";
+export type BrochureId =
+  "cic-women" | "cic-men" | "elle" | "elle-pro" | "origo-pro" | "origo-sleeve" | "tai";
 
 export type BrochureQrCode = {
   /** Public path, e.g. `/images/qr/brochure/sv/cic-women.png`. */
@@ -140,7 +141,7 @@ const brochureCatalog: Partial<Record<LocaleCode, Partial<Record<BrochureId, Bro
   en: {
     "cic-women": {
       image: "/images/qr/brochure/en/cic-women.png",
-      url: "https://wellspect.qrd.by/ab82kp",
+      url: "https://wellspect.qrd.by/3vdra0",
     },
     "cic-men": {
       image: "/images/qr/brochure/en/cic-men.png",
@@ -158,6 +159,10 @@ const brochureCatalog: Partial<Record<LocaleCode, Partial<Record<BrochureId, Bro
       image: "/images/qr/brochure/en/origo-pro.png",
       url: "https://wellspect.qrd.by/a9wm1f",
     },
+    "origo-sleeve": {
+      image: "/images/qr/brochure/en/origo-sleeve.png",
+      url: "https://wellspect.qrd.by/dq0vj6",
+    },
     tai: {
       image: "/images/qr/brochure/tai/en.png",
       url: "https://wellspect.qrd.by/gpn04e",
@@ -173,6 +178,7 @@ const productBrochureIds: Partial<Record<string, BrochureId>> = {
   "lofric-elle": "elle",
   "lofric-elle-pro": "elle-pro",
   "lofric-origo-pro": "origo-pro",
+  "lofric-origo-sleeve": "origo-sleeve",
 };
 
 /**
@@ -218,9 +224,65 @@ const brochureCovers: Partial<Record<LocaleCode, Partial<Record<BrochureId, stri
     elle: "/images/qr/brochure/covers/en/elle.png",
     "elle-pro": "/images/qr/brochure/covers/en/elle-pro.png",
     "origo-pro": "/images/qr/brochure/covers/en/origo-pro.png",
+    "origo-sleeve": "/images/qr/brochure/covers/en/origo-sleeve.png",
     tai: "/images/qr/brochure/covers/en/tai.png",
   },
 };
+
+/**
+ * Front-page title of each guide, in that guide's language.
+ * This is the large cover headline only. The smaller product line under a
+ * step-guide title ("Using the LoFric…") and the smaller audience line on a
+ * CIC cover stay off the card.
+ * A missing entry keeps the generic "Brochure / PDF guide" fallback.
+ */
+const brochureTitles: Partial<Record<LocaleCode, Partial<Record<BrochureId, string>>>> = {
+  en: {
+    elle: "Your Step-by-Step Guide to Intermittent Catheterization (IC)",
+    "elle-pro": "Your Step-by-Step Guide to Intermittent Catheterization (IC)",
+    "origo-pro": "Your Step-by-Step Guide to Intermittent Catheterization (IC)",
+    "origo-sleeve": "Your Step-by-Step Guide to Intermittent Catheterization (IC)",
+    "cic-women": "Starting Intermittent Catheterization for Women",
+    "cic-men": "BLADDER MANAGEMENT AND INTERMITTENT CATHETERIZATION",
+    tai: "Life with Navina Irrigation when you suffer from Bowel Dysfunction",
+  },
+  sv: {
+    elle: "Din guide steg för steg till Ren Intermittent Kateterisering (RIK)",
+    "elle-pro": "Din guide steg för steg till Ren Intermittent Kateterisering (RIK)",
+    "origo-pro": "Din guide steg för steg till Ren Intermittent Kateterisering (RIK)",
+    "cic-women": "REN INTERMITTENT KATETERISERING",
+    "cic-men": "REN INTERMITTENT KATETERISERING",
+    tai: "Att leva med Navina Tarmirrigering",
+  },
+  da: {
+    elle: "Din trin-for-trin guide til Ren Intermitterende katerterisering (RIK)",
+    "elle-pro": "Din trin-for-trin guide til Ren Intermitterende kateterisering (RIK)",
+    "origo-pro": "Din trinvise vejledning Guide til Ren Intermitterende Kateterisering (RIK)",
+    "cic-women": "REN INTERMITTERENDE KATETERISERING",
+    "cic-men": "REN INTERMITTERENDE KATETERISERING",
+    tai: "At leve med Navina Tarmirrigation",
+  },
+  fi: {
+    elle: "Käyttöoppaasi toistokatetrointiin",
+    "elle-pro": "Käyttöoppaasi toistokatetrointiin",
+    "origo-pro": "Käyttöoppaasi toistokatetrointiin",
+    "cic-women": "TOISTOKATETROINTIOPAS",
+    "cic-men": "TOISTOKATETROINTIOPAS",
+    tai: "Elämä Navina suolihuuhtelun kanssa",
+  },
+  no: {
+    elle: "Din step-by-step guide til Ren Intermitterende Kateterisering (RIK)",
+    "elle-pro": "Din step-by-step guide til Ren Intermitterende Kateterisering (RIK)",
+    "origo-pro": "Din step-by-step-guide til Intermitterende Kateterisering (RIK)",
+    "cic-women": "REN INTERMITTERENDE KATETERISERING",
+    "cic-men": "REN INTERMITTERENDE KATETERISERING",
+    tai: "Å leve med Navina Tarmirrigasjon",
+  },
+};
+
+function guideTitle(id: BrochureId, locale: LocaleCode, fallback: string): string {
+  return brochureTitles[locale]?.[id] ?? fallback;
+}
 
 /** Category-grid order: CIC women, CIC men, then the Navina TAI guide. */
 const homeBrochureIds: BrochureId[] = ["cic-women", "cic-men", "tai"];
@@ -251,9 +313,13 @@ function resolve(
 export function getHomeBrochures(locale: LocaleCode): ResolvedBrochure[] {
   const t = uiStrings[locale];
   const copyFor = (id: BrochureId): { label: string; detail: string } => {
-    if (id === "cic-women") return { label: t.brochureCicWomen, detail: t.brochurePdfGuide };
-    if (id === "cic-men") return { label: t.brochureCicMen, detail: t.brochurePdfGuide };
-    return { label: t.brochureTai, detail: t.brochureLifeWithNavina };
+    if (id === "cic-women") {
+      return { label: t.brochureCicWomen, detail: guideTitle(id, locale, t.brochurePdfGuide) };
+    }
+    if (id === "cic-men") {
+      return { label: t.brochureCicMen, detail: guideTitle(id, locale, t.brochurePdfGuide) };
+    }
+    return { label: t.brochureTai, detail: guideTitle(id, locale, t.brochureLifeWithNavina) };
   };
   return homeBrochureIds.flatMap((id) => {
     const copy = copyFor(id);
@@ -282,7 +348,7 @@ export function getHowToBrochures(
       productBrochure,
       locale,
       productName ?? t.brochurePdfGuide,
-      productName ? t.brochurePdfGuide : undefined,
+      guideTitle(productBrochure, locale, productName ? t.brochurePdfGuide : ""),
     );
     if (card) cards.push(card);
   }
@@ -293,13 +359,18 @@ export function getHowToBrochures(
       cicId,
       locale,
       cicId === "cic-women" ? t.brochureCicWomen : t.brochureCicMen,
-      t.brochurePdfGuide,
+      guideTitle(cicId, locale, t.brochurePdfGuide),
     );
     if (card) cards.push(card);
   }
 
   if (category === "bowel") {
-    const card = resolve("tai", locale, t.brochureTai, t.brochureLifeWithNavina);
+    const card = resolve(
+      "tai",
+      locale,
+      t.brochureTai,
+      guideTitle("tai", locale, t.brochureLifeWithNavina),
+    );
     if (card) cards.push(card);
   }
 
