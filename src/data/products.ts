@@ -1579,7 +1579,13 @@ export const products: Product[] = [
     },
     brand: "Navina",
     name: "Navina Insert",
-    spec: "Single-use rectal insert · sizes Standard/Large · latex-free",
+    spec: {
+      en: "Single-use rectal insert · sizes Standard/Large",
+      sv: "Engångsanalpropp · storlekar Standard/Large",
+      da: "Engangsanalprop · størrelser Standard/Large",
+      fi: "Kertakäyttöinen rektaalitamponi · koot Standard/Large",
+      no: "Engangsanalpropp · størrelser Standard/Large",
+    },
     category: "bowel",
     nordicEcolabel: false,
     summary: {
