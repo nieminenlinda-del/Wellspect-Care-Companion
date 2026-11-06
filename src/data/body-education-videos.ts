@@ -23,18 +23,33 @@ export const bodyEducationHeading: Partial<Record<LocaleCode, string>> = {
 
 const urinaryTitle: Record<LocaleCode, { female: string; male: string }> = {
   en: { female: "Female Urinary System", male: "Male Urinary System" },
-  sv: { female: "Kvinnligt urinvägssystem", male: "Manligt urinvägssystem" },
-  da: { female: "Kvindeligt urinvejssystem", male: "Mandligt urinvejssystem" },
-  fi: { female: "Naisen virtsatiejärjestelmä", male: "Miehen virtsatiejärjestelmä" },
-  no: { female: "Kvinnelig urinveissystem", male: "Mannlig urinveissystem" },
+  sv: {
+    female: "Hur kvinnans urinvägar fungerar",
+    male: "Hur mannens urinvägar fungerar",
+  },
+  da: {
+    female: "Sådan fungerer dit urinvejssystem - For kvinder",
+    male: "Sådan fungerer dit urinvejssystem - For mænd",
+  },
+  fi: { female: "Virtsatiet - Naiset", male: "Virtsatiet - Miehet" },
+  no: {
+    female: "Hvordan urinveiene dine fungerer – For kvinner",
+    male: "Hvordan urinveiene dine fungerer – For menn",
+  },
 };
 
-const bladderTitle: Record<LocaleCode, string> = {
-  en: "Bladder Control",
-  sv: "Blåskontroll",
-  da: "Blærekontrol",
-  fi: "Virtsarakon hallinta",
-  no: "Blærekontroll",
+const bladderTitle: Record<LocaleCode, { female: string; male: string }> = {
+  en: { female: "Bladder Control", male: "Bladder Control" },
+  sv: { female: "Blåskontroll för kvinnor", male: "Blåskontroll för män" },
+  da: {
+    female: "Sådan kontrolleres din blære - For kvinder",
+    male: "Hvordan din blære kontrolleres - For mænd",
+  },
+  fi: { female: "Virtsarakon hallinta - Naiset", male: "Virtsarakon hallinta - Miehet" },
+  no: {
+    female: "Hvordan blæren din kontrolleres – For kvinner",
+    male: "Hvordan blæren din kontrolleres – For menn",
+  },
 };
 
 const films: Array<{
@@ -84,32 +99,32 @@ const films: Array<{
     category: "women",
     videoByLocale: {
       en: {
-        title: bladderTitle.en,
+        title: bladderTitle.en.female,
         src: "/media/body-female-bladder.mp4",
         poster: "/media/body-female-bladder.jpg",
         duration: "1:40",
         captions: { en: "/media/body-female-bladder-en.vtt" },
       },
       sv: {
-        title: bladderTitle.sv,
+        title: bladderTitle.sv.female,
         src: "/media/body-female-bladder-sv.mp4",
         poster: "/media/body-female-bladder-sv.jpg",
         duration: "1:40",
       },
       da: {
-        title: bladderTitle.da,
+        title: bladderTitle.da.female,
         src: "/media/body-female-bladder-da.mp4",
         poster: "/media/body-female-bladder-da.jpg",
         duration: "1:40",
       },
       fi: {
-        title: bladderTitle.fi,
+        title: bladderTitle.fi.female,
         src: "/media/body-female-bladder-fi.mp4",
         poster: "/media/body-female-bladder-fi.jpg",
         duration: "1:40",
       },
       no: {
-        title: bladderTitle.no,
+        title: bladderTitle.no.female,
         src: "/media/body-female-bladder-no.mp4",
         poster: "/media/body-female-bladder-no.jpg",
         duration: "1:40",
@@ -158,32 +173,32 @@ const films: Array<{
     category: "men",
     videoByLocale: {
       en: {
-        title: bladderTitle.en,
+        title: bladderTitle.en.male,
         src: "/media/body-male-bladder.mp4",
         poster: "/media/body-male-bladder.jpg",
         duration: "1:34",
         captions: { en: "/media/body-male-bladder-en.vtt" },
       },
       sv: {
-        title: bladderTitle.sv,
+        title: bladderTitle.sv.male,
         src: "/media/body-male-bladder-sv.mp4",
         poster: "/media/body-male-bladder-sv.jpg",
         duration: "1:34",
       },
       da: {
-        title: bladderTitle.da,
+        title: bladderTitle.da.male,
         src: "/media/body-male-bladder-da.mp4",
         poster: "/media/body-male-bladder-da.jpg",
         duration: "1:33",
       },
       fi: {
-        title: bladderTitle.fi,
+        title: bladderTitle.fi.male,
         src: "/media/body-male-bladder-fi.mp4",
         poster: "/media/body-male-bladder-fi.jpg",
         duration: "1:34",
       },
       no: {
-        title: bladderTitle.no,
+        title: bladderTitle.no.male,
         src: "/media/body-male-bladder-no.mp4",
         poster: "/media/body-male-bladder-no.jpg",
         duration: "1:33",
