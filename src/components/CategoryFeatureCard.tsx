@@ -31,7 +31,7 @@ export function CategoryFeatureCard({
   subtitle: string;
   onSelect: () => void;
 }) {
-  const { accent, figure, image } = feature;
+  const { accent, figure, image, diagram } = feature;
   return (
     <button
       type="button"
@@ -67,11 +67,19 @@ export function CategoryFeatureCard({
           {subtitle}
         </span>
       </span>
-      <span className="flex w-[38%] shrink-0 items-end justify-center pr-3 pb-3 md:h-44 md:w-full md:px-6">
+      <span
+        className={`flex w-[38%] shrink-0 items-end justify-center pr-3 pb-3 md:w-full md:px-6 ${
+          diagram ? "md:h-52" : "md:h-44"
+        }`}
+      >
         <img
           src={publicUrl(image)}
           alt=""
-          className="h-36 w-full object-contain object-bottom mix-blend-multiply md:h-40"
+          className={
+            diagram
+              ? "h-40 w-full object-contain object-center mix-blend-multiply md:h-48"
+              : "h-36 w-full object-contain object-bottom mix-blend-multiply md:h-40"
+          }
         />
       </span>
     </button>
