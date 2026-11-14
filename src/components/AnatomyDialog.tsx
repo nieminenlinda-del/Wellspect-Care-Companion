@@ -40,6 +40,7 @@ function LabeledAnatomy({
   callouts,
   caption,
   note,
+  columns = "grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)_minmax(0,1fr)]",
 }: {
   image: AnatomyImage;
   width: number;
@@ -48,6 +49,8 @@ function LabeledAnatomy({
   callouts: AnatomyCallout[];
   caption?: string;
   note?: string;
+  /** Male overview keeps the long names on the left, where the arrows are short. */
+  columns?: string;
 }) {
   const markerId = `anatomy-arrow-${useId().replace(/:/g, "")}`;
   const stroke = Math.max(2.4, width / 360);
@@ -56,7 +59,7 @@ function LabeledAnatomy({
 
   return (
     <figure className="border-border overflow-hidden rounded-2xl border bg-white">
-      <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)_minmax(0,1fr)] items-stretch gap-x-1.5 px-2 py-2 sm:gap-x-2 sm:px-3">
+      <div className={`grid ${columns} items-stretch gap-x-1.5 px-2 py-3 sm:gap-x-2 sm:px-3`}>
         <div className="relative">
           {left.map((c) => (
             <p
@@ -96,22 +99,28 @@ function LabeledAnatomy({
             </defs>
             {callouts.flatMap((c) =>
               c.targets.map((target, i) => {
-                const x1 = c.side === "left" ? 1 : width - 1;
-                const y1 = c.y * height;
-                const props = {
-                  x1,
-                  y1,
-                  x2: target.x,
-                  y2: target.y,
-                  strokeLinecap: "round" as const,
-                };
+                const points = [
+                  `${c.side === "left" ? 1 : width - 1},${c.y * height}`,
+                  ...(target.bend ?? []).map((bend) => `${bend.x},${bend.y}`),
+                  `${target.x},${target.y}`,
+                ].join(" ");
                 return (
                   <g key={`${c.index}-${i}`}>
-                    <line {...props} stroke="white" strokeWidth={stroke * 1.7} />
-                    <line
-                      {...props}
+                    <polyline
+                      points={points}
+                      fill="none"
+                      stroke="white"
+                      strokeWidth={stroke * 1.7}
+                      strokeLinejoin="round"
+                      strokeLinecap="round"
+                    />
+                    <polyline
+                      points={points}
+                      fill="none"
                       stroke="#243044"
                       strokeWidth={stroke}
+                      strokeLinejoin="round"
+                      strokeLinecap="round"
                       markerEnd={`url(#${markerId})`}
                     />
                   </g>
@@ -173,6 +182,7 @@ export function AnatomyDialog({ sex, trigger }: { sex: AnatomySex; trigger: Reac
                 names={a.labels.male.map((l) => partName(l.term))}
                 callouts={maleOverviewCallouts}
                 caption={a.views.overview}
+                columns="grid-cols-[minmax(0,1.22fr)_minmax(0,1.05fr)_minmax(0,0.72fr)]"
               />
             ) : (
               (["tract", "external", "profile"] as const).map((view) => {
@@ -191,6 +201,11 @@ export function AnatomyDialog({ sex, trigger }: { sex: AnatomySex; trigger: Reac
                     callouts={femaleCallouts[view]}
                     caption={a.views[view]}
                     note={group.note}
+                    columns={
+                      view === "profile"
+                        ? "grid-cols-[minmax(0,1.28fr)_minmax(0,1.05fr)_minmax(0,0.72fr)]"
+                        : undefined
+                    }
                   />
                 );
               })
