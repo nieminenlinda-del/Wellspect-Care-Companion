@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { useId, type ReactNode } from "react";
 import { Image as ImageIcon } from "lucide-react";
 import {
   Dialog,
@@ -13,10 +13,147 @@ import {
   anatomyStrings,
   femaleProfileImage,
   prostateComparison,
+  type AnatomyImage,
   type AnatomySex,
 } from "@/data/anatomy";
+import { femaleCallouts, maleOverviewCallouts, type AnatomyCallout } from "@/data/anatomy-callouts";
 import { useLocale } from "@/lib/locale";
 import { publicUrl } from "@/lib/public-url";
+
+const figureSize: Record<"overview" | "tract" | "external" | "profile", { w: number; h: number }> =
+  {
+    overview: { w: 662, h: 646 },
+    profile: { w: 702, h: 638 },
+    tract: { w: 1152, h: 1608 },
+    external: { w: 1152, h: 1680 },
+  };
+
+function partName(term: string) {
+  return term.replace(/^\d+\.\s*/, "");
+}
+
+function LabeledAnatomy({
+  image,
+  width,
+  height,
+  names,
+  callouts,
+  caption,
+  note,
+  columns = "grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)_minmax(0,1fr)]",
+}: {
+  image: AnatomyImage;
+  width: number;
+  height: number;
+  names: string[];
+  callouts: AnatomyCallout[];
+  caption?: string;
+  note?: string;
+  /** Male overview keeps the long names on the left, where the arrows are short. */
+  columns?: string;
+}) {
+  const markerId = `anatomy-arrow-${useId().replace(/:/g, "")}`;
+  const stroke = Math.max(2.4, width / 360);
+  const left = callouts.filter((c) => c.side === "left");
+  const right = callouts.filter((c) => c.side === "right");
+
+  return (
+    <figure className="border-border overflow-hidden rounded-2xl border bg-white">
+      <div className={`grid ${columns} items-stretch gap-x-1.5 px-2 py-3 sm:gap-x-2 sm:px-3`}>
+        <div className="relative">
+          {left.map((c) => (
+            <p
+              key={c.index}
+              className="text-foreground absolute right-0 max-w-full -translate-y-1/2 text-right text-[0.8125rem] leading-tight font-semibold sm:text-sm"
+              style={{ top: `${c.y * 100}%` }}
+            >
+              {names[c.index]}
+            </p>
+          ))}
+        </div>
+        <div className="relative">
+          <img
+            src={publicUrl(image.url)}
+            alt={image.alt}
+            width={width}
+            height={height}
+            loading="lazy"
+            className="h-auto w-full"
+          />
+          <svg
+            viewBox={`0 0 ${width} ${height}`}
+            className="pointer-events-none absolute inset-0 h-full w-full overflow-visible"
+            aria-hidden="true"
+          >
+            <defs>
+              <marker
+                id={markerId}
+                markerWidth="7"
+                markerHeight="7"
+                refX="6.2"
+                refY="3.5"
+                orient="auto"
+              >
+                <path d="M0,0 L7,3.5 L0,7 Z" fill="#243044" />
+              </marker>
+            </defs>
+            {callouts.flatMap((c) =>
+              c.targets.map((target, i) => {
+                const points = [
+                  `${c.side === "left" ? 1 : width - 1},${c.y * height}`,
+                  ...(target.bend ?? []).map((bend) => `${bend.x},${bend.y}`),
+                  `${target.x},${target.y}`,
+                ].join(" ");
+                return (
+                  <g key={`${c.index}-${i}`}>
+                    <polyline
+                      points={points}
+                      fill="none"
+                      stroke="white"
+                      strokeWidth={stroke * 1.7}
+                      strokeLinejoin="round"
+                      strokeLinecap="round"
+                    />
+                    <polyline
+                      points={points}
+                      fill="none"
+                      stroke="#243044"
+                      strokeWidth={stroke}
+                      strokeLinejoin="round"
+                      strokeLinecap="round"
+                      markerEnd={`url(#${markerId})`}
+                    />
+                  </g>
+                );
+              }),
+            )}
+          </svg>
+        </div>
+        <div className="relative">
+          {right.map((c) => (
+            <p
+              key={c.index}
+              className="text-foreground absolute left-0 max-w-full -translate-y-1/2 text-left text-[0.8125rem] leading-tight font-semibold sm:text-sm"
+              style={{ top: `${c.y * 100}%` }}
+            >
+              {names[c.index]}
+            </p>
+          ))}
+        </div>
+      </div>
+      {caption && (
+        <figcaption className="text-muted-foreground border-border/70 border-t px-3 py-2 text-xs">
+          {caption}
+        </figcaption>
+      )}
+      {note && (
+        <p className="text-muted-foreground border-border/70 border-t px-3 py-2 text-xs leading-relaxed">
+          {note}
+        </p>
+      )}
+    </figure>
+  );
+}
 
 export function AnatomyDialog({ sex, trigger }: { sex: AnatomySex; trigger: ReactNode }) {
   const { locale } = useLocale();
@@ -36,25 +173,43 @@ export function AnatomyDialog({ sex, trigger }: { sex: AnatomySex; trigger: Reac
         </DialogHeader>
 
         {images.length > 0 ? (
-          <div className="mt-2 grid gap-3 sm:grid-cols-2">
-            {images.map((image) => (
-              <figure
-                key={image.url}
-                className="border-border overflow-hidden rounded-2xl border bg-white sm:col-span-2"
-              >
-                <img
-                  src={publicUrl(image.url)}
-                  alt={image.alt}
-                  loading="lazy"
-                  className="aspect-[4/3] w-full object-contain"
-                />
-                {image.view && (
-                  <figcaption className="text-muted-foreground border-border/70 border-t px-3 py-2 text-xs">
-                    {a.views[image.view]}
-                  </figcaption>
-                )}
-              </figure>
-            ))}
+          <div className="mt-2 space-y-3">
+            {sex === "male" ? (
+              <LabeledAnatomy
+                image={images[0]}
+                width={figureSize.overview.w}
+                height={figureSize.overview.h}
+                names={a.labels.male.map((l) => partName(l.term))}
+                callouts={maleOverviewCallouts}
+                caption={a.views.overview}
+                columns="grid-cols-[minmax(0,1.22fr)_minmax(0,1.05fr)_minmax(0,0.72fr)]"
+              />
+            ) : (
+              (["tract", "external", "profile"] as const).map((view) => {
+                const group = a.femaleGroups.find((g) => g.view === view);
+                const image =
+                  view === "profile" ? femaleProfileImage : images.find((i) => i.view === view);
+                if (!group || !image) return null;
+                const size = figureSize[view];
+                return (
+                  <LabeledAnatomy
+                    key={view}
+                    image={image}
+                    width={size.w}
+                    height={size.h}
+                    names={group.items.map((item) => partName(item.term))}
+                    callouts={femaleCallouts[view]}
+                    caption={a.views[view]}
+                    note={group.note}
+                    columns={
+                      view === "profile"
+                        ? "grid-cols-[minmax(0,1.28fr)_minmax(0,1.05fr)_minmax(0,0.72fr)]"
+                        : undefined
+                    }
+                  />
+                );
+              })
+            )}
           </div>
         ) : (
           <figure className="border-border mt-2 grid aspect-[4/3] w-full place-items-center overflow-hidden rounded-2xl border bg-white">
@@ -64,68 +219,6 @@ export function AnatomyDialog({ sex, trigger }: { sex: AnatomySex; trigger: Reac
             </figcaption>
           </figure>
         )}
-
-        {sex === "female" && (
-          <figure className="border-border mt-3 overflow-hidden rounded-2xl border bg-white">
-            <img
-              src={publicUrl(femaleProfileImage.url)}
-              alt={femaleProfileImage.alt}
-              loading="lazy"
-              className="aspect-[4/3] w-full object-contain"
-            />
-            <figcaption className="text-muted-foreground border-border/70 border-t px-3 py-2 text-xs">
-              {a.views.profile}
-            </figcaption>
-          </figure>
-        )}
-
-        <div className="mt-4">
-          <p className="text-foreground text-sm font-semibold">{a.labelsHeading}</p>
-
-          {sex === "female" ? (
-            <div className="mt-3 space-y-5">
-              {a.femaleGroups.map((group) => (
-                <section key={group.view}>
-                  <p className="text-muted-foreground text-xs font-semibold tracking-wide uppercase">
-                    {a.views[group.view]}
-                  </p>
-                  <dl className="mt-2 grid gap-3 sm:grid-cols-2">
-                    {group.items.map((item) => (
-                      <div
-                        key={item.badge}
-                        className="border-border bg-muted/40 flex gap-3 rounded-2xl border p-3"
-                      >
-                        <span className="bg-foreground text-background grid size-6 shrink-0 place-items-center rounded-full text-xs font-semibold">
-                          {item.badge}
-                        </span>
-                        <div>
-                          <dt className="text-foreground text-sm font-semibold">{item.term}</dt>
-                          <dd className="text-muted-foreground mt-1 text-sm leading-relaxed">
-                            {item.text}
-                          </dd>
-                        </div>
-                      </div>
-                    ))}
-                  </dl>
-                  {group.note && (
-                    <p className="text-muted-foreground mt-2 text-xs leading-relaxed">
-                      {group.note}
-                    </p>
-                  )}
-                </section>
-              ))}
-            </div>
-          ) : (
-            <dl className="mt-3 grid gap-3 sm:grid-cols-2">
-              {a.labels.male.map((l) => (
-                <div key={l.term} className="border-border bg-muted/40 rounded-2xl border p-3">
-                  <dt className="text-foreground text-sm font-semibold">{l.term}</dt>
-                  <dd className="text-muted-foreground mt-1 text-sm leading-relaxed">{l.text}</dd>
-                </div>
-              ))}
-            </dl>
-          )}
-        </div>
 
         {sex === "male" && (
           <div className="mt-6">

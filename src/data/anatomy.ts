@@ -45,28 +45,28 @@ export const anatomyImages: Record<AnatomySex, AnatomyImage[]> = {
   female: [
     {
       url: "/media/female-anatomy-tract.png",
-      alt: "Female urinary tract numbered 1 to 4: kidneys, ureters, bladder and urethra",
+      alt: "Female urinary tract, showing the kidneys, ureters, bladder and urethra",
       view: "tract",
     },
     {
       url: "/media/female-anatomy-external.png",
-      alt: "External female anatomy numbered 1 to 3: urethra, vaginal opening and labia",
+      alt: "External female anatomy, showing the urethra, vaginal opening and labia",
       view: "external",
     },
   ],
   male: [
     {
       url: "/media/male-anatomy-overview.png",
-      alt: "Side view of the male urinary tract with numbered structures 1 to 7",
+      alt: "Side view of the male urinary tract",
       view: "overview",
     },
   ],
 };
 
-/** Female side profile with numbered structures 1-5. */
+/** Female side profile. Part names are drawn beside the picture. */
 export const femaleProfileImage: AnatomyImage = {
   url: "/media/female-anatomy-profile.png",
-  alt: "Side profile of the female pelvis with numbered structures 1 to 5",
+  alt: "Side profile of the female pelvis",
   view: "profile",
 };
 

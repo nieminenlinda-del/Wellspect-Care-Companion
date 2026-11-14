@@ -8,11 +8,13 @@ type FeatureCopy = Record<LocaleCode, string>;
 export type CategoryFeature = {
   headline: FeatureCopy;
   subtitle: FeatureCopy;
-  /** Packshot already shipped with the app. */
+  /** Packshot or clean anatomy illustration already shipped with the app. */
   image: string;
   /** Accent measured from an existing brand asset. */
   accent: string;
   figure?: "female" | "male";
+  /** Unlabelled anatomy drawing. Names stay in the anatomy dialog, where they fit. */
+  diagram?: boolean;
 };
 
 /**
@@ -35,7 +37,8 @@ export const categoryFeatures: Record<FeatureId, CategoryFeature> = {
       da: "Ren intermitterende kateterisering (RIK)",
       no: "Ren intermitterende kateterisering (RIK)",
     },
-    image: "/media/lofric-elle-pro.png",
+    image: "/media/female-anatomy-card.png",
+    diagram: true,
     // Women's brochure QR, public/images/qr/brochure/en/cic-women.png
     accent: "#6e1eaa",
     figure: "female",
@@ -55,7 +58,8 @@ export const categoryFeatures: Record<FeatureId, CategoryFeature> = {
       da: "Ren intermitterende kateterisering (RIK)",
       no: "Ren intermitterende kateterisering (RIK)",
     },
-    image: "/media/lofric-origo-pro.png",
+    image: "/media/male-anatomy-card.png",
+    diagram: true,
     // Men's brochure QR, public/images/qr/brochure/en/cic-men.png
     accent: "#2b55b4",
     figure: "male",
