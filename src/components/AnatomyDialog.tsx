@@ -12,11 +12,17 @@ import {
   anatomyImages,
   anatomyStrings,
   femaleProfileImage,
+  maleFrontImage,
   prostateComparison,
   type AnatomyImage,
   type AnatomySex,
 } from "@/data/anatomy";
-import { femaleCallouts, maleOverviewCallouts, type AnatomyCallout } from "@/data/anatomy-callouts";
+import {
+  femaleCallouts,
+  maleFrontCallouts,
+  maleOverviewCallouts,
+  type AnatomyCallout,
+} from "@/data/anatomy-callouts";
 import { bowelAnatomyImage, bowelAnatomyStrings, bowelCallouts } from "@/data/bowel-anatomy";
 import { useLocale } from "@/lib/locale";
 import { publicUrl } from "@/lib/public-url";
@@ -176,15 +182,25 @@ export function AnatomyDialog({ sex, trigger }: { sex: AnatomySex; trigger: Reac
         {images.length > 0 ? (
           <div className="mt-2 space-y-3">
             {sex === "male" ? (
-              <LabeledAnatomy
-                image={images[0]}
-                width={figureSize.overview.w}
-                height={figureSize.overview.h}
-                names={a.labels.male.map((l) => partName(l.term))}
-                callouts={maleOverviewCallouts}
-                caption={a.views.overview}
-                columns="grid-cols-[minmax(0,1.22fr)_minmax(0,1.05fr)_minmax(0,0.72fr)]"
-              />
+              <>
+                <LabeledAnatomy
+                  image={maleFrontImage}
+                  width={1140}
+                  height={1645}
+                  names={a.maleFront}
+                  callouts={maleFrontCallouts}
+                  caption={a.views.tract}
+                />
+                <LabeledAnatomy
+                  image={images[0]}
+                  width={figureSize.overview.w}
+                  height={figureSize.overview.h}
+                  names={a.labels.male.map((l) => partName(l.term))}
+                  callouts={maleOverviewCallouts}
+                  caption={a.views.profile}
+                  columns="grid-cols-[minmax(0,1.22fr)_minmax(0,1.05fr)_minmax(0,0.72fr)]"
+                />
+              </>
             ) : (
               (["tract", "external", "profile"] as const).map((view) => {
                 const group = a.femaleGroups.find((g) => g.view === view);

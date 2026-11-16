@@ -12,6 +12,8 @@ export type AnatomyStrings = {
   intro: string;
   labelsHeading: string;
   labels: { male: { term: string; text: string }[] };
+  /** Front-view names, in the same order as the female tract diagram. */
+  maleFront: string[];
   /** Female key structures grouped per diagram, with letter/number badges */
   femaleGroups: {
     view: AnatomyView;
@@ -61,6 +63,13 @@ export const anatomyImages: Record<AnatomySex, AnatomyImage[]> = {
       view: "overview",
     },
   ],
+};
+
+/** Male front view. Part names are drawn beside the picture, as on the female tract. */
+export const maleFrontImage: AnatomyImage = {
+  url: "/media/male-anatomy-front.png",
+  alt: "Front view of the male urinary tract, showing the kidneys, ureters, bladder and urethra",
+  view: "tract",
 };
 
 /** Female side profile. Part names are drawn beside the picture. */
@@ -376,6 +385,7 @@ export const anatomyStrings: Record<LocaleCode, AnatomyStrings> = {
       "A simple overview of the urinary tract to help you understand where the catheter goes and why the technique matters.",
     labelsHeading: "Key structures",
     labels: { male: maleTermsEn },
+    maleFront: ["Kidneys", "Ureters", "Bladder", "Urethra"],
     femaleGroups: femaleGroupsEn,
     imagePending: "Illustration coming soon",
     footnote:
@@ -402,6 +412,7 @@ export const anatomyStrings: Record<LocaleCode, AnatomyStrings> = {
       "En enkel översikt av urinvägarna som hjälper dig förstå var katetern förs in och varför tekniken är viktig.",
     labelsHeading: "Viktiga delar",
     labels: { male: maleTermsSv },
+    maleFront: ["Njurar", "Urinledare", "Urinblåsa", "Urinrör"],
     femaleGroups: femaleGroupsSv,
     imagePending: "Illustration kommer snart",
     footnote: "Endast för information. Din vårdgivare visar den teknik som passar din anatomi.",
@@ -427,6 +438,7 @@ export const anatomyStrings: Record<LocaleCode, AnatomyStrings> = {
       "Selkeä yleiskuva virtsateistä auttaa ymmärtämään, mihin katetri viedään ja miksi tekniikalla on merkitystä.",
     labelsHeading: "Keskeiset rakenteet",
     labels: { male: maleTermsFi },
+    maleFront: ["Munuaiset", "Virtsanjohtimet", "Virtsarakko", "Virtsaputki"],
     femaleGroups: femaleGroupsFi,
     imagePending: "Kuva tulossa pian",
     footnote: "Vain tiedoksi. Hoitohenkilökunta näyttää sinulle sopivan tekniikan.",
@@ -452,6 +464,7 @@ export const anatomyStrings: Record<LocaleCode, AnatomyStrings> = {
       "Et enkelt overblik over urinvejene, så du forstår, hvor katetret føres ind, og hvorfor teknikken betyder noget.",
     labelsHeading: "Vigtige strukturer",
     labels: { male: maleTermsDa },
+    maleFront: ["Nyrer", "Urinledere", "Blære", "Urinrør"],
     femaleGroups: femaleGroupsDa,
     imagePending: "Illustration på vej",
     footnote:
@@ -478,6 +491,7 @@ export const anatomyStrings: Record<LocaleCode, AnatomyStrings> = {
       "En enkel oversikt over urinveiene som hjelper deg å forstå hvor kateteret føres inn og hvorfor teknikken er viktig.",
     labelsHeading: "Viktige strukturer",
     labels: { male: maleTermsNo },
+    maleFront: ["Nyrer", "Urinledere", "Blære", "Urinrør"],
     femaleGroups: femaleGroupsNo,
     imagePending: "Illustrasjon kommer snart",
     footnote: "Kun til informasjon. Helsepersonell viser deg teknikken som passer din anatomi.",
