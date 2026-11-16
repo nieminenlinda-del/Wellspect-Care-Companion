@@ -24,6 +24,10 @@ export type UIStrings = {
   disclaimerTitle: string;
   disclaimerBody: string;
   browseTitle: string;
+  /** Subheader above the LoFric product grid on the IC sections. */
+  assortmentLofric: string;
+  /** Subheader above the Navina product grid on the bowel section. */
+  assortmentNavina: string;
   allCategories: string;
   backToCategory: (label: string) => string;
   home: string;
@@ -82,6 +86,8 @@ const en: UIStrings = {
   disclaimerBody:
     "This app gives general information about Wellspect medical devices. It does not replace the instructions for use in the product packaging, individual training, or advice from your healthcare professional. Catheterisation and transanal irrigation must be prescribed and taught by a clinician before you start.",
   browseTitle: "Choose a category",
+  assortmentLofric: "LoFric product assortment",
+  assortmentNavina: "Navina product assortment",
   allCategories: "All categories",
   backToCategory: (label) => `Back to ${label}`,
   home: "Home",
@@ -131,6 +137,8 @@ const sv: UIStrings = {
   disclaimerBody:
     "Den här appen ger allmän information om Wellspects medicintekniska produkter. Den ersätter inte bruksanvisningen i förpackningen, individuell instruktion eller råd från din vårdgivare. RIK och transanal irrigation ska ordineras och läras ut av vårdpersonal innan du börjar.",
   browseTitle: "Välj en kategori",
+  assortmentLofric: "LoFric produktsortiment",
+  assortmentNavina: "Navina produktsortiment",
   allCategories: "Alla kategorier",
   backToCategory: (label) => `Tillbaka till ${label}`,
   home: "Startsida",
@@ -180,6 +188,8 @@ const fi: UIStrings = {
   disclaimerBody:
     "Tämä sovellus antaa yleistä tietoa Wellspectin lääkinnällisistä laitteista. Se ei korvaa pakkauksen käyttöohjetta, henkilökohtaista opastusta tai hoitohenkilökunnan neuvoja. Katetroinnin ja transanaalisen huuhtelun tulee olla lääkärin määräämiä ja ammattilaisen opastamia.",
   browseTitle: "Valitse kategoria",
+  assortmentLofric: "LoFric-tuotevalikoima",
+  assortmentNavina: "Navina-tuotevalikoima",
   allCategories: "Kaikki kategoriat",
   backToCategory: (label) => `Takaisin: ${label}`,
   home: "Etusivu",
@@ -229,6 +239,8 @@ const da: UIStrings = {
   disclaimerBody:
     "Denne app giver generel information om Wellspects medicinske udstyr. Den erstatter ikke brugsanvisningen i emballagen, individuel oplæring eller råd fra din behandler. Kateterisering og transanal irrigation skal ordineres og oplæres af sundhedspersonale, før du begynder.",
   browseTitle: "Vælg en kategori",
+  assortmentLofric: "LoFric-produktsortiment",
+  assortmentNavina: "Navina-produktsortiment",
   allCategories: "Alle kategorier",
   backToCategory: (label) => `Tilbage til ${label}`,
   home: "Forside",
@@ -278,6 +290,8 @@ const no: UIStrings = {
   disclaimerBody:
     "Denne appen gir generell informasjon om Wellspects medisinske utstyr. Den erstatter ikke bruksanvisningen i pakningen, individuell opplæring eller råd fra helsepersonell. Kateterisering og transanal irrigasjon skal forskrives og læres bort av helsepersonell før du starter.",
   browseTitle: "Velg en kategori",
+  assortmentLofric: "LoFric-produktsortiment",
+  assortmentNavina: "Navina-produktsortiment",
   allCategories: "Alle kategorier",
   backToCategory: (label) => `Tilbake til ${label}`,
   home: "Startside",
