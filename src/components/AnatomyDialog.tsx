@@ -17,6 +17,7 @@ import {
   type AnatomySex,
 } from "@/data/anatomy";
 import { femaleCallouts, maleOverviewCallouts, type AnatomyCallout } from "@/data/anatomy-callouts";
+import { bowelAnatomyImage, bowelAnatomyStrings, bowelCallouts } from "@/data/bowel-anatomy";
 import { useLocale } from "@/lib/locale";
 import { publicUrl } from "@/lib/public-url";
 
@@ -247,6 +248,37 @@ export function AnatomyDialog({ sex, trigger }: { sex: AnatomySex; trigger: Reac
           </div>
         )}
 
+        <p className="text-muted-foreground mt-3 text-xs leading-relaxed">{a.footnote}</p>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
+export function BowelAnatomyDialog({ trigger }: { trigger: ReactNode }) {
+  const { locale } = useLocale();
+  const a = bowelAnatomyStrings[locale];
+
+  return (
+    <Dialog>
+      <DialogTrigger asChild>{trigger}</DialogTrigger>
+      <DialogContent className="max-h-[min(88dvh,52rem)] overflow-y-auto rounded-3xl sm:max-w-2xl clinic-landscape:max-w-4xl">
+        <DialogHeader>
+          <DialogTitle className="text-left text-xl tracking-tight">{a.title}</DialogTitle>
+          <p className="text-muted-foreground text-left text-xs">{a.subtitle}</p>
+          <DialogDescription className="mt-3 text-left text-sm leading-relaxed">
+            {a.intro}
+          </DialogDescription>
+        </DialogHeader>
+        <div className="mt-2">
+          <LabeledAnatomy
+            image={{ url: bowelAnatomyImage.url, alt: bowelAnatomyImage.alt }}
+            width={bowelAnatomyImage.width}
+            height={bowelAnatomyImage.height}
+            names={a.labels}
+            callouts={bowelCallouts}
+            columns="grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)_minmax(0,1.2fr)]"
+          />
+        </div>
         <p className="text-muted-foreground mt-3 text-xs leading-relaxed">{a.footnote}</p>
       </DialogContent>
     </Dialog>

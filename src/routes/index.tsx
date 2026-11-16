@@ -18,8 +18,9 @@ import { MarketSelector } from "@/components/MarketSelector";
 import { EcolabelDialog, SwanMark } from "@/components/NordicEcolabel";
 import { ArabicVideosDialog } from "@/components/ArabicVideos";
 import { BrochureQrCard } from "@/components/BrochureQr";
-import { AnatomyDialog } from "@/components/AnatomyDialog";
+import { AnatomyDialog, BowelAnatomyDialog } from "@/components/AnatomyDialog";
 import { anatomyStrings } from "@/data/anatomy";
+import { bowelAnatomyStrings } from "@/data/bowel-anatomy";
 import { arabicVideosStrings } from "@/data/arabic-videos";
 import { getHomeBrochures } from "@/data/brochure-qr";
 import { categoryFeatureOrder, categoryFeatures } from "@/data/category-features";
@@ -103,6 +104,7 @@ function Index() {
   const showCategories = !searching && active === null;
   const showContact = !searching && active === "contact";
   const showAnatomy = !searching && (active === "women" || active === "men");
+  const showBowelAnatomy = !searching && active === "bowel";
   const showAssortment =
     !searching && (active === "women" || active === "men" || active === "bowel");
   const icVideos = getIcHomeVideos(locale);
@@ -360,6 +362,20 @@ function Index() {
                       </ul>
                     )}
                   </section>
+                )}
+                {showBowelAnatomy && (
+                  <div className="mt-6 flex flex-wrap items-center justify-end gap-3">
+                    <BowelAnatomyDialog
+                      trigger={
+                        <button
+                          type="button"
+                          className="border-border bg-card text-foreground hover:bg-muted focus-visible:ring-primary inline-flex min-h-11 items-center gap-2 rounded-full border px-5 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:outline-none"
+                        >
+                          {bowelAnatomyStrings[locale].button}
+                        </button>
+                      }
+                    />
+                  </div>
                 )}
                 {showAssortment && (
                   <h3 className="text-foreground mt-6 text-base font-semibold tracking-tight">
