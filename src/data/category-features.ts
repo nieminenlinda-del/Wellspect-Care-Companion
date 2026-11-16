@@ -15,6 +15,8 @@ export type CategoryFeature = {
   figure?: "female" | "male";
   /** Unlabelled anatomy drawing. Names stay in the anatomy dialog, where they fit. */
   diagram?: boolean;
+  /** Dark full-bleed photo. Fills the card image area instead of sitting as a diagram. */
+  photo?: boolean;
 };
 
 /**
@@ -37,8 +39,8 @@ export const categoryFeatures: Record<FeatureId, CategoryFeature> = {
       da: "Ren intermitterende kateterisering (RIK)",
       no: "Ren intermitterende kateterisering (RIK)",
     },
-    image: "/media/female-anatomy-card.png",
-    diagram: true,
+    image: "/media/xray-female-urinary.jpg",
+    photo: true,
     // Women's brochure QR, public/images/qr/brochure/en/cic-women.png
     accent: "#6e1eaa",
     figure: "female",
@@ -58,8 +60,8 @@ export const categoryFeatures: Record<FeatureId, CategoryFeature> = {
       da: "Ren intermitterende kateterisering (RIK)",
       no: "Ren intermitterende kateterisering (RIK)",
     },
-    image: "/media/male-anatomy-card.png",
-    diagram: true,
+    image: "/media/xray-male-urinary.jpg",
+    photo: true,
     // Men's brochure QR, public/images/qr/brochure/en/cic-men.png
     accent: "#2b55b4",
     figure: "male",
@@ -79,8 +81,8 @@ export const categoryFeatures: Record<FeatureId, CategoryFeature> = {
       da: "Transanal irrigation (TAI)",
       no: "Transanal irrigasjon (TAI)",
     },
-    image: "/media/bowel-anatomy.png",
-    diagram: true,
+    image: "/media/xray-bowel.jpg",
+    photo: true,
     // Dominant blue on the Navina Smart packshot, public/media/navina-smart.png
     accent: "#007bb5",
   },
