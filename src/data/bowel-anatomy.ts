@@ -2,13 +2,13 @@ import type { AnatomyCallout } from "@/data/anatomy-callouts";
 import type { LocaleCode } from "@/lib/locale";
 
 /**
- * Cleaned Navina bowel illustration (body, colon, and cone only).
+ * Cleaned Navina bowel illustration: body and colon only.
  * Labels are drawn beside it, in this order:
  * ascending colon, transverse colon, descending colon, sigmoid colon, rectum.
  */
 export const bowelAnatomyImage = {
   url: "/media/bowel-anatomy.png",
-  alt: "Lower torso showing the colon, the rectum, and a cone",
+  alt: "Lower torso showing the colon and the rectum",
   width: 1488,
   height: 1521,
 };
@@ -16,7 +16,7 @@ export const bowelAnatomyImage = {
 /** Short arrows to the nearest edge of each part. They do not cross. */
 export const bowelCallouts: AnatomyCallout[] = [
   { index: 0, side: "left", y: 0.36, targets: [{ x: 375, y: 560 }] },
-  { index: 4, side: "left", y: 0.66, targets: [{ x: 668, y: 980 }] },
+  { index: 4, side: "left", y: 0.66, targets: [{ x: 705, y: 995 }] },
   { index: 1, side: "right", y: 0.2, targets: [{ x: 1040, y: 330 }] },
   { index: 2, side: "right", y: 0.44, targets: [{ x: 1052, y: 580 }] },
   { index: 3, side: "right", y: 0.68, targets: [{ x: 1000, y: 840 }] },
