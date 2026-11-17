@@ -12,11 +12,18 @@ import {
   anatomyImages,
   anatomyStrings,
   femaleProfileImage,
+  maleFrontImage,
   prostateComparison,
   type AnatomyImage,
   type AnatomySex,
 } from "@/data/anatomy";
-import { femaleCallouts, maleOverviewCallouts, type AnatomyCallout } from "@/data/anatomy-callouts";
+import {
+  femaleCallouts,
+  maleFrontCallouts,
+  maleOverviewCallouts,
+  type AnatomyCallout,
+} from "@/data/anatomy-callouts";
+import { bowelAnatomyImage, bowelAnatomyStrings, bowelCallouts } from "@/data/bowel-anatomy";
 import { useLocale } from "@/lib/locale";
 import { publicUrl } from "@/lib/public-url";
 
@@ -175,15 +182,25 @@ export function AnatomyDialog({ sex, trigger }: { sex: AnatomySex; trigger: Reac
         {images.length > 0 ? (
           <div className="mt-2 space-y-3">
             {sex === "male" ? (
-              <LabeledAnatomy
-                image={images[0]}
-                width={figureSize.overview.w}
-                height={figureSize.overview.h}
-                names={a.labels.male.map((l) => partName(l.term))}
-                callouts={maleOverviewCallouts}
-                caption={a.views.overview}
-                columns="grid-cols-[minmax(0,1.22fr)_minmax(0,1.05fr)_minmax(0,0.72fr)]"
-              />
+              <>
+                <LabeledAnatomy
+                  image={maleFrontImage}
+                  width={1140}
+                  height={1645}
+                  names={a.maleFront}
+                  callouts={maleFrontCallouts}
+                  caption={a.views.tract}
+                />
+                <LabeledAnatomy
+                  image={images[0]}
+                  width={figureSize.overview.w}
+                  height={figureSize.overview.h}
+                  names={a.labels.male.map((l) => partName(l.term))}
+                  callouts={maleOverviewCallouts}
+                  caption={a.views.profile}
+                  columns="grid-cols-[minmax(0,1.22fr)_minmax(0,1.05fr)_minmax(0,0.72fr)]"
+                />
+              </>
             ) : (
               (["tract", "external", "profile"] as const).map((view) => {
                 const group = a.femaleGroups.find((g) => g.view === view);
@@ -247,6 +264,37 @@ export function AnatomyDialog({ sex, trigger }: { sex: AnatomySex; trigger: Reac
           </div>
         )}
 
+        <p className="text-muted-foreground mt-3 text-xs leading-relaxed">{a.footnote}</p>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
+export function BowelAnatomyDialog({ trigger }: { trigger: ReactNode }) {
+  const { locale } = useLocale();
+  const a = bowelAnatomyStrings[locale];
+
+  return (
+    <Dialog>
+      <DialogTrigger asChild>{trigger}</DialogTrigger>
+      <DialogContent className="max-h-[min(88dvh,52rem)] overflow-y-auto rounded-3xl sm:max-w-2xl clinic-landscape:max-w-4xl">
+        <DialogHeader>
+          <DialogTitle className="text-left text-xl tracking-tight">{a.title}</DialogTitle>
+          <p className="text-muted-foreground text-left text-xs">{a.subtitle}</p>
+          <DialogDescription className="mt-3 text-left text-sm leading-relaxed">
+            {a.intro}
+          </DialogDescription>
+        </DialogHeader>
+        <div className="mt-2">
+          <LabeledAnatomy
+            image={{ url: bowelAnatomyImage.url, alt: bowelAnatomyImage.alt }}
+            width={bowelAnatomyImage.width}
+            height={bowelAnatomyImage.height}
+            names={a.labels}
+            callouts={bowelCallouts}
+            columns="grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)_minmax(0,1.2fr)]"
+          />
+        </div>
         <p className="text-muted-foreground mt-3 text-xs leading-relaxed">{a.footnote}</p>
       </DialogContent>
     </Dialog>

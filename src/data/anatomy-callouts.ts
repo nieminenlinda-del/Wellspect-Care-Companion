@@ -14,6 +14,44 @@ export type AnatomyCallout = {
   targets: { x: number; y: number; bend?: { x: number; y: number }[] }[];
 };
 
+/** Front view. Same label order as the female tract: kidneys, ureters, bladder, urethra. */
+export const maleFrontCallouts: AnatomyCallout[] = [
+  {
+    index: 0,
+    side: "right",
+    y: 0.48,
+    targets: [
+      { x: 700, y: 830 },
+      {
+        x: 450,
+        y: 800,
+        bend: [
+          { x: 980, y: 720 },
+          { x: 500, y: 720 },
+        ],
+      },
+    ],
+  },
+  {
+    index: 1,
+    side: "left",
+    y: 0.6,
+    targets: [
+      { x: 505, y: 1020 },
+      {
+        x: 620,
+        y: 1040,
+        bend: [
+          { x: 430, y: 1100 },
+          { x: 560, y: 1100 },
+        ],
+      },
+    ],
+  },
+  { index: 2, side: "right", y: 0.72, targets: [{ x: 630, y: 1175 }] },
+  { index: 3, side: "left", y: 0.84, targets: [{ x: 559, y: 1360 }] },
+];
+
 export const maleOverviewCallouts: AnatomyCallout[] = [
   { index: 0, side: "left", y: 200 / 646, targets: [{ x: 222, y: 224 }] },
   { index: 1, side: "left", y: 268 / 646, targets: [{ x: 258, y: 296 }] },

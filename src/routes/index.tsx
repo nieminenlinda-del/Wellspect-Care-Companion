@@ -18,8 +18,9 @@ import { MarketSelector } from "@/components/MarketSelector";
 import { EcolabelDialog, SwanMark } from "@/components/NordicEcolabel";
 import { ArabicVideosDialog } from "@/components/ArabicVideos";
 import { BrochureQrCard } from "@/components/BrochureQr";
-import { AnatomyDialog } from "@/components/AnatomyDialog";
+import { AnatomyDialog, BowelAnatomyDialog } from "@/components/AnatomyDialog";
 import { anatomyStrings } from "@/data/anatomy";
+import { bowelAnatomyStrings } from "@/data/bowel-anatomy";
 import { arabicVideosStrings } from "@/data/arabic-videos";
 import { getHomeBrochures } from "@/data/brochure-qr";
 import { categoryFeatureOrder, categoryFeatures } from "@/data/category-features";
@@ -102,6 +103,10 @@ function Index() {
 
   const showCategories = !searching && active === null;
   const showContact = !searching && active === "contact";
+  const showAnatomy = !searching && (active === "women" || active === "men");
+  const showBowelAnatomy = !searching && active === "bowel";
+  const showAssortment =
+    !searching && (active === "women" || active === "men" || active === "bowel");
   const icVideos = getIcHomeVideos(locale);
   const bodyVideos =
     !searching && (active === "women" || active === "men")
@@ -306,24 +311,9 @@ function Index() {
             </div>
 
             {!searching && active !== null && (
-              <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
-                <h2 className="text-foreground text-xl font-semibold tracking-tight sm:text-2xl">
-                  {categoryLabels[active][locale]}
-                </h2>
-                {(active === "women" || active === "men") && (
-                  <AnatomyDialog
-                    sex={active === "women" ? "female" : "male"}
-                    trigger={
-                      <button
-                        type="button"
-                        className="border-border bg-card text-foreground hover:bg-muted focus-visible:ring-primary inline-flex min-h-11 items-center gap-2 rounded-full border px-5 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:outline-none"
-                      >
-                        {anatomyStrings[locale].button}
-                      </button>
-                    }
-                  />
-                )}
-              </div>
+              <h2 className="text-foreground mt-6 text-xl font-semibold tracking-tight sm:text-2xl">
+                {categoryLabels[active][locale]}
+              </h2>
             )}
 
             {showContact ? (
@@ -334,24 +324,67 @@ function Index() {
               )
             ) : (
               <>
-                {bodyVideos.length > 0 && bodyHeading && (
-                  <section className="mt-6" aria-labelledby="body-education-heading">
-                    <h3
-                      id="body-education-heading"
-                      className="text-foreground text-base font-semibold tracking-tight"
-                    >
-                      {bodyHeading}
-                    </h3>
-                    <ul className="mt-3 grid items-stretch gap-4 md:grid-cols-2">
-                      {bodyVideos.map((video) => (
-                        <li key={video.id} className="flex">
-                          <IcHomeVideoCard video={video} className={videoCard} compact />
-                        </li>
-                      ))}
-                    </ul>
+                {((bodyVideos.length > 0 && bodyHeading) || showAnatomy) && (
+                  <section
+                    className="mt-6"
+                    aria-labelledby={bodyHeading ? "body-education-heading" : undefined}
+                  >
+                    <div className="flex flex-wrap items-center justify-between gap-3">
+                      {bodyHeading && (
+                        <h3
+                          id="body-education-heading"
+                          className="text-foreground text-base font-semibold tracking-tight"
+                        >
+                          {bodyHeading}
+                        </h3>
+                      )}
+                      {showAnatomy && active && (
+                        <AnatomyDialog
+                          sex={active === "women" ? "female" : "male"}
+                          trigger={
+                            <button
+                              type="button"
+                              className="border-border bg-card text-foreground hover:bg-muted focus-visible:ring-primary inline-flex min-h-11 items-center gap-2 rounded-full border px-5 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:outline-none"
+                            >
+                              {anatomyStrings[locale].button}
+                            </button>
+                          }
+                        />
+                      )}
+                    </div>
+                    {bodyVideos.length > 0 && (
+                      <ul className="mt-3 grid items-stretch gap-4 md:grid-cols-2">
+                        {bodyVideos.map((video) => (
+                          <li key={video.id} className="flex">
+                            <IcHomeVideoCard video={video} className={videoCard} compact />
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </section>
                 )}
-                <ul className="mt-6 grid gap-4 sm:grid-cols-2 clinic-landscape:grid-cols-3 lg:grid-cols-3">
+                {showBowelAnatomy && (
+                  <div className="mt-6 flex flex-wrap items-center justify-end gap-3">
+                    <BowelAnatomyDialog
+                      trigger={
+                        <button
+                          type="button"
+                          className="border-border bg-card text-foreground hover:bg-muted focus-visible:ring-primary inline-flex min-h-11 items-center gap-2 rounded-full border px-5 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:outline-none"
+                        >
+                          {bowelAnatomyStrings[locale].button}
+                        </button>
+                      }
+                    />
+                  </div>
+                )}
+                {showAssortment && (
+                  <h3 className="text-foreground mt-6 text-base font-semibold tracking-tight">
+                    {active === "bowel" ? t.assortmentNavina : t.assortmentLofric}
+                  </h3>
+                )}
+                <ul
+                  className={`grid gap-4 sm:grid-cols-2 clinic-landscape:grid-cols-3 lg:grid-cols-3 ${showAssortment ? "mt-3" : "mt-6"}`}
+                >
                   {results.map((p) => (
                     <li key={p.id}>
                       <Link
