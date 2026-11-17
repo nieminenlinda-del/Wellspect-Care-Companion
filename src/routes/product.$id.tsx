@@ -7,7 +7,6 @@ import {
   BookOpen,
   CheckCircle2,
   Images,
-  Download,
   Leaf,
   ListChecks,
   Package,
@@ -372,8 +371,8 @@ function ProductDetail() {
                           type="button"
                           className="border-primary text-primary bg-primary/5 hover:bg-primary/10 focus-visible:ring-primary inline-flex min-h-11 items-center gap-2 rounded-full border-2 px-5 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:outline-none"
                         >
-                          <Download className="size-4" aria-hidden="true" />
-                          {t.downloadableGuides}
+                          <BookOpen className="size-4" aria-hidden="true" />
+                          {t.readGuide}
                         </button>
                       }
                     />

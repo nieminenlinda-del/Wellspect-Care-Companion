@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { ArrowLeft, Search, X } from "lucide-react";
+import { ArrowLeft, BookOpen, Search, X } from "lucide-react";
 import {
   categoryLabels,
   categoryOrder,
@@ -17,7 +17,8 @@ import { DisclaimerCard } from "@/components/MedicalDisclaimer";
 import { MarketSelector } from "@/components/MarketSelector";
 import { EcolabelDialog, SwanMark } from "@/components/NordicEcolabel";
 import { ArabicVideosDialog } from "@/components/ArabicVideos";
-import { BrochureQrCard } from "@/components/BrochureQr";
+import { GuideViewer } from "@/components/GuideViewer";
+import { guidePagesFor } from "@/data/guide-pages";
 import { AnatomyDialog, BowelAnatomyDialog } from "@/components/AnatomyDialog";
 import { anatomyStrings } from "@/data/anatomy";
 import { bowelAnatomyStrings } from "@/data/bowel-anatomy";
@@ -234,17 +235,48 @@ function Index() {
               </ul>
             ) : (
               <ul className="mt-6 grid gap-4 md:grid-cols-3">
-                {getHomeBrochures(locale).map((card) => (
-                  <li key={card.id}>
-                    <BrochureQrCard
-                      variant="home"
-                      image={card.image}
-                      label={card.label}
-                      detail={card.detail}
-                      cover={card.cover}
-                    />
-                  </li>
-                ))}
+                {getHomeBrochures(locale).map((card) => {
+                  const pages = guidePagesFor(locale, card.id);
+                  if (pages.length === 0) return null;
+                  return (
+                    <li key={card.id}>
+                      <GuideViewer
+                        title={card.detail ?? card.label}
+                        pages={pages}
+                        trigger={
+                          <button
+                            type="button"
+                            className="border-border bg-card hover:bg-muted/40 focus-visible:ring-primary flex h-full min-h-28 w-full items-center gap-4 rounded-3xl border p-5 text-left shadow-soft transition-colors focus-visible:ring-2 focus-visible:outline-none sm:p-6"
+                          >
+                            {card.cover && (
+                              <img
+                                src={publicUrl(card.cover)}
+                                alt=""
+                                width={180}
+                                height={256}
+                                className="h-28 w-auto max-w-[40%] shrink rounded-lg object-contain sm:h-36"
+                              />
+                            )}
+                            <span className="min-w-0">
+                              <span className="text-card-foreground block text-xl font-semibold tracking-tight text-balance sm:text-2xl">
+                                {card.label}
+                              </span>
+                              {card.detail && (
+                                <span className="text-muted-foreground mt-2 block text-sm">
+                                  {card.detail}
+                                </span>
+                              )}
+                              <span className="text-primary mt-3 inline-flex items-center gap-2 text-sm font-medium">
+                                <BookOpen className="size-4" aria-hidden="true" />
+                                {t.readGuide}
+                              </span>
+                            </span>
+                          </button>
+                        }
+                      />
+                    </li>
+                  );
+                })}
               </ul>
             )}
             <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
