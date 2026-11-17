@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { ArrowLeft, BookOpen, Search, X } from "lucide-react";
+import { ArrowLeft, Search, X } from "lucide-react";
 import {
   categoryLabels,
   categoryOrder,
@@ -17,14 +17,10 @@ import { DisclaimerCard } from "@/components/MedicalDisclaimer";
 import { MarketSelector } from "@/components/MarketSelector";
 import { EcolabelDialog, SwanMark } from "@/components/NordicEcolabel";
 import { ArabicVideosDialog } from "@/components/ArabicVideos";
-import { BrochureQrCard } from "@/components/BrochureQr";
-import { GuideViewer } from "@/components/GuideViewer";
-import { guidePagesFor } from "@/data/guide-pages";
 import { AnatomyDialog, BowelAnatomyDialog } from "@/components/AnatomyDialog";
 import { anatomyStrings } from "@/data/anatomy";
 import { bowelAnatomyStrings } from "@/data/bowel-anatomy";
 import { arabicVideosStrings } from "@/data/arabic-videos";
-import { getHomeBrochures } from "@/data/brochure-qr";
 import { categoryFeatureOrder, categoryFeatures } from "@/data/category-features";
 import { getIcHomeVideos } from "@/data/ic-home-videos";
 import { bodyEducationHeading, getBodyEducationVideos } from "@/data/body-education-videos";
@@ -233,41 +229,6 @@ function Index() {
                     <IcHomeVideoCard video={video} className={videoCard} />
                   </li>
                 ))}
-              </ul>
-            )}
-            {getHomeBrochures(locale).length > 0 && (
-              <ul className="mt-4 grid gap-4 md:grid-cols-3">
-                {getHomeBrochures(locale).map((card) => {
-                  const pages = guidePagesFor(locale, card.id);
-                  const reader =
-                    pages.length > 0 ? (
-                      <GuideViewer
-                        title={card.detail ?? card.label}
-                        pages={pages}
-                        trigger={
-                          <button
-                            type="button"
-                            className="border-primary text-primary bg-primary/5 hover:bg-primary/10 focus-visible:ring-primary inline-flex min-h-11 items-center gap-2 rounded-full border-2 px-4 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:outline-none"
-                          >
-                            <BookOpen className="size-4" aria-hidden="true" />
-                            {t.readGuide}
-                          </button>
-                        }
-                      />
-                    ) : null;
-                  return (
-                    <li key={card.id}>
-                      <BrochureQrCard
-                        variant="home"
-                        image={card.image}
-                        label={card.label}
-                        detail={card.detail}
-                        cover={card.cover}
-                        {...(reader ? { action: reader } : {})}
-                      />
-                    </li>
-                  );
-                })}
               </ul>
             )}
             <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
