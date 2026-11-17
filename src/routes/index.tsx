@@ -224,7 +224,6 @@ function Index() {
                 </li>
               ))}
             </ul>
-            <HomeDeliveryBanner />
             {icVideos.length > 0 ? (
               <ul className="mt-4 grid items-stretch gap-4 md:grid-cols-2">
                 {icVideos.map((video) => (
@@ -290,6 +289,7 @@ function Index() {
                 </button>
               </li>
             </ul>
+            <HomeDeliveryBanner />
           </section>
         ) : (
           <section>
