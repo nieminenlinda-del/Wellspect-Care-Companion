@@ -1,4 +1,4 @@
-import { ChevronRight, Package } from "lucide-react";
+import { ChevronRight, Mail, Package, Phone } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -58,6 +58,17 @@ export function HomeDeliveryBanner() {
             {copy.paragraphs[0]}
           </DialogDescription>
           <p className="text-foreground text-sm leading-relaxed">{copy.paragraphs[1]}</p>
+          <p className="text-foreground text-sm leading-relaxed">{copy.orderLine}</p>
+        </div>
+        <div className="flex flex-wrap gap-x-6 gap-y-2">
+          <p className="text-foreground flex items-center gap-2 text-sm font-medium">
+            <Mail className="text-muted-foreground size-4 shrink-0" aria-hidden="true" />
+            <span>{copy.orderEmail}</span>
+          </p>
+          <p className="text-foreground flex items-center gap-2 text-sm font-medium">
+            <Phone className="text-muted-foreground size-4 shrink-0" aria-hidden="true" />
+            <span>{copy.orderPhone}</span>
+          </p>
         </div>
       </DialogContent>
     </Dialog>
