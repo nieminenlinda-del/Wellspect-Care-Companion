@@ -85,6 +85,29 @@ export function ContactDetails({ contact }: { contact: ContactInfo }) {
         {contact.intro}
       </p>
       <ContactFields contact={contact} />
+      {contact.orders && (
+        <div className="border-border mt-8 border-t pt-6">
+          <p className="text-card-foreground text-base font-semibold">{contact.orders.heading}</p>
+          <dl className="mt-4 grid gap-6 sm:grid-cols-2">
+            <div>
+              <dt className="text-muted-foreground text-[11px] tracking-[0.2em] uppercase">
+                {contact.orders.emailLabel}
+              </dt>
+              <dd className="text-card-foreground mt-1 text-base font-medium break-all">
+                {contact.orders.email}
+              </dd>
+            </div>
+            <div>
+              <dt className="text-muted-foreground text-[11px] tracking-[0.2em] uppercase">
+                {contact.orders.phoneLabel}
+              </dt>
+              <dd className="text-card-foreground mt-1 text-base font-medium">
+                {contact.orders.phone}
+              </dd>
+            </div>
+          </dl>
+        </div>
+      )}
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import { homeDeliveryCopy } from "@/data/home-delivery";
 import type { LocaleCode } from "@/lib/locale";
 
 /** Nordic desk shown inside the English contact section. Not a UI language. */
@@ -70,6 +71,14 @@ export type ContactInfo = {
   website: string;
   /** When set, the website value is rendered as a link. Local pages omit this. */
   websiteHref?: string;
+  /** Finland ordering desk. Plain text, not a link. Other locales omit this. */
+  orders?: {
+    heading: string;
+    emailLabel: string;
+    email: string;
+    phoneLabel: string;
+    phone: string;
+  };
 };
 
 export const contactInfo: Record<LocaleCode, ContactInfo> = {
@@ -119,6 +128,13 @@ export const contactInfo: Record<LocaleCode, ContactInfo> = {
     address: "Wellspect Oy, Miestentie 9 C, 02150 Espoo",
     websiteLabel: "Verkkosivut",
     website: "www.wellspect.fi",
+    orders: {
+      heading: homeDeliveryCopy.orderHeading,
+      emailLabel: "Sähköposti",
+      email: homeDeliveryCopy.orderEmail,
+      phoneLabel: "Puhelin",
+      phone: homeDeliveryCopy.orderPhone,
+    },
   },
   da: {
     company: "Wellspect ApS",

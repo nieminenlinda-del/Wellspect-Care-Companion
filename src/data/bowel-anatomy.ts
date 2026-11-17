@@ -10,16 +10,20 @@ export const bowelAnatomyImage = {
   url: "/media/bowel-anatomy.png",
   alt: "Lower torso showing the colon and the rectum",
   width: 1488,
-  height: 1521,
+  height: 1200,
 };
 
-/** Short arrows to the nearest edge of each part. They do not cross. */
+/**
+ * Short arrows to the nearest edge of each part. They do not cross.
+ * Label fractions are of the cropped 1200px-tall picture (the home card
+ * crop). Targets stay in that picture's pixel space.
+ */
 export const bowelCallouts: AnatomyCallout[] = [
-  { index: 0, side: "left", y: 0.36, targets: [{ x: 375, y: 560 }] },
-  { index: 4, side: "left", y: 0.66, targets: [{ x: 705, y: 995 }] },
-  { index: 1, side: "right", y: 0.2, targets: [{ x: 1040, y: 330 }] },
-  { index: 2, side: "right", y: 0.44, targets: [{ x: 1052, y: 580 }] },
-  { index: 3, side: "right", y: 0.68, targets: [{ x: 1000, y: 840 }] },
+  { index: 0, side: "left", y: 0.456, targets: [{ x: 375, y: 560 }] },
+  { index: 4, side: "left", y: 0.837, targets: [{ x: 705, y: 995 }] },
+  { index: 1, side: "right", y: 0.254, targets: [{ x: 1040, y: 330 }] },
+  { index: 2, side: "right", y: 0.558, targets: [{ x: 1052, y: 580 }] },
+  { index: 3, side: "right", y: 0.862, targets: [{ x: 1000, y: 840 }] },
 ];
 
 type BowelAnatomyCopy = {

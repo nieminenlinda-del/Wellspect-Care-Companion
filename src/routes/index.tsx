@@ -27,6 +27,7 @@ import { categoryFeatureOrder, categoryFeatures } from "@/data/category-features
 import { getIcHomeVideos } from "@/data/ic-home-videos";
 import { bodyEducationHeading, getBodyEducationVideos } from "@/data/body-education-videos";
 import { CategoryFeatureCard } from "@/components/CategoryFeatureCard";
+import { HomeDeliveryBanner } from "@/components/HomeDeliveryBanner";
 import { IcHomeVideoCard } from "@/components/IcHomeVideo";
 import { navPillClassName } from "@/components/NavPill";
 import { ProductImage, ProductTitle } from "@/components/ProductImage";
@@ -223,6 +224,7 @@ function Index() {
                 </li>
               ))}
             </ul>
+            <HomeDeliveryBanner />
             {icVideos.length > 0 ? (
               <ul className="mt-4 grid items-stretch gap-4 md:grid-cols-2">
                 {icVideos.map((video) => (
