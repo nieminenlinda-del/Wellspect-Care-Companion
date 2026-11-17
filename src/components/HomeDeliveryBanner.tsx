@@ -1,4 +1,4 @@
-import { ChevronRight, FileDown, Package } from "lucide-react";
+import { ChevronRight, Package } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -7,9 +7,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { homeDeliveryBrochure, homeDeliveryCopy } from "@/data/home-delivery";
+import { homeDeliveryCopy } from "@/data/home-delivery";
 import { useLocale } from "@/lib/locale";
-import { publicUrl } from "@/lib/public-url";
 
 /** Slim home-page entry for Finland's patient home-delivery service. Other locales render nothing. */
 export function HomeDeliveryBanner() {
@@ -60,15 +59,6 @@ export function HomeDeliveryBanner() {
           </DialogDescription>
           <p className="text-foreground text-sm leading-relaxed">{copy.paragraphs[1]}</p>
         </div>
-        <a
-          href={publicUrl(homeDeliveryBrochure)}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="border-border bg-card text-foreground hover:bg-muted focus-visible:ring-primary inline-flex min-h-11 w-fit items-center gap-2 rounded-full border px-5 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:outline-none"
-        >
-          <FileDown className="size-4" aria-hidden="true" />
-          {copy.brochure}
-        </a>
       </DialogContent>
     </Dialog>
   );
