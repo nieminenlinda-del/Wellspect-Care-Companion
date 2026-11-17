@@ -17,12 +17,10 @@ import { DisclaimerCard } from "@/components/MedicalDisclaimer";
 import { MarketSelector } from "@/components/MarketSelector";
 import { EcolabelDialog, SwanMark } from "@/components/NordicEcolabel";
 import { ArabicVideosDialog } from "@/components/ArabicVideos";
-import { BrochureQrCard } from "@/components/BrochureQr";
 import { AnatomyDialog, BowelAnatomyDialog } from "@/components/AnatomyDialog";
 import { anatomyStrings } from "@/data/anatomy";
 import { bowelAnatomyStrings } from "@/data/bowel-anatomy";
 import { arabicVideosStrings } from "@/data/arabic-videos";
-import { getHomeBrochures } from "@/data/brochure-qr";
 import { categoryFeatureOrder, categoryFeatures } from "@/data/category-features";
 import { getIcHomeVideos } from "@/data/ic-home-videos";
 import { bodyEducationHeading, getBodyEducationVideos } from "@/data/body-education-videos";
@@ -224,25 +222,11 @@ function Index() {
                 </li>
               ))}
             </ul>
-            {icVideos.length > 0 ? (
+            {icVideos.length > 0 && (
               <ul className="mt-4 grid items-stretch gap-4 md:grid-cols-2">
                 {icVideos.map((video) => (
                   <li key={video.id} className="flex">
                     <IcHomeVideoCard video={video} className={videoCard} />
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <ul className="mt-6 grid gap-4 md:grid-cols-3">
-                {getHomeBrochures(locale).map((card) => (
-                  <li key={card.id}>
-                    <BrochureQrCard
-                      variant="home"
-                      image={card.image}
-                      label={card.label}
-                      detail={card.detail}
-                      cover={card.cover}
-                    />
                   </li>
                 ))}
               </ul>

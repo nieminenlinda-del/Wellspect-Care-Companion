@@ -22,5 +22,6 @@ export const homeDeliveryCopy = {
     "Tilauksen voi tehdä sähköpostitse osoitteeseen tilaukset.fi@wellspect.com tai puhelimitse numeroon 09 867 6160.",
   orderEmail: "tilaukset.fi@wellspect.com",
   orderPhone: "09 867 6160",
+  readBrochure: "Lue esite",
   orderHeading: "Tilaukset ja kotiinkuljetus",
 };

@@ -58,6 +58,8 @@ export type UIStrings = {
   downloadableGuides: string;
   /** Hint under the downloadable-guides modal title. */
   downloadableGuidesHint: string;
+  /** Opens a brochure in the in-app page viewer. */
+  readGuide: string;
 };
 
 const en: UIStrings = {
@@ -108,7 +110,8 @@ const en: UIStrings = {
   brochureTai: "TAI guide",
   brochureLifeWithNavina: "Life with Navina",
   downloadableGuides: "Downloadable guides",
-  downloadableGuidesHint: "Scan the QR code with your phone. More guides can be added here.",
+  downloadableGuidesHint: "Scan the QR code with your phone or read the guide here on the tablet.",
+  readGuide: "Read guide",
 };
 
 const sv: UIStrings = {
@@ -159,7 +162,8 @@ const sv: UIStrings = {
   brochureTai: "TAI-guide",
   brochureLifeWithNavina: "Att leva med Navina",
   downloadableGuides: "Nedladdningsbara guider",
-  downloadableGuidesHint: "Skanna QR-koden med din telefon. Fler guider kan läggas till här.",
+  downloadableGuidesHint: "Skanna QR-koden med telefonen eller läs guiden här på surfplattan.",
+  readGuide: "Läs guiden",
 };
 
 const fi: UIStrings = {
@@ -210,7 +214,8 @@ const fi: UIStrings = {
   brochureTai: "TAI-opas",
   brochureLifeWithNavina: "Elämä Navina suolihuuhtelun kanssa",
   downloadableGuides: "Ladattavat oppaat",
-  downloadableGuidesHint: "Skannaa QR-koodi puhelimellasi. Tähän voidaan lisätä lisää oppaita.",
+  downloadableGuidesHint: "Skannaa QR-koodi puhelimellasi tai lue opas tällä tabletilla.",
+  readGuide: "Lue opas",
 };
 
 const da: UIStrings = {
@@ -261,7 +266,8 @@ const da: UIStrings = {
   brochureTai: "TAI-guide",
   brochureLifeWithNavina: "At leve med Navina Tarmirrigation",
   downloadableGuides: "Guider til download",
-  downloadableGuidesHint: "Scan QR-koden med din telefon. Flere guider kan tilføjes her.",
+  downloadableGuidesHint: "Scan QR-koden med telefonen eller læs vejledningen her på tabletten.",
+  readGuide: "Læs vejledningen",
 };
 
 const no: UIStrings = {
@@ -312,7 +318,8 @@ const no: UIStrings = {
   brochureTai: "TAI-guide",
   brochureLifeWithNavina: "Å leve med Navina",
   downloadableGuides: "Nedlastbare guider",
-  downloadableGuidesHint: "Skann QR-koden med telefonen. Flere guider kan legges til her.",
+  downloadableGuidesHint: "Skann QR-koden med telefonen eller les veiledningen her på nettbrettet.",
+  readGuide: "Les veiledningen",
 };
 
 export const uiStrings: Record<LocaleCode, UIStrings> = { en, sv, fi, da, no };

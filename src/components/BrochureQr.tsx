@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { publicUrl } from "@/lib/public-url";
 
 export function BrochureQrCard({
@@ -6,12 +7,15 @@ export function BrochureQrCard({
   detail,
   cover,
   variant = "compact",
+  action,
 }: {
   image: string;
   label: string;
   detail?: string;
   cover?: string;
   variant?: "compact" | "home";
+  /** In-app reader control. The QR code stays on the card either way. */
+  action?: ReactNode;
 }) {
   const coverAlt = detail ? `${label}. ${detail}` : label;
   const title = (
@@ -43,30 +47,33 @@ export function BrochureQrCard({
     <figure
       className={
         variant === "home"
-          ? "border-border bg-card flex h-full min-h-28 items-center gap-4 rounded-3xl border p-5 shadow-soft sm:p-6"
-          : "border-border flex items-center gap-4 rounded-2xl border bg-white p-3 shadow-soft"
+          ? "border-border bg-card flex h-full min-h-28 flex-col gap-4 rounded-3xl border p-5 shadow-soft sm:p-6"
+          : "border-border flex flex-col gap-3 rounded-2xl border bg-white p-3 shadow-soft"
       }
     >
-      <img
-        src={publicUrl(image)}
-        alt=""
-        width={160}
-        height={160}
-        loading="lazy"
-        className="size-28 shrink-0 rounded-xl bg-white object-contain sm:size-32"
-      />
-      {cover ? (
+      <div className="flex min-w-0 items-center gap-4">
         <img
-          src={publicUrl(cover)}
-          alt={coverAlt}
-          width={180}
-          height={256}
+          src={publicUrl(image)}
+          alt=""
+          width={160}
+          height={160}
           loading="lazy"
-          className="h-28 w-auto max-w-[45%] shrink rounded-lg object-contain object-left sm:h-36"
+          className="size-28 shrink-0 rounded-xl bg-white object-contain sm:size-32"
         />
-      ) : (
-        title
-      )}
+        {cover ? (
+          <img
+            src={publicUrl(cover)}
+            alt={coverAlt}
+            width={180}
+            height={256}
+            loading="lazy"
+            className="h-28 w-auto max-w-[45%] shrink rounded-lg object-contain object-left sm:h-36"
+          />
+        ) : (
+          title
+        )}
+      </div>
+      {action}
     </figure>
   );
 }
