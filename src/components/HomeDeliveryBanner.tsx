@@ -1,4 +1,4 @@
-import { ChevronRight, Mail, Package, Phone } from "lucide-react";
+import { BookOpen, ChevronRight, Mail, Package, Phone } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -7,6 +7,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { GuideViewer } from "@/components/GuideViewer";
+import { guidePagesFor } from "@/data/guide-pages";
 import { homeDeliveryCopy } from "@/data/home-delivery";
 import { useLocale } from "@/lib/locale";
 
@@ -70,6 +72,19 @@ export function HomeDeliveryBanner() {
             <span>{copy.orderPhone}</span>
           </p>
         </div>
+        <GuideViewer
+          title={copy.title}
+          pages={guidePagesFor("fi", "home-delivery")}
+          trigger={
+            <button
+              type="button"
+              className="border-primary text-primary bg-primary/5 hover:bg-primary/10 focus-visible:ring-primary inline-flex min-h-11 w-fit items-center gap-2 rounded-full border-2 px-4 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:outline-none"
+            >
+              <BookOpen className="size-4" aria-hidden="true" />
+              {copy.readBrochure}
+            </button>
+          }
+        />
       </DialogContent>
     </Dialog>
   );
