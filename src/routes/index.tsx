@@ -17,6 +17,7 @@ import { DisclaimerCard } from "@/components/MedicalDisclaimer";
 import { MarketSelector } from "@/components/MarketSelector";
 import { EcolabelDialog, SwanMark } from "@/components/NordicEcolabel";
 import { ArabicVideosDialog } from "@/components/ArabicVideos";
+import { BrochureQrCard } from "@/components/BrochureQr";
 import { GuideViewer } from "@/components/GuideViewer";
 import { guidePagesFor } from "@/data/guide-pages";
 import { AnatomyDialog, BowelAnatomyDialog } from "@/components/AnatomyDialog";
@@ -225,7 +226,7 @@ function Index() {
                 </li>
               ))}
             </ul>
-            {icVideos.length > 0 ? (
+            {icVideos.length > 0 && (
               <ul className="mt-4 grid items-stretch gap-4 md:grid-cols-2">
                 {icVideos.map((video) => (
                   <li key={video.id} className="flex">
@@ -233,46 +234,36 @@ function Index() {
                   </li>
                 ))}
               </ul>
-            ) : (
-              <ul className="mt-6 grid gap-4 md:grid-cols-3">
+            )}
+            {getHomeBrochures(locale).length > 0 && (
+              <ul className="mt-4 grid gap-4 md:grid-cols-3">
                 {getHomeBrochures(locale).map((card) => {
                   const pages = guidePagesFor(locale, card.id);
-                  if (pages.length === 0) return null;
-                  return (
-                    <li key={card.id}>
+                  const reader =
+                    pages.length > 0 ? (
                       <GuideViewer
                         title={card.detail ?? card.label}
                         pages={pages}
                         trigger={
                           <button
                             type="button"
-                            className="border-border bg-card hover:bg-muted/40 focus-visible:ring-primary flex h-full min-h-28 w-full items-center gap-4 rounded-3xl border p-5 text-left shadow-soft transition-colors focus-visible:ring-2 focus-visible:outline-none sm:p-6"
+                            className="border-primary text-primary bg-primary/5 hover:bg-primary/10 focus-visible:ring-primary inline-flex min-h-11 items-center gap-2 rounded-full border-2 px-4 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:outline-none"
                           >
-                            {card.cover && (
-                              <img
-                                src={publicUrl(card.cover)}
-                                alt=""
-                                width={180}
-                                height={256}
-                                className="h-28 w-auto max-w-[40%] shrink rounded-lg object-contain sm:h-36"
-                              />
-                            )}
-                            <span className="min-w-0">
-                              <span className="text-card-foreground block text-xl font-semibold tracking-tight text-balance sm:text-2xl">
-                                {card.label}
-                              </span>
-                              {card.detail && (
-                                <span className="text-muted-foreground mt-2 block text-sm">
-                                  {card.detail}
-                                </span>
-                              )}
-                              <span className="text-primary mt-3 inline-flex items-center gap-2 text-sm font-medium">
-                                <BookOpen className="size-4" aria-hidden="true" />
-                                {t.readGuide}
-                              </span>
-                            </span>
+                            <BookOpen className="size-4" aria-hidden="true" />
+                            {t.readGuide}
                           </button>
                         }
+                      />
+                    ) : null;
+                  return (
+                    <li key={card.id}>
+                      <BrochureQrCard
+                        variant="home"
+                        image={card.image}
+                        label={card.label}
+                        detail={card.detail}
+                        cover={card.cover}
+                        {...(reader ? { action: reader } : {})}
                       />
                     </li>
                   );

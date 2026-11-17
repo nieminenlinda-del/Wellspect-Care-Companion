@@ -110,7 +110,7 @@ const en: UIStrings = {
   brochureTai: "TAI guide",
   brochureLifeWithNavina: "Life with Navina",
   downloadableGuides: "Downloadable guides",
-  downloadableGuidesHint: "Read the guide on this tablet.",
+  downloadableGuidesHint: "Scan the QR code with your phone or read the guide here on the tablet.",
   readGuide: "Read guide",
 };
 
@@ -162,7 +162,7 @@ const sv: UIStrings = {
   brochureTai: "TAI-guide",
   brochureLifeWithNavina: "Att leva med Navina",
   downloadableGuides: "Nedladdningsbara guider",
-  downloadableGuidesHint: "Läs guiden på surfplattan.",
+  downloadableGuidesHint: "Skanna QR-koden med telefonen eller läs guiden här på surfplattan.",
   readGuide: "Läs guiden",
 };
 
@@ -214,7 +214,7 @@ const fi: UIStrings = {
   brochureTai: "TAI-opas",
   brochureLifeWithNavina: "Elämä Navina suolihuuhtelun kanssa",
   downloadableGuides: "Ladattavat oppaat",
-  downloadableGuidesHint: "Lue opas tällä tabletilla.",
+  downloadableGuidesHint: "Skannaa QR-koodi puhelimellasi tai lue opas tällä tabletilla.",
   readGuide: "Lue opas",
 };
 
@@ -266,7 +266,7 @@ const da: UIStrings = {
   brochureTai: "TAI-guide",
   brochureLifeWithNavina: "At leve med Navina Tarmirrigation",
   downloadableGuides: "Guider til download",
-  downloadableGuidesHint: "Læs vejledningen på tabletten.",
+  downloadableGuidesHint: "Scan QR-koden med telefonen eller læs vejledningen her på tabletten.",
   readGuide: "Læs vejledningen",
 };
 
@@ -318,7 +318,7 @@ const no: UIStrings = {
   brochureTai: "TAI-guide",
   brochureLifeWithNavina: "Å leve med Navina",
   downloadableGuides: "Nedlastbare guider",
-  downloadableGuidesHint: "Les veiledningen på nettbrettet.",
+  downloadableGuidesHint: "Skann QR-koden med telefonen eller les veiledningen her på nettbrettet.",
   readGuide: "Les veiledningen",
 };
 
