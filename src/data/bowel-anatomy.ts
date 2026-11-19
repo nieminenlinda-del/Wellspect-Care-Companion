@@ -94,9 +94,9 @@ export const bowelAnatomyStrings: Record<LocaleCode, BowelAnatomyCopy> = {
     subtitle: "Oversikt for tarmomsorg",
     intro: "Et enkelt bilde av tykktarmen og endetarmen.",
     labels: [
-      "Oppadstigende tykktarm",
+      "Oppadgående tykktarm",
       "Tverrgående tykktarm",
-      "Nedadstigende tykktarm",
+      "Nedadgående tykktarm",
       "Sigmoideum",
       "Endetarm",
     ],
