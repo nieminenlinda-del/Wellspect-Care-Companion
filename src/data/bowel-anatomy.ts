@@ -79,10 +79,10 @@ export const bowelAnatomyStrings: Record<LocaleCode, BowelAnatomyCopy> = {
     subtitle: "Overblik til tarmpleje",
     intro: "Et enkelt billede af tyktarmen og endetarmen.",
     labels: [
-      "Opadstigende tyktarm",
+      "Opadgående tyktarm",
       "Tværgående tyktarm",
       "Nedadgående tyktarm",
-      "Sigmoideum",
+      "Tværgående nedre tyktarm",
       "Endetarm",
     ],
     footnote:
