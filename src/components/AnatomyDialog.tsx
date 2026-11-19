@@ -63,6 +63,7 @@ function LabeledAnatomy({
   const stroke = Math.max(2.4, width / 360);
   const left = callouts.filter((c) => c.side === "left");
   const right = callouts.filter((c) => c.side === "right");
+  const above = callouts.filter((c) => c.side === "above");
 
   return (
     <figure className="border-border overflow-hidden rounded-2xl border bg-white">
@@ -106,11 +107,15 @@ function LabeledAnatomy({
             </defs>
             {callouts.flatMap((c) =>
               c.targets.map((target, i) => {
-                const points = [
-                  `${c.side === "left" ? 1 : width - 1},${c.y * height}`,
-                  ...(target.bend ?? []).map((bend) => `${bend.x},${bend.y}`),
-                  `${target.x},${target.y}`,
-                ].join(" ");
+                const aboveLeader = c.leader ?? 96;
+                const points =
+                  c.side === "above"
+                    ? `${target.x},${target.y - aboveLeader} ${target.x},${target.y}`
+                    : [
+                        `${c.side === "left" ? 1 : width - 1},${c.y * height}`,
+                        ...(target.bend ?? []).map((bend) => `${bend.x},${bend.y}`),
+                        `${target.x},${target.y}`,
+                      ].join(" ");
                 return (
                   <g key={`${c.index}-${i}`}>
                     <polyline
@@ -135,6 +140,22 @@ function LabeledAnatomy({
               }),
             )}
           </svg>
+          {above.map((c) => {
+            const target = c.targets[0];
+            const leader = c.leader ?? 96;
+            return (
+              <p
+                key={c.index}
+                className="text-foreground absolute z-10 max-w-[54%] -translate-x-1/2 -translate-y-full px-0.5 text-center text-[0.8125rem] leading-tight font-semibold text-balance sm:text-sm"
+                style={{
+                  left: `${(target.x / width) * 100}%`,
+                  top: `${((target.y - leader) / height) * 100}%`,
+                }}
+              >
+                {names[c.index]}
+              </p>
+            );
+          })}
         </div>
         <div className="relative">
           {right.map((c) => (

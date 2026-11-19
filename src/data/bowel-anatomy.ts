@@ -17,11 +17,13 @@ export const bowelAnatomyImage = {
  * Short arrows to the nearest edge of each part. They do not cross.
  * Label fractions are of the cropped 1200px-tall picture (the home card
  * crop). Targets stay in that picture's pixel space.
+ * The transverse colon (index 1) is the exception: its name sits above the
+ * middle of the horizontal segment, with a short vertical leader.
  */
 export const bowelCallouts: AnatomyCallout[] = [
   { index: 0, side: "left", y: 0.456, targets: [{ x: 375, y: 560 }] },
   { index: 4, side: "left", y: 0.837, targets: [{ x: 705, y: 995 }] },
-  { index: 1, side: "right", y: 0.254, targets: [{ x: 1040, y: 330 }] },
+  { index: 1, side: "above", y: 0, leader: 108, targets: [{ x: 720, y: 408 }] },
   { index: 2, side: "right", y: 0.558, targets: [{ x: 1052, y: 580 }] },
   { index: 3, side: "right", y: 0.862, targets: [{ x: 1000, y: 840 }] },
 ];

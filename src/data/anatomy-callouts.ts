@@ -5,8 +5,15 @@
  */
 export type AnatomyCallout = {
   index: number;
-  side: "left" | "right";
+  /** `above` centres the name over the picture with a vertical leader. */
+  side: "left" | "right" | "above";
+  /** Label center as a fraction of the image height. Unused when `side` is `above`. */
   y: number;
+  /**
+   * For an `above` label, length of the vertical leader in source pixels.
+   * The name sits just above that line, centred on the arrow tip.
+   */
+  leader?: number;
   /**
    * Arrow tip in image pixels. `bend` corners keep the leader in open space
    * so it reaches that tip without crossing another structure.
