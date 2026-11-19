@@ -53,7 +53,7 @@ export const bowelAnatomyStrings: Record<LocaleCode, BowelAnatomyCopy> = {
     labels: [
       "Uppåtstigande tjocktarm",
       "Tvärgående tjocktarm",
-      "Nedåtstigande tjocktarm",
+      "Nedåtgående tjocktarm",
       "Sigmoideum",
       "Ändtarm",
     ],
