@@ -63,10 +63,15 @@ function LabeledAnatomy({
   const stroke = Math.max(2.4, width / 360);
   const left = callouts.filter((c) => c.side === "left");
   const right = callouts.filter((c) => c.side === "right");
+  const above = callouts.filter((c) => c.side === "above");
+  /** Room above the picture for a one-line name, then a leader down to the target. */
+  const abovePad = above.length > 0 ? "pt-16 pb-3" : "py-3";
 
   return (
     <figure className="border-border overflow-hidden rounded-2xl border bg-white">
-      <div className={`grid ${columns} items-stretch gap-x-1.5 px-2 py-3 sm:gap-x-2 sm:px-3`}>
+      <div
+        className={`grid ${columns} items-stretch gap-x-1.5 px-2 sm:gap-x-2 sm:px-3 ${abovePad}`}
+      >
         <div className="relative">
           {left.map((c) => (
             <p
@@ -104,37 +109,64 @@ function LabeledAnatomy({
                 <path d="M0,0 L7,3.5 L0,7 Z" fill="#243044" />
               </marker>
             </defs>
-            {callouts.flatMap((c) =>
-              c.targets.map((target, i) => {
-                const points = [
-                  `${c.side === "left" ? 1 : width - 1},${c.y * height}`,
-                  ...(target.bend ?? []).map((bend) => `${bend.x},${bend.y}`),
-                  `${target.x},${target.y}`,
-                ].join(" ");
-                return (
-                  <g key={`${c.index}-${i}`}>
-                    <polyline
-                      points={points}
-                      fill="none"
-                      stroke="white"
-                      strokeWidth={stroke * 1.7}
-                      strokeLinejoin="round"
-                      strokeLinecap="round"
-                    />
-                    <polyline
-                      points={points}
-                      fill="none"
-                      stroke="#243044"
-                      strokeWidth={stroke}
-                      strokeLinejoin="round"
-                      strokeLinecap="round"
-                      markerEnd={`url(#${markerId})`}
-                    />
-                  </g>
-                );
-              }),
-            )}
+            {callouts
+              .filter((c) => c.side !== "above")
+              .flatMap((c) =>
+                c.targets.map((target, i) => {
+                  const points = [
+                    `${c.side === "left" ? 1 : width - 1},${c.y * height}`,
+                    ...(target.bend ?? []).map((bend) => `${bend.x},${bend.y}`),
+                    `${target.x},${target.y}`,
+                  ].join(" ");
+                  return (
+                    <g key={`${c.index}-${i}`}>
+                      <polyline
+                        points={points}
+                        fill="none"
+                        stroke="white"
+                        strokeWidth={stroke * 1.7}
+                        strokeLinejoin="round"
+                        strokeLinecap="round"
+                      />
+                      <polyline
+                        points={points}
+                        fill="none"
+                        stroke="#243044"
+                        strokeWidth={stroke}
+                        strokeLinejoin="round"
+                        strokeLinecap="round"
+                        markerEnd={`url(#${markerId})`}
+                      />
+                    </g>
+                  );
+                }),
+              )}
           </svg>
+          {above.map((c) => {
+            const target = c.targets[0];
+            const x = `${(target.x / width) * 100}%`;
+            const y = `${(target.y / height) * 100}%`;
+            return (
+              <div key={c.index} className="pointer-events-none">
+                <p
+                  className="text-foreground absolute z-10 -translate-x-1/2 whitespace-nowrap text-[0.8125rem] leading-tight font-semibold sm:text-sm"
+                  style={{ left: x, bottom: "calc(100% + 26px)" }}
+                >
+                  {names[c.index]}
+                </p>
+                <span
+                  aria-hidden="true"
+                  className="absolute z-10 w-0.5 -translate-x-1/2 bg-[#243044]"
+                  style={{ left: x, top: "-24px", height: `calc(24px + ${y} - 6px)` }}
+                />
+                <span
+                  aria-hidden="true"
+                  className="absolute z-10 border-x-[4.5px] border-t-[7px] border-x-transparent border-t-[#243044]"
+                  style={{ left: x, top: y, transform: "translate(-50%, -100%)" }}
+                />
+              </div>
+            );
+          })}
         </div>
         <div className="relative">
           {right.map((c) => (
