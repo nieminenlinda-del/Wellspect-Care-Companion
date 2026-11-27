@@ -37,9 +37,14 @@ const qrCatalog: Partial<Record<LocaleCode, ProductQrEntry[]>> = {
       url: "https://wellspect.qrd.by/ivulqj",
     },
     {
-      productIds: ["lofric-origo", "lofric-origo-sleeve", "lofric-origo-pro"],
+      productIds: ["lofric-origo", "lofric-origo-sleeve"],
       image: "/images/qr/fi/fi-lofric-origo.png",
       url: "https://wellspect.qrd.by/9r2nxh",
+    },
+    {
+      productIds: ["lofric-origo-pro"],
+      image: "/images/qr/fi/fi-lofric-origo-pro.png",
+      url: "https://wellspect.qrd.by/dn7f3k",
     },
     {
       productIds: ["lofric-classic", "lofric-classic-female"],
