@@ -55,6 +55,10 @@ const brochureCatalog: Partial<Record<LocaleCode, Partial<Record<BrochureId, Bro
       image: "/images/qr/brochure/sv/origo-pro.png",
       url: "https://wellspect.qrd.by/4vqi0h",
     },
+    "origo-sleeve": {
+      image: "/images/qr/brochure/sv/origo-sleeve.png",
+      url: "https://wellspect.qrd.by/ixls5u",
+    },
     tai: {
       image: "/images/qr/brochure/tai/sv.png",
       url: "https://wellspect.qrd.by/vx6m7p",
@@ -84,6 +88,10 @@ const brochureCatalog: Partial<Record<LocaleCode, Partial<Record<BrochureId, Bro
     "origo-pro": {
       image: "/images/qr/brochure/fi/origo-pro.png",
       url: "https://wellspect.qrd.by/zgkv0o",
+    },
+    "origo-sleeve": {
+      image: "/images/qr/brochure/fi/origo-sleeve.png",
+      url: "https://wellspect.qrd.by/j3p4bt",
     },
   },
   da: {
@@ -192,6 +200,7 @@ const brochureCovers: Partial<Record<LocaleCode, Partial<Record<BrochureId, stri
     elle: "/images/qr/brochure/covers/sv/elle.png",
     "elle-pro": "/images/qr/brochure/covers/sv/elle-pro.png",
     "origo-pro": "/images/qr/brochure/covers/sv/origo-pro.png",
+    "origo-sleeve": "/images/qr/brochure/covers/sv/origo-sleeve.png",
     tai: "/images/qr/brochure/covers/sv/tai.png",
   },
   fi: {
@@ -200,6 +209,7 @@ const brochureCovers: Partial<Record<LocaleCode, Partial<Record<BrochureId, stri
     elle: "/images/qr/brochure/covers/fi/elle.png",
     "elle-pro": "/images/qr/brochure/covers/fi/elle-pro.png",
     "origo-pro": "/images/qr/brochure/covers/fi/origo-pro.png",
+    "origo-sleeve": "/images/qr/brochure/covers/fi/origo-sleeve.png",
     tai: "/images/qr/brochure/covers/fi/tai.png",
   },
   da: {
@@ -250,6 +260,7 @@ const brochureTitles: Partial<Record<LocaleCode, Partial<Record<BrochureId, stri
     elle: "Din guide steg för steg till Ren Intermittent Kateterisering (RIK)",
     "elle-pro": "Din guide steg för steg till Ren Intermittent Kateterisering (RIK)",
     "origo-pro": "Din guide steg för steg till Ren Intermittent Kateterisering (RIK)",
+    "origo-sleeve": "Att komma igång",
     "cic-women": "REN INTERMITTENT KATETERISERING",
     "cic-men": "REN INTERMITTENT KATETERISERING",
     tai: "Att leva med Navina Tarmirrigering",
@@ -266,6 +277,7 @@ const brochureTitles: Partial<Record<LocaleCode, Partial<Record<BrochureId, stri
     elle: "Käyttöoppaasi toistokatetrointiin",
     "elle-pro": "Käyttöoppaasi toistokatetrointiin",
     "origo-pro": "Käyttöoppaasi toistokatetrointiin",
+    "origo-sleeve": "Aloittaminen",
     "cic-women": "TOISTOKATETROINTIOPAS",
     "cic-men": "TOISTOKATETROINTIOPAS",
     tai: "Elämä Navina suolihuuhtelun kanssa",
